@@ -1,0 +1,28 @@
+Project,Model,Run,Original R2,Reproduced R2,Difference,Significant EH predictors (ours),Significant base predictors (ours),"Apparent R2 (simplified, not corrected)",Original budget,Our budget,Original # potential predictors,Our # potential predictors,Original cutoff,Our cutoff,Files (n)
+Umbraco,BASE,Authors' released output (base_test_2_BKP.csv),0.09,0.092,0.002,,CountLineBlank,0.101,15,15,12,12,0.7,0.7,230
+Umbraco,BASE,Ours: authors' code as released,0.09,0.09,0.0,,CountLineBlank,0.101,15,15,12,12,0.7,0.7,230
+Umbraco,BASE,Ours: authors' code + BSFC bug fix,0.09,0.09,0.0,,CountLineBlank,0.101,15,15,12,12,0.7,0.7,230
+Umbraco,BSFC,Authors' released output (base_test_2_BKP.csv),0.09,0.182,0.092,Avg..AP.Dummy.Handler; Sum.of.AP.Generic.Catch,,0.202,15,15,23,16,0.24,0.671,230
+Umbraco,BSFC,Ours: authors' code as released,0.09,0.179,0.089,Avg..AP.Dummy.Handler; Sum.of.AP.Generic.Catch,,0.202,15,15,23,16,0.24,0.671,230
+Umbraco,BSFC,Ours: authors' code + BSFC bug fix,0.09,0.089,-0.001,,CountLineBlank,0.101,15,15,23,23,0.24,0.241,230
+Umbraco,BSAP,Authors' released output (base_test_2_BKP.csv),0.18,0.177,-0.003,Avg..AP.Dummy.Handler; Sum.of.AP.Generic.Catch,,0.202,15,15,16,16,0.67,0.671,230
+Umbraco,BSAP,Ours: authors' code as released,0.18,0.176,-0.004,Avg..AP.Dummy.Handler; Sum.of.AP.Generic.Catch,,0.202,15,15,16,16,0.67,0.671,230
+Umbraco,BSAP,Ours: authors' code + BSFC bug fix,0.18,0.176,-0.004,Avg..AP.Dummy.Handler; Sum.of.AP.Generic.Catch,,0.202,15,15,16,16,0.67,0.671,230
+Hadoop,BASE,Authors' released output (base_test_2_BKP.csv),0.33,0.329,-0.001,,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential; MaxEssential,0.339,59,59,10,10,0.7,0.7,890
+Hadoop,BASE,Ours: authors' code as released,0.33,0.331,0.001,,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential; MaxEssential,0.339,59,59,10,10,0.7,0.7,890
+Hadoop,BASE,Ours: authors' code + BSFC bug fix,0.33,0.331,0.001,,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential; MaxEssential,0.339,59,59,10,10,0.7,0.7,890
+Hadoop,BSFC,Authors' released output (base_test_2_BKP.csv),0.37,0.35,-0.02,Avg..AP.Ignoring.Interrupted.Exception; AP.Log.and.Throw; Potentially.Recoverable,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential,0.367,59,59,31,23,0.7,0.7,890
+Hadoop,BSFC,Ours: authors' code as released,0.37,0.351,-0.019,Avg..AP.Ignoring.Interrupted.Exception; AP.Log.and.Throw; Potentially.Recoverable,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential,0.367,59,59,31,23,0.7,0.7,890
+Hadoop,BSFC,Ours: authors' code + BSFC bug fix,0.37,0.372,0.002,X..Try.in.Other; X..Handled.with.Log.1; X..Handled.with.Method.1; X..Propagated.1; X..Specific,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict,0.392,59,59,31,31,0.7,0.7,890
+Hadoop,BSAP,Authors' released output (base_test_2_BKP.csv),0.35,0.352,0.002,Avg..AP.Ignoring.Interrupted.Exception; AP.Log.and.Throw; Potentially.Recoverable,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential,0.367,59,59,23,23,0.7,0.7,890
+Hadoop,BSAP,Ours: authors' code as released,0.35,0.351,0.001,Avg..AP.Ignoring.Interrupted.Exception; AP.Log.and.Throw; Potentially.Recoverable,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential,0.367,59,59,23,23,0.7,0.7,890
+Hadoop,BSAP,Ours: authors' code + BSFC bug fix,0.35,0.351,0.001,Avg..AP.Ignoring.Interrupted.Exception; AP.Log.and.Throw; Potentially.Recoverable,Distinct.count.of.Commit.Hash.PRE; AvgCyclomaticStrict; AvgEssential,0.367,59,59,23,23,0.7,0.7,890
+Hibernate,BASE,Authors' released output (base_test_2_BKP.csv),0.21,0.213,0.003,,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.226,29,29,18,18,0.7,0.7,440
+Hibernate,BASE,Ours: authors' code as released,0.21,0.211,0.001,,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.226,29,29,18,18,0.7,0.7,440
+Hibernate,BASE,Ours: authors' code + BSFC bug fix,0.21,0.211,0.001,,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.226,29,29,18,18,0.7,0.7,440
+Hibernate,BSFC,Authors' released output (base_test_2_BKP.csv),0.28,0.231,-0.049,Avg.Catch.SLOC; Sum.of.AP.Dummy.Handler,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.258,29,29,27,19,0.7,0.7,440
+Hibernate,BSFC,Ours: authors' code as released,0.28,0.232,-0.048,Avg.Catch.SLOC; Sum.of.AP.Dummy.Handler,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.258,29,29,27,19,0.7,0.7,440
+Hibernate,BSFC,Ours: authors' code + BSFC bug fix,0.28,0.279,-0.001,X..Handled.with.Throw.Wrap; Avg...Invoked.Method; Avg.Exc.Type.Prevalence,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.308,29,29,27,27,0.7,0.7,440
+Hibernate,BSAP,Authors' released output (base_test_2_BKP.csv),0.23,0.235,0.005,Avg.Catch.SLOC; Sum.of.AP.Dummy.Handler,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.258,29,29,19,19,0.7,0.7,440
+Hibernate,BSAP,Ours: authors' code as released,0.23,0.233,0.003,Avg.Catch.SLOC; Sum.of.AP.Dummy.Handler,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.258,29,29,19,19,0.7,0.7,440
+Hibernate,BSAP,Ours: authors' code + BSFC bug fix,0.23,0.233,0.003,Avg.Catch.SLOC; Sum.of.AP.Dummy.Handler,Distinct.count.of.Author.Email.PRE; CountLineComment; RatioCommentToCode,0.258,29,29,19,19,0.7,0.7,440

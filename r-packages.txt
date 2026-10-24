@@ -1,0 +1,17 @@
+# R packages used to run the authors' scripts (R 4.3.3, conda-forge, Windows ucrt build).
+# Installed via environment.yml. Regenerate this list with: ./envrun.sh Rscript src/reproduce/env_versions.R
+rms 6.8.1
+Hmisc 5.2.3
+caret 6.0.94
+e1071 1.7.16
+knitr 1.50
+rmarkdown 2.29
+ggplot2 3.5.2
+lattice 0.22.7
+survival 3.8.3
+SparseM 1.84.2
+polspline 1.1.25
+# ModelMetrics 1.2.2.2 — REPLACED with the CRAN Windows binary (conda-forge DLL failed to load; caret needs it):
+#   ./envrun.sh Rscript -e 'install.packages("ModelMetrics", repos="https://cloud.r-project.org", type="win.binary", lib=.libPaths()[1])'
+# Loaded by the authors' scripts via require() but NOT installed (only used in glm/logistf code paths that the
+# presented lrm models never reach): plotly, BiodiversityR, logistf
