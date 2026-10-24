@@ -59,7 +59,8 @@ def version_key(tag: str) -> tuple:
 
 
 def is_prerelease(tag: str) -> bool:
-    return bool(PRE_RE.search(tag)) or bool(re.search(r"(?i)[._-]b\d+$", tag))   # e.g. LANG_3_0_B3
+    return (bool(PRE_RE.search(tag)) or bool(re.search(r"(?i)[._-]b\d+$", tag))      # e.g. LANG_3_0_B3
+            or bool(re.search(r"\d+\.\d+\.\d+-\d+$", tag)))                         # ZooKeeper RCs: release-3.9.7-0
 
 
 def _skeleton(tag: str) -> str:

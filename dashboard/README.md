@@ -5,6 +5,10 @@
 # open http://localhost:8000/
 ```
 
+**Open the page through this server.** Opening `index.html` with VS Code's *Live Server* (port 5500), another
+static server, or as a file shows the page, but none of the buttons can work: there is no API behind them. The page
+then shows a red "dashboard server is not running" banner and disables its buttons.
+
 1. **Repository**: paste a public `https://` repository URL and click *Load tags*. Tags are read with
    `git ls-remote` (no clone yet). Release, post-release and previous-release tags are pre-selected with the same
    heuristics that reproduce the paper's own choices (Hibernate 5.0.0.Final → 5.0.16; Hadoop 2.6.0 → 2.6.5).

@@ -26,7 +26,8 @@ class VersionParsing(unittest.TestCase):
         self.assertIsNone(T._ver("YARN-7055-2018-03-02"))
 
     def test_prerelease(self):
-        for t in ("5.0.0.CR1", "6.0.0.Alpha1", "release-2.6.0-rc0", "commons-lang-3.21.0-RC2", "LANG_3_0_B3"):
+        for t in ("5.0.0.CR1", "6.0.0.Alpha1", "release-2.6.0-rc0", "commons-lang-3.21.0-RC2", "LANG_3_0_B3",
+                  "release-3.9.7-1"):
             self.assertTrue(T.is_prerelease(t), t)
         for t in ("5.0.0.Final", "release-2.6.0", "rel/release-2.6.5", "5.1.17"):
             self.assertFalse(T.is_prerelease(t), t)
@@ -45,6 +46,12 @@ class Suggestions(unittest.TestCase):
     def test_paper_choices_hadoop(self):      # the paper: release-2.6.0 -> rel/release-2.6.5
         s = T.suggest_tags(HADOOP, "release-2.6.0")
         self.assertEqual((s["post_release"], s["prev_release"]), ("rel/release-2.6.5", "release-2.5.0"))
+
+    def test_zookeeper_rc_suffix(self):     # release-3.7.2-0 is a release candidate of release-3.7.2
+        tags = ["release-3.6.0", "release-3.7.0", "release-3.7.0-1", "release-3.7.1", "release-3.7.2", "release-3.7.2-0",
+                "release-3.7.3-0"]
+        s = T.suggest_tags(tags, "release-3.7.0")
+        self.assertEqual((s["post_release"], s["prev_release"]), ("release-3.7.2", "release-3.6.0"))
 
     def test_no_later_patch(self):
         s = T.suggest_tags(["v1.0", "v1.1", "v1.2"], "v1.1")
