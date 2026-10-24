@@ -25,14 +25,14 @@ PROJECTS = ["umbraco-7.6", "hadoop-2.6", "hibernate-5.0"]
 SEED = 2018
 
 
-def metric_groups() -> dict:
-    g = pd.read_csv(GROUPS)
+def metric_groups(groups_path: Path = GROUPS) -> dict:
+    g = pd.read_csv(groups_path)
     return {k: [m for m in g.loc[g.group == k, "metric"] if m not in NON_FEATURES]
             for k in ("base", "catch", "try", "throws")}
 
 
-def feature_sets() -> dict:
-    g = metric_groups()
+def feature_sets(groups_path: Path = GROUPS) -> dict:
+    g = metric_groups(groups_path)
     return {
         "TRAD": g["base"],
         "TRAD+FLOW": g["base"] + g["try"],
@@ -41,9 +41,9 @@ def feature_sets() -> dict:
     }
 
 
-def load_project(project: str, catch_only: bool = True) -> pd.DataFrame:
+def load_project(project: str, catch_only: bool = True, data_path: Path = DATA) -> pd.DataFrame:
     """Files of one project; by default only files with >=1 catch block (the paper's presented setting)."""
-    d = pd.read_csv(DATA)
+    d = pd.read_csv(data_path)
     d = d[d["Project"] == project]
     if catch_only:
         d = d[d["X..Catch"] > 0]

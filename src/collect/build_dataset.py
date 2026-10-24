@@ -36,8 +36,16 @@ def main(tid: str) -> dict:
     manifest = {"target": tid, "release_files": len(files)}
 
     # Git-Jira (process metrics + outcome)
+    if t["language"] != "java":
+        raise SystemExit(f"{tid}: file-level aggregation of analyzer output is implemented and validated for Java "
+                         f"(JTratch) only; C# (NTratch) aggregation is future work (docs/REPRODUCTION.md T5).")
     pm = pd.read_csv(out / "process_metrics.csv")
-    post = pd.read_csv(out / "post_release_defects.csv")
+    post_path = out / "post_release_defects.csv"
+    manifest["has_outcome"] = post_path.exists()
+    if post_path.exists():
+        post = pd.read_csv(post_path)
+    else:   # no issue tracker / mining failed: metrics only, outcome unknown (recorded; models are skipped)
+        post = pd.DataFrame({"File.Path": files, "Distinct.count.of.Issue.Key.POST": 0})
     g = pm.merge(post, on="File.Path", how="left").fillna({"Distinct.count.of.Issue.Key.POST": 0})
     g = g.rename(columns=lambda c: c.replace(".", " ") if c.startswith(("Distinct", "Churn", "File.")) else c)
     g = g[header("Git-Jira")]

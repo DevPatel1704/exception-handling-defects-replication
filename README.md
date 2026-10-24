@@ -28,6 +28,9 @@ optimism-reduced Nagelkerke R². No causal claims.
 * **Phase A, RQ4:** traditional metrics dominate SHAP rankings. 6/10 (Hadoop), 3/10 (Hibernate) and 2/10 (Umbraco)
   of the top EH features match a significant Phase 0 predictor, all with the same sign.
   → [`results/shap_alignment.md`](results/shap_alignment.md)
+* **Phase 5, dashboard:** paste any public Java repository URL; the page proposes tags and the issue tracker
+  (Jira or GitHub Issues), runs the whole pipeline in the background and shows data, models, ML and SHAP.
+  → [`dashboard/README.md`](dashboard/README.md)
 * **Phase 1/2, new context:** the pipeline runs end to end on Hibernate ORM 5.1.0. The authors' models on it give
   BASE 0.238 < BSAP 0.264 < BSFC 0.275, the paper's ordering (an extension: fallback product metrics and reduced
   analyzer binding). → [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md) §5–6
@@ -62,8 +65,9 @@ for s in clone_repo run_analyzers; do ./envrun.sh python src/collect/$s.py hiber
 ./envrun.sh Rscript src/reproduce/run_original.R fixed --input data/new/hibernate-5.1/input --out results/new/hibernate-5.1
 ./envrun.sh python src/reproduce/build_comparison.py
 
-# Dashboard scaffold
-python dashboard/serve.py     # http://localhost:8000/dashboard/
+# Dashboard: paste a repository link, get the full pipeline's results (see dashboard/README.md)
+./envrun.sh python dashboard/app.py     # http://localhost:8000/
+./envrun.sh python -m unittest discover -s tests -v     # offline tests of the dashboard's tag/URL handling
 ```
 
 `envrun.sh` runs a command inside the `ehrepl` env without `conda activate` (it avoids a `conda run` race on
@@ -93,7 +97,10 @@ src/
 notebooks/     phaseA_ml_shap.ipynb (reruns RQ3 + RQ4 end to end)
 results/       reproduction_comparison.{csv,md}, reproduction_table5.csv, reproduce/{asis,fixed}/,
                ml_*.{csv,md}, shap_*.{png,csv,md}, pipeline_validation_hibernate-5.0.*, new/<target>/, new_context_comparison.csv
-dashboard/     static scaffold (index.html, serve.py)
+src/pipeline/  run_target.py (whole pipeline for one target), targets_api.py (URL/tag validation, suggestions),
+               summary.py (results/new/<target>/summary.json)
+dashboard/     app.py (local server + job worker), index.html (UI)
+tests/         offline unit tests
 ```
 
 ## Use of LLMs

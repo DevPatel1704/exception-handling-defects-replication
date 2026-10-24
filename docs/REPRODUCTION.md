@@ -274,8 +274,63 @@ Hadoop 2.7, a C# context (see §7).
 | T6 | Understand licence (academic) for a faithful BASE on new data | Ask instructor/department |
 | T7 | Report the BSFC bug (D1) to the authors | To do |
 | T8 | Multiple-comparison correction (Holm) for the RQ3 uplift tests; optionally nested-CV tuning | To do |
-| T9 | Dashboard (Phase 5) | Scaffold only (`dashboard/`) |
+| T10 | Quantify JTratch run-to-run variance (F1, §8): ≥ 10 analyzer runs per target, report BSFC R² and predictor stability | Measured once on ZooKeeper (4 runs); not yet systematic |
+| T9 | Dashboard (Phase 5) | **Working** for Java repositories (§8); C# limited to metrics without EH analysis (T5) |
 
 Known failures encountered and resolved are listed under §3 (Phase 0). In Phase 1: our first JTratch attempt on
 Java 24 is not viable (JAXB); `conda run` races when parallel (→ `envrun.sh`); our first defect-mining run ignored
 Jira's timezone offset (fixed; counts unchanged).
+
+## 8. Phase 5: dashboard (repository link in, results out)
+
+`./envrun.sh python dashboard/app.py`, then open <http://localhost:8000/>. Paste a repository URL; the page lists
+its tags (`git ls-remote`), pre-selects release / post-release / previous-release tags, and suggests the issue
+tracker. One click then runs the whole pipeline as a background job (`src/pipeline/run_target.py`: the same scripts
+as §5–§6 plus ML and SHAP on the new data) and renders `results/new/<target>/summary.json`. Details, limits and
+API: [dashboard/README.md](../dashboard/README.md).
+
+Additions made for it, kept backwards-compatible with Phases 0–2:
+
+| Change | Why | Effect on earlier results |
+|---|---|---|
+| Issue-tracker abstraction (`history.py`): Jira with automatic Cloud/Server API detection and key-prefix detection; **GitHub Issues** (closed issues/PRs with a bug-like label) | Arbitrary repositories; many Java projects track bugs on GitHub | None for Jira targets. GitHub-tracked targets deviate from the paper's definition, and their summary says so |
+| `data/targets.local.json` for dashboard-registered targets; owner-qualified clone directories | Don't modify the curated `targets.json`; avoid clashes between same-named repositories | None |
+| `--data/--groups/--projects/--out` options for `train_eval.py` and `shap_analysis.py` | Run RQ3/RQ4 on any target | Defaults unchanged: Phase A CSV/MD outputs byte-identical after the refactor |
+| Deterministic defect-link order (sorted iteration over issue keys) | Python's per-process string hashing changed row order between runs, and with it the 40-link manual sample | Same 489 links and labels; the (still unfilled) manual sample was regenerated once |
+| Seeded SHAP beeswarm jitter | Figures were not byte-reproducible | Cosmetic: point jitter in 3 PNGs |
+| Content-hash reuse of steps (`stamps.json`) | Re-runs skip JTratch / R / ML when inputs are unchanged | None |
+
+Verification: offline unit tests for tag parsing, suggestions and URL validation
+(`./envrun.sh python -m unittest discover -s tests -v`, 7 tests); a headless browser test (jsdom) of the page
+against the live server (no JS errors; form, job view, results and original-study tab render); and end-to-end
+jobs listed below.
+
+### End-to-end dashboard jobs (2026-10-24)
+
+| Job | Target | Steps | Result |
+|---|---|---|---|
+| 1 | Hibernate ORM 5.1.0 → 5.1.17 (form maps onto the curated `hibernate-5.1`) | 11/11 done; JTratch reused; ~7 min | BASE 0.238, BSFC 0.275, BSAP 0.264, identical to §6; best PR-AUC 0.639 (RF, TRAD+EH; prevalence 0.213) |
+| 2 | Apache ZooKeeper release-3.6.0 → release-3.6.4, fresh clone; Jira keys auto-detected | 11/11 done; ~6 min | 469 files, 43 post-release bugs in 39 files; 161 files with catch + try data (31 defective); BASE 0.423, BSAP 0.417, BSFC 0.041 (see below) |
+| 3 | ZooKeeper again, unchanged inputs (CLI runner) | analyzer, models, ML and SHAP reused; ~20 s | identical |
+
+### Two findings from running new targets
+
+**F1: JTratch is not run-to-run deterministic.** Four JTratch runs on identical ZooKeeper 3.6.0 sources: catch-level
+output (and therefore every catch/anti-pattern metric) was identical every time, but the possible-exception
+traversal differed. Two runs were identical; the other two changed 6 flow metrics (`Avg Depth`, `Avg Max Depth`,
+`Avg # Declaring Methods`, `% Doc in Comment`, `% Method Declaration`, `% Throw Statement`) in 72 and 76 of
+161 files. Refitting the authors' models on each run: BASE and BSAP were identical (R² 0.423 / 0.417, same
+predictors). BSFC was R² 0.041 in three runs and **0.108** in one, with a different predictor set (`Avg Depth`
+entered). Likely cause: the inter-procedural search records depth/sources on first visit, in hash-map order.
+Consequences: (i) the pipeline keeps one analyzer run per release commit as a fixed artifact and reuses it;
+(ii) result pages flag findings that rest on these metrics; (iii) **RQ1 (flow) results on new data are conditional on
+the analyzer run, RQ2 (anti-pattern) results are not**. The authors' released metrics come from a single run, so
+the same caveat may apply to the original flow metrics. TODO T10: report BSFC over ≥ 10 JTratch runs per target.
+
+**F2: BASE-significant metrics are not actually forced into BSFC/BSAP.** The paper (§3.4.6) says they are kept.
+The released `dataApplyReductionByModel()` re-adds them, but its second budget-based reduction can drop them again,
+and it only logs `Significant ------ STILL ------ missing` and continues. This never happens on the paper's data or on
+Hibernate 5.1 (0 occurrences in those logs), so Phase 0/2 are unaffected. It does happen on small targets: ZooKeeper
+has budget 10 (161 files / 15), BSFC's cutoff drops to 0.24 and loses `# Bugs (pre)`, hence BSFC R² 0.041 < BASE
+0.423. We keep the authors' behaviour for faithfulness, and the dashboard flags it ("⚠ dropped BASE predictor" plus a
+caveat) so the comparison is not misread.

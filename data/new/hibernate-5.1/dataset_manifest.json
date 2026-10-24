@@ -1,6 +1,7 @@
 {
   "target": "hibernate-5.1",
   "release_files": 3475,
+  "has_outcome": true,
   "git_jira_rows": 3475,
   "post_release_defective_files": 284,
   "product_metrics_backend": "fallback",

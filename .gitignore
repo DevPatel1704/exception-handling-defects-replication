@@ -23,3 +23,8 @@ Thumbs.db
 
 # Phase 0 regenerated copy (identical to data/original/all_no_missing.csv; verified in docs/REPRODUCTION.md)
 results/**/all_no_missing_regenerated.csv
+
+# Dashboard job state and step logs
+data/jobs/
+data/new/*/stamps.json
+data/new/*/logs/

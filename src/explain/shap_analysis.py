@@ -12,10 +12,12 @@ paper's correlation filter keeps only one metric per such cluster, so exact name
 agreement.
 
 Usage: python src/explain/shap_analysis.py
+       [--ml-results CSV --data CSV --groups CSV --phase0 CSV --projects id --out DIR]   (defaults = Phase A)
 Writes: results/shap_importance.csv, results/shap_top_eh.csv, results/shap_alignment.csv,
         results/shap_alignment.md, results/shap_bar_<project>.png, results/shap_beeswarm_<project>.png,
         results/shap_bar_all.png
 """
+import argparse
 import sys
 from pathlib import Path
 
@@ -28,7 +30,7 @@ import pandas as pd  # noqa: E402
 import shap  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "ml"))
-from common import PROJECTS, ROOT, feature_sets, load_project, metric_groups, pretty_names, xy  # noqa: E402
+from common import DATA, GROUPS, PROJECTS, ROOT, feature_sets, load_project, metric_groups, pretty_names, xy  # noqa: E402
 from train_eval import make_learner  # noqa: E402
 
 RES = ROOT / "results"
@@ -101,19 +103,31 @@ def proxies(X: pd.DataFrame, feat: str, candidates: list, thr: float = 0.7) -> l
 
 
 def main() -> None:
-    ml = pd.read_csv(RES / "ml_results.csv")
-    groups = metric_groups()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ml-results", type=Path, default=RES / "ml_results.csv")
+    ap.add_argument("--data", type=Path, default=DATA)
+    ap.add_argument("--groups", type=Path, default=GROUPS)
+    ap.add_argument("--phase0", type=Path, default=RES / "reproduce" / "fixed" / "predictors_simplified.csv")
+    ap.add_argument("--projects", default=",".join(PROJECTS))
+    ap.add_argument("--out", type=Path, default=RES)
+    a = ap.parse_args()
+    projects, out = a.projects.split(","), a.out
+    out.mkdir(parents=True, exist_ok=True)
+
+    ml = pd.read_csv(a.ml_results)
+    groups = metric_groups(a.groups)
     group_of = {m: g for g, ms in groups.items() for m in ms}
-    pred_path = RES / "reproduce" / "fixed" / "predictors_simplified.csv"
-    phase0 = pd.read_csv(pred_path) if pred_path.exists() else pd.DataFrame()
+    phase0 = pd.read_csv(a.phase0) if a.phase0.exists() else pd.DataFrame()
 
     all_imp, top_eh_rows, align_rows = [], [], []
-    fig_all, axes_all = plt.subplots(1, 3, figsize=(7.16, 3.4), layout="constrained")   # IEEE double column
-    for k, project in enumerate(PROJECTS):
+    fig_all, axes_all = plt.subplots(1, len(projects), figsize=(7.16 if len(projects) > 1 else 3.6, 3.4),
+                                     layout="constrained", squeeze=False)   # IEEE double / single column
+    axes_all = axes_all[0]
+    for k, project in enumerate(projects):
         cand = ml[(ml.project == project) & (ml.feature_set == "TRAD+EH") & ml.learner.isin(["RF", "XGB"])]
         best = cand.sort_values("pr_auc_mean", ascending=False).iloc[0]
-        d = load_project(project)
-        X, y = xy(d, feature_sets()["TRAD+EH"])
+        d = load_project(project, data_path=a.data)
+        X, y = xy(d, feature_sets(a.groups)["TRAD+EH"])
         model = make_learner(best.learner, y).fit(X, y)
         sv = shap_matrix(model, X)
         imp = (pd.DataFrame({"feature": X.columns, "mean_abs_shap": np.abs(sv).mean(axis=0),
@@ -150,14 +164,15 @@ def main() -> None:
                                    shap_direction=None, matches_phase0_sig="<Phase 0 significant EH predictor>"))
 
         fig, ax = plt.subplots(figsize=(3.5, 3.6), layout="constrained")   # IEEE single column
-        bar(ax, imp, f"{LABEL[project]} ({best.learner}, top {TOP_N})")
+        bar(ax, imp, f"{LABEL.get(project, project)} ({best.learner}, top {TOP_N})")
         ax.legend(handles=legend_handles(), loc="lower right", frameon=False)
-        fig.savefig(RES / f"shap_bar_{project}.png", bbox_inches="tight")
+        fig.savefig(out / f"shap_bar_{project}.png", bbox_inches="tight")
         plt.close(fig)
 
-        bar(axes_all[k], imp, f"{LABEL[project]} ({best.learner})", top_n=12)
+        bar(axes_all[k], imp, f"{LABEL.get(project, project)} ({best.learner})", top_n=12)
 
         plt.figure()   # summary_plot draws into the current figure; keep it off fig_all
+        np.random.seed(2018)   # summary_plot jitters points with the global RNG; keep figures reproducible
         shap.summary_plot(sv, X.rename(columns=PRETTY), max_display=TOP_N, show=False,
                           cmap=VALUE_CMAP, plot_size=(5.2, 4.4), color_bar_label="Feature value")
         f = plt.gcf()
@@ -165,32 +180,32 @@ def main() -> None:
         main_ax.tick_params(labelsize=7)
         main_ax.set_xlabel(f"SHAP value (impact on {unit(best.learner)} of a post-release defect)", fontsize=8)
         main_ax.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(5, symmetric=True))
-        main_ax.set_title(f"{LABEL[project]} ({best.learner})", fontsize=9)
+        main_ax.set_title(f"{LABEL.get(project, project)} ({best.learner})", fontsize=9)
         for extra in f.axes[1:]:   # colour bar
             extra.tick_params(labelsize=7)
             extra.yaxis.label.set_size(8)
-        f.savefig(RES / f"shap_beeswarm_{project}.png", dpi=300, bbox_inches="tight")
+        f.savefig(out / f"shap_beeswarm_{project}.png", dpi=300, bbox_inches="tight")
         plt.close("all")
         print(f"{project}: best tree learner {best.learner} (CV PR-AUC {best.pr_auc_mean:.3f}); "
               f"top EH features: {', '.join(eh.feature.head(5))}", flush=True)
 
     fig_all.legend(handles=legend_handles(), loc="outside lower center", ncols=2, frameon=False)
-    fig_all.savefig(RES / "shap_bar_all.png", bbox_inches="tight")
+    fig_all.savefig(out / "shap_bar_all.png", bbox_inches="tight")
     plt.close(fig_all)
 
-    pd.concat(all_imp).to_csv(RES / "shap_importance.csv", index=False, float_format="%.5f")
-    pd.concat(top_eh_rows).to_csv(RES / "shap_top_eh.csv", index=False, float_format="%.5f")
+    pd.concat(all_imp).to_csv(out / "shap_importance.csv", index=False, float_format="%.5f")
+    pd.concat(top_eh_rows).to_csv(out / "shap_top_eh.csv", index=False, float_format="%.5f")
     al = pd.DataFrame(align_rows)
-    al.to_csv(RES / "shap_alignment.csv", index=False, float_format="%.5f")
+    al.to_csv(out / "shap_alignment.csv", index=False, float_format="%.5f")
 
     md = ["# RQ4: SHAP ranking of exception-handling features vs Phase 0 significant predictors", "",
           "Generated by `python src/explain/shap_analysis.py`. SHAP on the best tree learner per project, "
           "refit on all files with >=1 catch block, TRAD+EH feature set.", ""]
-    for project in PROJECTS:
-        a = al[al.project == project]
-        top = a[a.eh_rank.notna()]
-        sig = a[a.eh_rank.isna()]
-        md += [f"## {LABEL[project]}", "", "Top-10 EH features by mean |SHAP|:", "",
+    for project in projects:
+        a_ = al[al.project == project]
+        top = a_[a_.eh_rank.notna()]
+        sig = a_[a_.eh_rank.isna()]
+        md += [f"## {LABEL.get(project, project)}", "", "Top-10 EH features by mean |SHAP|:", "",
                "| EH rank | Overall rank | Feature | Group | mean abs SHAP | Dir. | Phase 0 match (exact or proxy, abs rho > 0.7) |",
                "|---:|---:|---|---|---:|:-:|---|"]
         for _, r in top.iterrows():
@@ -201,7 +216,7 @@ def main() -> None:
                           for _, r in sig.iterrows()) or "none"), ""]
         n_match = (top.matches_phase0_sig.fillna("") != "").sum()
         md += [f"Top-10 EH SHAP features matching a Phase 0 significant EH predictor: **{n_match}/{len(top)}**.", ""]
-    (RES / "shap_alignment.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    (out / "shap_alignment.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print("wrote results/shap_*.{csv,md,png}")
 
 

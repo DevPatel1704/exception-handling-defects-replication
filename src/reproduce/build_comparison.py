@@ -123,7 +123,8 @@ def main() -> None:
                "Significant EH predictors | Significant base predictors |",
                "|---|---|---:|---:|---:|---:|---:|---|---|"]
         for _, r in new_rows.iterrows():
-            md.append(f"| {r['Context']} | {r['Model']} | {r['Paper R2 (original release)']:.2f} | "
+            paper_r2 = r["Paper R2 (original release)"]
+            md.append(f"| {r['Context']} | {r['Model']} | {'—' if pd.isna(paper_r2) else f'{paper_r2:.2f}'} | "
                       f"{r['New R2']:.3f} | {r['Files (n)']} | {r['Budget']} | {r['# potential predictors']} | "
                       f"{r['Significant EH predictors'] or '—'} | {r['Significant base predictors'] or '—'} |")
     t5 = table5()
@@ -199,7 +200,8 @@ def new_context(base: set):
         for _, x in d[d.file_set == "CAT"].iterrows():
             sig = [s.strip() for s in str(x["signifcant_r"]).split(",") if s.strip() not in ("", "TOTAL", "nan")]
             rows.append({"Context": ctx, "Model": x["metric_set"],
-                         "Paper R2 (original release)": PAPER[(NEW_CONTEXT_PAPER_PROJECT[ctx], x["metric_set"])]["r2"],
+                         "Paper R2 (original release)": (PAPER[(NEW_CONTEXT_PAPER_PROJECT[ctx], x["metric_set"])]["r2"]
+                                                         if ctx in NEW_CONTEXT_PAPER_PROJECT else None),
                          "New R2": round(x["r2_c_r"], 3), "Apparent R2": round(x["r2_r"], 3),
                          "Files (n)": int(x["n"]), "Budget": int(x["budget"]),
                          "# potential predictors": int(x["nvar_initial"]), "Cutoff": x["cutoff"],

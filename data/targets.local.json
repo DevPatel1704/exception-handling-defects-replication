@@ -1,0 +1,20 @@
+{
+  "zookeeper-release-3.6.0": {
+    "repo": "https://github.com/apache/zookeeper.git",
+    "language": "java",
+    "prev_release_tag": "release-3.5.0",
+    "release_tag": "release-3.6.0",
+    "post_release_tag": "release-3.6.4",
+    "tracker": {
+      "type": "jira",
+      "base": "https://issues.apache.org/jira",
+      "api": "auto",
+      "project_keys": [
+        "ZOOKEEPER"
+      ]
+    },
+    "include_regex": "/src/main/java/.*\\.java$",
+    "exclude_regex": "(^|/)(test|tests|testing|it|test-?utils?|examples?|samples?|benchmarks?|jmh)/|Test\\.java$|Tests\\.java$|IT\\.java$",
+    "_source": "dashboard"
+  }
+}

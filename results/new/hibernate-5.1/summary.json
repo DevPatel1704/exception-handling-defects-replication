@@ -1,0 +1,1068 @@
+{
+ "target": "hibernate-5.1",
+ "generated": "2026-10-24T13:35:24+00:00",
+ "repo": "https://github.com/hibernate/hibernate-orm",
+ "language": "java",
+ "tags": {
+  "prev_release": "5.0.0.Final",
+  "release": "5.1.0",
+  "post_release": "5.1.17"
+ },
+ "provenance": {
+  "target": "hibernate-5.1",
+  "repo": "https://github.com/hibernate/hibernate-orm.git",
+  "release": {
+   "tag": "5.1.0",
+   "commit": "a909e769516322e33d5cb6a9f19aac8d21ee596d",
+   "commit_date": "2016-02-10T11:20:33-06:00"
+  },
+  "post_release": {
+   "tag": "5.1.17",
+   "commit": "c34bfb3058b2e0d0eec5d806852ed1a505f1ddf4",
+   "commit_date": "2018-11-28T17:17:53-08:00"
+  },
+  "prev_release": {
+   "tag": "5.0.0.Final",
+   "commit": "87a62262ba9e7d1c2d8a7b1707021e479ceec3ab",
+   "commit_date": "2015-08-20T15:36:18-05:00"
+  },
+  "worktree_head": "a909e769516322e33d5cb6a9f19aac8d21ee596d",
+  "language_declared": "java",
+  "language_detected": "java"
+ },
+ "tracker": {
+  "type": "jira",
+  "base": "https://hibernate.atlassian.net",
+  "api": "cloud",
+  "project_keys": [
+   "HHH"
+  ]
+ },
+ "file_filters": {
+  "include": "/src/main/java/.*\\.java$",
+  "exclude": "(^|/)(test|tests|testing)/|/hibernate-testing/|/documentation/|/release/"
+ },
+ "defect_mining": {
+  "tracker": "jira",
+  "keys_referenced": 262,
+  "not_found": 0,
+  "not_fixed_bug": 43,
+  "reported_before_release": 57,
+  "post_release_defect_issues": 182,
+  "defective_files": 284,
+  "files": 3475
+ },
+ "dataset": {
+  "target": "hibernate-5.1",
+  "release_files": 3475,
+  "has_outcome": true,
+  "git_jira_rows": 3475,
+  "post_release_defective_files": 284,
+  "product_metrics_backend": "fallback",
+  "product_metrics_missing_vs_understand": [
+   "AvgCyclomaticModified",
+   "AvgCyclomaticStrict",
+   "AvgEssential",
+   "AvgLineBlank",
+   "AvgLineComment",
+   "AvgLine",
+   "CountDeclClassMethod",
+   "CountDeclClassVariable",
+   "CountDeclInstanceMethod",
+   "CountDeclInstanceVariable",
+   "CountDeclMethodDefault",
+   "CountDeclMethodPrivate",
+   "CountDeclMethodProtected",
+   "CountDeclMethodPublic",
+   "CountDeclMethod",
+   "CountLineCodeDecl",
+   "CountLineCodeExe",
+   "CountStmtDecl",
+   "CountStmtExe",
+   "CountStmt",
+   "MaxCyclomaticModified",
+   "MaxCyclomaticStrict",
+   "MaxEssential",
+   "MaxNesting",
+   "SumCyclomaticModified",
+   "SumCyclomaticStrict",
+   "SumEssential"
+  ],
+  "catch_based_rows": 467,
+  "try_based_rows": 404,
+  "throws_based_rows": 829,
+  "files_with_catch": 467,
+  "defective_files_with_catch": 102
+ },
+ "product_metrics_backend": "fallback",
+ "eh_profile": {
+  "files_with_catch": 467,
+  "catch_blocks": 1488,
+  "try_blocks": 1021,
+  "mean_possible_exceptions_per_try": 2.248,
+  "anti_patterns": [
+   {
+    "anti_pattern": "Destructive Wrapping",
+    "catch_blocks": 587,
+    "pct_of_catch_blocks": 39.45,
+    "files": 268
+   },
+   {
+    "anti_pattern": "Unreachable Catch Handler",
+    "catch_blocks": 486,
+    "pct_of_catch_blocks": 32.66,
+    "files": 189
+   },
+   {
+    "anti_pattern": "Unhandled exceptions",
+    "catch_blocks": 452,
+    "pct_of_catch_blocks": 30.38,
+    "files": 194
+   },
+   {
+    "anti_pattern": "Generic Catch",
+    "catch_blocks": 426,
+    "pct_of_catch_blocks": 28.63,
+    "files": 238
+   },
+   {
+    "anti_pattern": "Overcatch",
+    "catch_blocks": 328,
+    "pct_of_catch_blocks": 22.04,
+    "files": 203
+   },
+   {
+    "anti_pattern": "Catch and do nothing",
+    "catch_blocks": 134,
+    "pct_of_catch_blocks": 9.01,
+    "files": 78
+   },
+   {
+    "anti_pattern": "Nested try block",
+    "catch_blocks": 128,
+    "pct_of_catch_blocks": 8.6,
+    "files": 58
+   },
+   {
+    "anti_pattern": "Throw within finally",
+    "catch_blocks": 82,
+    "pct_of_catch_blocks": 5.51,
+    "files": 43
+   },
+   {
+    "anti_pattern": "Catch and Return null",
+    "catch_blocks": 62,
+    "pct_of_catch_blocks": 4.17,
+    "files": 35
+   },
+   {
+    "anti_pattern": "Dummy Handler",
+    "catch_blocks": 60,
+    "pct_of_catch_blocks": 4.03,
+    "files": 36
+   },
+   {
+    "anti_pattern": "Log and Return null",
+    "catch_blocks": 6,
+    "pct_of_catch_blocks": 0.4,
+    "files": 4
+   },
+   {
+    "anti_pattern": "Relying on getCause()",
+    "catch_blocks": 5,
+    "pct_of_catch_blocks": 0.34,
+    "files": 5
+   },
+   {
+    "anti_pattern": "Log and Throw",
+    "catch_blocks": 3,
+    "pct_of_catch_blocks": 0.2,
+    "files": 2
+   },
+   {
+    "anti_pattern": "Multi-line log messages",
+    "catch_blocks": 2,
+    "pct_of_catch_blocks": 0.13,
+    "files": 2
+   },
+   {
+    "anti_pattern": "Ignoring Interrupted Exception",
+    "catch_blocks": 1,
+    "pct_of_catch_blocks": 0.07,
+    "files": 1
+   },
+   {
+    "anti_pattern": "Incomplete implementation",
+    "catch_blocks": 0,
+    "pct_of_catch_blocks": 0.0,
+    "files": 0
+   },
+   {
+    "anti_pattern": "Overcatch and Abort",
+    "catch_blocks": 0,
+    "pct_of_catch_blocks": 0.0,
+    "files": 0
+   }
+  ]
+ },
+ "models": {
+  "presented": [
+   {
+    "model": "BASE",
+    "r2_optimism_reduced": 0.238,
+    "r2_apparent": 0.261,
+    "files": 404,
+    "budget": 26,
+    "potential_predictors": 8,
+    "cutoff": 0.7,
+    "over_budget": false,
+    "predictors": [
+     {
+      "metric": "Churn.PRE",
+      "name": "Churn (pre)",
+      "group": "traditional",
+      "wald_chi2": 16.07,
+      "p_value": 6.11080971829603e-05,
+      "direction": "+",
+      "effect_pct": 1.78
+     },
+     {
+      "metric": "CountDeclClass",
+      "name": "CountDeclClass",
+      "group": "traditional",
+      "wald_chi2": 4.21,
+      "p_value": 0.0402238362866815,
+      "direction": "-",
+      "effect_pct": -7.53
+     },
+     {
+      "metric": "CountLineComment",
+      "name": "CountLineComment",
+      "group": "traditional",
+      "wald_chi2": 15.55,
+      "p_value": 8.02409014418748e-05,
+      "direction": "+",
+      "effect_pct": 4.58
+     },
+     {
+      "metric": "RatioCommentToCode",
+      "name": "RatioCommentToCode",
+      "group": "traditional",
+      "wald_chi2": 16.96,
+      "p_value": 3.81602218710864e-05,
+      "direction": "-",
+      "effect_pct": -7.3
+     }
+    ]
+   },
+   {
+    "model": "BSFC",
+    "r2_optimism_reduced": 0.275,
+    "r2_apparent": 0.305,
+    "files": 404,
+    "budget": 26,
+    "potential_predictors": 26,
+    "cutoff": 0.7,
+    "over_budget": false,
+    "predictors": [
+     {
+      "metric": "Churn.PRE",
+      "name": "Churn (pre)",
+      "group": "traditional",
+      "wald_chi2": 19.53,
+      "p_value": 9.91320681498209e-06,
+      "direction": "+",
+      "effect_pct": 1.88
+     },
+     {
+      "metric": "CountLineComment",
+      "name": "CountLineComment",
+      "group": "traditional",
+      "wald_chi2": 13.87,
+      "p_value": 0.000195503510349693,
+      "direction": "+",
+      "effect_pct": 4.26
+     },
+     {
+      "metric": "RatioCommentToCode",
+      "name": "RatioCommentToCode",
+      "group": "traditional",
+      "wald_chi2": 13.47,
+      "p_value": 0.000242880677729929,
+      "direction": "-",
+      "effect_pct": -6.2
+     },
+     {
+      "metric": "X..Handled.with.Throw.with.New",
+      "name": "# Handled with Throw with New",
+      "group": "flow",
+      "wald_chi2": 6.2,
+      "p_value": 0.0127969647453031,
+      "direction": "+",
+      "effect_pct": 2.04
+     },
+     {
+      "metric": "X..Propagated.1",
+      "name": "% Propagated",
+      "group": "flow",
+      "wald_chi2": 15.79,
+      "p_value": 7.06792398175171e-05,
+      "direction": "+",
+      "effect_pct": 2.99
+     }
+    ],
+    "dropped_base_significant": []
+   },
+   {
+    "model": "BSAP",
+    "r2_optimism_reduced": 0.264,
+    "r2_apparent": 0.284,
+    "files": 404,
+    "budget": 26,
+    "potential_predictors": 22,
+    "cutoff": 0.7,
+    "over_budget": false,
+    "predictors": [
+     {
+      "metric": "Churn.PRE",
+      "name": "Churn (pre)",
+      "group": "traditional",
+      "wald_chi2": 17.58,
+      "p_value": 2.75646588823175e-05,
+      "direction": "+",
+      "effect_pct": 1.84
+     },
+     {
+      "metric": "CountLineComment",
+      "name": "CountLineComment",
+      "group": "traditional",
+      "wald_chi2": 13.64,
+      "p_value": 0.00022106646922726,
+      "direction": "+",
+      "effect_pct": 4.31
+     },
+     {
+      "metric": "RatioCommentToCode",
+      "name": "RatioCommentToCode",
+      "group": "traditional",
+      "wald_chi2": 15.36,
+      "p_value": 8.86259854429028e-05,
+      "direction": "-",
+      "effect_pct": -6.93
+     },
+     {
+      "metric": "Avg..AP.Unhandled.exceptions",
+      "name": "Avg. AP Unhandled exceptions",
+      "group": "anti-pattern",
+      "wald_chi2": 12.06,
+      "p_value": 0.00051592677281731,
+      "direction": "+",
+      "effect_pct": 2.68
+     }
+    ],
+    "dropped_base_significant": []
+   }
+  ],
+  "preliminary_all_files": [
+   {
+    "model": "ALL.BASE",
+    "r2_optimism_reduced": 0.192,
+    "significant": [
+     "Churn.PRE",
+     "AvgCyclomatic",
+     "CountLineComment"
+    ]
+   },
+   {
+    "model": "ALL.BSEH",
+    "r2_optimism_reduced": 0.21,
+    "significant": [
+     "Churn.PRE",
+     "AvgLineCode",
+     "CountLineComment",
+     "X..Catch"
+    ]
+   }
+  ]
+ },
+ "ml": {
+  "results": [
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD",
+    "n_features": 17,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.5169,
+    "pr_auc_std": 0.0812,
+    "roc_auc_mean": 0.7661,
+    "roc_auc_std": 0.0676,
+    "f1_mean": 0.4666,
+    "f1_std": 0.0996
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD",
+    "n_features": 17,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.5473,
+    "pr_auc_std": 0.0899,
+    "roc_auc_mean": 0.7661,
+    "roc_auc_std": 0.0567,
+    "f1_mean": 0.4506,
+    "f1_std": 0.0855
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD",
+    "n_features": 17,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.5562,
+    "pr_auc_std": 0.081,
+    "roc_auc_mean": 0.7749,
+    "roc_auc_std": 0.0628,
+    "f1_mean": 0.4686,
+    "f1_std": 0.0777
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "n_features": 69,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.493,
+    "pr_auc_std": 0.0906,
+    "roc_auc_mean": 0.7717,
+    "roc_auc_std": 0.052,
+    "f1_mean": 0.5098,
+    "f1_std": 0.084
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "n_features": 69,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.6185,
+    "pr_auc_std": 0.0975,
+    "roc_auc_mean": 0.8235,
+    "roc_auc_std": 0.0491,
+    "f1_mean": 0.4915,
+    "f1_std": 0.0808
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "n_features": 69,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.5987,
+    "pr_auc_std": 0.093,
+    "roc_auc_mean": 0.8044,
+    "roc_auc_std": 0.0469,
+    "f1_mean": 0.5352,
+    "f1_std": 0.0891
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "n_features": 58,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.5217,
+    "pr_auc_std": 0.0774,
+    "roc_auc_mean": 0.7611,
+    "roc_auc_std": 0.0583,
+    "f1_mean": 0.4929,
+    "f1_std": 0.0813
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "n_features": 58,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.6005,
+    "pr_auc_std": 0.09,
+    "roc_auc_mean": 0.7929,
+    "roc_auc_std": 0.0498,
+    "f1_mean": 0.4858,
+    "f1_std": 0.0707
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "n_features": 58,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.588,
+    "pr_auc_std": 0.0681,
+    "roc_auc_mean": 0.7943,
+    "roc_auc_std": 0.0354,
+    "f1_mean": 0.5177,
+    "f1_std": 0.0847
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "n_features": 110,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.4557,
+    "pr_auc_std": 0.0849,
+    "roc_auc_mean": 0.7454,
+    "roc_auc_std": 0.0496,
+    "f1_mean": 0.4908,
+    "f1_std": 0.0705
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "n_features": 110,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.6386,
+    "pr_auc_std": 0.0862,
+    "roc_auc_mean": 0.8253,
+    "roc_auc_std": 0.0462,
+    "f1_mean": 0.5074,
+    "f1_std": 0.0696
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "n_features": 110,
+    "prevalence": 0.2129,
+    "pr_auc_mean": 0.5994,
+    "pr_auc_std": 0.0812,
+    "roc_auc_mean": 0.8043,
+    "roc_auc_std": 0.0459,
+    "f1_mean": 0.5419,
+    "f1_std": 0.0856
+   }
+  ],
+  "uplift": [
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "metric": "pr_auc",
+    "trad_mean": 0.5169,
+    "ext_mean": 0.493,
+    "delta_mean": -0.024,
+    "delta_std": 0.1039,
+    "folds_improved": "10/25",
+    "p_corrected_ttest": 0.6728
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "metric": "roc_auc",
+    "trad_mean": 0.7661,
+    "ext_mean": 0.7717,
+    "delta_mean": 0.0056,
+    "delta_std": 0.0697,
+    "folds_improved": "13/25",
+    "p_corrected_ttest": 0.8828
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "metric": "f1",
+    "trad_mean": 0.4666,
+    "ext_mean": 0.5098,
+    "delta_mean": 0.0432,
+    "delta_std": 0.1056,
+    "folds_improved": "16/25",
+    "p_corrected_ttest": 0.4556
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "metric": "pr_auc",
+    "trad_mean": 0.5169,
+    "ext_mean": 0.5217,
+    "delta_mean": 0.0048,
+    "delta_std": 0.0795,
+    "folds_improved": "13/25",
+    "p_corrected_ttest": 0.9112
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "metric": "roc_auc",
+    "trad_mean": 0.7661,
+    "ext_mean": 0.7611,
+    "delta_mean": -0.0051,
+    "delta_std": 0.0475,
+    "folds_improved": "12/25",
+    "p_corrected_ttest": 0.845
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "metric": "f1",
+    "trad_mean": 0.4666,
+    "ext_mean": 0.4929,
+    "delta_mean": 0.0263,
+    "delta_std": 0.0951,
+    "folds_improved": "15/25",
+    "p_corrected_ttest": 0.6128
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "metric": "pr_auc",
+    "trad_mean": 0.5169,
+    "ext_mean": 0.4557,
+    "delta_mean": -0.0612,
+    "delta_std": 0.0947,
+    "folds_improved": "6/25",
+    "p_corrected_ttest": 0.2422
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "metric": "roc_auc",
+    "trad_mean": 0.7661,
+    "ext_mean": 0.7454,
+    "delta_mean": -0.0207,
+    "delta_std": 0.0715,
+    "folds_improved": "11/25",
+    "p_corrected_ttest": 0.5963
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "metric": "f1",
+    "trad_mean": 0.4666,
+    "ext_mean": 0.4908,
+    "delta_mean": 0.0242,
+    "delta_std": 0.1118,
+    "folds_improved": "15/25",
+    "p_corrected_ttest": 0.6915
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "metric": "pr_auc",
+    "trad_mean": 0.5473,
+    "ext_mean": 0.6185,
+    "delta_mean": 0.0712,
+    "delta_std": 0.0609,
+    "folds_improved": "23/25",
+    "p_corrected_ttest": 0.0402
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "metric": "roc_auc",
+    "trad_mean": 0.7661,
+    "ext_mean": 0.8235,
+    "delta_mean": 0.0574,
+    "delta_std": 0.0512,
+    "folds_improved": "21/25",
+    "p_corrected_ttest": 0.0485
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "metric": "f1",
+    "trad_mean": 0.4506,
+    "ext_mean": 0.4915,
+    "delta_mean": 0.0409,
+    "delta_std": 0.1038,
+    "folds_improved": "16/25",
+    "p_corrected_ttest": 0.472
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "metric": "pr_auc",
+    "trad_mean": 0.5473,
+    "ext_mean": 0.6005,
+    "delta_mean": 0.0532,
+    "delta_std": 0.0598,
+    "folds_improved": "21/25",
+    "p_corrected_ttest": 0.1119
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "metric": "roc_auc",
+    "trad_mean": 0.7661,
+    "ext_mean": 0.7929,
+    "delta_mean": 0.0267,
+    "delta_std": 0.0371,
+    "folds_improved": "19/25",
+    "p_corrected_ttest": 0.1937
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "metric": "f1",
+    "trad_mean": 0.4506,
+    "ext_mean": 0.4858,
+    "delta_mean": 0.0352,
+    "delta_std": 0.0774,
+    "folds_improved": "14/25",
+    "p_corrected_ttest": 0.4066
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "metric": "pr_auc",
+    "trad_mean": 0.5473,
+    "ext_mean": 0.6386,
+    "delta_mean": 0.0912,
+    "delta_std": 0.0733,
+    "folds_improved": "23/25",
+    "p_corrected_ttest": 0.0299
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "metric": "roc_auc",
+    "trad_mean": 0.7661,
+    "ext_mean": 0.8253,
+    "delta_mean": 0.0592,
+    "delta_std": 0.0523,
+    "folds_improved": "21/25",
+    "p_corrected_ttest": 0.0465
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "metric": "f1",
+    "trad_mean": 0.4506,
+    "ext_mean": 0.5074,
+    "delta_mean": 0.0568,
+    "delta_std": 0.1086,
+    "folds_improved": "17/25",
+    "p_corrected_ttest": 0.3415
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "metric": "pr_auc",
+    "trad_mean": 0.5562,
+    "ext_mean": 0.5987,
+    "delta_mean": 0.0426,
+    "delta_std": 0.0778,
+    "folds_improved": "19/25",
+    "p_corrected_ttest": 0.3202
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "metric": "roc_auc",
+    "trad_mean": 0.7749,
+    "ext_mean": 0.8044,
+    "delta_mean": 0.0295,
+    "delta_std": 0.0538,
+    "folds_improved": "17/25",
+    "p_corrected_ttest": 0.3193
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "metric": "f1",
+    "trad_mean": 0.4686,
+    "ext_mean": 0.5352,
+    "delta_mean": 0.0666,
+    "delta_std": 0.1103,
+    "folds_improved": "19/25",
+    "p_corrected_ttest": 0.274
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "metric": "pr_auc",
+    "trad_mean": 0.5562,
+    "ext_mean": 0.588,
+    "delta_mean": 0.0319,
+    "delta_std": 0.0719,
+    "folds_improved": "16/25",
+    "p_corrected_ttest": 0.4195
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "metric": "roc_auc",
+    "trad_mean": 0.7749,
+    "ext_mean": 0.7943,
+    "delta_mean": 0.0194,
+    "delta_std": 0.047,
+    "folds_improved": "16/25",
+    "p_corrected_ttest": 0.4512
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "metric": "f1",
+    "trad_mean": 0.4686,
+    "ext_mean": 0.5177,
+    "delta_mean": 0.049,
+    "delta_std": 0.1163,
+    "folds_improved": "20/25",
+    "p_corrected_ttest": 0.442
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "metric": "pr_auc",
+    "trad_mean": 0.5562,
+    "ext_mean": 0.5994,
+    "delta_mean": 0.0432,
+    "delta_std": 0.0893,
+    "folds_improved": "18/25",
+    "p_corrected_ttest": 0.3787
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "metric": "roc_auc",
+    "trad_mean": 0.7749,
+    "ext_mean": 0.8043,
+    "delta_mean": 0.0295,
+    "delta_std": 0.0562,
+    "folds_improved": "17/25",
+    "p_corrected_ttest": 0.3404
+   },
+   {
+    "project": "hibernate-5.1",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "metric": "f1",
+    "trad_mean": 0.4686,
+    "ext_mean": 0.5419,
+    "delta_mean": 0.0733,
+    "delta_std": 0.1209,
+    "folds_improved": "18/25",
+    "p_corrected_ttest": 0.2721
+   }
+  ]
+ },
+ "shap": {
+  "learner": "RF",
+  "top_features": [
+   {
+    "name": "Churn (pre)",
+    "group": "base",
+    "mean_abs_shap": 0.03265
+   },
+   {
+    "name": "CountLineCode",
+    "group": "base",
+    "mean_abs_shap": 0.02406
+   },
+   {
+    "name": "fileSize",
+    "group": "base",
+    "mean_abs_shap": 0.02075
+   },
+   {
+    "name": "CountLine",
+    "group": "base",
+    "mean_abs_shap": 0.01943
+   },
+   {
+    "name": "RatioCommentToCode",
+    "group": "base",
+    "mean_abs_shap": 0.01821
+   },
+   {
+    "name": "SumCyclomatic",
+    "group": "base",
+    "mean_abs_shap": 0.01621
+   },
+   {
+    "name": "CountSemicolon",
+    "group": "base",
+    "mean_abs_shap": 0.01588
+   },
+   {
+    "name": "# Changes (pre)",
+    "group": "base",
+    "mean_abs_shap": 0.01586
+   },
+   {
+    "name": "# Possible Exceptions",
+    "group": "try",
+    "mean_abs_shap": 0.01456
+   },
+   {
+    "name": "% Propagated",
+    "group": "try",
+    "mean_abs_shap": 0.01368
+   },
+   {
+    "name": "CountDeclFunction",
+    "group": "base",
+    "mean_abs_shap": 0.01306
+   },
+   {
+    "name": "Sum of AP Unhandled exceptions",
+    "group": "catch",
+    "mean_abs_shap": 0.01298
+   },
+   {
+    "name": "CountLineBlank",
+    "group": "base",
+    "mean_abs_shap": 0.01073
+   },
+   {
+    "name": "# Handled with Throw Wrap",
+    "group": "try",
+    "mean_abs_shap": 0.01027
+   },
+   {
+    "name": "# Handled with Throw with New",
+    "group": "try",
+    "mean_abs_shap": 0.01023
+   }
+  ],
+  "top_eh": [
+   {
+    "rank": 1,
+    "overall_rank": 9,
+    "name": "# Possible Exceptions",
+    "direction": "+",
+    "mean_abs_shap": 0.01456,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 2,
+    "overall_rank": 10,
+    "name": "% Propagated",
+    "direction": "+",
+    "mean_abs_shap": 0.01368,
+    "matches_significant_predictor": "<Phase 0 significant EH predictor>"
+   },
+   {
+    "rank": 3,
+    "overall_rank": 12,
+    "name": "Sum of AP Unhandled exceptions",
+    "direction": "+",
+    "mean_abs_shap": 0.01298,
+    "matches_significant_predictor": "Avg..AP.Unhandled.exceptions (rho=0.92); X..Propagated.1 (rho=0.90)"
+   },
+   {
+    "rank": 4,
+    "overall_rank": 14,
+    "name": "# Handled with Throw Wrap",
+    "direction": "+",
+    "mean_abs_shap": 0.01027,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 5,
+    "overall_rank": 15,
+    "name": "# Handled with Throw with New",
+    "direction": "-",
+    "mean_abs_shap": 0.01023,
+    "matches_significant_predictor": "<Phase 0 significant EH predictor>"
+   },
+   {
+    "rank": 6,
+    "overall_rank": 16,
+    "name": "# Propagated",
+    "direction": "+",
+    "mean_abs_shap": 0.01007,
+    "matches_significant_predictor": "Avg..AP.Unhandled.exceptions (rho=0.95); X..Propagated.1 (rho=0.95)"
+   },
+   {
+    "rank": 7,
+    "overall_rank": 19,
+    "name": "Avg Depth",
+    "direction": "+",
+    "mean_abs_shap": 0.0087,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 8,
+    "overall_rank": 20,
+    "name": "Avg Exc Type Prevalence",
+    "direction": "-",
+    "mean_abs_shap": 0.00838,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 9,
+    "overall_rank": 23,
+    "name": "Avg. AP Unhandled exceptions",
+    "direction": "+",
+    "mean_abs_shap": 0.00806,
+    "matches_significant_predictor": "<Phase 0 significant EH predictor>"
+   },
+   {
+    "rank": 10,
+    "overall_rank": 24,
+    "name": "Avg Max Depth",
+    "direction": "+",
+    "mean_abs_shap": 0.00802,
+    "matches_significant_predictor": ""
+   }
+  ],
+  "figures": {
+   "bar": "/results/new/hibernate-5.1/ml/shap_bar_hibernate-5.1.png",
+   "beeswarm": "/results/new/hibernate-5.1/ml/shap_beeswarm_hibernate-5.1.png"
+  }
+ },
+ "paper_reference": {
+  "release": "Hibernate 5.0.0.Final",
+  "r2_optimism_reduced": {
+   "BASE": 0.21,
+   "BSFC": 0.28,
+   "BSAP": 0.23
+  }
+ },
+ "files": {
+  "Git/Jira metrics (authors' format)": "/data/new/hibernate-5.1/input/File_Level-Git-Jira.csv",
+  "Product metrics": "/data/new/hibernate-5.1/input/File_Level-Understand.csv",
+  "Catch-block / anti-pattern metrics": "/data/new/hibernate-5.1/input/File_Level-Catch_Based.csv",
+  "Try-block / flow metrics": "/data/new/hibernate-5.1/input/File_Level-Try_Based.csv",
+  "Throws metrics": "/data/new/hibernate-5.1/input/File_Level-Throws_Based.csv",
+  "Post-release defect labels": "/data/new/hibernate-5.1/post_release_defects.csv",
+  "Defect links (issue, commit, file)": "/data/new/hibernate-5.1/defect_links.csv",
+  "Manual-validation sample": "/data/new/hibernate-5.1/manual_validation_sample.csv",
+  "Model output (authors' format)": "/results/new/hibernate-5.1/fixed/base_test_2.csv",
+  "Predictor table": "/results/new/hibernate-5.1/fixed/predictors_simplified.csv",
+  "R log": "/results/new/hibernate-5.1/fixed/run_log.txt",
+  "ML results": "/results/new/hibernate-5.1/ml/ml_results.md",
+  "SHAP alignment": "/results/new/hibernate-5.1/ml/shap_alignment.md"
+ },
+ "caveats": [
+  "Product metrics come from the open-source fallback (no SciTools Understand license): 12 approximate metrics instead of 39, so BASE is not the paper's BASE.",
+  "Exception-flow metrics come from JTratch without the authors' unpublished external-Javadoc file and without dependency jars: about 25% fewer possible exceptions than the authors' tool found on Hibernate 5.0.",
+  "JTratch is not run-to-run deterministic: on ZooKeeper 3.6.0, repeated runs on identical sources changed 6 flow metrics in up to 76 of 161 files (catch/anti-pattern metrics never changed). Here the results use Avg Depth, Avg Max Depth, so the flow-metric findings (BSFC, SHAP) are conditional on this analyzer run."
+ ]
+}

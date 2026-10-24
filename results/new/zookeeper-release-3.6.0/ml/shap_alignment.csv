@@ -1,0 +1,13 @@
+project,eh_rank,overall_rank,feature,group,mean_abs_shap,shap_direction,matches_phase0_sig
+zookeeper-release-3.6.0,1.00000,2,Avg.Depth,try,0.53119,+,
+zookeeper-release-3.6.0,2.00000,3,X..Handled.with.Method,try,0.46245,-,
+zookeeper-release-3.6.0,3.00000,5,Avg.Max.Depth,try,0.38644,+,
+zookeeper-release-3.6.0,4.00000,6,Avg.Exc.Type.Prevalence,try,0.36627,-,
+zookeeper-release-3.6.0,5.00000,7,Avg...Declaring.Methods,try,0.32944,-,
+zookeeper-release-3.6.0,6.00000,9,X..Throw.Statement,try,0.29287,-,
+zookeeper-release-3.6.0,7.00000,10,Num.Distinct.Methods,try,0.26382,+,
+zookeeper-release-3.6.0,8.00000,11,Avg.Catch.LOC,catch,0.24774,+,
+zookeeper-release-3.6.0,9.00000,12,X..Try.in.Declaration.1,try,0.20387,-,
+zookeeper-release-3.6.0,10.00000,15,X..Method.Declaration,try,0.17553,+,
+zookeeper-release-3.6.0,,18,X..Handled.with.Throw.without.New,try,0.14769,,<Phase 0 significant EH predictor>
+zookeeper-release-3.6.0,,16,X..Try.in.Loop.1,try,0.16129,,<Phase 0 significant EH predictor>

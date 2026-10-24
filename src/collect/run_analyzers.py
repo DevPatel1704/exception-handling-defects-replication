@@ -5,6 +5,7 @@ Java  -> JTratch, built from source at tag `eh-model-defects2018` (external/JTra
 C#    -> NTratch.exe from the authors' 2017 binary release (.NET Framework; Windows only). Attempted, may be blocked.
 
 Usage: python src/collect/run_analyzers.py <target-id> [--java8 <path to java.exe>] [--m2 <maven repo dir>]
+JVM heap: env JTRATCH_XMX (default 6g).
 Writes raw analyzer CSVs to data/new/<id>/raw/analyzer/ and a log; aggregation to file level is done by
 build_dataset.py (rules in docs/aggregation_rules/metrics_and_aggregation_rules_MSR18.xlsx).
 
@@ -65,8 +66,8 @@ def run_jtratch(t: dict, java: str, m2: str) -> Path:
     out = NEW / t["id"] / "raw" / "analyzer"
     out.mkdir(parents=True, exist_ok=True)
     cp = build_jtratch(java)
-    cmd = [java, "-Xmx6g", "-cp", cp, "ca.concordia.jtratch.JTratch", "ByFolder", src.as_posix(), m2 or "NONE"]
-    print("running:", " ".join(cmd[:4]), "...", flush=True)
+    cmd = [java, f"-Xmx{os.environ.get('JTRATCH_XMX', '6g')}", "-cp", cp, "ca.concordia.jtratch.JTratch", "ByFolder", src.as_posix(), m2 or "NONE"]
+    print("running JTratch:", cmd[1], "ByFolder", src.as_posix(), flush=True)
     with open(out / "jtratch_stdout.txt", "w", encoding="utf-8") as fh:
         r = subprocess.run(cmd, cwd=out, stdout=fh, stderr=subprocess.STDOUT)
     produced = sorted(p.name for p in out.glob("*.csv"))

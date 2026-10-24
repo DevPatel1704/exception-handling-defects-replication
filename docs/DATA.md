@@ -66,6 +66,17 @@ python src/collect/build_dataset.py     hibernate-5.1   # -> data/new/hibernate-
 | EH metrics | JTratch built from source at tag `eh-model-defects2018`, run on Java 8, then aggregated to file level by `aggregate_jtratch.py`, a re-implementation of the authors' rule sheet | Partially; validated in §3 |
 | Merge + missing data | `build_dataset.py` writes the five CSVs in the authors' exact column order; the authors' `0-DataSourcesAnalysis.Rmd` then merges them and drops rows with missing values (MC1), unchanged | Yes (authors' code) |
 
+Targets created from the dashboard are stored in `data/targets.local.json` (same schema, plus
+`"tracker": {...}` and `"_source": "dashboard"`) and use the same steps via `src/pipeline/run_target.py`.
+
+**Issue trackers.** *Jira* (as in the paper): Bug type, Fixed/Done resolution, keys `ABC-123` in commit
+messages. *GitHub Issues* (dashboard extension, **not** the paper's definition): a bug is a closed issue or pull
+request carrying a label matching `(?i)(bug|defect|regression)`, referenced as `#123` or `GH-123` in a commit
+message; its report date is the issue/PR creation date. GitHub labels are often applied before triage (in
+google/gson, some "bug"-labelled issues are support questions). Requiring a referencing fix commit in the
+post-release window removes most of these, but labels from GitHub-tracked targets are noisier than Jira's, and the
+manual-validation sample matters more.
+
 Jira access: anonymous REST (Hibernate Cloud `/rest/api/3/search/jql`, batched 50 keys/request). Responses are
 cached in `data/new/<id>/raw/jira_issues.json` and the run date is the cache's mtime (2026-10-24).
 
@@ -114,6 +125,7 @@ compares all 107 file-level EH metrics with the authors' released values
 | Pre-release window is a git range, not the authors' "release-notes" window | Process metrics of new contexts | Documented approximation |
 | Release date = commit date of the tagged commit | Post-release cut-off | Hours-level differences only |
 | Commit-message key linking misses fixes without a key, and may include partial or misc changes | Outcome label | 40-link manual-validation sample (to do) |
+| JTratch is not run-to-run deterministic (6 flow metrics vary; catch/anti-pattern metrics stable) | Flow metrics of new contexts; BSFC | One analyzer run kept per release commit (reused); see REPRODUCTION.md §8 F1, T10 |
 | Umbraco 7.x issue tracker (YouTrack, U4-xxxx) is decommissioned | C# new context | Defect mining expected blocked; documented in targets.json |
 | `-1` "not applicable" sentinel mixed with real zeros | All models (authors' choice) | Kept for faithfulness; the ML code clips to 0 before log-transforming for LR only |
 
