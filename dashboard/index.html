@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EH Replication Dashboard</title>
+<style>
+  :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#3a3a3a; --panel:#f6f6f6; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#141414; --fg:#eee; --muted:#aaa; --line:#333; --accent:#ddd; --panel:#1e1e1e; } }
+  :root[data-theme="dark"] { --bg:#141414; --fg:#eee; --muted:#aaa; --line:#333; --accent:#ddd; --panel:#1e1e1e; }
+  body { background:var(--bg); color:var(--fg); font:14px/1.45 system-ui, sans-serif; margin:0; padding:16px; max-width:1100px; margin-inline:auto; }
+  h1 { font-size:20px; margin:0 0 4px; } h2 { font-size:16px; margin:28px 0 8px; border-bottom:1px solid var(--line); padding-bottom:4px; }
+  .muted { color:var(--muted); } .panel { background:var(--panel); padding:12px; border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:13px; } th, td { border-bottom:1px solid var(--line); padding:4px 6px; text-align:left; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .scroll { overflow-x:auto; } img { max-width:100%; background:#fff; } label { display:block; margin:6px 0 2px; }
+  select, input, button { font:inherit; padding:4px 6px; } button[disabled] { opacity:.6; }
+  .tabs button { margin-right:6px; }
+</style>
+</head>
+<body>
+<h1>Exception handling &amp; post-release defects: replication dashboard</h1>
+<p class="muted">Scaffold (Phase 5). Reads the result files in <code>results/</code>. Serve from the repo root:
+<code>python dashboard/serve.py</code> → <code>http://localhost:8000/dashboard/</code>.</p>
+
+<h2>1. Run the pipeline (curated targets only)</h2>
+<div class="panel">
+  <label for="target">Target (from <code>src/collect/targets.json</code>)</label>
+  <select id="target"></select>
+  <div id="targetInfo" class="muted" style="margin-top:6px"></div>
+  <p><button disabled title="Job/worker not implemented yet">Run pipeline (future work)</button>
+  <span class="muted">Triggering runs via a job queue is future work; run the documented commands in docs/REPRODUCTION.md §5.</span></p>
+</div>
+
+<h2>2. Reproduction: paper Table 4 vs. our runs</h2>
+<div class="scroll"><table id="repro"></table></div>
+
+<h2>3. New context (Phase 2)</h2>
+<div class="scroll"><table id="newctx"></table></div>
+
+<h2>4. ML prediction (RQ3): mean PR-AUC / ROC-AUC</h2>
+<div class="tabs" id="mlTabs"></div>
+<div class="scroll"><table id="ml"></table></div>
+
+<h2>5. SHAP (RQ4)</h2>
+<img src="../results/shap_bar_all.png" alt="Mean absolute SHAP per feature, top 12 per project; exception-handling metrics hatched dark, traditional metrics light gray">
+
+<script>
+async function csv(path) {
+  const r = await fetch(path); if (!r.ok) throw new Error(path + " " + r.status);
+  const text = await r.text(); const rows = []; let row = [], cur = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"' && text[i + 1] === '"') { cur += '"'; i++; } else if (c === '"') q = false; else cur += c; }
+    else if (c === '"') q = true; else if (c === ",") { row.push(cur); cur = ""; }
+    else if (c === "\n") { row.push(cur.replace(/\r$/, "")); rows.push(row); row = []; cur = ""; } else cur += c;
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  const head = rows.shift(); return rows.filter(r => r.length === head.length).map(r => Object.fromEntries(head.map((h, i) => [h, r[i]])));
+}
+function table(el, rows, cols, num = []) {
+  const t = document.getElementById(el);
+  t.innerHTML = "<tr>" + cols.map(c => `<th class="${num.includes(c) ? "num" : ""}">${c}</th>`).join("") + "</tr>" +
+    rows.map(r => "<tr>" + cols.map(c => `<td class="${num.includes(c) ? "num" : ""}">${r[c] ?? ""}</td>`).join("") + "</tr>").join("");
+}
+function fail(el, e) { document.getElementById(el).innerHTML = `<tr><td class="muted">Not available yet (${e.message}).</td></tr>`; }
+
+(async () => {
+  try {
+    const t = await (await fetch("../src/collect/targets.json")).json();
+    const sel = document.getElementById("target");
+    Object.entries(t).filter(([k]) => !k.startsWith("_")).forEach(([k, v]) => sel.add(new Option(`${k} (${v.language})`, k)));
+    const show = () => { const v = t[sel.value]; document.getElementById("targetInfo").textContent =
+      `${v.repo} · release ${v.release_tag} · post-release ${v.post_release_tag} · prev ${v.prev_release_tag}`; };
+    sel.onchange = show; show();
+  } catch (e) { document.getElementById("targetInfo").textContent = "targets.json not found"; }
+
+  try {
+    const r = await csv("../results/reproduction_comparison.csv");
+    table("repro", r, ["Project", "Model", "Run", "Original R2", "Reproduced R2", "Difference", "Significant EH predictors (ours)"],
+      ["Original R2", "Reproduced R2", "Difference"]);
+  } catch (e) { fail("repro", e); }
+
+  try {
+    const r = await csv("../results/new_context_comparison.csv");
+    table("newctx", r, ["Context", "Model", "Paper R2 (original release)", "New R2", "Files (n)", "Significant EH predictors"],
+      ["Paper R2 (original release)", "New R2", "Files (n)"]);
+  } catch (e) { fail("newctx", e); }
+
+  try {
+    const r = await csv("../results/ml_results.csv");
+    const tabs = document.getElementById("mlTabs");
+    const render = (metric) => {
+      const sets = ["TRAD", "TRAD+FLOW", "TRAD+AP", "TRAD+EH"], out = {};
+      r.forEach(x => { const k = x.project + "|" + x.learner; out[k] ??= { Project: x.project, Learner: x.learner };
+        out[k][x.feature_set] = (+x[metric + "_mean"]).toFixed(3) + " ± " + (+x[metric + "_std"]).toFixed(3); });
+      table("ml", Object.values(out), ["Project", "Learner", ...sets], sets);
+    };
+    ["pr_auc", "roc_auc", "f1"].forEach(m => { const b = document.createElement("button"); b.textContent = m.toUpperCase().replace("_", "-");
+      b.onclick = () => render(m); tabs.appendChild(b); });
+    render("pr_auc");
+  } catch (e) { fail("ml", e); }
+})();
+</script>
+</body>
+</html>

@@ -128,22 +128,154 @@ bug and its fix should be reported in our write-up and, ideally, to the authors.
 
 ## 4. Phase A: ML prediction (RQ3) and SHAP (RQ4) on the released dataset
 
-See §8 (filled in after the run). Commands:
+### Commands
 
 ```bash
-./envrun.sh python src/ml/train_eval.py             # -> results/ml_results.{csv,md}, ml_uplift.csv, ml_folds.csv
-./envrun.sh python src/explain/shap_analysis.py     # -> results/shap_*.{png,csv,md}
-./envrun.sh jupyter nbconvert --to notebook --execute --inplace notebooks/phaseA_ml_shap.ipynb   # runs both
+./envrun.sh python -W ignore src/ml/train_eval.py          # -> results/ml_results.{csv,md}, ml_uplift.csv, ml_folds.csv (~30 min here)
+./envrun.sh python -W ignore src/explain/shap_analysis.py  # -> results/shap_*.{png,csv,md}
+./envrun.sh jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=3600 \
+    notebooks/phaseA_ml_shap.ipynb                         # runs both and displays the results
 ```
+
+### Protocol
+
+* Data: the authors' released dataset, files with ≥ 1 catch block (the paper's presented setting): Umbraco 230
+  files (9.6% defective), Hadoop 890 (16.1%), Hibernate 440 (21.1%). Label = `Distinct.count.of.Issue.Key.POST > 0`.
+* Feature sets, from the authors' own data-source groups: TRAD (Git/Jira + Understand; 35–44 non-constant
+  features), TRAD+FLOW (+ try/flow metrics), TRAD+AP (+ catch/anti-pattern metrics), TRAD+EH (+ both). Throws
+  metrics excluded, as in the paper's presented models. Constant columns dropped per project.
+* Learners, fixed and **untuned** (so the comparison is between feature sets, not tuning effort): LR (log10(x+1) as in
+  the paper, standardised, L2, class-balanced); RF (500 trees, min_samples_leaf=2, balanced_subsample); XGBoost
+  (300 trees, depth 4, lr 0.05, subsample/colsample 0.8, scale_pos_weight = neg/pos). Seed 2018.
+* Evaluation: repeated stratified 5-fold CV × 10 repeats (50 folds; identical splits for every feature set and
+  learner). PR-AUC (average precision) is the primary metric, with ROC-AUC and F1 (threshold 0.5); mean ± std over
+  folds. Uplift over TRAD is tested with the Nadeau–Bengio corrected resampled t-test (paired by fold).
+* SHAP: TreeSHAP on the best tree learner per project (by TRAD+EH CV PR-AUC; RF for all three), refit on all
+  files. RF SHAP values are in **probability** units. Agreement with Phase 0 counts a top-10 EH feature as
+  matching if it *is*, or is correlated |ρ| > 0.7 with, an EH predictor significant in the simplified BSFC/BSAP
+  models of the bug-fixed run.
+
+### RQ3 results: mean PR-AUC over 50 folds (`results/ml_results.md` has ± std, ROC-AUC, F1)
+
+| Project (prevalence) | Learner | TRAD | TRAD+FLOW | TRAD+AP | TRAD+EH |
+|---|---|---:|---:|---:|---:|
+| Umbraco (0.096) | LR | 0.221 | 0.332 | 0.281 | 0.314 |
+| | RF | 0.350 | 0.400 | 0.361 | 0.395 |
+| | XGB | 0.303 | 0.368 | 0.310 | 0.364 |
+| Hadoop (0.161) | LR | 0.552 | 0.526 | 0.486 | 0.468 |
+| | RF | 0.597 | 0.595 | 0.603 | 0.597 |
+| | XGB | 0.582 | 0.590 | 0.586 | 0.585 |
+| Hibernate (0.211) | LR | 0.460 | 0.433 | 0.435 | 0.411 |
+| | RF | 0.506 | 0.548 | 0.538 | 0.555 |
+| | XGB | 0.489 | 0.547 | 0.498 | 0.544 |
+
+Plainly:
+* **PR-AUC (primary): no learner on any project improves significantly** when EH metrics are added (all corrected
+  p ≥ 0.091). Tree models gain somewhat on Hibernate (RF +0.049 PR-AUC with TRAD+EH, better in 43/50 folds,
+  p = 0.091). On Umbraco, trees gain +0.007 to +0.065 and LR +0.060 to +0.111, but std ≈ 0.10–0.14 with only
+  4–5 positives per test fold. Hadoop: within ±0.01 for trees.
+* **ROC-AUC: Umbraco tree models improve significantly** (RF +0.122 FLOW / +0.133 EH; XGB +0.090 to +0.112;
+  p = 0.019–0.041; 43–45/50 folds), as does Hadoop RF+AP marginally (+0.010, p = 0.047).
+* **Logistic regression gets worse** with EH metrics on Hadoop (PR-AUC −0.067 AP, −0.084 EH; p = 0.008, 0.014),
+  plausibly because, unlike the paper's models, it gets 100+ highly correlated features with no
+  correlation/redundancy filtering (only L2 shrinkage).
+* Caveat: 81 uncorrected tests (27 per metric); under Holm correction only the strongest effects would survive.
+  We report the raw p-values and fold counts rather than claim a significant uplift.
+
+### RQ4 results (`results/shap_alignment.md`, figures `results/shap_bar_all.png`, `results/shap_beeswarm_*.png`)
+
+* Traditional metrics dominate every ranking: pre-release churn, authors and changes are top in Hadoop and
+  Hibernate; blank lines and statement counts in Umbraco.
+* Highest-ranked EH features: Umbraco `% Subsumption` (#3 overall), Hibernate `Avg Exc Type Prevalence` (#3),
+  Hadoop `% Handled with Log` (#12).
+* Agreement with Phase 0 (top-10 EH features matching a significant BSFC/BSAP predictor, exactly or via a
+  |ρ| > 0.7 proxy): **Hadoop 6/10, Hibernate 3/10, Umbraco 2/10**. For every matched feature the SHAP direction
+  agrees with the sign of the Phase 0 coefficient (e.g. Hibernate type prevalence −, throw-wrap −, invoked-methods
+  +; Hadoop % log +, % specific +; Umbraco dummy handler +, generic catch +). Some Phase 0 predictors rank low
+  under SHAP (Hadoop `AP Log and Throw` #134, `# Try in Other` #140; Hibernate `Sum of AP Dummy Handler` #84):
+  significant in a parsimonious logistic model is not the same as important to a forest over 124–146 features.
 
 ## 5. Phase 1: new-release data pipeline
 
-See §9 (filled in after the run).
+Details: [DATA.md](DATA.md) §1b–§4. Commands (target `hibernate-5.1`; the same steps work for any target in
+`src/collect/targets.json`):
 
-## 6. Phase 2: statistical replication on new data
+```bash
+./envrun.sh python src/collect/clone_repo.py hibernate-5.1
+./envrun.sh python src/collect/process_metrics.py hibernate-5.1
+./envrun.sh python src/collect/defect_mining.py hibernate-5.1
+./envrun.sh python src/collect/traditional_metrics.py hibernate-5.1      # Understand if licensed, else fallback
+./envrun.sh python src/collect/run_analyzers.py hibernate-5.1            # JTratch on Java 8 (~35 min, 6 GB heap)
+./envrun.sh python -W ignore src/collect/build_dataset.py hibernate-5.1  # authors' 5 input CSVs
+# pipeline validation on the paper's own release:
+./envrun.sh python src/collect/clone_repo.py hibernate-5.0-validation
+./envrun.sh python src/collect/run_analyzers.py hibernate-5.0-validation
+./envrun.sh python -W ignore src/collect/validate_against_original.py
+```
 
-See §10.
+Status: **runs end to end on Hibernate ORM 5.1.0** (3,475 files; 284 post-release-defective; 467 with catch
+blocks). JTratch builds from source at the paper's tag and runs on OpenJDK 8; on Java 24 it cannot run (JAXB).
 
-## 7. Open TODOs / known failures
+### Validation and rule choices (aggregation re-implementation)
 
-Maintained at the end of this file (§11).
+`validate_against_original.py` compares our file-level EH metrics for Hibernate 5.0.0.Final with the authors'
+released values: 57/107 metrics identical on ≥ 95% of files (catch-level mean exact-match 0.96, throws 0.99,
+try/flow 0.84). Where the rule sheet left a choice open, these variants were scored (exact-match rate of the
+per-file count) and the best one adopted:
+
+| Rule | Variants tried (exact-match) | Adopted |
+|---|---|---|
+| Catch/Try LOC | end−start (0.00), +1 (0.00), −1 (0.00); theirs − (end−start+1) = +1.00 per block on all 459 files | end − start + 2 |
+| Destructive Wrapping | new ∧ ¬wrap (0.40), new ∧ wrap (0.95), wrap (0.73), new (0.79) | new exception wrapping the caught one |
+| Log and Throw | log ∧ thrown (0.93), log ∧ rethrow-same (0.96), log ∧ new (0.97), log ∧ thrown ∧ ¬wrap (0.99) | log ∧ thrown ∧ ¬wrap |
+| Overcatch | subsumption > 1 (0.77), > 0 (0.92), others ≤ 0.80 | subsumption > 0 |
+| Recoverability | R={Runtime,checked} (0.63/0.63/0.88), R={checked}, U={Runtime,Error} (0.94/0.94/0.88) | recoverable = checked; unrecoverable = Runtime ∪ Error |
+| Generic Catch | {Exception, Throwable} (0.97), + RuntimeException (1.00), + Error (0.97) | + RuntimeException |
+| Catch and Return null | ret-null ∧ ¬log (0.97), ret-null (0.98) | ret-null |
+| Nested try block | parent ∈ {try, catch} ∨ inner (0.97), inner (0.85), parent = try (1.00) | parent = try |
+| Exception-type prevalence scope | all analysed files incl. tests (mean 172.8 vs 138.6), release files (122.4, ρ = 0.91) | release files |
+
+Remaining gap: possible-exception detection, ~25% fewer per try, from the unpublished external-Javadoc XML and
+missing dependency jars (DATA.md §3). Flow metrics on new releases are therefore *systematically lower* than the
+authors' tool would produce. Rankings are fairly well preserved: Spearman ρ ≥ 0.63 for all 52 Try_Based metrics
+with a defined ρ (median exact-match 0.94).
+
+## 6. Phase 2: statistical replication on new data (partial)
+
+```bash
+./envrun.sh Rscript src/reproduce/run_original.R fixed --input data/new/hibernate-5.1/input --out results/new/hibernate-5.1
+./envrun.sh python src/reproduce/build_comparison.py     # adds the "New context" section + results/new_context_comparison.csv
+```
+
+The authors' code runs unchanged (plus D1, D2) on our newly collected Hibernate 5.1.0 data. Results
+(optimism-reduced Nagelkerke R², simplified models; n = 404 files with catch blocks and try data, budget 26):
+
+| Model | Paper, Hibernate 5.0.0 | Ours, Hibernate 5.1.0 | Significant EH predictors (direction) |
+|---|---:|---:|---|
+| BASE | 0.21 | 0.238 | — |
+| BSFC | 0.28 | 0.275 | `# Handled with Throw with New` (+, χ² 6.20), `% Propagated` (+, χ² 15.79) |
+| BSAP | 0.23 | 0.264 | `Avg. AP Unhandled exceptions` (+, χ² 12.06) |
+
+Same ordering as the paper (BSFC > BSAP > BASE). Comment density is significant in both releases
+(`CountLineComment` +, `RatioCommentToCode` −). **This is an extension, not a faithful replication**: BASE uses 12
+fallback product metrics instead of 39 Understand metrics (8 potential predictors after reduction vs. 18 in the
+paper), and flow metrics come from JTratch under reduced binding resolution. Done: Hibernate 5.1. Not done:
+Hadoop 2.7, a C# context (see §7).
+
+## 7. Open TODOs and known failures
+
+| # | Item | Status / plan |
+|---|---|---|
+| T1 | Regenerate the external-Javadoc XML (`MyRoot` / `MyPackage` / `MyClass` / `MyMethod` / `MyThrowTag`, see `external/JTratch/src/main/java/ca/concordia/jpexjd/`) from `@throws` tags of JDK 8 sources and the target's dependencies | Highest-value fidelity fix for flow metrics; not started |
+| T2 | Give JTratch dependency jars (`--m2`): resolve Hibernate 5.1's Gradle deps (Java 8), point `--m2` at the jar cache | Not started |
+| T3 | Manual validation of the 40 defect links (`data/new/hibernate-5.1/manual_validation_sample.csv`), two raters | Not started (needs team) |
+| T4 | Hadoop 2.7.0 → 2.7.7 (target configured; large repo, 4 Jira projects; JTratch needs ≥ 6 GB heap) | Not started |
+| T5 | C# context: NTratch.exe (2017 .NET binary) on Umbraco 7.7; Umbraco 7's YouTrack tracker is decommissioned, so defect labels need another source (GitHub issues/PR links) | Not started; likely blocked on defect labels |
+| T6 | Understand licence (academic) for a faithful BASE on new data | Ask instructor/department |
+| T7 | Report the BSFC bug (D1) to the authors | To do |
+| T8 | Multiple-comparison correction (Holm) for the RQ3 uplift tests; optionally nested-CV tuning | To do |
+| T9 | Dashboard (Phase 5) | Scaffold only (`dashboard/`) |
+
+Known failures encountered and resolved are listed under §3 (Phase 0). In Phase 1: our first JTratch attempt on
+Java 24 is not viable (JAXB); `conda run` races when parallel (→ `envrun.sh`); our first defect-mining run ignored
+Jira's timezone offset (fixed; counts unchanged).
