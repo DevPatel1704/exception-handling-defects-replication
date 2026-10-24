@@ -112,6 +112,20 @@ def main() -> None:
         md.append(f"| {r['Project']} | {r['Model']} | {r['Run']} | {r['Original budget']} / {r['Our budget']} | "
                   f"{r['Original # potential predictors']} / {r['Our # potential predictors']} | "
                   f"{r['Original cutoff']:.2f} / {r['Our cutoff']:.3f} | {r['Apparent R2 (simplified, not corrected)']:.3f} |")
+    new_rows = new_context(base)
+    if new_rows is not None:
+        new_rows.to_csv(RES / "new_context_comparison.csv", index=False)
+        md += ["", "## New context (Phase 2): authors' pipeline (bug-fixed) on our newly collected data", "",
+               "**Extension, not a faithful replication**: product metrics come from the open-source fallback "
+               "(no Understand license), and the flow metrics come from JTratch without dependency jars or "
+               "external Javadoc (see docs/DATA.md §3–4). Compared against the paper's value for the same project.", "",
+               "| Context | Model | Paper (orig. release) R² | New release R² | Files (n) | Budget | # potential | "
+               "Significant EH predictors | Significant base predictors |",
+               "|---|---|---:|---:|---:|---:|---:|---|---|"]
+        for _, r in new_rows.iterrows():
+            md.append(f"| {r['Context']} | {r['Model']} | {r['Paper R2 (original release)']:.2f} | "
+                      f"{r['New R2']:.3f} | {r['Files (n)']} | {r['Budget']} | {r['# potential predictors']} | "
+                      f"{r['Significant EH predictors'] or '—'} | {r['Significant base predictors'] or '—'} |")
     t5 = table5()
     if t5 is not None:
         md += ["", "## Paper Table 5: significant predictors, Wald χ² and effect (bug-fixed run)", "",
@@ -170,6 +184,31 @@ TABLE5 = [
     ("HB-7", "hibernate-5.0", "BSFC", "Avg...Invoked.Method", 6.21, 7.6),
     ("HB-8", "hibernate-5.0", "BSFC", "Avg.Exc.Type.Prevalence", 19.85, -4.6),
 ]
+
+
+NEW_CONTEXT_PAPER_PROJECT = {"hibernate-5.1": "hibernate-5.0", "hadoop-2.7": "hadoop-2.6", "umbraco-7.7": "umbraco-7.6"}
+
+
+def new_context(base: set):
+    rows = []
+    for f in sorted((RES / "new").glob("*/fixed/base_test_2.csv")):
+        ctx = f.parent.parent.name
+        groups = pd.read_csv(f.parent / "metric_groups.csv")
+        base_new = set(groups.loc[groups.group == "base", "metric"])
+        d = pd.read_csv(f)
+        for _, x in d[d.file_set == "CAT"].iterrows():
+            sig = [s.strip() for s in str(x["signifcant_r"]).split(",") if s.strip() not in ("", "TOTAL", "nan")]
+            rows.append({"Context": ctx, "Model": x["metric_set"],
+                         "Paper R2 (original release)": PAPER[(NEW_CONTEXT_PAPER_PROJECT[ctx], x["metric_set"])]["r2"],
+                         "New R2": round(x["r2_c_r"], 3), "Apparent R2": round(x["r2_r"], 3),
+                         "Files (n)": int(x["n"]), "Budget": int(x["budget"]),
+                         "# potential predictors": int(x["nvar_initial"]), "Cutoff": x["cutoff"],
+                         "Significant EH predictors": "; ".join(s for s in sig if s not in base_new),
+                         "Significant base predictors": "; ".join(s for s in sig if s in base_new)})
+    if not rows:
+        return None
+    order = {"BASE": 0, "BSFC": 1, "BSAP": 2}
+    return pd.DataFrame(rows).sort_values(["Context", "Model"], key=lambda s: s.map(order) if s.name == "Model" else s)
 
 
 def _ours_predictors():
