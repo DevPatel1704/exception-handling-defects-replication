@@ -1,0 +1,46 @@
+project,eh_rank,overall_rank,feature,group,mean_abs_shap,shap_direction,matches_phase0_sig
+umbraco-7.6,1.00000,3,X..Subsumption,try,0.01554,+,
+umbraco-7.6,2.00000,6,Try.SLOC,try,0.01301,+,
+umbraco-7.6,3.00000,7,Try.LOC,try,0.01280,+,
+umbraco-7.6,4.00000,9,Avg.Exc.Type.Prevalence,try,0.01172,+,
+umbraco-7.6,5.00000,10,X..Handled.with.Log,try,0.01162,+,
+umbraco-7.6,6.00000,11,X..Handled.with.Log.1,try,0.01130,+,
+umbraco-7.6,7.00000,12,Sum.of.AP.Generic.Catch,catch,0.01098,+,Sum.of.AP.Generic.Catch (rho=1.00)
+umbraco-7.6,8.00000,18,Avg..AP.Unhandled.exceptions,catch,0.00890,-,
+umbraco-7.6,9.00000,21,Avg..AP.Dummy.Handler,catch,0.00841,+,Avg..AP.Dummy.Handler (rho=1.00)
+umbraco-7.6,10.00000,22,Sum.of.Num.Distinct.Methods,try,0.00829,+,
+umbraco-7.6,,21,Avg..AP.Dummy.Handler,catch,0.00841,,<Phase 0 significant EH predictor>
+umbraco-7.6,,12,Sum.of.AP.Generic.Catch,catch,0.01098,,<Phase 0 significant EH predictor>
+hadoop-2.6,1.00000,12,X..Handled.with.Log.1,try,0.01060,+,X..Handled.with.Log.1 (rho=1.00)
+hadoop-2.6,2.00000,15,X..Handled.with.Log,try,0.00891,+,X..Handled.with.Log.1 (rho=0.94)
+hadoop-2.6,3.00000,18,Catch.LOC,catch,0.00797,+,Potentially.Recoverable (rho=0.86)
+hadoop-2.6,4.00000,19,Avg.Catch.LOC,catch,0.00767,+,
+hadoop-2.6,5.00000,25,X..Specific,try,0.00624,+,X..Specific (rho=1.00)
+hadoop-2.6,6.00000,29,Avg..AP.Overcatch,catch,0.00577,-,
+hadoop-2.6,7.00000,33,X..External.Doc,try,0.00442,-,
+hadoop-2.6,8.00000,34,Avg.Max.Depth,try,0.00433,-,
+hadoop-2.6,9.00000,36,X..Handled.with.Method.1,try,0.00423,+,X..Handled.with.Method.1 (rho=1.00)
+hadoop-2.6,10.00000,37,Sum.of.Num.Distinct.Methods,try,0.00392,+,Potentially.Recoverable (rho=0.73)
+hadoop-2.6,,134,AP.Log.and.Throw,catch,0.00014,,<Phase 0 significant EH predictor>
+hadoop-2.6,,46,Avg..AP.Ignoring.Interrupted.Exception,catch,0.00352,,<Phase 0 significant EH predictor>
+hadoop-2.6,,58,Potentially.Recoverable,catch,0.00263,,<Phase 0 significant EH predictor>
+hadoop-2.6,,12,X..Handled.with.Log.1,try,0.01060,,<Phase 0 significant EH predictor>
+hadoop-2.6,,36,X..Handled.with.Method.1,try,0.00423,,<Phase 0 significant EH predictor>
+hadoop-2.6,,57,X..Propagated.1,try,0.00271,,<Phase 0 significant EH predictor>
+hadoop-2.6,,25,X..Specific,try,0.00624,,<Phase 0 significant EH predictor>
+hadoop-2.6,,140,X..Try.in.Other,try,0.00005,,<Phase 0 significant EH predictor>
+hibernate-5.0,1.00000,3,Avg.Exc.Type.Prevalence,try,0.01565,-,Avg.Exc.Type.Prevalence (rho=1.00)
+hibernate-5.0,2.00000,14,X..Handled.with.Throw.Wrap,try,0.00750,-,X..Handled.with.Throw.Wrap (rho=1.00)
+hibernate-5.0,3.00000,19,X..Propagated.1,try,0.00619,+,
+hibernate-5.0,4.00000,25,Try.LOC,try,0.00556,+,
+hibernate-5.0,5.00000,26,Num.Distinct.Methods,try,0.00540,+,
+hibernate-5.0,6.00000,29,Avg...Invoked.Method,try,0.00502,+,Avg...Invoked.Method (rho=1.00)
+hibernate-5.0,7.00000,30,Catch.SLOC,catch,0.00487,+,
+hibernate-5.0,8.00000,32,Sum.of.AP.Unhandled.exceptions,catch,0.00449,+,
+hibernate-5.0,9.00000,34,Sum.of.Num.Distinct.Methods,try,0.00445,+,
+hibernate-5.0,10.00000,36,Avg.Catch.LOC,catch,0.00416,+,
+hibernate-5.0,,29,Avg...Invoked.Method,try,0.00502,,<Phase 0 significant EH predictor>
+hibernate-5.0,,38,Avg.Catch.SLOC,catch,0.00396,,<Phase 0 significant EH predictor>
+hibernate-5.0,,3,Avg.Exc.Type.Prevalence,try,0.01565,,<Phase 0 significant EH predictor>
+hibernate-5.0,,84,Sum.of.AP.Dummy.Handler,catch,0.00171,,<Phase 0 significant EH predictor>
+hibernate-5.0,,14,X..Handled.with.Throw.Wrap,try,0.00750,,<Phase 0 significant EH predictor>
