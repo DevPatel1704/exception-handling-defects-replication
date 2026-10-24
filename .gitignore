@@ -7,7 +7,9 @@ external/NTratch/
 # Scratch build dirs and cloned target repos
 build/
 data/new/repos/
-data/new/**/raw/
+data/new/*/src/
+data/new/*/raw/analyzer/
+# (data/new/*/raw/jira_issues.json IS tracked: it freezes the Jira state the labels were computed from)
 # Python / R / notebooks
 __pycache__/
 *.pyc
@@ -20,4 +22,4 @@ Rplots.pdf
 Thumbs.db
 
 # Phase 0 regenerated copy (identical to data/original/all_no_missing.csv; verified in docs/REPRODUCTION.md)
-results/reproduce/*/all_no_missing_regenerated.csv
+results/**/all_no_missing_regenerated.csv
