@@ -1,0 +1,6 @@
+{
+  "name": "exceptionlab-ui-tests",
+  "private": true,
+  "description": "Headless-browser tests of dashboard/ (uses an installed Edge or Chrome)",
+  "dependencies": { "puppeteer-core": "22.15.0" }
+}

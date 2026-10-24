@@ -105,21 +105,38 @@ class Runner:
         self.stamps_path.write_text(json.dumps(st, indent=1))
 
     def run_cmd(self, name, cmd, env_extra=None) -> None:
+        """Run one command; every output line is written to the step log prefixed with a UTC timestamp
+        ("2026-10-24T13:06:36Z | ..."), which the dashboard's log viewer can show or hide."""
         log = self.log_dir / f"{name}.log"
-        env = {**os.environ, "PYTHONUNBUFFERED": "1", "PYTHONWARNINGS": "ignore", **(env_extra or {})}
+        env = {**os.environ, "PYTHONUNBUFFERED": "1", "PYTHONWARNINGS": "ignore", "PYTHONIOENCODING": "utf-8",
+               **(env_extra or {})}
+        stamp = lambda: datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")  # noqa: E731
+        last = [""]
         with open(log, "a", encoding="utf-8") as fh:
-            fh.write(f"$ {' '.join(map(str, cmd))}\n")
+            fh.write(f"{stamp()} | $ {' '.join(map(str, cmd))}\n")
             fh.flush()
-            self.proc = subprocess.Popen([str(c) for c in cmd], cwd=ROOT, stdout=fh, stderr=subprocess.STDOUT, env=env)
+            self.proc = subprocess.Popen([str(c) for c in cmd], cwd=ROOT, stdout=subprocess.PIPE,
+                                         stderr=subprocess.STDOUT, env=env)
+
+            def pump(stream=self.proc.stdout):
+                for raw in iter(stream.readline, b""):
+                    line = raw.decode("utf-8", errors="replace").rstrip("\r\n")
+                    if line.strip():
+                        last[0] = line
+                    fh.write(f"{stamp()} | {line}\n")
+                    fh.flush()
+            reader = threading.Thread(target=pump, daemon=True)
+            reader.start()
             while self.proc.poll() is None:
                 if self.cancel.is_set():
                     self.kill()
+                    reader.join(timeout=5)
                     raise InterruptedError("cancelled")
                 time.sleep(0.5)
+            reader.join(timeout=30)
             rc, self.proc = self.proc.returncode, None
         if rc != 0:
-            tail = log.read_text(encoding="utf-8", errors="replace").strip().splitlines()[-1:] or [""]
-            raise RuntimeError(f"exit code {rc}: {tail[0][:300]}")
+            raise RuntimeError(f"exit code {rc}: {last[0][:300]}")
 
     def kill(self) -> None:
         p = self.proc
@@ -130,8 +147,9 @@ class Runner:
                 p.kill()
 
     def log(self, name, text):
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         with open(self.log_dir / f"{name}.log", "a", encoding="utf-8") as fh:
-            fh.write(text.rstrip() + "\n")
+            fh.write("".join(f"{ts} | {ln}\n" for ln in text.rstrip().splitlines()))
 
     # ---------- steps ----------
     def s_clone(self):
@@ -280,6 +298,7 @@ class Runner:
         for s in self.steps:
             if self.cancel.is_set():
                 s.status, s.message = "cancelled", "cancelled before start"
+                self.on_update(self)
                 continue
             bad = [d for d in s.deps if self.step(d).status not in ("done", "reused")]
             if s.name == "models" and self.step("defect_mining").status == "skipped":
@@ -302,6 +321,7 @@ class Runner:
                 self.log(s.name, f"FAILED: {e}")
             s.ended, s.seconds = _now(), round(time.time() - t0, 1)
             self.on_update(self)
+        self.on_update(self)   # final state (also covers steps marked cancelled/blocked without running)
         return self.steps
 
 

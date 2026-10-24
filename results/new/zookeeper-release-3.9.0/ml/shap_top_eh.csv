@@ -1,0 +1,11 @@
+feature,mean_abs_shap,mean_shap,group,project,learner,cv_pr_auc,rank,direction,eh_rank
+Sum.of.Num.Distinct.Methods,0.01801,-0.00771,try,zookeeper-release-3.9.0,RF,0.48930,3,1.00000,1
+Try.LOC,0.01280,-0.00600,try,zookeeper-release-3.9.0,RF,0.48930,6,1.00000,2
+Try.SLOC,0.01184,-0.00558,try,zookeeper-release-3.9.0,RF,0.48930,11,1.00000,3
+X..Handled.with.Log,0.01137,-0.00671,try,zookeeper-release-3.9.0,RF,0.48930,12,1.00000,4
+Catch.SLOC,0.01064,-0.00537,catch,zookeeper-release-3.9.0,RF,0.48930,13,1.00000,5
+Avg.Catch.SLOC,0.01058,-0.00585,catch,zookeeper-release-3.9.0,RF,0.48930,14,1.00000,6
+X..Handled.with.Log.1,0.01050,-0.00619,try,zookeeper-release-3.9.0,RF,0.48930,15,1.00000,7
+Num.Distinct.Methods,0.00996,-0.00579,try,zookeeper-release-3.9.0,RF,0.48930,16,1.00000,8
+Avg.Try.SLOC,0.00727,-0.00423,try,zookeeper-release-3.9.0,RF,0.48930,19,1.00000,9
+Avg.Try.LOC,0.00715,-0.00492,try,zookeeper-release-3.9.0,RF,0.48930,20,1.00000,10

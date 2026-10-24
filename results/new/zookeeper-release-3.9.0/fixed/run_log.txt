@@ -1,0 +1,1094 @@
+
+
+######## RUNNING 0-DataSourcesAnalysis.Rmd ########
+
+Attaching package: 'e1071'
+
+The following object is masked from 'package:Hmisc':
+
+    impute
+
+[1] "DataSource, NumberFiles, NumberMetrics"
+[1] "VCS_ITS, 504 , 8"
+[1] "Understand, 504 , 19"
+[1] "Throws, 255 , 7"
+[1] "Catch, 188 , 47"
+[1] "Try, 178 , 59"
+[1] "zookeeper-release-3.9.0 ,DataSource, NumberFiles, NumberMetrics"
+[1] "zookeeper-release-3.9.0 ,VCS_ITS, 504 , 8"
+[1] "zookeeper-release-3.9.0 ,Understand, 504 , 19"
+[1] "zookeeper-release-3.9.0 ,Throws, 255 , 7"
+[1] "zookeeper-release-3.9.0 ,Catch, 188 , 47"
+[1] "zookeeper-release-3.9.0 ,Try, 178 , 59"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "MissingData: Small fraction found: Single imputation or discard. Discard is chosen. Discarded rows: 10 / 504"
+
+
+######## RUNNING 1-Model_Construction.Rmd ########
+[1] "Project: zookeeper-release-3.9.0"
+[1] "nrow: 494 ncol: 132"
+[1] "Project: zookeeper-release-3.9.0 D.F. Budget: 32"
+[1] "Project: zookeeper-release-3.9.0 skewness, 4.70320470833749"
+[1] "Project: zookeeper-release-3.9.0 kurtosis, 27.294644396161"
+[1] "Project: zookeeper-release-3.9.0"
+[1] 494
+ [1] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [3] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [5] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [7] "AvgCyclomatic"                      "AvgLineCode"                       
+ [9] "CountDeclClass"                     "CountDeclFunction"                 
+[11] "CountLineBlank"                     "CountLineCode"                     
+[13] "CountLineComment"                   "CountLine"                         
+[15] "CountSemicolon"                     "File"                              
+[17] "Kind"                               "MaxCyclomatic"                     
+[19] "Name"                               "Number.of.Records"                 
+[21] "RatioCommentToCode"                 "SumCyclomatic"                     
+[23] "Table.Name"                        
+[1] "Project: zookeeper-release-3.9.0"
+[1] "NumberOfMetricsInitial: 18"
+[1] "NumberOfMetricsKept: 6"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "Redudant variables: "
+[1] "Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment + File + Kind + Name + RatioCommentToCode + Table.Name"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "NumberOfMetricsInitial: 6 Budget: 32 Over Budget: FALSE NumberOfMetricsKept: 6 CorrelationCutoff: 0.7"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.9.0"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood    Discrimination    Rank Discrim.    
+                             Ratio Test           Indexes          Indexes    
+Obs           494    LR chi2      56.69    R2       0.214    C       0.768    
+ FALSE        438    d.f.             6    R2(6,494)0.098    Dxy     0.536    
+ TRUE          56    Pr(> chi2) <0.0001    R2(6,149)0.288    gamma   0.537    
+max |deriv| 1e-08                          Brier    0.084    tau-a   0.108    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -3.8040 1.0263 -3.71  0.0002  
+Distinct.count.of.Issue.Key.PRE  2.0653 1.3614  1.52  0.1293  
+Churn.PRE                        0.3348 0.2696  1.24  0.2143  
+AvgCyclomatic                   -0.7072 1.0657 -0.66  0.5070  
+CountDeclClass                  -1.8401 1.5990 -1.15  0.2498  
+CountLineComment                 1.8660 0.4883  3.82  0.0001  
+RatioCommentToCode              -2.8898 1.3223 -2.19  0.0289  
+
+[1] "Project: zookeeper-release-3.9.0"
+ [1] "File.Path"                          "Project"                           
+ [3] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [5] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [7] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [9] "AvgCyclomatic"                      "AvgLineCode"                       
+[11] "CountDeclClass"                     "CountDeclFunction"                 
+[13] "CountLineBlank"                     "CountLineCode"                     
+[15] "CountLineComment"                   "CountLine"                         
+[17] "CountSemicolon"                     "File"                              
+[19] "Kind"                               "MaxCyclomatic"                     
+[21] "Name"                               "Number.of.Records"                 
+[23] "RatioCommentToCode"                 "SumCyclomatic"                     
+[25] "Table.Name"                         "X..Throws"                         
+[27] "X..Catch"                          
+[1] "Project: zookeeper-release-3.9.0"
+[1] "NumberOfMetricsInitial: 20"
+[1] "NumberOfMetricsKept: 8"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment + RatioCommentToCode + X..Throws + X..Catch"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "Redudant variables: "
+[1] "File.Path + Project + Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment + File + Kind + Name + RatioCommentToCode + Table.Name + X..Throws + X..Catch"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "NumberOfMetricsInitial: 8 Budget: 32 Over Budget: FALSE NumberOfMetricsKept: 8 CorrelationCutoff: 0.7"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment + RatioCommentToCode + X..Throws + X..Catch"
+[1] "Project: zookeeper-release-3.9.0"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood    Discrimination    Rank Discrim.    
+                             Ratio Test           Indexes          Indexes    
+Obs           494    LR chi2      64.67    R2       0.242    C       0.774    
+ FALSE        438    d.f.             8    R2(8,494)0.108    Dxy     0.548    
+ TRUE          56    Pr(> chi2) <0.0001    R2(8,149)0.316    gamma   0.548    
+max |deriv| 4e-09                          Brier    0.081    tau-a   0.110    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -2.9433 1.1112 -2.65  0.0081  
+Distinct.count.of.Issue.Key.PRE  2.2314 1.4099  1.58  0.1135  
+Churn.PRE                        0.3223 0.2754  1.17  0.2419  
+AvgCyclomatic                   -1.2156 1.1764 -1.03  0.3014  
+CountDeclClass                  -1.7490 1.6307 -1.07  0.2835  
+CountLineComment                 0.9074 0.6131  1.48  0.1389  
+RatioCommentToCode              -1.5643 1.3850 -1.13  0.2587  
+X..Throws                        0.7684 0.4929  1.56  0.1190  
+X..Catch                         0.9916 0.6009  1.65  0.0989  
+
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BASE"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE  2.30      1    0.1293
+ Churn.PRE                        1.54      1    0.2143
+ AvgCyclomatic                    0.44      1    0.5070
+ CountDeclClass                   1.32      1    0.2498
+ CountLineComment                14.60      1    0.0001
+ RatioCommentToCode               4.78      1    0.0289
+ TOTAL                           47.97      6    <.0001
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BSEH"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE  2.50      1    0.1135
+ Churn.PRE                        1.37      1    0.2419
+ AvgCyclomatic                    1.07      1    0.3014
+ CountDeclClass                   1.15      1    0.2835
+ CountLineComment                 2.19      1    0.1389
+ RatioCommentToCode               1.28      1    0.2587
+ X..Throws                        2.43      1    0.1190
+ X..Catch                         2.72      1    0.0989
+ TOTAL                           52.75      8    <.0001
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BASE Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood    Discrimination    Rank Discrim.    
+                             Ratio Test           Indexes          Indexes    
+Obs           494    LR chi2      53.06    R2       0.201    C       0.759    
+ FALSE        438    d.f.             3    R2(3,494)0.096    Dxy     0.518    
+ TRUE          56    Pr(> chi2) <0.0001    R2(3,149)0.285    gamma   0.519    
+max |deriv| 1e-08                          Brier    0.085    tau-a   0.104    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -4.8247 0.7541 -6.40  <0.0001 
+Distinct.count.of.Issue.Key.PRE  2.8743 1.2068  2.38  0.0172  
+CountLineComment                 1.9525 0.4284  4.56  <0.0001 
+RatioCommentToCode              -2.5697 1.0385 -2.47  0.0133  
+
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BASE Refit - summary"
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BASE Refit - validate"
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BASE Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE  5.67      1    0.0172
+ CountLineComment                20.77      1    <.0001
+ RatioCommentToCode               6.12      1    0.0133
+ TOTAL                           45.69      3    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+[1] "CountLineComment"
+[1] "RatioCommentToCode"
+  Distinct.count.of.Issue.Key.PRE CountLineComment RatioCommentToCode
+1                       0.1012146         53.10121           1.203017
+[1] "Fixed at Mean: 0.0995965373063305"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.100625404384061"
+[1] "CountLineComment  Coef at Mean + 10%: 0.106946101536271"
+[1] "RatioCommentToCode  Coef at Mean + 10%: 0.0944004437215554"
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BSEH Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood    Discrimination    Rank Discrim.    
+                             Ratio Test           Indexes          Indexes    
+Obs           494    LR chi2      57.95    R2       0.218    C       0.762    
+ FALSE        438    d.f.             3    R2(3,494)0.105    Dxy     0.524    
+ TRUE          56    Pr(> chi2) <0.0001    R2(3,149)0.309    gamma   0.551    
+max |deriv| 3e-11                          Brier    0.084    tau-a   0.106    
+
+          Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept -3.2301 0.2585 -12.49 <0.0001 
+Churn.PRE  0.6701 0.2161   3.10 0.0019  
+X..Throws  1.0473 0.4561   2.30 0.0217  
+X..Catch   1.1739 0.4747   2.47 0.0134  
+
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BSEH Refit - summary"
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BSEH Refit - validate"
+[1] "project:  zookeeper-release-3.9.0 model:  ALL.BSEH Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor     Chi-Square d.f. P     
+ Churn.PRE   9.62      1    0.0019
+ X..Throws   5.27      1    0.0217
+ X..Catch    6.12      1    0.0134
+ TOTAL      51.53      3    <.0001
+[1] "Churn.PRE"
+[1] "X..Throws"
+[1] "X..Catch"
+  Churn.PRE X..Throws X..Catch
+1  10.90688  2.238866 1.493927
+[1] "Fixed at Mean: 0.181121730505829"
+[1] "Churn.PRE  Coef at Mean + 10%: 0.184935564917685"
+[1] "X..Throws  Coef at Mean + 10%: 0.185674745559236"
+[1] "X..Catch  Coef at Mean + 10%: 0.185562393082856"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "nrow: 494 ncol: 132"
+[1] "nrow: 178 ncol: 132"
+[1] "nrow: 178 ncol: 125"
+[1] "Project: zookeeper-release-3.9.0 D.F. Budget: 11"
+[1] "Project: zookeeper-release-3.9.0 skewness, 3.0886862976078"
+[1] "Project: zookeeper-release-3.9.0 kurtosis, 10.9275016068664"
+[1] "Project: zookeeper-release-3.9.0"
+ [1] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [3] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [5] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [7] "AvgCyclomatic"                      "AvgLineCode"                       
+ [9] "CountDeclClass"                     "CountDeclFunction"                 
+[11] "CountLineBlank"                     "CountLineCode"                     
+[13] "CountLineComment"                   "CountLine"                         
+[15] "CountSemicolon"                     "File"                              
+[17] "Kind"                               "MaxCyclomatic"                     
+[19] "Name"                               "Number.of.Records"                 
+[21] "RatioCommentToCode"                 "SumCyclomatic"                     
+[23] "Table.Name"                        
+[1] "Project: zookeeper-release-3.9.0"
+[1] "NumberOfMetricsInitial: 18"
+[1] "NumberOfMetricsKept: 6"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountLineComment + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "Redudant variables: "
+[1] "Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountLineComment + File + Kind + Name + RatioCommentToCode + Table.Name"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "NumberOfMetricsInitial: 6 Budget: 11 Over Budget: FALSE NumberOfMetricsKept: 6 CorrelationCutoff: 0.7"
+[1] "Project: zookeeper-release-3.9.0"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountLineComment + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.9.0"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           178    LR chi2      35.03     R2       0.275    C       0.779    
+ FALSE        139    d.f.             6     R2(6,178)0.150    Dxy     0.558    
+ TRUE          39    Pr(> chi2) <0.0001    R2(6,91.4)0.272    gamma   0.558    
+max |deriv| 2e-06                           Brier    0.137    tau-a   0.192    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -3.1153 1.7477 -1.78  0.0747  
+Distinct.count.of.Issue.Key.PRE  2.9736 1.7577  1.69  0.0907  
+Churn.PRE                        0.2843 0.3517  0.81  0.4189  
+AvgLineCode                     -0.5819 1.1754 -0.50  0.6206  
+CountDeclClass                  -1.0650 1.9136 -0.56  0.5778  
+CountLineComment                 1.9504 0.7372  2.65  0.0082  
+RatioCommentToCode              -7.3505 3.8314 -1.92  0.0551  
+
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BASE"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE  2.86      1    0.0907
+ Churn.PRE                        0.65      1    0.4189
+ AvgLineCode                      0.25      1    0.6206
+ CountDeclClass                   0.31      1    0.5778
+ CountLineComment                 7.00      1    0.0082
+ RatioCommentToCode               3.68      1    0.0551
+ TOTAL                           25.76      6    0.0002
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BASE Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           178    LR chi2      33.70     R2       0.265    C       0.780    
+ FALSE        139    d.f.             3     R2(3,178)0.158    Dxy     0.560    
+ TRUE          39    Pr(> chi2) <0.0001    R2(3,91.4)0.285    gamma   0.561    
+max |deriv| 2e-06                           Brier    0.139    tau-a   0.193    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -4.2772 1.0081 -4.24  <0.0001 
+Distinct.count.of.Issue.Key.PRE  3.5524 1.6507  2.15  0.0314  
+CountLineComment                 2.1184 0.6130  3.46  0.0005  
+RatioCommentToCode              -7.1487 3.4457 -2.07  0.0380  
+
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BASE Refit - summary"
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BASE Refit - validate"
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BASE Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE  4.63      1    0.0314
+ CountLineComment                11.94      1    0.0005
+ RatioCommentToCode               4.30      1    0.0380
+ TOTAL                           25.02      3    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+[1] "CountLineComment"
+[1] "RatioCommentToCode"
+  Distinct.count.of.Issue.Key.PRE CountLineComment RatioCommentToCode
+1                       0.1741573         82.97753          0.4200226
+[1] "Fixed at Mean: 0.260751656415445"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.265153964918812"
+[1] "CountLineComment  Coef at Mean + 10%: 0.277804893539001"
+[1] "RatioCommentToCode  Coef at Mean + 10%: 0.243688267708791"
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+ [1] "Distinct.count.of.Issue.Key.POST"      
+ [2] "Distinct.count.of.Issue.Key.PRE"       
+ [3] "CountLineComment"                      
+ [4] "RatioCommentToCode"                    
+ [5] "X..Catch"                              
+ [6] "Avg.Catch.LOC"                         
+ [7] "Avg.Catch.SLOC"                        
+ [8] "Avg..AP.Catch.and.do.nothing"          
+ [9] "Avg..AP.Catch.and.Return.null"         
+[10] "Avg..AP.Destructive.Wrapping"          
+[11] "Avg..AP.Dummy.Handler"                 
+[12] "Avg..AP.Generic.Catch"                 
+[13] "Avg..AP.Ignoring.Interrupted.Exception"
+[14] "Avg..AP.Incomplete.implementation"     
+[15] "Avg..AP.Log.and.Return.null"           
+[16] "Avg..AP.Log.and.Throw"                 
+[17] "Avg..AP.Multi.line.log.messages"       
+[18] "Avg..AP.Nested.try.block"              
+[19] "Avg..AP.Overcatch.and.Abort"           
+[20] "Avg..AP.Overcatch"                     
+[21] "Avg..AP.Relying.on.getCause.."         
+[22] "Avg..AP.Throw.within.finally"          
+[23] "Avg..AP.Unhandled.exceptions"          
+[24] "Avg..AP.Unreachable.Catch.Handler"     
+[25] "Avg..Potentially.Recoverable"          
+[26] "Avg..Potentially.UnRecoverable"        
+[27] "Avg..Recoverability.Not.Relevant"      
+[28] "AP.Catch.and.do.nothing"               
+[29] "AP.Catch.and.Return.null"              
+[30] "Sum.of.AP.Destructive.Wrapping"        
+[31] "Sum.of.AP.Dummy.Handler"               
+[32] "Sum.of.AP.Generic.Catch"               
+[33] "AP.Ignoring.Interrupted.Exception"     
+[34] "AP.Incomplete.implementation"          
+[35] "Sum.of.AP.Log.and.Return.null"         
+[36] "AP.Log.and.Throw"                      
+[37] "AP.Multi.line.log.messages"            
+[38] "AP.Nested.try.block"                   
+[39] "Sum.of.AP.Overcatch.and.Abort"         
+[40] "Sum.of.AP.Overcatch"                   
+[41] "AP.Relying.on.getCause.."              
+[42] "AP.Throw.within.finally"               
+[43] "Sum.of.AP.Unhandled.exceptions"        
+[44] "Sum.of.AP.Unreachable.Catch.Handler"   
+[45] "Catch.LOC"                             
+[46] "Catch.SLOC"                            
+[47] "Potentially.Recoverable"               
+[48] "Potentially.UnRecoverable"             
+[49] "Recoverability.Not.Relevant"           
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 48"
+[1] "NumberOfMetricsKept: 19"
+[1] "Distinct.count.of.Issue.Key.PRE + CountLineComment + RatioCommentToCode + Avg.Catch.SLOC + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Destructive.Wrapping + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Nested.try.block + Avg..AP.Unhandled.exceptions + Avg..AP.Unreachable.Catch.Handler + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + AP.Log.and.Throw + AP.Throw.within.finally + Potentially.Recoverable"
+ [1] "Distinct.count.of.Issue.Key.POST"      
+ [2] "Distinct.count.of.Issue.Key.PRE"       
+ [3] "CountLineComment"                      
+ [4] "RatioCommentToCode"                    
+ [5] "Avg.Catch.SLOC"                        
+ [6] "Avg..AP.Catch.and.do.nothing"          
+ [7] "Avg..AP.Catch.and.Return.null"         
+ [8] "Avg..AP.Destructive.Wrapping"          
+ [9] "Avg..AP.Dummy.Handler"                 
+[10] "Avg..AP.Generic.Catch"                 
+[11] "Avg..AP.Ignoring.Interrupted.Exception"
+[12] "Avg..AP.Multi.line.log.messages"       
+[13] "Avg..AP.Nested.try.block"              
+[14] "Avg..AP.Unhandled.exceptions"          
+[15] "Avg..AP.Unreachable.Catch.Handler"     
+[16] "Avg..Potentially.UnRecoverable"        
+[17] "Avg..Recoverability.Not.Relevant"      
+[18] "AP.Log.and.Throw"                      
+[19] "AP.Throw.within.finally"               
+[20] "Potentially.Recoverable"               
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "Redudant variables: "
+[1] "Final variables: Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + CountLineComment + RatioCommentToCode + Avg.Catch.SLOC + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Destructive.Wrapping + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Nested.try.block + Avg..AP.Unhandled.exceptions + Avg..AP.Unreachable.Catch.Handler + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + AP.Log.and.Throw + AP.Throw.within.finally + Potentially.Recoverable"
+[1] "NumberOfMetricsInitial: 20"
+[1] "NumberOfMetricsKept: 20"
+[1] "------------------------------------Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "Distinct.count.of.Issue.Key.PRE + RatioCommentToCode + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Nested.try.block + Avg..AP.Unhandled.exceptions + Avg..Potentially.UnRecoverable + AP.Log.and.Throw"
+[1] "NumberOfMetricsInitial: 19 Budget: 11 Over Budget: TRUE NumberOfMetricsKept: 11 CorrelationCutoff: 0.302"
+[1] "Significant missing: CountLineComment"
+[1] "Check varclus!:"
+[1] "Significant ------ STILL ------ missing: CountLineComment"
+[1] "Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Nested.try.block + Avg..AP.Unhandled.exceptions + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + AP.Log.and.Throw"
+[1] "Distinct.count.of.Issue.Key.PRE + RatioCommentToCode + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Unhandled.exceptions + Avg..Potentially.UnRecoverable + AP.Log.and.Throw"
+[1] "Significant ------ STILL ------ missing: CountLineComment"
+[1] "Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + RatioCommentToCode + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Unhandled.exceptions + Avg..Potentially.UnRecoverable + AP.Log.and.Throw"
+[1] "NumberOfMetricsInitial: 19 Budget: 11 Over Budget: TRUE NumberOfMetricsKept: 11 CorrelationCutoff: 0.302"
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "Distinct.count.of.Issue.Key.PRE + RatioCommentToCode + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Unhandled.exceptions + Avg..Potentially.UnRecoverable + AP.Log.and.Throw"
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                      Model Likelihood      Discrimination    Rank Discrim.    
+                            Ratio Test             Indexes          Indexes    
+Obs           178    LR chi2     27.48      R2       0.220    C       0.743    
+ FALSE        139    d.f.           11     R2(11,178)0.088    Dxy     0.486    
+ TRUE          39    Pr(> chi2) 0.0039    R2(11,91.4)0.165    gamma   0.486    
+max |deriv| 3e-07                           Brier    0.144    tau-a   0.167    
+
+                                       Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                              -0.8694 0.6781 -1.28  0.1998  
+Distinct.count.of.Issue.Key.PRE         6.8191 1.6674  4.09  <0.0001 
+RatioCommentToCode                     -3.2885 3.1198 -1.05  0.2919  
+Avg..AP.Catch.and.do.nothing            2.9922 3.8313  0.78  0.4348  
+Avg..AP.Catch.and.Return.null           1.7995 5.3982  0.33  0.7389  
+Avg..AP.Dummy.Handler                   1.9076 1.9048  1.00  0.3166  
+Avg..AP.Generic.Catch                  -3.3852 2.1540 -1.57  0.1161  
+Avg..AP.Ignoring.Interrupted.Exception -0.5753 3.0300 -0.19  0.8494  
+Avg..AP.Multi.line.log.messages        -2.0856 4.5082 -0.46  0.6436  
+Avg..AP.Unhandled.exceptions           -2.7840 2.1285 -1.31  0.1909  
+Avg..Potentially.UnRecoverable         -0.6626 2.6763 -0.25  0.8045  
+AP.Log.and.Throw                        1.6081 3.6291  0.44  0.6577  
+
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+AP.Log.and.Throw 
+
+Divergence or singularity in 8 samples
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSAP"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                                 Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE        16.72       1   <.0001
+ RatioCommentToCode                      1.11       1   0.2919
+ Avg..AP.Catch.and.do.nothing            0.61       1   0.4348
+ Avg..AP.Catch.and.Return.null           0.11       1   0.7389
+ Avg..AP.Dummy.Handler                   1.00       1   0.3166
+ Avg..AP.Generic.Catch                   2.47       1   0.1161
+ Avg..AP.Ignoring.Interrupted.Exception  0.04       1   0.8494
+ Avg..AP.Multi.line.log.messages         0.21       1   0.6436
+ Avg..AP.Unhandled.exceptions            1.71       1   0.1909
+ Avg..Potentially.UnRecoverable          0.06       1   0.8045
+ AP.Log.and.Throw                        0.20       1   0.6577
+ TOTAL                                  21.90      11   0.0251
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSAP Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           178    LR chi2      19.76     R2       0.161    C       0.651    
+ FALSE        139    d.f.             1     R2(1,178)0.100    Dxy     0.303    
+ TRUE          39    Pr(> chi2) <0.0001    R2(1,91.4)0.186    gamma   0.740    
+max |deriv| 6e-09                           Brier    0.149    tau-a   0.104    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -1.6781 0.2225 -7.54  <0.0001 
+Distinct.count.of.Issue.Key.PRE  6.0964 1.4306  4.26  <0.0001 
+
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSAP Refit - summary"
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSAP Refit - validate"
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSAP Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE 18.16      1    <.0001
+ TOTAL                           18.16      1    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+  Distinct.count.of.Issue.Key.PRE
+1                       0.1741573
+[1] "Fixed at Mean: 0.222182515961633"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.228992306483075"
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+ [1] "Distinct.count.of.Issue.Key.POST"           
+ [2] "Distinct.count.of.Issue.Key.PRE"            
+ [3] "CountLineComment"                           
+ [4] "RatioCommentToCode"                         
+ [5] "X..Try.in.Conditional"                      
+ [6] "X..Try.in.Declaration"                      
+ [7] "X..Try.in.EH.Feature"                       
+ [8] "X..Try.in.Loop"                             
+ [9] "X..Try.in.Other"                            
+[10] "X..Try"                                     
+[11] "X..Try.in.Conditional.1"                    
+[12] "X..Try.in.Declaration.1"                    
+[13] "X..Try.in.EH.Feature.1"                     
+[14] "X..Try.in.Loop.1"                           
+[15] "X..Try.in.Other.1"                          
+[16] "Avg.Max.Depth"                              
+[17] "Avg.Try.LOC"                                
+[18] "Avg.Try.SLOC"                               
+[19] "X..Handled.with.Abort"                      
+[20] "X..Handled.with.Continue"                   
+[21] "X..Handled.with.Default"                    
+[22] "X..Handled.with.Empty"                      
+[23] "X..Handled.with.Log"                        
+[24] "X..Handled.with.Method"                     
+[25] "X..Handled.with.Nested.Try"                 
+[26] "X..Handled.with.Return"                     
+[27] "X..Handled.with.Throw.with.New"             
+[28] "X..Handled.with.Throw.without.New"          
+[29] "X..Handled.with.Throw.Wrap"                 
+[30] "X..Handled.with.ToDo"                       
+[31] "X..Possible.Exceptions"                     
+[32] "X..Propagated.and.Potentially.Recoverable"  
+[33] "X..Propagated"                              
+[34] "X..Doc.in.Comment"                          
+[35] "X..External.Doc"                            
+[36] "X..Handled.with.Abort.1"                    
+[37] "X..Handled.with.Continue.1"                 
+[38] "X..Handled.with.Default.1"                  
+[39] "X..Handled.with.Empty.1"                    
+[40] "X..Handled.with.Log.1"                      
+[41] "X..Handled.with.Method.1"                   
+[42] "X..Handled.with.Nested.Try.1"               
+[43] "X..Handled.with.Return.1"                   
+[44] "X..Handled.with.Throw.with.New.1"           
+[45] "X..Handled.with.Throw.without.New.1"        
+[46] "X..Handled.with.Throw.Wrap.1"               
+[47] "X..Handled.with.ToDo.1"                     
+[48] "X..Method.Declaration"                      
+[49] "X..Propagated.and.Potentially.Recoverable.1"
+[50] "X..Propagated.1"                            
+[51] "X..Specific"                                
+[52] "X..Subsumption"                             
+[53] "X..Throw.Statement"                         
+[54] "Avg...Declaring.Methods"                    
+[55] "Avg...Invoked.Method"                       
+[56] "Avg.Depth"                                  
+[57] "Avg.Exc.Type.Prevalence"                    
+[58] "Num.Distinct.Methods"                       
+[59] "Sum.of.Num.Distinct.Methods"                
+[60] "Try.LOC"                                    
+[61] "Try.SLOC"                                   
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 60"
+[1] "NumberOfMetricsKept: 26"
+[1] "Distinct.count.of.Issue.Key.PRE + CountLineComment + RatioCommentToCode + X..Try.in.Declaration + X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.EH.Feature.1 + X..Try.in.Loop.1 + X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Possible.Exceptions + X..Doc.in.Comment + X..Handled.with.Default.1 + X..Handled.with.Log.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.with.New.1 + X..Handled.with.Throw.without.New.1 + X..Method.Declaration + X..Propagated.and.Potentially.Recoverable.1 + X..Subsumption + Avg...Invoked.Method + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+ [1] "Distinct.count.of.Issue.Key.POST"           
+ [2] "Distinct.count.of.Issue.Key.PRE"            
+ [3] "CountLineComment"                           
+ [4] "RatioCommentToCode"                         
+ [5] "X..Try.in.Declaration"                      
+ [6] "X..Try.in.Other"                            
+ [7] "X..Try.in.Conditional.1"                    
+ [8] "X..Try.in.EH.Feature.1"                     
+ [9] "X..Try.in.Loop.1"                           
+[10] "X..Handled.with.Abort"                      
+[11] "X..Handled.with.Continue"                   
+[12] "X..Handled.with.Empty"                      
+[13] "X..Possible.Exceptions"                     
+[14] "X..Doc.in.Comment"                          
+[15] "X..Handled.with.Default.1"                  
+[16] "X..Handled.with.Log.1"                      
+[17] "X..Handled.with.Method.1"                   
+[18] "X..Handled.with.Return.1"                   
+[19] "X..Handled.with.Throw.with.New.1"           
+[20] "X..Handled.with.Throw.without.New.1"        
+[21] "X..Method.Declaration"                      
+[22] "X..Propagated.and.Potentially.Recoverable.1"
+[23] "X..Subsumption"                             
+[24] "Avg...Invoked.Method"                       
+[25] "Avg.Depth"                                  
+[26] "Avg.Exc.Type.Prevalence"                    
+[27] "Num.Distinct.Methods"                       
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "Redudant variables: "
+[1] "Final variables: Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + CountLineComment + RatioCommentToCode + X..Try.in.Declaration + X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.EH.Feature.1 + X..Try.in.Loop.1 + X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Possible.Exceptions + X..Doc.in.Comment + X..Handled.with.Default.1 + X..Handled.with.Log.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.with.New.1 + X..Handled.with.Throw.without.New.1 + X..Method.Declaration + X..Propagated.and.Potentially.Recoverable.1 + X..Subsumption + Avg...Invoked.Method + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "NumberOfMetricsInitial: 27"
+[1] "NumberOfMetricsKept: 27"
+[1] "------------------------------------Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "RatioCommentToCode + X..Handled.with.Abort + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.with.New.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "NumberOfMetricsInitial: 26 Budget: 11 Over Budget: TRUE NumberOfMetricsKept: 11 CorrelationCutoff: 0.214"
+[1] "Significant missing: Distinct.count.of.Issue.Key.PRE"
+[1] "Check varclus!:"
+[1] "Significant ------ STILL ------ missing: Distinct.count.of.Issue.Key.PRE"
+[1] "X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.with.New.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "RatioCommentToCode + X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "Significant ------ STILL ------ missing: Distinct.count.of.Issue.Key.PRE"
+[1] "Distinct.count.of.Issue.Key.POST + RatioCommentToCode + X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "Significant missing: CountLineComment"
+[1] "Check varclus!:"
+[1] "Significant ------ STILL ------ missing: CountLineComment"
+[1] "X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.with.New.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "RatioCommentToCode + X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "Significant ------ STILL ------ missing: CountLineComment"
+[1] "Distinct.count.of.Issue.Key.POST + RatioCommentToCode + X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "NumberOfMetricsInitial: 26 Budget: 11 Over Budget: TRUE NumberOfMetricsKept: 11 CorrelationCutoff: 0.214"
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+[1] "RatioCommentToCode + X..Handled.with.Abort + X..Handled.with.Continue + X..Handled.with.Empty + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Handled.with.Return.1 + X..Handled.with.Throw.without.New.1 + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "Project: zookeeper-release-3.9.0 Name: CAT.BASE"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                      Model Likelihood      Discrimination    Rank Discrim.    
+                            Ratio Test             Indexes          Indexes    
+Obs           178    LR chi2     22.33      R2       0.181    C       0.746    
+ FALSE        139    d.f.           11     R2(11,178)0.062    Dxy     0.492    
+ TRUE          39    Pr(> chi2) 0.0220    R2(11,91.4)0.117    gamma   0.493    
+max |deriv| 0.001                           Brier    0.153    tau-a   0.169    
+
+                                    Coef     S.E.     Wald Z Pr(>|Z|)
+Intercept                            -1.7988   1.3643 -1.32  0.1873  
+RatioCommentToCode                   -4.4220   3.1221 -1.42  0.1567  
+X..Handled.with.Abort               -20.4765 104.1803 -0.20  0.8442  
+X..Handled.with.Continue              4.9003   4.9835  0.98  0.3255  
+X..Handled.with.Empty                 5.1736   3.8815  1.33  0.1826  
+X..Handled.with.Default.1            -6.2869   5.4495 -1.15  0.2486  
+X..Handled.with.Method.1              0.5539   1.9532  0.28  0.7767  
+X..Handled.with.Return.1              8.2169   2.9277  2.81  0.0050  
+X..Handled.with.Throw.without.New.1   2.7534   3.7466  0.73  0.4624  
+Avg.Depth                             0.3181   0.7388  0.43  0.6668  
+Avg.Exc.Type.Prevalence              -0.3538   0.5884 -0.60  0.5476  
+Num.Distinct.Methods                  1.8624   0.6725  2.77  0.0056  
+
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Handled.with.Continue X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Continue 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+singular information matrix in lrm.fit (rank= 11 ).  Offending variable(s):
+X..Handled.with.Abort 
+
+Divergence or singularity in 180 samples
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSFC"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                              Chi-Square d.f. P     
+ RatioCommentToCode                   2.01       1   0.1567
+ X..Handled.with.Abort                0.04       1   0.8442
+ X..Handled.with.Continue             0.97       1   0.3255
+ X..Handled.with.Empty                1.78       1   0.1826
+ X..Handled.with.Default.1            1.33       1   0.2486
+ X..Handled.with.Method.1             0.08       1   0.7767
+ X..Handled.with.Return.1             7.88       1   0.0050
+ X..Handled.with.Throw.without.New.1  0.54       1   0.4624
+ Avg.Depth                            0.19       1   0.6668
+ Avg.Exc.Type.Prevalence              0.36       1   0.5476
+ Num.Distinct.Methods                 7.67       1   0.0056
+ TOTAL                               17.30      11   0.0992
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSFC Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                      Model Likelihood     Discrimination    Rank Discrim.    
+                            Ratio Test            Indexes          Indexes    
+Obs           178    LR chi2     14.29     R2       0.119    C       0.719    
+ FALSE        139    d.f.            2     R2(2,178)0.067    Dxy     0.438    
+ TRUE          39    Pr(> chi2) 0.0008    R2(2,91.4)0.126    gamma   0.447    
+max |deriv| 1e-10                          Brier    0.159    tau-a   0.151    
+
+                         Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                -2.8223 0.5217 -5.41  <0.0001 
+X..Handled.with.Return.1  6.7586 2.6847  2.52  0.0118  
+Num.Distinct.Methods      1.9629 0.6393  3.07  0.0021  
+
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSFC Refit - summary"
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSFC Refit - validate"
+[1] "project:  zookeeper-release-3.9.0 model:  CAT.BSFC Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                   Chi-Square d.f. P     
+ X..Handled.with.Return.1  6.34      1    0.0118
+ Num.Distinct.Methods      9.43      1    0.0021
+ TOTAL                    12.99      2    0.0015
+[1] "X..Handled.with.Return.1"
+[1] "Num.Distinct.Methods"
+  X..Handled.with.Return.1 Num.Distinct.Methods
+1               0.07481311              4.78373
+[1] "Fixed at Mean: 0.247041722740595"
+[1] "X..Handled.with.Return.1  Coef at Mean + 10%: 0.250848422703403"
+[1] "Num.Distinct.Methods  Coef at Mean + 10%: 0.259857410894973"
+There were 15 warnings (use warnings() to see them)
+null device 
+          1 
+
+Elapsed: 1.065621 mins 
+[1] TRUE
+Warning messages:
+1: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+2: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+3: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+4: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+Warning messages:
+1: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+2: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+3: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+DONE

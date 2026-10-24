@@ -28,3 +28,6 @@ results/**/all_no_missing_regenerated.csv
 data/jobs/
 data/new/*/stamps.json
 data/new/*/logs/
+tests/ui/node_modules/
+tests/ui/shots/
+tests/ui/package-lock.json

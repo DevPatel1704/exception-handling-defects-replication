@@ -16,5 +16,41 @@
     "include_regex": "/src/main/java/.*\\.java$",
     "exclude_regex": "(^|/)(test|tests|testing|it|test-?utils?|examples?|samples?|benchmarks?|jmh)/|Test\\.java$|Tests\\.java$|IT\\.java$",
     "_source": "dashboard"
+  },
+  "zookeeper-release-3.9.0": {
+    "repo": "https://github.com/apache/zookeeper.git",
+    "language": "java",
+    "prev_release_tag": "release-3.8.1",
+    "release_tag": "release-3.9.0",
+    "post_release_tag": "release-3.9.6",
+    "tracker": {
+      "type": "jira",
+      "base": "https://issues.apache.org/jira",
+      "api": "auto",
+      "project_keys": [
+        "ZOOKEEPER"
+      ]
+    },
+    "include_regex": "/src/main/java/.*\\.java$",
+    "exclude_regex": "(^|/)(test|tests|testing|it|test-?utils?|examples?|samples?|benchmarks?|jmh)/|Test\\.java$|Tests\\.java$|IT\\.java$",
+    "_source": "dashboard"
+  },
+  "zookeeper-release-3.7.0": {
+    "repo": "https://github.com/apache/zookeeper.git",
+    "language": "java",
+    "prev_release_tag": "release-3.6.0",
+    "release_tag": "release-3.7.0",
+    "post_release_tag": "release-3.7.2",
+    "tracker": {
+      "type": "jira",
+      "base": "https://issues.apache.org/jira",
+      "api": "auto",
+      "project_keys": [
+        "ZOOKEEPER"
+      ]
+    },
+    "include_regex": "/src/main/java/.*\\.java$",
+    "exclude_regex": "(^|/)(test|tests|testing|it|test-?utils?|examples?|samples?|benchmarks?|jmh)/|Test\\.java$|Tests\\.java$|IT\\.java$",
+    "_source": "dashboard"
   }
 }

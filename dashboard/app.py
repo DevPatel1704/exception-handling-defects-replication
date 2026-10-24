@@ -17,7 +17,11 @@ API
   GET  /api/jobs/<id>              one job with step states and the tail of the running step's log
   GET  /api/jobs/<id>/log/<step>   full log of one step (text)
   POST /api/jobs/<id>/cancel       stop a queued or running job
+  GET  /api/results                targets with a summary (newest first)
+  GET  /api/metric-names           R column name -> the authors' metric name
   GET  /api/results/<target>       results/new/<target>/summary.json
+  GET  /api/artifacts/<target>     downloadable files by category with sizes (<target> = _original: reproduction files)
+  GET  /api/archive/<target>.zip   all artifacts of a target as one zip (built on request)
 Static files: dashboard/, results/, data/new/<id>/{input,*.csv,*.json} only.
 """
 import argparse
@@ -44,13 +48,89 @@ from clone_repo import all_targets, register_target  # noqa: E402
 from run_target import Runner, steps_template  # noqa: E402
 
 JOBS = ROOT / "data" / "jobs"
-STATIC_OK = [re.compile(p) for p in (r"^dashboard/[\w.-]+$", r"^results/[\w./-]+\.(png|csv|md|json|txt|pdf)$",
+STATIC_OK = [re.compile(p) for p in (r"^dashboard/[\w./-]+\.(html|css|js|svg|png|ico)$",
+                                     r"^results/[\w./-]+\.(png|csv|md|json|txt|pdf)$",
                                      r"^data/new/[\w.-]+/(input/)?[\w.-]+\.(csv|json)$", r"^src/collect/targets\.json$")]
 TAGS_CACHE, TAGS_TTL = {}, 600
+RESULTS_NEW = ROOT / "results" / "new"
 
 
 def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def job_brief(j: dict) -> dict:
+    t = all_targets().get(j["target"], {})
+    steps = j.get("steps", [])
+    finished = sum(s["status"] in ("done", "reused", "skipped", "failed", "blocked", "cancelled") for s in steps)
+    running = next((s["name"] for s in steps if s["status"] == "running"), None)
+    return {**{k: j.get(k) for k in ("id", "target", "status", "created", "started", "ended")},
+            "repo": (t.get("repo") or "").removesuffix(".git"), "release": t.get("release_tag"),
+            "post_release": t.get("post_release_tag"), "progress": {"finished": finished, "total": len(steps)},
+            "current_step": running}
+
+
+def results_index() -> list:
+    out = []
+    for f in sorted(RESULTS_NEW.glob("*/summary.json")):
+        s = json.loads(f.read_text())
+        out.append({"target": s["target"], "repo": s.get("repo"), "release": (s.get("tags") or {}).get("release"),
+                    "language": s.get("language"), "tracker": (s.get("tracker") or {}).get("type"),
+                    "generated": s.get("generated"), "has_models": bool(s.get("models")), "has_ml": bool(s.get("ml"))})
+    return sorted(out, key=lambda x: x["generated"] or "", reverse=True)
+
+
+ARTIFACT_CATEGORIES = [
+    ("Per-file dataset", ["data/new/{t}/input/File_Level-*.csv", "results/new/{t}/fixed/all_no_missing_regenerated.csv"]),
+    ("Defect labels", ["data/new/{t}/post_release_defects.csv"]),
+    ("Defect links (bug, commit, file)", ["data/new/{t}/defect_links.csv"]),
+    ("Manual validation sample", ["data/new/{t}/manual_validation_sample.csv"]),
+    ("Statistical model outputs", ["results/new/{t}/fixed/base_test_*.csv", "results/new/{t}/fixed/predictors_simplified.csv",
+                                   "results/new/{t}/fixed/metric_groups.csv",
+                                   "results/new/{t}/fixed/figures_from_authors_code.pdf"]),
+    ("ML prediction results", ["results/new/{t}/ml/ml_*.csv", "results/new/{t}/ml/ml_results.md"]),
+    ("SHAP values and figures", ["results/new/{t}/ml/shap_*.csv", "results/new/{t}/ml/shap_*.md", "results/new/{t}/ml/shap_*.png"]),
+    ("R execution log", ["results/new/{t}/fixed/run_log.txt", "results/new/{t}/fixed/sessionInfo.txt"]),
+    ("Provenance", ["data/new/{t}/provenance.json", "data/new/{t}/dataset_manifest.json",
+                    "data/new/{t}/defect_mining_stats.json", "results/new/{t}/summary.json"]),
+]
+ORIGINAL_CATEGORIES = [
+    ("Reproduction of Table 4 / Table 5", ["results/reproduction_comparison.*", "results/reproduction_table5.csv",
+                                           "results/new_context_comparison.csv"]),
+    ("Authors' code output (as released / bug-fixed)", ["results/reproduce/*/base_test_*.csv",
+                                                        "results/reproduce/*/predictors_simplified.csv",
+                                                        "results/reproduce/*/run_log.txt"]),
+    ("ML on released data (RQ3)", ["results/ml_*.csv", "results/ml_results.md"]),
+    ("SHAP on released data (RQ4)", ["results/shap_*.csv", "results/shap_*.md", "results/shap_*.png"]),
+    ("Pipeline validation (Hibernate 5.0)", ["results/pipeline_validation_hibernate-5.0.*"]),
+]
+
+
+def artifacts(target: str) -> list:
+    cats = ORIGINAL_CATEGORIES if target == "_original" else ARTIFACT_CATEGORIES
+    out = []
+    for cat, patterns in cats:
+        files = []
+        for pat in patterns:
+            for f in sorted(ROOT.glob(pat.format(t=target))):
+                rel = f.relative_to(ROOT).as_posix()
+                if f.is_file() and any(rx.match(rel) for rx in STATIC_OK):
+                    files.append({"name": f.name, "path": "/" + rel, "type": f.suffix.lstrip(".").upper(),
+                                  "bytes": f.stat().st_size, "folder": f.parent.relative_to(ROOT).as_posix()})
+        if files:
+            out.append({"category": cat, "files": files})
+    return out
+
+
+def archive(target: str) -> bytes:
+    import io
+    import zipfile
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for cat in artifacts(target):
+            for f in cat["files"]:
+                z.write(ROOT / f["path"].lstrip("/"), f"{target}/{f['path'].lstrip('/')}")
+    return buf.getvalue()
 
 
 class Jobs:
@@ -127,7 +207,7 @@ class Jobs:
                 self._save(j)
 
     def view(self, jid) -> dict:
-        j = dict(self.jobs[jid])
+        j = {**dict(self.jobs[jid]), **{k: v for k, v in job_brief(self.jobs[jid]).items() if k not in self.jobs[jid]}}
         run = next((s for s in j["steps"] if s["status"] == "running"), None)
         if run:
             log = JOBS / jid / f"{run['name']}.log"
@@ -203,7 +283,28 @@ class Handler(SimpleHTTPRequestHandler):
                 return self._json({k: v for k, v in all_targets().items() if not k.startswith("_")})
             if p == "/api/jobs":
                 js = sorted(self.jobs.jobs.values(), key=lambda j: j["created"], reverse=True)
-                return self._json([{k: j[k] for k in ("id", "target", "status", "created")} for j in js])
+                return self._json([job_brief(j) for j in js])
+            if p == "/api/results":
+                return self._json(results_index())
+            if p == "/api/metric-names":
+                sys.path.insert(0, str(ROOT / "src" / "ml"))
+                from common import pretty_names
+                return self._json(pretty_names())
+            m = re.match(r"^/api/artifacts/([\w.-]+)$", p)
+            if m:
+                return self._json(artifacts(m.group(1)))
+            m = re.match(r"^/api/archive/([\w.-]+)\.zip$", p)
+            if m:
+                body = archive(m.group(1))
+                if len(body) <= 22:   # empty zip
+                    return self._json({"error": "no artifacts for this target"}, 404)
+                self.send_response(200)
+                self.send_header("Content-Type", "application/zip")
+                self.send_header("Content-Disposition", f'attachment; filename="{m.group(1).lstrip("_")}-artifacts.zip"')
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+                return
             m = re.match(r"^/api/jobs/([\w.-]+)$", p)
             if m and m.group(1) in self.jobs.jobs:
                 return self._json(self.jobs.view(m.group(1)))

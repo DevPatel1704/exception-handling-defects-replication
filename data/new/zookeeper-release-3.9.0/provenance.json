@@ -1,0 +1,22 @@
+{
+  "target": "zookeeper-release-3.9.0",
+  "repo": "https://github.com/apache/zookeeper.git",
+  "release": {
+    "tag": "release-3.9.0",
+    "commit": "1674a5e97f43bc38e9bf56b04f83a7ae34d68249",
+    "commit_date": "2023-07-19T09:00:40Z"
+  },
+  "post_release": {
+    "tag": "release-3.9.6",
+    "commit": "a355171b081b5b60749db8f19cca1528b0df936f",
+    "commit_date": "2026-09-03T19:26:40Z"
+  },
+  "prev_release": {
+    "tag": "release-3.8.1",
+    "commit": "74db005175a4ec545697012f9069cb9dcc8cdda7",
+    "commit_date": "2023-01-25T17:29:53+01:00"
+  },
+  "worktree_head": "1674a5e97f43bc38e9bf56b04f83a7ae34d68249",
+  "language_declared": "auto",
+  "language_detected": "java"
+}

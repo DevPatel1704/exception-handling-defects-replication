@@ -1,0 +1,1046 @@
+{
+ "target": "zookeeper-release-3.9.0",
+ "generated": "2026-10-24T17:16:50+00:00",
+ "repo": "https://github.com/apache/zookeeper",
+ "language": "java",
+ "tags": {
+  "prev_release": "release-3.8.1",
+  "release": "release-3.9.0",
+  "post_release": "release-3.9.6"
+ },
+ "provenance": {
+  "target": "zookeeper-release-3.9.0",
+  "repo": "https://github.com/apache/zookeeper.git",
+  "release": {
+   "tag": "release-3.9.0",
+   "commit": "1674a5e97f43bc38e9bf56b04f83a7ae34d68249",
+   "commit_date": "2023-07-19T09:00:40Z"
+  },
+  "post_release": {
+   "tag": "release-3.9.6",
+   "commit": "a355171b081b5b60749db8f19cca1528b0df936f",
+   "commit_date": "2026-09-03T19:26:40Z"
+  },
+  "prev_release": {
+   "tag": "release-3.8.1",
+   "commit": "74db005175a4ec545697012f9069cb9dcc8cdda7",
+   "commit_date": "2023-01-25T17:29:53+01:00"
+  },
+  "worktree_head": "1674a5e97f43bc38e9bf56b04f83a7ae34d68249",
+  "language_declared": "auto",
+  "language_detected": "java"
+ },
+ "tracker": {
+  "type": "jira",
+  "base": "https://issues.apache.org/jira",
+  "api": "auto",
+  "project_keys": [
+   "ZOOKEEPER"
+  ]
+ },
+ "file_filters": {
+  "include": "/src/main/java/.*\\.java$",
+  "exclude": "(^|/)(test|tests|testing|it|test-?utils?|examples?|samples?|benchmarks?|jmh)/|Test\\.java$|Tests\\.java$|IT\\.java$"
+ },
+ "defect_mining": {
+  "tracker": "jira",
+  "keys_referenced": 82,
+  "not_found": 0,
+  "not_fixed_bug": 37,
+  "reported_before_release": 15,
+  "post_release_defect_issues": 35,
+  "defective_files": 56,
+  "files": 504
+ },
+ "dataset": {
+  "target": "zookeeper-release-3.9.0",
+  "release_files": 504,
+  "has_outcome": true,
+  "git_jira_rows": 504,
+  "post_release_defective_files": 56,
+  "product_metrics_backend": "fallback",
+  "product_metrics_missing_vs_understand": [
+   "AvgCyclomaticModified",
+   "AvgCyclomaticStrict",
+   "AvgEssential",
+   "AvgLineBlank",
+   "AvgLineComment",
+   "AvgLine",
+   "CountDeclClassMethod",
+   "CountDeclClassVariable",
+   "CountDeclInstanceMethod",
+   "CountDeclInstanceVariable",
+   "CountDeclMethodDefault",
+   "CountDeclMethodPrivate",
+   "CountDeclMethodProtected",
+   "CountDeclMethodPublic",
+   "CountDeclMethod",
+   "CountLineCodeDecl",
+   "CountLineCodeExe",
+   "CountStmtDecl",
+   "CountStmtExe",
+   "CountStmt",
+   "MaxCyclomaticModified",
+   "MaxCyclomaticStrict",
+   "MaxEssential",
+   "MaxNesting",
+   "SumCyclomaticModified",
+   "SumCyclomaticStrict",
+   "SumEssential"
+  ],
+  "catch_based_rows": 188,
+  "try_based_rows": 178,
+  "throws_based_rows": 255,
+  "files_with_catch": 188,
+  "defective_files_with_catch": 39
+ },
+ "product_metrics_backend": "fallback",
+ "eh_profile": {
+  "files_with_catch": 188,
+  "catch_blocks": 764,
+  "try_blocks": 550,
+  "mean_possible_exceptions_per_try": 3.049,
+  "anti_patterns": [
+   {
+    "anti_pattern": "Dummy Handler",
+    "catch_blocks": 251,
+    "pct_of_catch_blocks": 32.85,
+    "files": 85
+   },
+   {
+    "anti_pattern": "Unhandled exceptions",
+    "catch_blocks": 240,
+    "pct_of_catch_blocks": 31.41,
+    "files": 90
+   },
+   {
+    "anti_pattern": "Overcatch",
+    "catch_blocks": 229,
+    "pct_of_catch_blocks": 29.97,
+    "files": 115
+   },
+   {
+    "anti_pattern": "Generic Catch",
+    "catch_blocks": 222,
+    "pct_of_catch_blocks": 29.06,
+    "files": 109
+   },
+   {
+    "anti_pattern": "Unreachable Catch Handler",
+    "catch_blocks": 168,
+    "pct_of_catch_blocks": 21.99,
+    "files": 82
+   },
+   {
+    "anti_pattern": "Destructive Wrapping",
+    "catch_blocks": 132,
+    "pct_of_catch_blocks": 17.28,
+    "files": 59
+   },
+   {
+    "anti_pattern": "Ignoring Interrupted Exception",
+    "catch_blocks": 56,
+    "pct_of_catch_blocks": 7.33,
+    "files": 32
+   },
+   {
+    "anti_pattern": "Catch and do nothing",
+    "catch_blocks": 37,
+    "pct_of_catch_blocks": 4.84,
+    "files": 22
+   },
+   {
+    "anti_pattern": "Throw within finally",
+    "catch_blocks": 30,
+    "pct_of_catch_blocks": 3.93,
+    "files": 17
+   },
+   {
+    "anti_pattern": "Nested try block",
+    "catch_blocks": 28,
+    "pct_of_catch_blocks": 3.66,
+    "files": 21
+   },
+   {
+    "anti_pattern": "Multi-line log messages",
+    "catch_blocks": 24,
+    "pct_of_catch_blocks": 3.14,
+    "files": 19
+   },
+   {
+    "anti_pattern": "Catch and Return null",
+    "catch_blocks": 19,
+    "pct_of_catch_blocks": 2.49,
+    "files": 12
+   },
+   {
+    "anti_pattern": "Log and Return null",
+    "catch_blocks": 9,
+    "pct_of_catch_blocks": 1.18,
+    "files": 7
+   },
+   {
+    "anti_pattern": "Log and Throw",
+    "catch_blocks": 5,
+    "pct_of_catch_blocks": 0.65,
+    "files": 5
+   },
+   {
+    "anti_pattern": "Incomplete implementation",
+    "catch_blocks": 1,
+    "pct_of_catch_blocks": 0.13,
+    "files": 1
+   },
+   {
+    "anti_pattern": "Relying on getCause()",
+    "catch_blocks": 1,
+    "pct_of_catch_blocks": 0.13,
+    "files": 1
+   },
+   {
+    "anti_pattern": "Overcatch and Abort",
+    "catch_blocks": 0,
+    "pct_of_catch_blocks": 0.0,
+    "files": 0
+   }
+  ]
+ },
+ "models": {
+  "presented": [
+   {
+    "model": "BASE",
+    "r2_optimism_reduced": 0.233,
+    "r2_apparent": 0.265,
+    "files": 178,
+    "budget": 11,
+    "potential_predictors": 6,
+    "cutoff": 0.7,
+    "over_budget": false,
+    "predictors": [
+     {
+      "metric": "Distinct.count.of.Issue.Key.PRE",
+      "name": "# Bugs (pre)",
+      "group": "traditional",
+      "wald_chi2": 4.63,
+      "p_value": 0.0313946430667679,
+      "direction": "+",
+      "effect_pct": 1.69
+     },
+     {
+      "metric": "CountLineComment",
+      "name": "CountLineComment",
+      "group": "traditional",
+      "wald_chi2": 11.94,
+      "p_value": 0.00054897466659265,
+      "direction": "+",
+      "effect_pct": 6.54
+     },
+     {
+      "metric": "RatioCommentToCode",
+      "name": "RatioCommentToCode",
+      "group": "traditional",
+      "wald_chi2": 4.3,
+      "p_value": 0.0380178756414306,
+      "direction": "-",
+      "effect_pct": -6.54
+     }
+    ]
+   },
+   {
+    "model": "BSFC",
+    "r2_optimism_reduced": 0.093,
+    "r2_apparent": 0.119,
+    "files": 178,
+    "budget": 11,
+    "potential_predictors": 26,
+    "cutoff": 0.214,
+    "over_budget": false,
+    "predictors": [
+     {
+      "metric": "X..Handled.with.Return.1",
+      "name": "% Handled with Return",
+      "group": "flow",
+      "wald_chi2": 6.34,
+      "p_value": 0.0118200683871122,
+      "direction": "+",
+      "effect_pct": 1.54
+     },
+     {
+      "metric": "Num.Distinct.Methods",
+      "name": "Num Distinct Methods",
+      "group": "flow",
+      "wald_chi2": 9.43,
+      "p_value": 0.00213963682989082,
+      "direction": "+",
+      "effect_pct": 5.19
+     }
+    ],
+    "dropped_base_significant": [
+     "# Bugs (pre)",
+     "CountLineComment"
+    ]
+   },
+   {
+    "model": "BSAP",
+    "r2_optimism_reduced": 0.157,
+    "r2_apparent": 0.161,
+    "files": 178,
+    "budget": 11,
+    "potential_predictors": 19,
+    "cutoff": 0.302,
+    "over_budget": false,
+    "predictors": [
+     {
+      "metric": "Distinct.count.of.Issue.Key.PRE",
+      "name": "# Bugs (pre)",
+      "group": "traditional",
+      "wald_chi2": 18.16,
+      "p_value": 2.03029413005096e-05,
+      "direction": "+",
+      "effect_pct": 3.06
+     }
+    ],
+    "dropped_base_significant": [
+     "CountLineComment"
+    ]
+   }
+  ],
+  "preliminary_all_files": [
+   {
+    "model": "ALL.BASE",
+    "r2_optimism_reduced": 0.185,
+    "significant": [
+     "Distinct.count.of.Issue.Key.PRE",
+     "CountLineComment",
+     "RatioCommentToCode"
+    ]
+   },
+   {
+    "model": "ALL.BSEH",
+    "r2_optimism_reduced": 0.204,
+    "significant": [
+     "Churn.PRE",
+     "X..Throws",
+     "X..Catch"
+    ]
+   }
+  ]
+ },
+ "ml": {
+  "results": [
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD",
+    "n_features": 17,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.5341,
+    "pr_auc_std": 0.1267,
+    "roc_auc_mean": 0.7652,
+    "roc_auc_std": 0.0932,
+    "f1_mean": 0.4916,
+    "f1_std": 0.1254
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD",
+    "n_features": 17,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.455,
+    "pr_auc_std": 0.1063,
+    "roc_auc_mean": 0.7065,
+    "roc_auc_std": 0.0786,
+    "f1_mean": 0.3019,
+    "f1_std": 0.1273
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD",
+    "n_features": 17,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.4577,
+    "pr_auc_std": 0.1059,
+    "roc_auc_mean": 0.7022,
+    "roc_auc_std": 0.0689,
+    "f1_mean": 0.3279,
+    "f1_std": 0.1214
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "n_features": 73,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.4215,
+    "pr_auc_std": 0.0967,
+    "roc_auc_mean": 0.6365,
+    "roc_auc_std": 0.0923,
+    "f1_mean": 0.3713,
+    "f1_std": 0.1004
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "n_features": 73,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.5001,
+    "pr_auc_std": 0.1092,
+    "roc_auc_mean": 0.7348,
+    "roc_auc_std": 0.0905,
+    "f1_mean": 0.2961,
+    "f1_std": 0.1099
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "n_features": 73,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.4452,
+    "pr_auc_std": 0.0756,
+    "roc_auc_mean": 0.6904,
+    "roc_auc_std": 0.0798,
+    "f1_mean": 0.3311,
+    "f1_std": 0.1286
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "n_features": 60,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.3725,
+    "pr_auc_std": 0.1148,
+    "roc_auc_mean": 0.6147,
+    "roc_auc_std": 0.1308,
+    "f1_mean": 0.3585,
+    "f1_std": 0.1347
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "n_features": 60,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.4466,
+    "pr_auc_std": 0.0985,
+    "roc_auc_mean": 0.7057,
+    "roc_auc_std": 0.0868,
+    "f1_mean": 0.2827,
+    "f1_std": 0.113
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "n_features": 60,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.4178,
+    "pr_auc_std": 0.0796,
+    "roc_auc_mean": 0.6691,
+    "roc_auc_std": 0.0736,
+    "f1_mean": 0.2804,
+    "f1_std": 0.0901
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "n_features": 116,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.3842,
+    "pr_auc_std": 0.1114,
+    "roc_auc_mean": 0.5866,
+    "roc_auc_std": 0.1171,
+    "f1_mean": 0.3333,
+    "f1_std": 0.1014
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "n_features": 116,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.4893,
+    "pr_auc_std": 0.1025,
+    "roc_auc_mean": 0.7327,
+    "roc_auc_std": 0.0847,
+    "f1_mean": 0.3063,
+    "f1_std": 0.1066
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "n_features": 116,
+    "prevalence": 0.219,
+    "pr_auc_mean": 0.4255,
+    "pr_auc_std": 0.0755,
+    "roc_auc_mean": 0.6651,
+    "roc_auc_std": 0.0851,
+    "f1_mean": 0.3177,
+    "f1_std": 0.1315
+   }
+  ],
+  "uplift": [
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "metric": "pr_auc",
+    "trad_mean": 0.5341,
+    "ext_mean": 0.4215,
+    "delta_mean": -0.1125,
+    "delta_std": 0.1366,
+    "folds_improved": "5/25",
+    "p_corrected_ttest": 0.1414
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "metric": "roc_auc",
+    "trad_mean": 0.7652,
+    "ext_mean": 0.6365,
+    "delta_mean": -0.1287,
+    "delta_std": 0.0975,
+    "folds_improved": "2/25",
+    "p_corrected_ttest": 0.0227
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+FLOW",
+    "metric": "f1",
+    "trad_mean": 0.4916,
+    "ext_mean": 0.3713,
+    "delta_mean": -0.1202,
+    "delta_std": 0.127,
+    "folds_improved": "4/25",
+    "p_corrected_ttest": 0.0935
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "metric": "pr_auc",
+    "trad_mean": 0.5341,
+    "ext_mean": 0.3725,
+    "delta_mean": -0.1616,
+    "delta_std": 0.0854,
+    "folds_improved": "0/25",
+    "p_corrected_ttest": 0.0019
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "metric": "roc_auc",
+    "trad_mean": 0.7652,
+    "ext_mean": 0.6147,
+    "delta_mean": -0.1505,
+    "delta_std": 0.087,
+    "folds_improved": "0/25",
+    "p_corrected_ttest": 0.0039
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+AP",
+    "metric": "f1",
+    "trad_mean": 0.4916,
+    "ext_mean": 0.3585,
+    "delta_mean": -0.1331,
+    "delta_std": 0.1535,
+    "folds_improved": "5/25",
+    "p_corrected_ttest": 0.1228
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "metric": "pr_auc",
+    "trad_mean": 0.5341,
+    "ext_mean": 0.3842,
+    "delta_mean": -0.1499,
+    "delta_std": 0.141,
+    "folds_improved": "4/25",
+    "p_corrected_ttest": 0.0616
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "metric": "roc_auc",
+    "trad_mean": 0.7652,
+    "ext_mean": 0.5866,
+    "delta_mean": -0.1786,
+    "delta_std": 0.1037,
+    "folds_improved": "0/25",
+    "p_corrected_ttest": 0.004
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "LR",
+    "feature_set": "TRAD+EH",
+    "metric": "f1",
+    "trad_mean": 0.4916,
+    "ext_mean": 0.3333,
+    "delta_mean": -0.1582,
+    "delta_std": 0.1542,
+    "folds_improved": "3/25",
+    "p_corrected_ttest": 0.0703
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "metric": "pr_auc",
+    "trad_mean": 0.455,
+    "ext_mean": 0.5001,
+    "delta_mean": 0.0451,
+    "delta_std": 0.0886,
+    "folds_improved": "16/25",
+    "p_corrected_ttest": 0.3572
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "metric": "roc_auc",
+    "trad_mean": 0.7065,
+    "ext_mean": 0.7348,
+    "delta_mean": 0.0284,
+    "delta_std": 0.0541,
+    "folds_improved": "13/25",
+    "p_corrected_ttest": 0.3425
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+FLOW",
+    "metric": "f1",
+    "trad_mean": 0.3019,
+    "ext_mean": 0.2961,
+    "delta_mean": -0.0057,
+    "delta_std": 0.1301,
+    "folds_improved": "9/25",
+    "p_corrected_ttest": 0.9358
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "metric": "pr_auc",
+    "trad_mean": 0.455,
+    "ext_mean": 0.4466,
+    "delta_mean": -0.0084,
+    "delta_std": 0.0766,
+    "folds_improved": "12/25",
+    "p_corrected_ttest": 0.8421
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "metric": "roc_auc",
+    "trad_mean": 0.7065,
+    "ext_mean": 0.7057,
+    "delta_mean": -0.0007,
+    "delta_std": 0.052,
+    "folds_improved": "11/25",
+    "p_corrected_ttest": 0.9794
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+AP",
+    "metric": "f1",
+    "trad_mean": 0.3019,
+    "ext_mean": 0.2827,
+    "delta_mean": -0.0192,
+    "delta_std": 0.1519,
+    "folds_improved": "7/25",
+    "p_corrected_ttest": 0.8173
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "metric": "pr_auc",
+    "trad_mean": 0.455,
+    "ext_mean": 0.4893,
+    "delta_mean": 0.0343,
+    "delta_std": 0.1068,
+    "folds_improved": "14/25",
+    "p_corrected_ttest": 0.5589
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "metric": "roc_auc",
+    "trad_mean": 0.7065,
+    "ext_mean": 0.7327,
+    "delta_mean": 0.0262,
+    "delta_std": 0.0578,
+    "folds_improved": "16/25",
+    "p_corrected_ttest": 0.4105
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "RF",
+    "feature_set": "TRAD+EH",
+    "metric": "f1",
+    "trad_mean": 0.3019,
+    "ext_mean": 0.3063,
+    "delta_mean": 0.0044,
+    "delta_std": 0.1381,
+    "folds_improved": "11/25",
+    "p_corrected_ttest": 0.9538
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "metric": "pr_auc",
+    "trad_mean": 0.4577,
+    "ext_mean": 0.4452,
+    "delta_mean": -0.0125,
+    "delta_std": 0.0993,
+    "folds_improved": "11/25",
+    "p_corrected_ttest": 0.8179
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "metric": "roc_auc",
+    "trad_mean": 0.7022,
+    "ext_mean": 0.6904,
+    "delta_mean": -0.0118,
+    "delta_std": 0.0679,
+    "folds_improved": "11/25",
+    "p_corrected_ttest": 0.751
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+FLOW",
+    "metric": "f1",
+    "trad_mean": 0.3279,
+    "ext_mean": 0.3311,
+    "delta_mean": 0.0032,
+    "delta_std": 0.1181,
+    "folds_improved": "12/25",
+    "p_corrected_ttest": 0.9606
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "metric": "pr_auc",
+    "trad_mean": 0.4577,
+    "ext_mean": 0.4178,
+    "delta_mean": -0.0399,
+    "delta_std": 0.0971,
+    "folds_improved": "9/25",
+    "p_corrected_ttest": 0.4552
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "metric": "roc_auc",
+    "trad_mean": 0.7022,
+    "ext_mean": 0.6691,
+    "delta_mean": -0.0331,
+    "delta_std": 0.0666,
+    "folds_improved": "9/25",
+    "p_corrected_ttest": 0.3675
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+AP",
+    "metric": "f1",
+    "trad_mean": 0.3279,
+    "ext_mean": 0.2804,
+    "delta_mean": -0.0475,
+    "delta_std": 0.13,
+    "folds_improved": "7/25",
+    "p_corrected_ttest": 0.5062
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "metric": "pr_auc",
+    "trad_mean": 0.4577,
+    "ext_mean": 0.4255,
+    "delta_mean": -0.0322,
+    "delta_std": 0.1152,
+    "folds_improved": "12/25",
+    "p_corrected_ttest": 0.6104
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "metric": "roc_auc",
+    "trad_mean": 0.7022,
+    "ext_mean": 0.6651,
+    "delta_mean": -0.0372,
+    "delta_std": 0.0846,
+    "folds_improved": "8/25",
+    "p_corrected_ttest": 0.4254
+   },
+   {
+    "project": "zookeeper-release-3.9.0",
+    "learner": "XGB",
+    "feature_set": "TRAD+EH",
+    "metric": "f1",
+    "trad_mean": 0.3279,
+    "ext_mean": 0.3177,
+    "delta_mean": -0.0102,
+    "delta_std": 0.144,
+    "folds_improved": "12/25",
+    "p_corrected_ttest": 0.8971
+   }
+  ]
+ },
+ "shap": {
+  "learner": "RF",
+  "top_features": [
+   {
+    "name": "fileSize",
+    "group": "base",
+    "mean_abs_shap": 0.02496
+   },
+   {
+    "name": "CountLineComment",
+    "group": "base",
+    "mean_abs_shap": 0.01864
+   },
+   {
+    "name": "Sum of Num Distinct Methods",
+    "group": "try",
+    "mean_abs_shap": 0.01801
+   },
+   {
+    "name": "Churn (pre)",
+    "group": "base",
+    "mean_abs_shap": 0.01641
+   },
+   {
+    "name": "CountSemicolon",
+    "group": "base",
+    "mean_abs_shap": 0.01449
+   },
+   {
+    "name": "Try LOC",
+    "group": "try",
+    "mean_abs_shap": 0.0128
+   },
+   {
+    "name": "CountLineCode",
+    "group": "base",
+    "mean_abs_shap": 0.01259
+   },
+   {
+    "name": "CountLine",
+    "group": "base",
+    "mean_abs_shap": 0.01249
+   },
+   {
+    "name": "CountDeclFunction",
+    "group": "base",
+    "mean_abs_shap": 0.01194
+   },
+   {
+    "name": "SumCyclomatic",
+    "group": "base",
+    "mean_abs_shap": 0.01186
+   },
+   {
+    "name": "Try SLOC",
+    "group": "try",
+    "mean_abs_shap": 0.01184
+   },
+   {
+    "name": "# Handled with Log",
+    "group": "try",
+    "mean_abs_shap": 0.01137
+   },
+   {
+    "name": "Catch SLOC",
+    "group": "catch",
+    "mean_abs_shap": 0.01064
+   },
+   {
+    "name": "Avg Catch SLOC",
+    "group": "catch",
+    "mean_abs_shap": 0.01058
+   },
+   {
+    "name": "% Handled with Log",
+    "group": "try",
+    "mean_abs_shap": 0.0105
+   }
+  ],
+  "top_eh": [
+   {
+    "rank": 1,
+    "overall_rank": 3,
+    "name": "Sum of Num Distinct Methods",
+    "direction": "+",
+    "mean_abs_shap": 0.01801,
+    "matches_significant_predictor": "Num.Distinct.Methods (rho=0.82)"
+   },
+   {
+    "rank": 2,
+    "overall_rank": 6,
+    "name": "Try LOC",
+    "direction": "+",
+    "mean_abs_shap": 0.0128,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 3,
+    "overall_rank": 11,
+    "name": "Try SLOC",
+    "direction": "+",
+    "mean_abs_shap": 0.01184,
+    "matches_significant_predictor": "Num.Distinct.Methods (rho=0.76)"
+   },
+   {
+    "rank": 4,
+    "overall_rank": 12,
+    "name": "# Handled with Log",
+    "direction": "+",
+    "mean_abs_shap": 0.01137,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 5,
+    "overall_rank": 13,
+    "name": "Catch SLOC",
+    "direction": "+",
+    "mean_abs_shap": 0.01064,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 6,
+    "overall_rank": 14,
+    "name": "Avg Catch SLOC",
+    "direction": "+",
+    "mean_abs_shap": 0.01058,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 7,
+    "overall_rank": 15,
+    "name": "% Handled with Log",
+    "direction": "+",
+    "mean_abs_shap": 0.0105,
+    "matches_significant_predictor": ""
+   },
+   {
+    "rank": 8,
+    "overall_rank": 16,
+    "name": "Num Distinct Methods",
+    "direction": "+",
+    "mean_abs_shap": 0.00996,
+    "matches_significant_predictor": "<Phase 0 significant EH predictor>"
+   },
+   {
+    "rank": 9,
+    "overall_rank": 19,
+    "name": "Avg Try SLOC",
+    "direction": "+",
+    "mean_abs_shap": 0.00727,
+    "matches_significant_predictor": "Num.Distinct.Methods (rho=0.87)"
+   },
+   {
+    "rank": 10,
+    "overall_rank": 20,
+    "name": "Avg Try LOC",
+    "direction": "+",
+    "mean_abs_shap": 0.00715,
+    "matches_significant_predictor": "Num.Distinct.Methods (rho=0.88)"
+   }
+  ],
+  "figures": {
+   "bar": "/results/new/zookeeper-release-3.9.0/ml/shap_bar_zookeeper-release-3.9.0.png",
+   "beeswarm": "/results/new/zookeeper-release-3.9.0/ml/shap_beeswarm_zookeeper-release-3.9.0.png"
+  },
+  "per_file_values": "/results/new/zookeeper-release-3.9.0/ml/shap_values_zookeeper-release-3.9.0.csv",
+  "per_file_names": {
+   "fileSize": "fileSize",
+   "CountLineComment": "CountLineComment",
+   "Sum.of.Num.Distinct.Methods": "Sum of Num Distinct Methods",
+   "Churn.PRE": "Churn (pre)",
+   "CountSemicolon": "CountSemicolon",
+   "Try.LOC": "Try LOC",
+   "CountLineCode": "CountLineCode",
+   "CountLine": "CountLine",
+   "CountDeclFunction": "CountDeclFunction",
+   "SumCyclomatic": "SumCyclomatic",
+   "Try.SLOC": "Try SLOC",
+   "X..Handled.with.Log": "# Handled with Log",
+   "Catch.SLOC": "Catch SLOC",
+   "Avg.Catch.SLOC": "Avg Catch SLOC",
+   "X..Handled.with.Log.1": "% Handled with Log",
+   "Num.Distinct.Methods": "Num Distinct Methods",
+   "CountLineBlank": "CountLineBlank",
+   "RatioCommentToCode": "RatioCommentToCode",
+   "Avg.Try.SLOC": "Avg Try SLOC",
+   "Avg.Try.LOC": "Avg Try LOC",
+   "X..Throw.Statement": "% Throw Statement",
+   "X..Try.in.Conditional.1": "% Try in Conditional",
+   "Avg.Catch.LOC": "Avg Catch LOC",
+   "Avg.Max.Depth": "Avg Max Depth",
+   "Avg.Exc.Type.Prevalence": "Avg Exc Type Prevalence",
+   "Distinct.count.of.Issue.Key.PRE": "# Bugs (pre)",
+   "MaxCyclomatic": "MaxCyclomatic",
+   "X..Doc.in.Comment": "% Doc in Comment",
+   "Avg.Depth": "Avg Depth",
+   "Catch.LOC": "Catch LOC",
+   "X..Handled.with.Return": "# Handled with Return",
+   "AvgCyclomatic": "AvgCyclomatic",
+   "X..Handled.with.Method": "# Handled with Method",
+   "AvgLineCode": "AvgLineCode",
+   "Distinct.count.of.Author.Email.PRE": "# Authors (pre)",
+   "Distinct.count.of.Commit.Hash.PRE": "# Changes (pre)",
+   "X..Handled.with.Return.1": "% Handled with Return",
+   "X..Try.in.Declaration.1": "% Try in Declaration",
+   "X..Specific": "% Specific",
+   "Avg..AP.Generic.Catch": "Avg. AP Generic Catch"
+  }
+ },
+ "files": {
+  "Git/Jira metrics (authors' format)": "/data/new/zookeeper-release-3.9.0/input/File_Level-Git-Jira.csv",
+  "Product metrics": "/data/new/zookeeper-release-3.9.0/input/File_Level-Understand.csv",
+  "Catch-block / anti-pattern metrics": "/data/new/zookeeper-release-3.9.0/input/File_Level-Catch_Based.csv",
+  "Try-block / flow metrics": "/data/new/zookeeper-release-3.9.0/input/File_Level-Try_Based.csv",
+  "Throws metrics": "/data/new/zookeeper-release-3.9.0/input/File_Level-Throws_Based.csv",
+  "Post-release defect labels": "/data/new/zookeeper-release-3.9.0/post_release_defects.csv",
+  "Defect links (issue, commit, file)": "/data/new/zookeeper-release-3.9.0/defect_links.csv",
+  "Manual-validation sample": "/data/new/zookeeper-release-3.9.0/manual_validation_sample.csv",
+  "Model output (authors' format)": "/results/new/zookeeper-release-3.9.0/fixed/base_test_2.csv",
+  "Predictor table": "/results/new/zookeeper-release-3.9.0/fixed/predictors_simplified.csv",
+  "R log": "/results/new/zookeeper-release-3.9.0/fixed/run_log.txt",
+  "ML results": "/results/new/zookeeper-release-3.9.0/ml/ml_results.md",
+  "SHAP alignment": "/results/new/zookeeper-release-3.9.0/ml/shap_alignment.md"
+ },
+ "caveats": [
+  "Product metrics come from the open-source fallback (no SciTools Understand license): 12 approximate metrics instead of 39, so BASE is not the paper's BASE.",
+  "Exception-flow metrics come from JTratch without the authors' unpublished external-Javadoc file and without dependency jars: about 25% fewer possible exceptions than the authors' tool found on Hibernate 5.0.",
+  "BSFC: the budget of 11 predictors (178 files / 15) forced a correlation cutoff of 0.214, which dropped BASE-significant # Bugs (pre), CountLineComment. The authors' code behaves this way (it does not force them back), so BSFC vs BASE is not like-for-like here. This never happened on the paper's data.",
+  "BSAP: the budget of 11 predictors (178 files / 15) forced a correlation cutoff of 0.302, which dropped BASE-significant CountLineComment. The authors' code behaves this way (it does not force them back), so BSAP vs BASE is not like-for-like here. This never happened on the paper's data.",
+  "Tags and filters were chosen in the dashboard; check them against the project's release notes."
+ ]
+}

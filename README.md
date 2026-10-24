@@ -99,8 +99,8 @@ results/       reproduction_comparison.{csv,md}, reproduction_table5.csv, reprod
                ml_*.{csv,md}, shap_*.{png,csv,md}, pipeline_validation_hibernate-5.0.*, new/<target>/, new_context_comparison.csv
 src/pipeline/  run_target.py (whole pipeline for one target), targets_api.py (URL/tag validation, suggestions),
                summary.py (results/new/<target>/summary.json)
-dashboard/     app.py (local server + job worker), index.html (UI)
-tests/         offline unit tests
+dashboard/     app.py (local server + job worker), index.html + assets/ (ExceptionLab UI: ES modules, no build)
+tests/         offline unit tests; tests/ui/ headless-browser UI tests (puppeteer-core)
 ```
 
 ## Use of LLMs

@@ -142,6 +142,19 @@ def main() -> None:
             for j, f in enumerate(X.columns)])))
         all_imp.append(imp)
 
+        # per-file explanations (dashboard drill-down): value and SHAP contribution of the 40 most important
+        # features, the sum of the remaining contributions, the label and the model's predicted probability
+        keep = list(imp.feature.head(40))
+        col = {f: j for j, f in enumerate(X.columns)}
+        pf = pd.DataFrame({"File.Path": d["File.Path"], "defective": y,
+                           "predicted": model.predict_proba(X)[:, 1]})
+        for f in keep:
+            pf[f"{f}|value"] = X[f].to_numpy()
+            pf[f"{f}|shap"] = sv[:, col[f]]
+        rest = [col[f] for f in X.columns if f not in set(keep)]
+        pf["other_features|shap"] = sv[:, rest].sum(axis=1) if rest else 0.0
+        pf.to_csv(out / f"shap_values_{project}.csv", index=False, float_format="%.6g")
+
         eh = imp[imp.group != "base"].head(10).copy()
         eh["eh_rank"] = np.arange(1, len(eh) + 1)
         top_eh_rows.append(eh)

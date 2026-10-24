@@ -71,7 +71,7 @@ Targets created from the dashboard are stored in `data/targets.local.json` (same
 
 **Issue trackers.** *Jira* (as in the paper): Bug type, Fixed/Done resolution, keys `ABC-123` in commit
 messages. *GitHub Issues* (dashboard extension, **not** the paper's definition): a bug is a closed issue or pull
-request carrying a label matching `(?i)(bug|defect|regression)`, referenced as `#123` or `GH-123` in a commit
+request carrying a label matching `(?i)\b(bug|defect|regression)\b`, referenced as `#123` or `GH-123` in a commit
 message; its report date is the issue/PR creation date. GitHub labels are often applied before triage (in
 google/gson, some "bug"-labelled issues are support questions). Requiring a referencing fix commit in the
 post-release window removes most of these, but labels from GitHub-tracked targets are noisier than Jira's, and the

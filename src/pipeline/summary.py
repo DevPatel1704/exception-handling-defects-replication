@@ -131,7 +131,19 @@ def shap(res: Path, tid: str) -> dict:
                         "direction": "+" if r.direction > 0 else "-", "mean_abs_shap": round(float(r.mean_abs_shap), 5),
                         "matches_significant_predictor": match.get(r.feature, "")} for _, r in top.iterrows()],
             "figures": {"bar": _rel(res / "ml" / f"shap_bar_{tid}.png"),
-                        "beeswarm": _rel(res / "ml" / f"shap_beeswarm_{tid}.png")}}
+                        "beeswarm": _rel(res / "ml" / f"shap_beeswarm_{tid}.png")},
+            "per_file_values": _rel(res / "ml" / f"shap_values_{tid}.csv")
+            if (res / "ml" / f"shap_values_{tid}.csv").exists() else None,
+            "per_file_names": _per_file_names(res / "ml" / f"shap_values_{tid}.csv", pretty)}
+
+
+def _per_file_names(path: Path, pretty: dict) -> dict:
+    """R-mangled feature column -> the authors' metric name, for the per-file SHAP table."""
+    if not path.exists():
+        return {}
+    cols = pd.read_csv(path, nrows=0).columns
+    feats = [c[:-5] for c in cols if c.endswith("|shap") and c != "other_features|shap"]
+    return {f: pretty.get(f, f) for f in feats}
 
 
 def build(tid: str) -> dict:
