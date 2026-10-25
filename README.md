@@ -66,7 +66,7 @@ the ones the reported results were computed from.
 ## Repository map
 
 ```
-docs/REPRODUCTION.md     what we ran, outputs, every deviation, open issues (§6)
+docs/REPRODUCTION.md     what we ran, outputs, every deviation, open issues (§6), RQ3/RQ4 protocol (§7)
 docs/DATA.md             data sources, tags + commit SHAs, collection and cleaning, validation, limitations
 docs/ENVIRONMENT.md      OS, R / Python / Java versions, unavailable tools
 docs/aggregation_rules/  the authors' metric and aggregation-rule sheets (exported)

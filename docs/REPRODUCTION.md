@@ -6,7 +6,7 @@ Post-release Defects*, MSR 2018, doi:10.1145/3196398.3196435.
 
 Status (Milestone 2, 2026-10-25): **Phase 0 complete**: Table 4 and Table 5 reproduced. **Phase 1 complete**: the data pipeline
 runs end to end on Hibernate ORM 5.1.0 and Apache ZooKeeper 3.6.0. **Phase 2 in progress**: the authors' models fitted on both new
-contexts. Remaining work: §6.
+contexts. Remaining work: §6. RQ3/RQ4 protocol: §7.
 
 ---
 
@@ -231,5 +231,23 @@ has budget 10 (161 files / 15), BSFC's cutoff drops to 0.24 and loses `# Bugs (p
 | T6 | SciTools Understand licence for a faithful BASE on new data | Requested; fallback in use | New-context BASE is an extension |
 | T7 | Report the BSFC bug (D1) to the authors | To do | — |
 | T8 | Quantify JTratch run-to-run variance (F1) over ≥ 10 runs per target | Measured once (4 runs, ZooKeeper) | BSFC on new data conditional on one run |
-| T9 | RQ3 (ML prediction) and RQ4 (SHAP) | In progress; reported in the next milestone | — |
+| T9 | RQ3 (ML prediction) and RQ4 (SHAP) | Protocol fixed (§7); results reported in the next milestone | — |
 | T10 | Automated pipeline front end (proposal Phase 5) | In progress; next milestone | — |
+
+## 7. RQ3/RQ4 protocol (fixed before running; results in the next milestone)
+
+* Data: the authors' released dataset, files with ≥ 1 catch block (the paper's presented setting: Umbraco 230,
+  Hadoop 890, Hibernate 440 files), then the new contexts. Label = `Distinct.count.of.Issue.Key.POST > 0`.
+* Feature sets, from the authors' own data-source groups: TRAD (Git/Jira + product metrics), TRAD+FLOW
+  (+ try/flow metrics), TRAD+AP (+ catch/anti-pattern metrics), TRAD+EH (+ both). Throws metrics excluded, as in
+  the paper's presented models. Constant columns dropped per project.
+* Learners, fixed and untuned, so the comparison is between feature sets rather than tuning effort: logistic
+  regression (log10(x+1) as in the paper, standardised, L2, class-balanced), random forest (500 trees,
+  min_samples_leaf = 2, balanced_subsample) and XGBoost (300 trees, depth 4, learning rate 0.05, subsample and
+  colsample 0.8, scale_pos_weight = neg/pos). Seed 2018.
+* Evaluation: repeated stratified 5-fold CV × 10 repeats (50 folds, identical splits for every feature set and
+  learner). PR-AUC (average precision) is the primary metric, with ROC-AUC and F1 at threshold 0.5. Uplift over
+  TRAD is tested with the Nadeau–Bengio corrected resampled t-test, paired by fold.
+* SHAP: TreeSHAP on the best tree learner per project (by TRAD+EH PR-AUC), refit on all files. A top-10 EH feature
+  agrees with the regression if it is, or is correlated |ρ| > 0.7 with, an EH predictor significant in the
+  simplified BSFC/BSAP models of the bug-fixed run.
