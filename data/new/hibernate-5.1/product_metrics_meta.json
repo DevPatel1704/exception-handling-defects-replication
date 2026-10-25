@@ -1,0 +1,19 @@
+{
+  "backend": "fallback",
+  "lizard_version": "1.24.2",
+  "metrics": {
+    "CountLine": "physical lines",
+    "CountLineBlank": "blank lines",
+    "CountLineComment": "lines containing a comment (// or inside /* */)",
+    "CountLineCode": "lines containing code (non-blank, not comment-only)",
+    "RatioCommentToCode": "CountLineComment / CountLineCode",
+    "CountDeclFunction": "functions/methods found by lizard",
+    "CountDeclClass": "class/interface/enum/struct declarations (regex)",
+    "SumCyclomatic": "sum of lizard CCN over functions",
+    "MaxCyclomatic": "max lizard CCN",
+    "AvgCyclomatic": "mean lizard CCN",
+    "AvgLineCode": "mean lizard NLOC per function",
+    "CountSemicolon": "semicolons outside comments/strings (approx.)"
+  },
+  "note": "Understand not available (commercial license). Fallback metrics approximate a subset of the 39 Understand metrics; BASE models on this data are an extension, not a faithful BASE."
+}

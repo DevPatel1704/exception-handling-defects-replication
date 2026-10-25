@@ -1,0 +1,10 @@
+{
+  "tracker": "jira",
+  "keys_referenced": 262,
+  "not_found": 0,
+  "not_fixed_bug": 43,
+  "reported_before_release": 57,
+  "post_release_defect_issues": 182,
+  "defective_files": 284,
+  "files": 3475
+}

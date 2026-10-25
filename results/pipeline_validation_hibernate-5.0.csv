@@ -1,0 +1,111 @@
+source,metric,files_original,files_ours,files_both,exact_match_rate,spearman,mean_abs_diff,mean_original,mean_ours
+Catch_Based,<file coverage>,488.0000,459.0000,459,,,,,
+Catch_Based,# Catch,,,459,1.0000,1.0000,0.0000,3.2505,3.2505
+Catch_Based,Avg Catch LOC,,,459,0.9978,0.9999,0.0022,5.2381,5.2403
+Catch_Based,Avg Catch SLOC,,,459,1.0000,1.0000,0.0000,1.2901,1.2901
+Catch_Based,Avg. AP Catch and do nothing,,,459,0.9826,0.9703,0.0035,0.0965,0.1001
+Catch_Based,Avg. AP Catch and Return null,,,459,0.9826,0.9224,0.0045,0.0393,0.0348
+Catch_Based,Avg. AP Destructive Wrapping,,,459,0.9477,0.9531,0.0263,0.4040,0.4302
+Catch_Based,Avg. AP Dummy Handler,,,459,1.0000,1.0000,0.0000,0.0371,0.0371
+Catch_Based,Avg. AP Generic Catch,,,459,1.0000,1.0000,0.0000,0.3262,0.3262
+Catch_Based,Avg. AP Ignoring Interrupted Exception,,,459,1.0000,1.0000,0.0000,0.0007,0.0007
+Catch_Based,Avg. AP Incomplete implementation,,,459,1.0000,,0.0000,0.0000,0.0000
+Catch_Based,Avg. AP Log and Return null,,,459,0.9891,0.6696,0.0017,0.0054,0.0036
+Catch_Based,Avg. AP Log and Throw,,,459,0.9913,-0.0038,0.0037,0.0003,0.0034
+Catch_Based,Avg. AP Multi-line log messages,,,459,1.0000,1.0000,0.0000,0.0024,0.0024
+Catch_Based,Avg. AP Nested try block,,,459,1.0000,1.0000,0.0000,0.0562,0.0562
+Catch_Based,Avg. AP Overcatch and Abort,,,459,1.0000,,0.0000,0.0000,0.0000
+Catch_Based,Avg. AP Overcatch,,,459,0.9216,0.9038,0.0385,0.2988,0.2603
+Catch_Based,Avg. AP Relying on getCause(),,,459,1.0000,1.0000,0.0000,0.0022,0.0022
+Catch_Based,Avg. AP Throw within finally,,,459,1.0000,1.0000,0.0000,0.0370,0.0370
+Catch_Based,Avg. AP Unhandled exceptions,,,459,0.6928,0.5945,0.1903,0.4234,0.2752
+Catch_Based,Avg. AP Unreachable Catch Handler,,,459,0.8453,0.7742,0.0950,0.1824,0.2774
+Catch_Based,Avg. Potentially Recoverable,,,459,0.9434,0.8955,0.0433,0.6767,0.6333
+Catch_Based,Avg. Potentially UnRecoverable,,,459,0.9346,0.8861,0.0444,0.2527,0.2083
+Catch_Based,Avg. Recoverability Not Relevant,,,459,0.8758,0.6300,0.0903,0.0681,0.1583
+Catch_Based,AP Catch and do nothing,,,459,0.9826,0.9659,0.0218,0.2832,0.3050
+Catch_Based,AP Catch and Return null,,,459,0.9826,0.9217,0.0218,0.1569,0.1351
+Catch_Based,Sum of AP Destructive Wrapping,,,459,0.9477,0.9673,0.1176,1.1830,1.3007
+Catch_Based,Sum of AP Dummy Handler,,,459,1.0000,1.0000,0.0000,0.1351,0.1351
+Catch_Based,Sum of AP Generic Catch,,,459,1.0000,1.0000,0.0000,0.9216,0.9216
+Catch_Based,AP Ignoring Interrupted Exception,,,459,1.0000,1.0000,0.0000,0.0022,0.0022
+Catch_Based,AP Incomplete implementation,,,459,1.0000,,0.0000,0.0000,0.0000
+Catch_Based,Sum of AP Log and Return null,,,459,0.9891,0.6648,0.0109,0.0240,0.0131
+Catch_Based,AP Log and Throw,,,459,0.9913,-0.0038,0.0109,0.0022,0.0087
+Catch_Based,AP Multi-line log messages,,,459,1.0000,1.0000,0.0000,0.0044,0.0044
+Catch_Based,AP Nested try block,,,459,1.0000,1.0000,0.0000,0.2745,0.2745
+Catch_Based,Sum of AP Overcatch and Abort,,,459,1.0000,,0.0000,0.0000,0.0000
+Catch_Based,Sum of AP Overcatch,,,459,0.9216,0.9187,0.1089,0.8235,0.7146
+Catch_Based,AP Relying on getCause(),,,459,1.0000,1.0000,0.0000,0.0087,0.0087
+Catch_Based,AP Throw within finally,,,459,1.0000,1.0000,0.0000,0.1786,0.1786
+Catch_Based,Sum of AP Unhandled exceptions,,,459,0.6928,0.6612,0.6100,1.5098,0.9956
+Catch_Based,Sum of AP Unreachable Catch Handler,,,459,0.8453,0.8122,0.3115,0.7451,1.0566
+Catch_Based,Catch LOC,,,459,0.9978,1.0000,0.0022,17.0000,17.0022
+Catch_Based,Catch SLOC,,,459,1.0000,1.0000,0.0000,4.5599,4.5599
+Catch_Based,Potentially Recoverable,,,459,0.9434,0.9413,0.1416,2.0523,1.9107
+Catch_Based,Potentially UnRecoverable,,,459,0.9346,0.9075,0.2092,1.0196,0.8105
+Catch_Based,Recoverability Not Relevant,,,459,0.8758,0.6334,0.3595,0.1699,0.5294
+Try_Based,<file coverage>,449.0000,398.0000,398,,,,,
+Try_Based,# Try in Conditional,,,398,0.9925,0.9902,0.0075,0.4673,0.4598
+Try_Based,# Try in Declaration,,,398,0.9472,0.9679,0.0704,1.7337,1.6633
+Try_Based,# Try in EH Feature,,,398,0.9950,0.9999,0.0101,0.2915,0.2814
+Try_Based,# Try in Loop,,,398,0.9899,0.9654,0.0151,0.1834,0.1683
+Try_Based,# Try in Other,,,398,1.0000,,0.0000,0.0000,0.0000
+Try_Based,# Try,,,398,0.9322,0.9744,0.1030,2.6759,2.5729
+Try_Based,% Try in Conditional,,,398,0.9749,0.9901,0.0076,0.1884,0.1924
+Try_Based,% Try in Declaration,,,398,0.9497,0.9824,0.0137,0.6754,0.6726
+Try_Based,% Try in EH Feature,,,398,0.9799,0.9996,0.0030,0.0685,0.0700
+Try_Based,% Try in Loop,,,398,0.9849,0.9673,0.0032,0.0677,0.0650
+Try_Based,% Try in Other,,,398,1.0000,,0.0000,0.0000,0.0000
+Try_Based,Avg Max Depth,,,398,0.5302,0.7080,0.9267,1.9737,1.5028
+Try_Based,Avg Try LOC,,,398,0.9347,0.9868,0.2580,10.8667,10.8961
+Try_Based,Avg Try SLOC,,,398,0.9372,0.9867,0.1974,5.7601,5.7608
+Try_Based,# Handled with Abort,,,398,1.0000,1.0000,0.0000,0.0074,0.0074
+Try_Based,# Handled with Continue,,,398,1.0000,,0.0000,0.0000,0.0000
+Try_Based,# Handled with Default,,,398,0.9749,1.0000,0.0154,0.0604,0.0450
+Try_Based,# Handled with Empty,,,398,0.9623,0.9874,0.0202,0.1280,0.1126
+Try_Based,# Handled with Log,,,398,0.9372,0.9834,0.0708,0.2704,0.2078
+Try_Based,# Handled with Method,,,398,0.8090,0.9512,0.2314,0.9956,0.7736
+Try_Based,# Handled with Nested Try,,,398,0.9925,0.9131,0.0057,0.0157,0.0101
+Try_Based,# Handled with Return,,,398,0.9548,0.9184,0.0351,0.1143,0.0827
+Try_Based,# Handled with Throw with New,,,398,0.7563,0.9271,0.2752,1.2672,0.9922
+Try_Based,# Handled with Throw without New,,,398,0.9271,0.8939,0.2048,0.4543,0.2546
+Try_Based,# Handled with Throw Wrap,,,398,0.7663,0.9233,0.2731,1.3879,1.1201
+Try_Based,# Handled with ToDo,,,398,0.9950,0.8671,0.0013,0.0053,0.0040
+Try_Based,# Possible Exceptions,,,398,0.4824,0.8378,0.8272,3.1889,2.3818
+Try_Based,# Propagated and Potentially Recoverable,,,398,0.9774,0.9390,0.0187,0.0887,0.0728
+Try_Based,# Propagated,,,398,0.5452,0.7100,0.5463,1.1503,0.7098
+Try_Based,% Doc in Comment,,,398,0.7462,0.9427,0.0416,0.1842,0.2087
+Try_Based,% External Doc,,,398,0.4246,,0.3641,0.3641,0.0000
+Try_Based,% Handled with Abort,,,398,1.0000,1.0000,0.0000,0.0029,0.0029
+Try_Based,% Handled with Continue,,,398,1.0000,,0.0000,0.0000,0.0000
+Try_Based,% Handled with Default,,,398,0.9799,0.9999,0.0012,0.0096,0.0099
+Try_Based,% Handled with Empty,,,398,0.9447,0.9858,0.0082,0.0773,0.0829
+Try_Based,% Handled with Log,,,398,0.9372,0.9854,0.0116,0.0989,0.1041
+Try_Based,% Handled with Method,,,398,0.7437,0.9391,0.0541,0.3370,0.3396
+Try_Based,% Handled with Nested Try,,,398,0.9874,0.9154,0.0030,0.0068,0.0066
+Try_Based,% Handled with Return,,,398,0.9397,0.9190,0.0151,0.0534,0.0547
+Try_Based,% Handled with Throw with New,,,398,0.6508,0.8991,0.0867,0.3754,0.4023
+Try_Based,% Handled with Throw without New,,,398,0.8920,0.9082,0.0356,0.1505,0.1222
+Try_Based,% Handled with Throw Wrap,,,398,0.6332,0.8881,0.0821,0.4326,0.4569
+Try_Based,% Handled with ToDo,,,398,0.9950,0.8657,0.0006,0.0021,0.0015
+Try_Based,% Method Declaration,,,398,0.4899,0.6334,0.1472,0.7026,0.8123
+Try_Based,% Propagated and Potentially Recoverable,,,398,0.9171,0.9436,0.0061,0.0152,0.0191
+Try_Based,% Propagated,,,398,0.5402,0.7307,0.1084,0.2750,0.2269
+Try_Based,% Specific,,,398,0.6206,0.8696,0.0915,0.4025,0.4476
+Try_Based,% Subsumption,,,398,0.7462,0.9637,0.0383,0.3225,0.3255
+Try_Based,% Throw Statement,,,398,0.6256,0.8679,0.0886,0.1745,0.2308
+Try_Based,Avg # Declaring Methods,,,398,0.7889,0.9188,0.0344,1.2001,1.2004
+Try_Based,Avg # Invoked Method,,,398,0.7739,0.9203,0.0401,1.1892,1.1790
+Try_Based,Avg Depth,,,398,0.3693,0.6599,0.6295,1.1730,0.9728
+Try_Based,Avg Exc Type Prevalence,,,398,0.0628,0.9059,20.9783,138.6354,122.3895
+Try_Based,Num Distinct Methods,,,398,0.9196,0.9837,0.1132,4.3009,4.3471
+Try_Based,Sum of Num Distinct Methods,,,398,0.9196,0.9832,0.3995,11.2739,10.9749
+Try_Based,Try LOC,,,398,0.9296,0.9823,1.0955,29.9724,28.8819
+Try_Based,Try SLOC,,,398,0.9322,0.9849,0.6457,15.8367,15.1910
+Throws_Based,<file coverage>,876.0000,823.0000,823,,,,,
+Throws_Based,# Throws,,,823,1.0000,1.0000,0.0000,3.7740,3.7740
+Throws_Based,Avg. Max. Generic Throws,,,823,0.9818,0.8760,0.0129,0.0687,0.0558
+Throws_Based,Avg. Max. Throws Kitchen Sink,,,823,1.0000,1.0000,0.0000,0.0611,0.0611
+Throws_Based,Max. Generic Throws,,,823,0.9818,0.8753,0.0304,0.1422,0.1118
+Throws_Based,Max. Throws Kitchen Sink,,,823,1.0000,1.0000,0.0000,0.2892,0.2892

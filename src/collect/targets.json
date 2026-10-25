@@ -1,0 +1,83 @@
+{
+  "_comment": "New study contexts. prev_release_tag bounds the pre-release window (prev..release); post_release_tag bounds the post-release window (release..post). Tag SHAs are resolved and recorded by clone_repo.py into data/new/<id>/provenance.json.",
+  "hibernate-5.1": {
+    "repo": "https://github.com/hibernate/hibernate-orm.git",
+    "language": "java",
+    "prev_release_tag": "5.0.0.Final",
+    "release_tag": "5.1.0",
+    "post_release_tag": "5.1.17",
+    "jira": {
+      "base": "https://hibernate.atlassian.net",
+      "api": "cloud",
+      "project_keys": [
+        "HHH"
+      ]
+    },
+    "include_regex": "/src/main/java/.*\\.java$",
+    "exclude_regex": "(^|/)(test|tests|testing)/|/hibernate-testing/|/documentation/|/release/"
+  },
+  "zookeeper-release-3.6.0": {
+    "repo": "https://github.com/apache/zookeeper.git",
+    "language": "java",
+    "prev_release_tag": "release-3.5.0",
+    "release_tag": "release-3.6.0",
+    "post_release_tag": "release-3.6.4",
+    "tracker": {
+      "type": "jira",
+      "base": "https://issues.apache.org/jira",
+      "api": "server",
+      "project_keys": [
+        "ZOOKEEPER"
+      ]
+    },
+    "include_regex": "/src/main/java/.*\\.java$",
+    "exclude_regex": "(^|/)(test|tests|testing|it|test-?utils?|examples?|samples?|benchmarks?|jmh)/|Test\\.java$|Tests\\.java$|IT\\.java$"
+  },
+  "hadoop-2.7": {
+    "repo": "https://github.com/apache/hadoop.git",
+    "language": "java",
+    "prev_release_tag": "release-2.6.0",
+    "release_tag": "release-2.7.0",
+    "post_release_tag": "rel/release-2.7.7",
+    "jira": {
+      "base": "https://issues.apache.org/jira",
+      "api": "server",
+      "project_keys": [
+        "HADOOP",
+        "HDFS",
+        "YARN",
+        "MAPREDUCE"
+      ]
+    },
+    "include_regex": "/src/main/java/.*\\.java$",
+    "exclude_regex": "(^|/)(test|tests)/"
+  },
+  "umbraco-7.7": {
+    "repo": "https://github.com/umbraco/Umbraco-CMS.git",
+    "language": "csharp",
+    "prev_release_tag": "release-7.6.0",
+    "release_tag": "release-7.7.0",
+    "post_release_tag": "release-7.7.13",
+    "issue_tracker_note": "Umbraco 7.x used YouTrack (issues.umbraco.org, U4-xxxx keys), which has been decommissioned; defect mining for this target is expected to be blocked. See docs/REPRODUCTION.md.",
+    "jira": null,
+    "include_regex": "^src/.*\\.cs$",
+    "exclude_regex": "(?i)(tests?/|\\.Tests?\\.|/obj/|/bin/)"
+  },
+  "hibernate-5.0-validation": {
+    "_purpose": "Pipeline validation only: the paper's own release. Our file-level EH metrics are compared to the authors' released values (src/collect/validate_against_original.py).",
+    "repo": "https://github.com/hibernate/hibernate-orm.git",
+    "language": "java",
+    "prev_release_tag": "4.3.0.Final",
+    "release_tag": "5.0.0.Final",
+    "post_release_tag": "5.0.16",
+    "jira": {
+      "base": "https://hibernate.atlassian.net",
+      "api": "cloud",
+      "project_keys": [
+        "HHH"
+      ]
+    },
+    "include_regex": "/src/main/java/.*\\.java$",
+    "exclude_regex": "(^|/)(test|tests|testing)/|/hibernate-testing/|/documentation/|/release/"
+  }
+}

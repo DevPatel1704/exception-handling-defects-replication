@@ -1,0 +1,22 @@
+{
+  "target": "hibernate-5.0-validation",
+  "repo": "https://github.com/hibernate/hibernate-orm.git",
+  "release": {
+    "tag": "5.0.0.Final",
+    "commit": "87a62262ba9e7d1c2d8a7b1707021e479ceec3ab",
+    "commit_date": "2015-08-20T15:36:18-05:00"
+  },
+  "post_release": {
+    "tag": "5.0.16",
+    "commit": "59a4b2b111c52d2dcdbc4effb36cd9295bb9761d",
+    "commit_date": "2017-11-06T20:05:28-08:00"
+  },
+  "prev_release": {
+    "tag": "4.3.0.Final",
+    "commit": "a32dae8bea992a37d1bd181996b0a536357fbcad",
+    "commit_date": "2013-12-16T15:25:02-06:00"
+  },
+  "worktree_head": "87a62262ba9e7d1c2d8a7b1707021e479ceec3ab",
+  "language_declared": "java",
+  "language_detected": "java"
+}

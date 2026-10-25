@@ -1,0 +1,5687 @@
+{
+ "HHH-10140": {
+  "type": "Bug",
+  "created": "2015-09-28T07:22:25.549-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-28T14:05:15.420-0700",
+  "status": "Closed",
+  "summary": "Apache Derby does not support tuples in subqueries",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10139": {
+  "type": "Bug",
+  "created": "2015-09-28T07:17:08.766-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-28T14:05:28.152-0700",
+  "status": "Closed",
+  "summary": "<one-to-one> and  <many-to-one> mapping with <formula>1</formula> related to a boolean field causes java.sql.SQLSyntaxErrorException:",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10135": {
+  "type": "Bug",
+  "created": "2015-09-26T01:45:16.835-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-27T06:01:31.602-0700",
+  "status": "Closed",
+  "summary": "DB2Dialect should override getSelectSequenceNextValString",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10133": {
+  "type": "Bug",
+  "created": "2015-09-25T04:24:10.345-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-25T15:46:30.555-0700",
+  "status": "Closed",
+  "summary": "CatalogSeparator of dialect metadata not used in runtime, just in schema tool",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10132": {
+  "type": "Bug",
+  "created": "2015-09-25T03:56:21.679-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-29T21:32:31.136-0700",
+  "status": "Closed",
+  "summary": "ENTRY() function in HQL causes invalid SQL when map key is an entity",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10131": {
+  "type": "Bug",
+  "created": "2015-09-25T03:16:09.789-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-25T10:26:55.531-0700",
+  "status": "Closed",
+  "summary": "CacheableFileXmlSource.doBind returns null instead of created binding when .hbm.xml.bin have not been created yet",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10129": {
+  "type": "Improvement",
+  "created": "2015-09-24T15:00:29.695-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-30T10:37:06.914-0700",
+  "status": "Closed",
+  "summary": "Evaluate AttributeConverter tests in hibernate-entitymanager for move to hibernate-core",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10126": {
+  "type": "Bug",
+  "created": "2015-09-24T11:42:29.998-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-25T11:40:58.426-0700",
+  "status": "Closed",
+  "summary": "Table-backed sequences are not populated on creation using SchemaUpdate",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10125": {
+  "type": "Bug",
+  "created": "2015-09-24T08:47:46.251-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-29T21:30:57.624-0700",
+  "status": "Closed",
+  "summary": "KEY() function in HQL causes inaccurate SQL when map key is an entity",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10124": {
+  "type": "Task",
+  "created": "2015-09-24T06:16:39.972-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-12T06:54:57.024-0800",
+  "status": "Closed",
+  "summary": "Upgrade Ehcache to 2.10.1",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10122": {
+  "type": "Deprecation",
+  "created": "2015-09-23T15:19:10.481-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-29T22:06:46.191-0700",
+  "status": "Closed",
+  "summary": "Deprecate \".class\" property-style entity-type-expression format",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10121": {
+  "type": "Improvement",
+  "created": "2015-09-23T08:50:19.844-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-29T22:20:44.637-0700",
+  "status": "Closed",
+  "summary": "Have EMF#getProperties expose ValidatorFactory injected via 2-phase load",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10120": {
+  "type": "Bug",
+  "created": "2015-09-23T07:41:25.710-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-24T10:24:23.543-0700",
+  "status": "Closed",
+  "summary": "InputStream not closed in ConfigLoader.loadConfigXmlResource(String)",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10119": {
+  "type": "Bug",
+  "created": "2015-09-22T18:56:43.214-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-24T09:57:01.691-0700",
+  "status": "Closed",
+  "summary": "Config setting names loaded from cfg.xml stored in augmented (prefixed with \"hibernate.\") form but not original form",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10115": {
+  "type": "Bug",
+  "created": "2015-09-22T01:03:14.506-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-22T14:14:14.165-0700",
+  "status": "Closed",
+  "summary": "HHH90000003: Use of DOM4J entity-mode is considered deprecated",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10112": {
+  "type": "Bug",
+  "created": "2015-09-21T02:10:12.018-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-06T10:24:06.713-0800",
+  "status": "Closed",
+  "summary": "Unable to enhance persistent attribute with declared targetEntity",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10111": {
+  "type": "Bug",
+  "created": "2015-09-20T17:27:23.179-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-24T13:51:00.839-0700",
+  "status": "Closed",
+  "summary": "AttributeConverter based attributes are not marked for update when their state is modified",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10110": {
+  "type": "Bug",
+  "created": "2015-09-20T07:11:09.923-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-28T14:05:36.999-0700",
+  "status": "Closed",
+  "summary": "DerbyTenSevenDialect fails to update schema because of sequence error",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10108": {
+  "type": "Patch",
+  "created": "2015-09-18T07:26:20.811-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-22T10:47:51.018-0700",
+  "status": "Closed",
+  "summary": "checkstyle test <module name=\"NewlineAtEndOfFile\" /> causes build time problem",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10104": {
+  "type": "Bug",
+  "created": "2015-09-17T07:24:21.010-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-15T03:23:43.674-0700",
+  "status": "Closed",
+  "summary": "Using JPA 2.1 schema generation together with hbm2ddl runs into deadlock with MySQL",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10101": {
+  "type": "Improvement",
+  "created": "2015-09-14T02:06:44.733-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T19:51:35.728-0800",
+  "status": "Closed",
+  "summary": "Implement nonstrict-read-write mode in Infinispan 2LC",
+  "fixVersions": [
+   "5.0.2",
+   "5.0.4"
+  ]
+ },
+ "HHH-10097": {
+  "type": "Improvement",
+  "created": "2015-09-10T09:27:49.487-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-02T16:35:22.123-0700",
+  "status": "Closed",
+  "summary": "Expose the UUID from SessionFactoryImplementor",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10087": {
+  "type": "Improvement",
+  "created": "2015-09-04T10:26:20.573-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-26T15:40:42.544-0700",
+  "status": "Closed",
+  "summary": "Support prepending of locks",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10086": {
+  "type": "Improvement",
+  "created": "2015-09-04T07:53:46.278-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-04T10:14:45.549-0700",
+  "status": "Closed",
+  "summary": "Deprecate Dialect#getIdentityColumnString() and Dialect#getIdentitySelectString()",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10083": {
+  "type": "Improvement",
+  "created": "2015-09-03T02:54:19.871-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-16T06:19:35.225-0700",
+  "status": "Closed",
+  "summary": "Support replicated and distributed caches",
+  "fixVersions": [
+   "5.0.2",
+   "5.1.0"
+  ]
+ },
+ "HHH-10079": {
+  "type": "Bug",
+  "created": "2015-09-01T21:06:32.885-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-03T07:11:34.231-0700",
+  "status": "Closed",
+  "summary": "Restrict enhanced getter/setter usage",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10078": {
+  "type": "Bug",
+  "created": "2015-09-01T20:33:40.737-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-03T06:58:57.838-0700",
+  "status": "Closed",
+  "summary": "Enforce synchronization on Enhancer.enhance()",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10076": {
+  "type": "Bug",
+  "created": "2015-09-01T20:06:52.938-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-03T06:54:53.348-0700",
+  "status": "Closed",
+  "summary": "Multiple bytecode enhancement attempts if hibernate.enable_lazy_load_no_trans set multiple times",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10073": {
+  "type": "Bug",
+  "created": "2015-09-01T00:43:40.039-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T09:38:35.798-0700",
+  "status": "Closed",
+  "summary": "Remove obsolete Type, AssociationType and TypeFactory methods",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10070": {
+  "type": "Deprecation",
+  "created": "2015-08-31T12:31:14.193-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-08-31T19:02:16.550-0700",
+  "status": "Closed",
+  "summary": "Deprecate use of \"collection properties\" in HQL",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10069": {
+  "type": "Bug",
+  "created": "2015-08-31T01:17:48.393-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T19:31:38.289-0700",
+  "status": "Closed",
+  "summary": "ClassCastException between CompositeCustomType and ComponentType part 2",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10066": {
+  "type": "Improvement",
+  "created": "2015-08-28T11:18:04.723-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-28T12:35:28.132-0700",
+  "status": "Closed",
+  "summary": "Drop and recreate AuxiliaryDatabaseObjects as part of schema update",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10065": {
+  "type": "Bug",
+  "created": "2015-08-28T09:29:10.934-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T08:06:01.079-0700",
+  "status": "Closed",
+  "summary": "Reuse JAXBContext instance (Slow mapping initialization)",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10060": {
+  "type": "Bug",
+  "created": "2015-08-26T16:26:44.636-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-02T16:16:11.140-0700",
+  "status": "Closed",
+  "summary": "Order of subclass joins are no longer determinate",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10059": {
+  "type": "Improvement",
+  "created": "2015-08-26T07:29:22.052-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-08-31T06:10:01.856-0700",
+  "status": "Closed",
+  "summary": "Make EntityManagerFactoryBuilderImpl.populate methods protected",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10057": {
+  "type": "Bug",
+  "created": "2015-08-26T05:30:38.395-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T10:02:52.557-0700",
+  "status": "Closed",
+  "summary": "hibernate-infinispan incompatible with Infinispan 8.0.0.CR1",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10056": {
+  "type": "Improvement",
+  "created": "2015-08-26T02:37:43.975-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-02T06:51:32.795-0700",
+  "status": "Closed",
+  "summary": "Separate settings for notions of (1) disabling EnversService and (2) auto-registering Envers listeners ",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10055": {
+  "type": "Bug",
+  "created": "2015-08-26T02:25:31.497-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-10T12:05:53.255-0700",
+  "status": "Closed",
+  "summary": "Lazy loading of collections in enhanced entity not working",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10054": {
+  "type": "Improvement",
+  "created": "2015-08-24T15:05:29.664-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T10:43:37.639-0700",
+  "status": "Closed",
+  "summary": "Modify Create Index SQL to support the Teradata database",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10053": {
+  "type": "Bug",
+  "created": "2015-08-24T12:09:33.370-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-02T16:16:34.075-0700",
+  "status": "Closed",
+  "summary": "Revert HHH-9736; BigIntegerType really should use NumericTypeDescriptor",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10050": {
+  "type": "Improvement",
+  "created": "2015-08-23T22:09:18.690-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-06T14:07:39.471-0700",
+  "status": "Closed",
+  "summary": "AttributeConverter should supports ParameterizedType if autoApply is true",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10045": {
+  "type": "New Feature",
+  "created": "2015-08-20T16:51:45.465-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-24T11:00:52.508-0700",
+  "status": "Closed",
+  "summary": "Force all columns in primary key to be non-null",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10044": {
+  "type": "Bug",
+  "created": "2015-08-20T11:54:12.175-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-02T16:15:48.163-0700",
+  "status": "Closed",
+  "summary": "hibernate-osgi unmanaged JPA not able to locate persistence.xml schema in entitymanager jar",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10030": {
+  "type": "New Feature",
+  "created": "2015-08-12T01:37:14.389-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-03T02:47:19.163-0700",
+  "status": "Closed",
+  "summary": "Add read-write cache concurrency strategy to Infinispan 2LC",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10026": {
+  "type": "Improvement",
+  "created": "2015-08-07T17:40:51.818-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-08-31T11:07:23.789-0700",
+  "status": "Closed",
+  "summary": "Consider hibernate-java8 types for use with @Version",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10024": {
+  "type": "Bug",
+  "created": "2015-08-07T00:34:16.826-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-08-31T18:30:21.062-0700",
+  "status": "Closed",
+  "summary": "Cannot define Path rooted at a collection join referencing attribute named same as \"collection property\" ",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10020": {
+  "type": "Improvement",
+  "created": "2015-08-05T08:13:16.253-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T19:52:41.593-0700",
+  "status": "Closed",
+  "summary": "Improvements to org.hibernate.bytecode.enhance.internal.AttributeTypeDescriptor#buildInLineDirtyCheckingBodyFragment",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10008": {
+  "type": "Bug",
+  "created": "2015-07-31T13:04:27.743-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T09:54:29.824-0700",
+  "status": "Closed",
+  "summary": "SessionImplementor.getTimestamp() does not return transaction start time",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-10002": {
+  "type": "Improvement",
+  "created": "2015-07-30T03:10:36.104-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-06T12:22:20.632-0800",
+  "status": "Closed",
+  "summary": "Hibernate @Synchronize annotation values should be processed by NamingStrategy",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-100084": null,
+ "HHH-10288": {
+  "type": "Bug",
+  "created": "2015-11-12T20:25:48.734-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-16T04:20:41.734-0800",
+  "status": "Closed",
+  "summary": "Temporary table support is broken using PostgresPlusDialect",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10286": {
+  "type": "Bug",
+  "created": "2015-11-12T19:27:13.120-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T10:11:46.786-0800",
+  "status": "Closed",
+  "summary": "SessionFactoryImpl doesn't cache and reuse existing collection cache region access strategies",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10281": {
+  "type": "Deprecation",
+  "created": "2015-11-12T08:38:38.284-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-12T08:47:59.063-0800",
+  "status": "Closed",
+  "summary": "More formally deprecate the legacy bytecode enhancement code",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10280": {
+  "type": "Task",
+  "created": "2015-11-12T08:37:07.451-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-12T17:47:25.791-0800",
+  "status": "Closed",
+  "summary": "Remove legacy bytecode enhancement artifacts",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10279": {
+  "type": "Task",
+  "created": "2015-11-12T04:38:25.219-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-12T04:54:09.907-0800",
+  "status": "Closed",
+  "summary": "Memory usage improvements",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10275": {
+  "type": "Bug",
+  "created": "2015-11-11T22:26:45.321-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-18T09:21:57.279-0800",
+  "status": "Closed",
+  "summary": "Inverse foreign key for many-to-many set is nullable",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10272": {
+  "type": "Improvement",
+  "created": "2015-11-11T13:50:01.754-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-26T09:00:17.505-0800",
+  "status": "Closed",
+  "summary": "Make pending-puts cache template configurable",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10271": {
+  "type": "Improvement",
+  "created": "2015-11-11T10:30:37.224-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-12T06:16:58.053-0800",
+  "status": "Closed",
+  "summary": "Improve performance of EventListenerRegistry",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10267": {
+  "type": "New Feature",
+  "created": "2015-11-10T18:55:52.486-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-16T13:25:24.545-0800",
+  "status": "Closed",
+  "summary": "Support defining lazy attribute fetch groups",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10264": {
+  "type": "Bug",
+  "created": "2015-11-09T17:42:22.864-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-10T07:10:13.712-0800",
+  "status": "Closed",
+  "summary": "hibernate.cache.auto_evict_collection_cache problems",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10261": {
+  "type": "Bug",
+  "created": "2015-11-09T10:53:28.974-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-01T11:56:29.568-0800",
+  "status": "Closed",
+  "summary": "Creating an entity sub graph on inherited attribute fails",
+  "fixVersions": [
+   "5.0.8"
+  ]
+ },
+ "HHH-10259": {
+  "type": "Bug",
+  "created": "2015-11-05T08:17:59.768-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-11T17:13:05.065-0800",
+  "status": "Closed",
+  "summary": "ForUpdateFragment.toFragmentString() does not check if aliases are defined when lockOptions are not null",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10252": {
+  "type": "Bug",
+  "created": "2015-11-03T10:11:46.191-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T17:11:25.914-0800",
+  "status": "Closed",
+  "summary": "Cascade delete does not work for instrumented/enhanced entities",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10251": {
+  "type": "Bug",
+  "created": "2015-11-03T09:02:09.601-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T15:05:27.425-0800",
+  "status": "Closed",
+  "summary": "Memory Leak when using Reference Cached, bytecode enhanced Immutable Entities",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10248": {
+  "type": "Improvement",
+  "created": "2015-11-02T08:45:08.649-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-04T18:55:56.180-0800",
+  "status": "Closed",
+  "summary": "map removed TransactionFactory classes",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10247": {
+  "type": "Bug",
+  "created": "2015-11-02T07:05:55.881-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-12T15:17:49.633-0800",
+  "status": "Closed",
+  "summary": "Hibernate ignores foreign-key attribute name in hbm <many-to-many>",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10242": {
+  "type": "Bug",
+  "created": "2015-10-31T03:38:30.557-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-05T09:53:48.317-0800",
+  "status": "Closed",
+  "summary": "Deal with HCANN poor handling of multiple properties by matching stem name",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10223": {
+  "type": "Bug",
+  "created": "2015-10-24T06:06:36.559-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-03T07:18:08.030-0800",
+  "status": "Closed",
+  "summary": "Element 'query-param' in *.hbm.xml files causes ClassCastException",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10222": {
+  "type": "New Feature",
+  "created": "2015-10-23T12:25:41.972-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-28T21:05:46.587-0700",
+  "status": "Closed",
+  "summary": "AttributeConverter not applied to @ElementCollection",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10219": {
+  "type": "Bug",
+  "created": "2015-10-23T05:34:37.382-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-06T08:34:39.047-0800",
+  "status": "Closed",
+  "summary": "Infinite loop generating IDs if using negative increment",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10217": {
+  "type": "Bug",
+  "created": "2015-10-22T08:38:58.323-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-26T15:00:14.854-0700",
+  "status": "Closed",
+  "summary": "ModelBinder fails to bind version property when generated=\"always\"",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10215": {
+  "type": "Task",
+  "created": "2015-10-21T08:26:45.253-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-13T07:53:58.331-0800",
+  "status": "Closed",
+  "summary": "Upgrade to Infinispan 8",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10208": {
+  "type": "Bug",
+  "created": "2015-10-20T01:31:23.858-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-04T21:31:53.997-0800",
+  "status": "Closed",
+  "summary": "Index and unique-key constraints not properly handled with implicit columns in hbm.xml binding",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10207": {
+  "type": "Bug",
+  "created": "2015-10-20T01:25:12.846-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-26T17:44:24.828-0700",
+  "status": "Closed",
+  "summary": "Constraint name not considered for a Set while loading from XML mapping file",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10206": {
+  "type": "Bug",
+  "created": "2015-10-20T01:19:38.751-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-26T18:19:24.393-0700",
+  "status": "Closed",
+  "summary": "Primary key not created for a Set after loading from XML mapping file",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10203": {
+  "type": "Bug",
+  "created": "2015-10-20T00:34:53.622-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-04T14:16:17.044-0800",
+  "status": "Closed",
+  "summary": "Overriden UniqueDelegate.getTableCreationUniqueConstraintsFragment not called anymore in SchemaExport",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10202": {
+  "type": "Improvement",
+  "created": "2015-10-19T17:34:55.463-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-03T17:25:42.787-0800",
+  "status": "Closed",
+  "summary": "Delay resolving TypeScopeImpl#factory after deserialization until resolveFactory() is called.",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10198": {
+  "type": "New Feature",
+  "created": "2015-10-16T00:34:14.324-0700",
+  "resolution": "Out of Date",
+  "resolutiondate": "2024-04-05T06:04:35.911-0700",
+  "status": "Closed",
+  "summary": "Consider design for annotation for custom IdentifierGenerator declarations",
+  "fixVersions": []
+ },
+ "HHH-10197": {
+  "type": "Bug",
+  "created": "2015-10-15T09:57:59.202-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-16T05:59:01.348-0700",
+  "status": "Closed",
+  "summary": "SchemaManagementException when performing SchemaUpdate ",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10194": {
+  "type": "Bug",
+  "created": "2015-10-15T00:53:28.941-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-15T01:56:41.886-0700",
+  "status": "Closed",
+  "summary": "Change NameQualifierSupport for Hypersonic from CATALOG to SCHEMA",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10193": {
+  "type": "Bug",
+  "created": "2015-10-14T08:45:33.442-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-14T09:15:32.605-0700",
+  "status": "Closed",
+  "summary": "NameQualifierSupport for Hypersonic should be catalog",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10191": {
+  "type": "Bug",
+  "created": "2015-10-14T07:03:15.112-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-21T16:07:17.727-0800",
+  "status": "Closed",
+  "summary": "InformationExtractorJdbcDatabaseMetaDataImpl can't handle Oracle function indexes",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10190": {
+  "type": "Improvement",
+  "created": "2015-10-14T05:59:44.335-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-14T06:17:51.975-0700",
+  "status": "Closed",
+  "summary": "org.hibernate.engine.spi.ActionQueue#executeActions() optimization",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10185": {
+  "type": "Bug",
+  "created": "2015-10-14T02:38:10.243-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-26T06:06:57.774-0800",
+  "status": "Closed",
+  "summary": "In nonstrict-read-write mode the remove may be not applied",
+  "fixVersions": [
+   "5.0.5",
+   "5.1.0"
+  ]
+ },
+ "HHH-10181": {
+  "type": "Bug",
+  "created": "2015-10-12T02:34:34.953-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-30T11:03:22.448-0700",
+  "status": "Closed",
+  "summary": "CacheableFileXmlSource.doBind uses obsolete .bin file",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10180": {
+  "type": "Bug",
+  "created": "2015-10-10T16:03:10.271-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-26T07:30:17.985-0700",
+  "status": "Closed",
+  "summary": "hbm2ddl tools cannot generate create/update script not modifying the database ",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10178": {
+  "type": "Improvement",
+  "created": "2015-10-09T08:41:27.230-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-17T08:22:05.134-0800",
+  "status": "Closed",
+  "summary": "Make JTA a provided (non-transitive) dependency",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10174": {
+  "type": "Bug",
+  "created": "2015-10-07T08:44:26.428-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-15T06:31:16.192-0700",
+  "status": "Closed",
+  "summary": "Incorrect splitting of string using dot as separator",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10172": {
+  "type": "Bug",
+  "created": "2015-10-06T17:42:36.328-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-07T10:26:17.892-0700",
+  "status": "Closed",
+  "summary": "Throw MappingException when entity/component class defines multiple matching getters by stem name",
+  "fixVersions": [
+   "5.0.3",
+   "5.1.0"
+  ]
+ },
+ "HHH-10169": {
+  "type": "Bug",
+  "created": "2015-10-06T12:51:10.221-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-27T10:50:39.380-0700",
+  "status": "Closed",
+  "summary": "Hibernate ignores foreign-key name in hbm <joined-subclass>",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-10163": {
+  "type": "Bug",
+  "created": "2015-10-05T02:05:46.818-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-02T00:39:14.459-0800",
+  "status": "Closed",
+  "summary": "QueryResultsRegion is not invalidated from evictAll()",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10161": {
+  "type": "Improvement",
+  "created": "2015-10-02T14:11:50.994-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-16T20:47:54.629-0800",
+  "status": "Closed",
+  "summary": "Allow parameter type for null value to be specified using javax.persistence.Parameter#getParameterType()",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10158": {
+  "type": "Bug",
+  "created": "2015-10-02T01:15:51.047-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-05T11:46:12.656-0800",
+  "status": "Closed",
+  "summary": "SchemaUpdate does not properly support formatter and delimiter anymore",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10157": {
+  "type": "Bug",
+  "created": "2015-10-01T07:55:15.377-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-01T14:15:51.154-0800",
+  "status": "Closed",
+  "summary": "Postgis geometry type for JTS geometrys not usable",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-10154": {
+  "type": "Task",
+  "created": "2015-09-30T08:54:59.063-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-30T10:38:46.828-0700",
+  "status": "Closed",
+  "summary": "Change built-in JavaTypeDescriptor impls to not auto-register themselves with JavaTypeDescriptorRegistry",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10150": {
+  "type": "Bug",
+  "created": "2015-09-29T05:02:52.005-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-29T08:53:48.552-0700",
+  "status": "Closed",
+  "summary": "PostgreSQL -MultiTableBulkIdStrategy fails with multiple delete of parent entity in the same transaction ",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10149": {
+  "type": "Bug",
+  "created": "2015-09-29T04:39:00.931-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-29T06:14:11.797-0700",
+  "status": "Closed",
+  "summary": "PostgreSQL81Dialect.#getForUpdateString(String aliases,LockOptions lockOptions) returning a wrong value for update String when aliases is an empty String",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10145": {
+  "type": "Bug",
+  "created": "2015-09-28T19:17:23.867-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-06T10:25:39.351-0800",
+  "status": "Closed",
+  "summary": "Include maven dependencies in enhancement classpath ",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10142": {
+  "type": "Bug",
+  "created": "2015-09-28T09:04:11.612-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-30T06:49:28.286-0700",
+  "status": "Closed",
+  "summary": "Derby dialect missing SQL keyword",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10141": {
+  "type": "Bug",
+  "created": "2015-09-28T07:30:55.015-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-28T14:05:07.513-0700",
+  "status": "Closed",
+  "summary": "ClassicQueryTranslatorFactory unable to determine the correct RevisionType type ",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-10439": {
+  "type": "Improvement",
+  "created": "2016-01-12T21:11:22.331-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-13T06:32:37.664-0800",
+  "status": "Closed",
+  "summary": "Log  a message which prints the name of the import script being imported",
+  "fixVersions": [
+   "5.0.7",
+   "5.1.0"
+  ]
+ },
+ "HHH-10437": {
+  "type": "Bug",
+  "created": "2016-01-12T08:13:55.257-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-12T08:48:23.339-0800",
+  "status": "Closed",
+  "summary": "NPE in PrimaryKey#addColumn(Column column) when getTable().getNameIdentifier() is null",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10433": {
+  "type": "Bug",
+  "created": "2016-01-11T08:54:10.914-0800",
+  "resolution": "Won't Fix",
+  "resolutiondate": "2016-01-14T10:47:31.551-0800",
+  "status": "Closed",
+  "summary": "Inconsistent cache in a cluster",
+  "fixVersions": []
+ },
+ "HHH-10430": {
+  "type": "Bug",
+  "created": "2016-01-11T00:02:04.031-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-29T07:32:08.504-0800",
+  "status": "Closed",
+  "summary": "Comment for class is ignored when using subselect in hibernate mapping",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10425": {
+  "type": "Bug",
+  "created": "2016-01-07T06:26:56.228-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-07T06:57:38.851-0800",
+  "status": "Closed",
+  "summary": "SchemaMigration creates foreign keys too early if across schema",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10422": {
+  "type": "Bug",
+  "created": "2016-01-06T22:06:30.896-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-13T09:34:15.110-0800",
+  "status": "Closed",
+  "summary": "Backport HHH-9983 to fix identity IDs using Oracle12cDialect in 5.0",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10421": {
+  "type": "Bug",
+  "created": "2016-01-06T15:11:07.018-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-06T15:44:53.074-0800",
+  "status": "Closed",
+  "summary": "Change \"native\" ID generator for Oracle12cDialect to SequenceStyleGenerator",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10420": {
+  "type": "Bug",
+  "created": "2016-01-06T14:58:27.495-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-07T03:09:54.189-0800",
+  "status": "Closed",
+  "summary": "SchemaExport creates foreign keys too early if across schema",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10419": {
+  "type": "Improvement",
+  "created": "2016-01-06T05:53:39.342-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-06T11:51:50.995-0800",
+  "status": "Closed",
+  "summary": "Better error report upon JPA AttributeConverter instantiation error",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10416": {
+  "type": "Improvement",
+  "created": "2016-01-05T14:01:53.098-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-12T15:50:33.554-0800",
+  "status": "Closed",
+  "summary": "Drop superfluous immutable-entity cache configuration",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10412": {
+  "type": "Bug",
+  "created": "2016-01-05T07:05:46.983-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-09T13:22:05.990-0800",
+  "status": "Closed",
+  "summary": "case/when in criteria always casts resulting object which fails on mysql with boolean",
+  "fixVersions": [
+   "5.0.8"
+  ]
+ },
+ "HHH-10405": {
+  "type": "Bug",
+  "created": "2015-12-29T04:50:49.074-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-08T04:11:52.908-0800",
+  "status": "Closed",
+  "summary": "<return> elements of <sql-query> are not handled properly when building metadata",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10401": {
+  "type": "Bug",
+  "created": "2015-12-24T09:59:15.343-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-14T01:58:19.396-0800",
+  "status": "Closed",
+  "summary": "Missing table names on foreign key circularity error message",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-10396": {
+  "type": "Bug",
+  "created": "2015-12-21T04:41:17.186-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-21T05:12:55.885-0800",
+  "status": "Closed",
+  "summary": "In a @OneToMany association with @JoinColum the @ForeignKey is not taken into consideration when generating the association database schema",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10386": {
+  "type": "Bug",
+  "created": "2015-12-18T03:09:39.754-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-12T11:22:57.885-0800",
+  "status": "Closed",
+  "summary": "In a @ManyToMany assoctiation the @JoinColumn foreignKey is not taken into considertion when generating the association database schema",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10385": {
+  "type": "Bug",
+  "created": "2015-12-18T00:17:49.540-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-12T11:22:44.322-0800",
+  "status": "Closed",
+  "summary": "In a @OneToMany association the @JoinColumn foreignKey is not taken into consideration when generating the association database schema",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10384": {
+  "type": "Bug",
+  "created": "2015-12-17T06:02:33.724-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-18T07:19:57.197-0800",
+  "status": "Closed",
+  "summary": "PooledThreadLocalLoOptimizer fails to give uniqe id's for different threads",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10383": {
+  "type": "Bug",
+  "created": "2015-12-17T02:46:08.941-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-21T13:43:27.179-0800",
+  "status": "Closed",
+  "summary": "IN parameter is not enclosed in parentheses ",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10381": {
+  "type": "Task",
+  "created": "2015-12-16T06:24:02.115-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T11:52:54.917-0800",
+  "status": "Closed",
+  "summary": "Introduce a ThreadLocal-based pooled-lo optimizer to avoid locking",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10372": {
+  "type": "Bug",
+  "created": "2015-12-11T01:45:08.125-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-20T01:12:46.373-0800",
+  "status": "Closed",
+  "summary": "OffsetDateTime value changes after fetching the row from the database",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-10371": {
+  "type": "Bug",
+  "created": "2015-12-11T01:30:15.725-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-14T14:23:03.842-0800",
+  "status": "Closed",
+  "summary": "LocalDate value changes after fetching the row from the database",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10366": {
+  "type": "Improvement",
+  "created": "2015-12-08T06:57:02.079-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-08T09:06:20.352-0800",
+  "status": "Closed",
+  "summary": "Improve performance and reduce CPU load when fetching reference cached objects",
+  "fixVersions": [
+   "5.0.6",
+   "5.1.0"
+  ]
+ },
+ "HHH-10364": {
+  "type": "Bug",
+  "created": "2015-12-07T06:16:43.260-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-15T08:04:01.655-0800",
+  "status": "Closed",
+  "summary": "HSQL does not support Nationalized annotation",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10363": {
+  "type": "Improvement",
+  "created": "2015-12-06T04:44:04.580-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T13:04:23.337-0800",
+  "status": "Closed",
+  "summary": "The Cascade class makes unnecessary calls to the Reflection API.",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10359": {
+  "type": "Bug",
+  "created": "2015-12-04T10:43:47.268-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T14:01:37.587-0800",
+  "status": "Closed",
+  "summary": "Change default values in bytecode enhance build-time plugins",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10358": {
+  "type": "Improvement",
+  "created": "2015-12-04T05:57:27.137-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-14T08:37:44.615-0800",
+  "status": "Closed",
+  "summary": "EntityLoader is contended when calling AbstractLoadPlanBasedLoader.wrapResultSetIfEnabled",
+  "fixVersions": [
+   "5.0.6",
+   "5.1.0"
+  ]
+ },
+ "HHH-10356": {
+  "type": "New Feature",
+  "created": "2015-12-03T21:36:53.685-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T13:52:51.550-0800",
+  "status": "Closed",
+  "summary": "Make runtime bytecode enhancement configurable",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10354": {
+  "type": "Improvement",
+  "created": "2015-12-03T08:58:09.891-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T12:12:21.281-0800",
+  "status": "Closed",
+  "summary": "Rename 'field access' bytecode enhancement",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10353": {
+  "type": "Bug",
+  "created": "2015-12-03T03:47:26.254-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T10:39:26.813-0800",
+  "status": "Closed",
+  "summary": "Interceptor afterTransactionBegin() is not fired",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10349": {
+  "type": "Improvement",
+  "created": "2015-12-02T06:26:58.368-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-15T22:33:32.859-0800",
+  "status": "Closed",
+  "summary": "PersistenceUtilHelper should call getDeclaredField/Method inside of privileged block",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10345": {
+  "type": "Bug",
+  "created": "2015-12-01T00:44:53.369-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-10T15:37:39.586-0800",
+  "status": "Closed",
+  "summary": "Map byte[]/Byte[] to BLOB rather than LONG RAW in Oracle",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-10344": {
+  "type": "Bug",
+  "created": "2015-11-30T09:23:22.979-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-16T10:17:29.924-0800",
+  "status": "Closed",
+  "summary": "Bring transaction invalidation interceptor into Infinispan 2LC",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10343": {
+  "type": "Bug",
+  "created": "2015-11-30T03:44:47.516-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-07T02:28:57.050-0800",
+  "status": "Closed",
+  "summary": "Precision and scale are reversed when using decimal as element in map",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10335": {
+  "type": "Task",
+  "created": "2015-11-25T14:59:25.713-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-25T15:09:10.936-0800",
+  "status": "Closed",
+  "summary": "Upgrade to Hibernate Commons Annotations 5.0.1.Final",
+  "fixVersions": [
+   "5.0.5",
+   "5.1.0"
+  ]
+ },
+ "HHH-10331": {
+  "type": "Bug",
+  "created": "2015-11-25T06:13:10.524-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-08T03:10:14.662-0800",
+  "status": "Closed",
+  "summary": "HSQLDialect returns supportsTupleDistinctCounts false which seems wrong",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10321": {
+  "type": "Bug",
+  "created": "2015-11-23T13:00:22.780-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-26T07:16:27.884-0800",
+  "status": "Closed",
+  "summary": "HHH-9866 is alive; Wrong join table column names generation with globally_quoted_identifiers",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-10317": {
+  "type": "Improvement",
+  "created": "2015-11-22T23:18:57.367-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-12T15:44:02.146-0800",
+  "status": "Closed",
+  "summary": "Allow to bind custom types that implement the Collection interface through JPA APIs",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-10314": {
+  "type": "Improvement",
+  "created": "2015-11-21T19:13:22.332-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-26T04:31:29.480-0800",
+  "status": "Closed",
+  "summary": "In some cases BatchFetchQueue is created just to try and remove a key",
+  "fixVersions": [
+   "5.0.5",
+   "5.1.0"
+  ]
+ },
+ "HHH-10313": {
+  "type": "Improvement",
+  "created": "2015-11-21T15:49:24.915-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-30T09:24:13.181-0800",
+  "status": "Closed",
+  "summary": "Make SessionImplementor extend WrapperOptions",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-10309": {
+  "type": "Bug",
+  "created": "2015-11-20T07:33:20.446-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-20T10:49:51.328-0800",
+  "status": "Closed",
+  "summary": "HHH-10242 is too aggressive in cases of FIELD access",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-10308": {
+  "type": "Improvement",
+  "created": "2015-11-19T20:55:30.469-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-20T12:19:09.479-0800",
+  "status": "Closed",
+  "summary": "Don't make deep copy of property with AttributeConverter if Java type is known to be immutable",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-10306": {
+  "type": "Improvement",
+  "created": "2015-11-19T02:26:11.008-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-01T19:14:23.297-0800",
+  "status": "Closed",
+  "summary": "Use module initializer to add Hibernate 2LC externalizers",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-10303": {
+  "type": "Task",
+  "created": "2015-11-18T17:53:17.604-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-25T08:43:36.523-0800",
+  "status": "Closed",
+  "summary": "Reinstate legacy bytecode-enhancement Ant task",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10302": {
+  "type": "Improvement",
+  "created": "2015-11-18T16:48:20.287-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-26T08:32:33.238-0800",
+  "status": "Closed",
+  "summary": "Lots of allocations of LoadEvent and PostLoadEvent",
+  "fixVersions": [
+   "5.0.5",
+   "5.1.0"
+  ]
+ },
+ "HHH-10301": {
+  "type": "Improvement",
+  "created": "2015-11-18T16:07:56.242-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-26T07:37:25.647-0800",
+  "status": "Closed",
+  "summary": "HQLQueryPlan allocates a new ArrayList every time even if it is not required",
+  "fixVersions": [
+   "5.0.5",
+   "5.1.0"
+  ]
+ },
+ "HHH-10298": {
+  "type": "Bug",
+  "created": "2015-11-18T01:45:05.525-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-15T08:53:54.840-0800",
+  "status": "Closed",
+  "summary": "Add new configuration type hibernate.hbm2dll.extra_physical_table_types",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-10297": {
+  "type": "Improvement",
+  "created": "2015-11-17T21:47:35.978-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-17T21:54:53.766-0800",
+  "status": "Closed",
+  "summary": "Cache HashMap in AbstractRowReader instead of re-creating for each row that is read",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10293": {
+  "type": "Bug",
+  "created": "2015-11-15T09:18:03.180-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-15T10:03:17.432-0800",
+  "status": "Closed",
+  "summary": "Schema Update - Single table Inheritance with bi-directional OneToMany referencing superclass fails ",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10291": {
+  "type": "Bug",
+  "created": "2015-11-13T13:26:30.286-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-02T08:47:41.332-0800",
+  "status": "Closed",
+  "summary": "Partially generated composite attribute is not retrieved after insert",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-10289": {
+  "type": "Bug",
+  "created": "2015-11-13T10:23:51.606-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-17T09:33:58.184-0800",
+  "status": "Closed",
+  "summary": "CPU performance regression in StatefulPersistenceContext.addEntry() ",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10495": {
+  "type": "Bug",
+  "created": "2016-02-03T06:33:24.946-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-04T06:21:23.020-0800",
+  "status": "Closed",
+  "summary": "Oracle10gDialect generate nvarchar when using @Nationalized",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-10487": {
+  "type": "Improvement",
+  "created": "2016-01-29T09:44:52.491-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-09T14:34:29.624-0800",
+  "status": "Closed",
+  "summary": "Add @Incubating annotation",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10484": {
+  "type": "New Feature",
+  "created": "2016-01-28T05:58:15.962-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-09T13:35:20.451-0800",
+  "status": "Closed",
+  "summary": "Add hibernate.jdbc.log.warnings configuration property",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10477": {
+  "type": "Improvement",
+  "created": "2016-01-25T11:46:08.741-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-25T13:33:54.503-0800",
+  "status": "Closed",
+  "summary": "Setting to allow delayed access to CDI",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-10458": {
+  "type": "Improvement",
+  "created": "2016-01-19T06:29:43.810-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-09T10:04:03.420-0800",
+  "status": "Closed",
+  "summary": "Better encapsulate SchemaManagementTool (OGM) - unify JPA schema generation and hbm2ddl capabilities",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10451": {
+  "type": "Bug",
+  "created": "2016-01-15T22:53:37.653-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-25T10:51:19.218-0800",
+  "status": "Closed",
+  "summary": "Can not export table comment statement",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-10450": {
+  "type": "Improvement",
+  "created": "2016-01-15T01:06:00.465-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-26T08:53:29.233-0800",
+  "status": "Closed",
+  "summary": "Refactor the way configuration is read",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-10446": {
+  "type": "Bug",
+  "created": "2016-01-13T08:00:02.805-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-25T18:56:05.237-0800",
+  "status": "Closed",
+  "summary": "Comment delimiters not \"escaped\" within (VAR)CHAR literals within native queries",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-9474": {
+  "type": "Improvement",
+  "created": "2014-10-31T08:13:19.397-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-13T07:14:50.592-0800",
+  "status": "Closed",
+  "summary": "Perfomance issue with ElementCollection",
+  "fixVersions": [
+   "5.0.7",
+   "5.1.0"
+  ]
+ },
+ "HHH-9411": {
+  "type": "Bug",
+  "created": "2014-09-23T07:39:12.586-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-16T13:03:20.857-0800",
+  "status": "Closed",
+  "summary": "Regression of Criteria Query Treat for multi-tier type hierarchy",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9375": {
+  "type": "Improvement",
+  "created": "2014-09-04T09:38:23.637-0700",
+  "resolution": "Incomplete",
+  "resolutiondate": "2024-04-04T08:09:20.018-0700",
+  "status": "Closed",
+  "summary": "Hibernate OnDelete Cascade not working for MySql but Works on postgres and Ms-Sql",
+  "fixVersions": []
+ },
+ "HHH-9374": {
+  "type": "Bug",
+  "created": "2014-09-02T14:11:21.781-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-26T15:54:14.367-0700",
+  "status": "Closed",
+  "summary": "EntityGraph applied to subquery when using collection function",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-9357": {
+  "type": "Bug",
+  "created": "2014-08-22T22:14:08.502-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-12T16:46:42.766-0800",
+  "status": "Closed",
+  "summary": "Incorrect SQL generated for Polymorpic Queries involving TYPE() with @Inheritance(strategy=InheritanceType.JOINED)",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-9356": {
+  "type": "Bug",
+  "created": "2014-08-22T09:59:49.640-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-09T19:15:32.167-0800",
+  "status": "Closed",
+  "summary": "jpa converter only applied to high value of cb.between",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-9343": {
+  "type": "Bug",
+  "created": "2014-08-16T09:56:05.593-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-27T08:38:02.057-0800",
+  "status": "Closed",
+  "summary": "Case/when in criteria with string literal result fails type checking",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-9302": {
+  "type": "Bug",
+  "created": "2014-07-25T04:49:52.841-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-26T05:38:11.091-0800",
+  "status": "Closed",
+  "summary": "SQLGrammarException with @DiscriminatorColumn in an inheritance hierarchy",
+  "fixVersions": [
+   "5.0.5"
+  ]
+ },
+ "HHH-9286": {
+  "type": "Bug",
+  "created": "2014-07-13T10:14:43.881-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-27T10:17:02.223-0800",
+  "status": "Closed",
+  "summary": "Extended Stored procedure support does not work with Oracle",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-9230": {
+  "type": "Bug",
+  "created": "2014-06-03T05:21:20.261-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-29T07:53:05.946-0700",
+  "status": "Closed",
+  "summary": "NullPointer when combining JPQL query with in clause and @NamedEntityGraph",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-9195": {
+  "type": "Bug",
+  "created": "2014-05-16T00:50:44.642-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-16T20:03:36.851-0800",
+  "status": "Closed",
+  "summary": "Adding an entity at a given index in a list annotated with OrderColumn adds the entity at the end",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-9160": {
+  "type": "Bug",
+  "created": "2014-05-05T05:54:44.293-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-30T10:52:16.910-0700",
+  "status": "Closed",
+  "summary": "javax.persistence.Query#getParameterValue(String) returns the ParameterRegistration not the parameter value",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-9140": {
+  "type": "Bug",
+  "created": "2014-04-24T06:01:43.093-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-10T07:16:10.538-0800",
+  "status": "Closed",
+  "summary": "Error in CollectionCacheInvalidator when hibernate.cache.auto_evict_collection_cache is enabled",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-9074": {
+  "type": "Bug",
+  "created": "2014-03-21T09:13:57.332-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-08T07:56:23.979-0700",
+  "status": "Closed",
+  "summary": "HQL Query with boolean and @Convert",
+  "fixVersions": [
+   "5.0.3",
+   "5.1.0"
+  ]
+ },
+ "HHH-8847": {
+  "type": "Bug",
+  "created": "2014-01-10T03:30:14.797-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T20:42:10.579-0800",
+  "status": "Closed",
+  "summary": "Exception thrown when trying to select a treated property",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-8802": {
+  "type": "Bug",
+  "created": "2013-12-16T07:23:58.985-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-05T07:35:19.900-0800",
+  "status": "Closed",
+  "summary": "Class cast exception thrown when trying to access Embedded type relationship path in Tuple",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-8775": {
+  "type": "Bug",
+  "created": "2013-12-06T01:21:59.663-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-04T18:32:52.111-0800",
+  "status": "Closed",
+  "summary": "Exception when mapping a class more than once",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-8732": {
+  "type": "Bug",
+  "created": "2013-11-21T02:11:45.181-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2014-03-19T13:07:00.706-0700",
+  "status": "Closed",
+  "summary": "NoClassDefFoundError: net/sf/ehcache/config/TerracottaConfiguration$ValueMode",
+  "fixVersions": []
+ },
+ "HHH-8712": {
+  "type": "Bug",
+  "created": "2013-11-05T06:55:16.534-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-28T19:27:01.218-0700",
+  "status": "Closed",
+  "summary": "Hibernate startup error \"HHH015011: Unable to locate static metamodel field\"",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-8706": {
+  "type": "Improvement",
+  "created": "2013-11-18T13:14:28.167-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-23T10:00:51.623-0800",
+  "status": "Closed",
+  "summary": "Delay registering of the entity listener class as long as possible",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-8657": {
+  "type": "Bug",
+  "created": "2013-10-29T14:59:21.542-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-04T07:40:42.333-0800",
+  "status": "Closed",
+  "summary": "Case Insensitive Equality Criterion NVARCHAR field yields bad SQL",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-8435": {
+  "type": "Bug",
+  "created": "2013-08-10T09:37:03.348-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-30T11:09:21.720-0700",
+  "status": "Closed",
+  "summary": "@Lob + @Nationalized results in NCLOB on SQLServer2005+ rather than NVARCHAR(MAX)",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-7973": {
+  "type": "Bug",
+  "created": "2013-02-06T02:51:40.119-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-09T08:26:27.890-0800",
+  "status": "Closed",
+  "summary": "String literals in an HQL query can get mangled",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-7705": {
+  "type": "Bug",
+  "created": "2012-10-22T03:21:18.889-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-04T06:26:06.838-0800",
+  "status": "Closed",
+  "summary": "Query.setProperties(Map) silently ignores null values provided in the Map",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-7610": {
+  "type": "Improvement",
+  "created": "2012-09-17T16:38:12.392-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-24T15:41:50.980-0800",
+  "status": "Closed",
+  "summary": "Option for injecting empty (non-null) embedded when all columns are NULL",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-7572": {
+  "type": "New Feature",
+  "created": "2012-09-05T10:40:53.373-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-25T11:12:20.285-0800",
+  "status": "Closed",
+  "summary": "Develop API for load-by-multiple-ids",
+  "fixVersions": [
+   "antlr-rework",
+   "5.1.0"
+  ]
+ },
+ "HHH-7321": {
+  "type": "Improvement",
+  "created": "2012-05-16T06:33:26.606-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-08T14:22:23.223-0800",
+  "status": "Closed",
+  "summary": "HQL: Combining a CROSS JOIN with a LEFT JOIN which requires a  WITH clause triggers an exception.",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-6475": {
+  "type": "Bug",
+  "created": "2011-07-20T07:09:02.491-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-28T11:25:05.803-0700",
+  "status": "Closed",
+  "summary": "Metamodel check fails when subclasses are used",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-6225": {
+  "type": "New Feature",
+  "created": "2011-05-16T09:34:28.486-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-09T16:49:33.039-0800",
+  "status": "Closed",
+  "summary": "Add support to find entities by date in one single query",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-5948": {
+  "type": "Bug",
+  "created": "2011-02-22T08:49:43.663-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-28T20:03:22.411-0700",
+  "status": "Closed",
+  "summary": "Trying to get a PluralAttributePath from a @MappedSuperclass throws org.hibernate.MappingException: Unknown collection role ",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-5946": {
+  "type": "Bug",
+  "created": "2011-02-22T08:24:41.173-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T21:10:29.325-0800",
+  "status": "Closed",
+  "summary": "Wrong SQL generated when composites are compared using not-equal operator",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-5932": {
+  "type": "Bug",
+  "created": "2011-02-15T03:23:18.861-0800",
+  "resolution": "Duplicate",
+  "resolutiondate": "2016-01-09T19:04:55.187-0800",
+  "status": "Closed",
+  "summary": "Exception ''Invalid filter-parameter name format\" from LoadQueryInfluencers when hql contains colon and filter is enabled.",
+  "fixVersions": []
+ },
+ "HHH-5855": {
+  "type": "Bug",
+  "created": "2011-01-19T11:28:33.977-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-10T00:32:16.198-0800",
+  "status": "Closed",
+  "summary": "The method \"merge\" from the EntityManager causes a duplicated \"insert\" of a child entity.",
+  "fixVersions": [
+   "5.0.8"
+  ]
+ },
+ "HHH-5764": {
+  "type": "Bug",
+  "created": "2010-11-30T13:01:09.397-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T06:23:59.129-0800",
+  "status": "Closed",
+  "summary": "AssertionFailure: Unexpected nested component on the referenced entity when mapping a @MapsId",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-5184": {
+  "type": "Improvement",
+  "created": "2010-05-03T08:37:19.396-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-08T11:41:21.457-0800",
+  "status": "Closed",
+  "summary": "Create a ConnectionAcquisitionMode as corollary to ConnectionReleaseMode",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-4161": {
+  "type": "Bug",
+  "created": "2008-08-06T16:30:16.683-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-12T13:22:02.725-0800",
+  "status": "Closed",
+  "summary": "persistence.xml <jar-file> not following JSR220 spec",
+  "fixVersions": [
+   "5.0.7"
+  ]
+ },
+ "HHH-3555": {
+  "type": "New Feature",
+  "created": "2008-10-30T04:42:59.849-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-09T12:57:12.336-0800",
+  "status": "Closed",
+  "summary": "Extend the Envers query system with the ability to traverse associations",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-3422": {
+  "type": "Bug",
+  "created": "2008-08-07T04:17:14.657-0700",
+  "resolution": "Rejected",
+  "resolutiondate": "2008-08-14T22:54:48.680-0700",
+  "status": "Closed",
+  "summary": "Oracle error: ORA-01754: a table may contain only one column of type LONG",
+  "fixVersions": []
+ },
+ "HHH-1706": {
+  "type": "Bug",
+  "created": "2006-04-28T14:48:29.942-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T07:18:49.464-0800",
+  "status": "Closed",
+  "summary": "Named parameters ignored when single apostrophe encountered within an SQL comment",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-1400": {
+  "type": "Bug",
+  "created": "2006-01-26T16:51:05.483-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-27T19:40:47.067-0700",
+  "status": "Closed",
+  "summary": "formula-based property leads to generation of invalid SQL with subselect fetches",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-1122": {
+  "type": "Bug",
+  "created": "2005-11-02T18:49:43.165-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-03T02:32:26.306-0800",
+  "status": "Closed",
+  "summary": "hbm2ddl.SchemaUpdate has no delimiter (SchemaExport works fine)",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-16": {
+  "type": "New Feature",
+  "created": "2004-07-27T11:12:30.423-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-08T14:22:05.801-0800",
+  "status": "Closed",
+  "summary": "Explicit joins on unrelated classes",
+  "fixVersions": [
+   "antlr-rework",
+   "5.1.0"
+  ]
+ },
+ "HHH-9993": {
+  "type": "Improvement",
+  "created": "2015-07-28T08:33:30.218-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-10T08:58:44.033-0800",
+  "status": "Closed",
+  "summary": "IsolationDelegate: add method to execute code without obtaining a connection",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9983": {
+  "type": "Bug",
+  "created": "2015-07-24T08:56:20.661-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-09T02:03:22.166-0700",
+  "status": "Closed",
+  "summary": "Error saving entity with identity id on Oracle 12c",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9975": {
+  "type": "Bug",
+  "created": "2015-07-23T08:26:57.100-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-02T16:15:21.635-0700",
+  "status": "Closed",
+  "summary": "CacheImpl.containsQuery(String) does not check if query cache is enabled",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-9962": {
+  "type": "Bug",
+  "created": "2015-07-21T08:34:23.708-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-01T09:54:37.156-0700",
+  "status": "Closed",
+  "summary": "Second level query cache returns stale data if query and update statements are executed concurrently",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-9954": {
+  "type": "Task",
+  "created": "2015-07-20T08:22:52.270-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-08-31T10:43:30.893-0700",
+  "status": "Closed",
+  "summary": "Add EqualsHelper#areEqual which adds array-specific equality checks",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-9897": {
+  "type": "Improvement",
+  "created": "2015-07-06T16:09:22.280-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2026-02-06T06:02:07.418-0800",
+  "status": "Closed",
+  "summary": "@OneToMany association with @JoinFormula throws NPE",
+  "fixVersions": [
+   "7.4.0.CR1"
+  ]
+ },
+ "HHH-9876": {
+  "type": "New Feature",
+  "created": "2015-06-22T00:26:03.290-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-24T15:51:01.136-0800",
+  "status": "Closed",
+  "summary": "Ability to filter objects from Database for schema tooling",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9866": {
+  "type": "Bug",
+  "created": "2015-06-13T01:46:08.439-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-06-14T08:30:15.850-0700",
+  "status": "Closed",
+  "summary": "Wrong join table column names generation with globally_quoted_identifiers",
+  "fixVersions": [
+   "5.0.0.CR2"
+  ]
+ },
+ "HHH-9839": {
+  "type": "Improvement",
+  "created": "2015-06-01T14:28:49.176-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-26T08:56:02.430-0800",
+  "status": "Closed",
+  "summary": "The hibernate-infinispan cache module should use a JBoss Logger interface to allow internationalization of error messages",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9807": {
+  "type": "Improvement",
+  "created": "2015-05-20T06:12:32.004-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-06T14:51:37.791-0800",
+  "status": "Closed",
+  "summary": "Better error message when @Formula and @Id are combined",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9794": {
+  "type": "Bug",
+  "created": "2015-05-13T00:35:40.945-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-04T14:10:47.791-0800",
+  "status": "Closed",
+  "summary": "Replace string with preceding comma is not replacing string as required",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-9791": {
+  "type": "Improvement",
+  "created": "2015-05-12T15:25:49.278-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-06T14:25:02.415-0700",
+  "status": "Closed",
+  "summary": "Add varargs to Restrictions.in(...)",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9784": {
+  "type": "Bug",
+  "created": "2015-05-10T10:17:28.214-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-26T16:59:33.395-0700",
+  "status": "Closed",
+  "summary": "scroll() and iterate() methods do not support provided HQLQueryPlan",
+  "fixVersions": [
+   "5.0.3"
+  ]
+ },
+ "HHH-9764": {
+  "type": "Bug",
+  "created": "2015-04-30T01:19:37.576-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-12-14T14:16:45.359-0800",
+  "status": "Closed",
+  "summary": "StaleObjectStateExceptions raising outside flush context.",
+  "fixVersions": [
+   "5.0.6"
+  ]
+ },
+ "HHH-9736": {
+  "type": "Bug",
+  "created": "2015-04-20T17:06:18.652-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-04-28T16:12:06.969-0700",
+  "status": "Closed",
+  "summary": "BigIntegerType should use BigIntTypeDescriptor",
+  "fixVersions": [
+   "5.0.0.Beta2"
+  ]
+ },
+ "HHH-9731": {
+  "type": "Bug",
+  "created": "2015-04-17T05:02:53.421-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-04T06:38:39.063-0700",
+  "status": "Closed",
+  "summary": "Potential bug in SearchedCaseExpression type handling",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-9710": {
+  "type": "Bug",
+  "created": "2015-04-03T02:26:40.371-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T20:04:20.257-0800",
+  "status": "Closed",
+  "summary": "IllegalArgumentException passing null as parameter value with explicit TemporalType",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-9685": {
+  "type": "Improvement",
+  "created": "2015-03-26T01:45:58.893-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-09-29T22:34:43.246-0700",
+  "status": "Closed",
+  "summary": "Envers should do nothing when JTA transaction is already marked as rollback-only",
+  "fixVersions": [
+   "5.0.2"
+  ]
+ },
+ "HHH-9635": {
+  "type": "Bug",
+  "created": "2015-02-26T12:04:11.765-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-05T07:19:35.250-0800",
+  "status": "Closed",
+  "summary": "SQLServer2005Dialect (and above) does not support read past locking",
+  "fixVersions": [
+   "5.1.0",
+   "5.0.8"
+  ]
+ },
+ "HHH-9615": {
+  "type": "Improvement",
+  "created": "2015-02-13T10:49:06.204-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-03T11:44:25.474-0700",
+  "status": "Closed",
+  "summary": "Allow AttributeConverter on attributes marked as Lob",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9593": {
+  "type": "Task",
+  "created": "2015-02-03T14:26:40.752-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-10-02T16:14:51.462-0700",
+  "status": "Closed",
+  "summary": "Remove superfluous references to enclosing class ",
+  "fixVersions": [
+   "5.0.1"
+  ]
+ },
+ "HHH-9548": {
+  "type": "Improvement",
+  "created": "2014-12-18T03:39:51.189-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-09T14:08:41.979-0800",
+  "status": "Closed",
+  "summary": "Allow propagation of NULL for stored-procedure argument parameters to database",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9529": {
+  "type": "Bug",
+  "created": "2014-12-03T18:21:46.138-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-17T08:40:58.353-0800",
+  "status": "Closed",
+  "summary": "Enhancer indiscriminately re-writes field accesses",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-9491": {
+  "type": "Improvement",
+  "created": "2014-11-10T07:03:11.569-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-01-25T20:16:58.313-0800",
+  "status": "Closed",
+  "summary": "Add support to opt columnDefinitions out of globally-quoted-identifiers",
+  "fixVersions": [
+   "5.1.0"
+  ]
+ },
+ "HHH-9475": {
+  "type": "Bug",
+  "created": "2014-11-01T22:53:58.639-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-11-09T19:50:13.584-0800",
+  "status": "Closed",
+  "summary": "Cannot mix @MapKey with @Convert",
+  "fixVersions": [
+   "5.0.4"
+  ]
+ },
+ "HHH-10602": {
+  "type": "Bug",
+  "created": "2016-03-07T17:35:27.849-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-09T05:52:35.460-0800",
+  "status": "Closed",
+  "summary": "Retrieve cached value with enable_lazy_load_no_trans throws an exception",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10601": {
+  "type": "Bug",
+  "created": "2016-03-07T15:18:52.066-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-12T00:53:10.460-0700",
+  "status": "Closed",
+  "summary": "Persistence.generateSchema - the output file contains duplicated DDL statements",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10593": {
+  "type": "Bug",
+  "created": "2016-03-05T17:48:05.603-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-08T06:58:53.149-0800",
+  "status": "Closed",
+  "summary": "Avoid NullPointerException with auto_evict_collection_cache and many-to-many",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10592": {
+  "type": "Bug",
+  "created": "2016-03-05T13:09:09.361-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-29T19:50:06.347-0700",
+  "status": "Closed",
+  "summary": "Query with literal parameter and fails with attribute converter",
+  "fixVersions": [
+   "5.2.1"
+  ]
+ },
+ "HHH-10583": {
+  "type": "Bug",
+  "created": "2016-03-03T11:19:47.936-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-10T16:22:32.546-0700",
+  "status": "Closed",
+  "summary": "BytecodeEnhancement's AssociationManagement breaks with entity containing two ToOne relations with the same mappedBy value.",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10577": {
+  "type": "Bug",
+  "created": "2016-03-01T04:51:11.743-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:52.707-0700",
+  "status": "Closed",
+  "summary": "Allow dereferencing of KEY() path",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.5"
+  ]
+ },
+ "HHH-10567": {
+  "type": "Bug",
+  "created": "2016-02-25T19:38:23.443-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-25T20:16:11.010-0800",
+  "status": "Closed",
+  "summary": "Wrong table for formula if its property is mapped on a secondary table",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10563": {
+  "type": "Bug",
+  "created": "2016-02-24T15:36:27.700-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-07T22:56:23.463-0800",
+  "status": "Closed",
+  "summary": "Significant String use/duplication associated with subselect fetch",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10562": {
+  "type": "Bug",
+  "created": "2016-02-24T08:53:45.852-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-29T00:29:11.295-0700",
+  "status": "Closed",
+  "summary": "ManagedEntity linked list broken when mutable, non-associated enhanced entity is evicted",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10556": {
+  "type": "Bug",
+  "created": "2016-02-22T22:21:37.062-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-09T17:22:17.371-0800",
+  "status": "Closed",
+  "summary": "Failure getting a PluralAttributePath for collection declared in a superclass marked @Entity",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10554": {
+  "type": "Bug",
+  "created": "2016-02-22T07:49:03.125-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-26T09:57:05.947-0800",
+  "status": "Closed",
+  "summary": "NullPointerException in @Embeddable dirty tracking writer",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10549": {
+  "type": "Bug",
+  "created": "2016-02-19T05:53:33.248-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-08T22:23:18.180-0800",
+  "status": "Closed",
+  "summary": "Hibernate incorrectly applies Converters with autoApply=true to subclasses",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10546": {
+  "type": "Improvement",
+  "created": "2016-02-18T11:44:45.255-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-01T15:40:03.328-0800",
+  "status": "Closed",
+  "summary": "InfinispanRegionFactory should stop any caches it starts",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10545": {
+  "type": "Bug",
+  "created": "2016-02-18T11:39:52.731-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-01T15:39:37.604-0800",
+  "status": "Closed",
+  "summary": "InfinispanRegionFactory inadvertently starts the default cache during stop()",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10540": {
+  "type": "Bug",
+  "created": "2016-02-17T12:47:04.056-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-10T16:23:00.870-0700",
+  "status": "Closed",
+  "summary": "Incorrect bytecode instrumentation when there are multiple @Embedded attributes",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10538": {
+  "type": "Patch",
+  "created": "2016-02-17T06:32:56.590-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-17T06:47:12.133-0800",
+  "status": "Closed",
+  "summary": "Fix the javadoc of TableInformation.getIndex(Identifier indexName)",
+  "fixVersions": [
+   "5.0.8",
+   "5.1.1"
+  ]
+ },
+ "HHH-10537": {
+  "type": "Bug",
+  "created": "2016-02-16T15:01:39.525-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:56.085-0700",
+  "status": "Closed",
+  "summary": "Usage of JPQL KEY() with entity key generates inner join",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.5"
+  ]
+ },
+ "HHH-10533": {
+  "type": "Bug",
+  "created": "2016-02-16T06:03:17.372-0800",
+  "resolution": "Duplicate",
+  "resolutiondate": "2016-08-09T15:01:14.438-0700",
+  "status": "Closed",
+  "summary": "PropertyAccessEnhancedImpl fails with PropertyAccessBuildingException when no field exists with the name of the property",
+  "fixVersions": []
+ },
+ "HHH-10529": {
+  "type": "Bug",
+  "created": "2016-02-15T05:11:52.608-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-16T07:09:06.142-0800",
+  "status": "Closed",
+  "summary": "SQLServer2008Dialect generate incorrect length of nvarchar",
+  "fixVersions": [
+   "5.0.8",
+   "5.1.1"
+  ]
+ },
+ "HHH-10528": {
+  "type": "Bug",
+  "created": "2016-02-15T00:54:56.742-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-16T07:35:26.682-0800",
+  "status": "Closed",
+  "summary": "use_nationalized_character_data global property is ignored",
+  "fixVersions": [
+   "5.0.8",
+   "5.1.1"
+  ]
+ },
+ "HHH-10526": {
+  "type": "Bug",
+  "created": "2016-02-14T20:51:08.268-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-13T01:48:56.177-0700",
+  "status": "Closed",
+  "summary": "SchemaCreator does not apply SchemaFilter on foreign keys",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10517": {
+  "type": "Bug",
+  "created": "2016-02-11T03:59:41.350-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-08T05:55:33.317-0800",
+  "status": "Closed",
+  "summary": "ClassCastException using Restrictions.in with Child classes in Criteria based on Parent class",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10515": {
+  "type": "Bug",
+  "created": "2016-02-11T02:02:17.724-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T20:10:19.468-0700",
+  "status": "Closed",
+  "summary": "Stored procedure execution fails to find column",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10513": {
+  "type": "Bug",
+  "created": "2016-02-11T01:18:50.602-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-26T02:36:07.347-0700",
+  "status": "Closed",
+  "summary": "Follow-on locking WARN message logged when query LockMode is NONE",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10511": {
+  "type": "Bug",
+  "created": "2016-02-10T07:23:11.524-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-10T16:23:36.771-0700",
+  "status": "Closed",
+  "summary": "PluralAttribute.getPersistentAttributeType() wrong value with enhanced classes",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10510": {
+  "type": "Bug",
+  "created": "2016-02-10T03:08:52.317-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-08T23:14:10.416-0800",
+  "status": "Closed",
+  "summary": "Root cause not properly extracted when transaction commit fails",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10499": {
+  "type": "Bug",
+  "created": "2016-02-04T14:21:24.647-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-24T20:05:57.127-0800",
+  "status": "Closed",
+  "summary": "Can't set ConnectionProvider instance, regression",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10476": {
+  "type": "Bug",
+  "created": "2016-01-25T08:14:40.590-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-27T16:17:48.127-0700",
+  "status": "Closed",
+  "summary": "Getting an entity with composite ID containing a detached entity fails if PersistenceContext contains a managed copy",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10456": {
+  "type": "Improvement",
+  "created": "2016-01-18T06:38:10.924-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-30T08:03:29.322-0700",
+  "status": "Closed",
+  "summary": "Invalid PrimaryKeyJoinColumn annotation warning should report the class name",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10455": {
+  "type": "Bug",
+  "created": "2016-01-18T00:57:38.551-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-27T11:47:49.406-0800",
+  "status": "Closed",
+  "summary": "MapJoin results in NPE when using key()",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10429": {
+  "type": "Improvement",
+  "created": "2016-01-08T18:07:26.985-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-23T23:27:01.800-0700",
+  "status": "Closed",
+  "summary": "Incorrect detection of identity column during schema generation when using custom IdentityGenerator class",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10427": {
+  "type": "Bug",
+  "created": "2016-01-08T12:21:52.605-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T22:46:37.316-0700",
+  "status": "Closed",
+  "summary": "ServiceRegistry creates multiple service instances and returns uninitialized services",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10418": {
+  "type": "Bug",
+  "created": "2016-01-06T01:53:05.344-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-09T22:51:25.039-0800",
+  "status": "Closed",
+  "summary": "ClassCastException thrown in SessionFactoryImpl for named regions containing both entity and collection",
+  "fixVersions": [
+   "5.1.11",
+   "5.2.13"
+  ]
+ },
+ "HHH-10413": {
+  "type": "Bug",
+  "created": "2016-01-05T07:36:00.668-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-28T23:29:49.019-0700",
+  "status": "Closed",
+  "summary": "byte[] as the version attribute broken",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10375": {
+  "type": "Bug",
+  "created": "2015-12-13T09:13:36.787-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-14T16:52:25.474-0700",
+  "status": "Closed",
+  "summary": "adding an entity at index to list with @OrderColumn in detached Entity",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10373": {
+  "type": "Bug",
+  "created": "2015-12-11T02:04:37.571-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-01T20:06:22.068-0700",
+  "status": "Closed",
+  "summary": "Sequence generator for idbag ignores generator parameters",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10360": {
+  "type": "Bug",
+  "created": "2015-12-05T14:56:48.218-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-15T18:02:34.593-0700",
+  "status": "Closed",
+  "summary": "Natural ID columns are nullable by default (hbm mappings only)",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10352": {
+  "type": "Bug",
+  "created": "2015-12-02T23:42:15.645-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T17:18:45.133-0700",
+  "status": "Closed",
+  "summary": "HBM2DDL does not use described name for foreign key in join inheritance",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10341": {
+  "type": "Bug",
+  "created": "2015-11-27T06:35:35.164-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-28T06:22:20.968-0700",
+  "status": "Closed",
+  "summary": "Specification violation in Implementation of TupleElement",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10334": {
+  "type": "Bug",
+  "created": "2015-11-25T08:26:39.391-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-20T03:27:23.250-0700",
+  "status": "Closed",
+  "summary": "@formula annotation javadoc contains database dependent sample usage",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10333": {
+  "type": "Bug",
+  "created": "2015-11-25T06:27:40.383-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T19:29:36.291-0700",
+  "status": "Closed",
+  "summary": "Schema validation: incorrect use of schema and catalog filters",
+  "fixVersions": [
+   "5.2.14",
+   "5.1.13",
+   "5.3.0.CR2"
+  ]
+ },
+ "HHH-10332": {
+  "type": "Improvement",
+  "created": "2015-11-25T06:18:25.198-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-11T01:08:17.825-0800",
+  "status": "Closed",
+  "summary": "Schema validation: ambiguous table name",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.4"
+  ]
+ },
+ "HHH-10299": {
+  "type": "Bug",
+  "created": "2015-11-18T07:35:30.535-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T21:36:31.232-0700",
+  "status": "Closed",
+  "summary": "After adding \"@Audited\" to an entity field the warning \"Use of DOM4J entity-mode is considered deprecated\" appears",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10287": {
+  "type": "Bug",
+  "created": "2015-11-12T19:54:57.080-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-07T15:39:07.001-0700",
+  "status": "Closed",
+  "summary": "Cache keys no longer include the entity type",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10277": {
+  "type": "Bug",
+  "created": "2015-11-12T01:28:12.999-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-17T13:24:29.398-0700",
+  "status": "Closed",
+  "summary": "AttributeConverter not applied to attributes of an embeddable used as collection element",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10269": {
+  "type": "Bug",
+  "created": "2015-11-11T08:31:06.021-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-11T14:13:18.607-0800",
+  "status": "Closed",
+  "summary": "JDBC Statement is not closed if exception appeared during query execution",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-10245": {
+  "type": "Bug",
+  "created": "2015-11-01T21:58:08.610-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-10T16:21:12.004-0700",
+  "status": "Closed",
+  "summary": "SelfDirtinessTracker not found",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10230": {
+  "type": "Bug",
+  "created": "2015-10-28T07:00:10.464-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-28T23:43:57.570-0700",
+  "status": "Closed",
+  "summary": "Using boolean or null literals results in a parser error",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10183": {
+  "type": "Bug",
+  "created": "2015-10-13T05:21:21.601-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-19T14:16:11.652-0700",
+  "status": "Closed",
+  "summary": "Mapping for NVARCHAR in SqlServer not working with native queries; org.hibernate.MappingException: No Dialect mapping for JDBC type: -9",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.7"
+  ]
+ },
+ "HHH-10106": {
+  "type": "Improvement",
+  "created": "2015-09-18T03:00:02.472-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T04:36:02.297-0700",
+  "status": "Closed",
+  "summary": "Include source entity name and table name (attribute name too ideally) for associations referencing unmapped classes",
+  "fixVersions": [
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-10888": {
+  "type": "Bug",
+  "created": "2016-06-23T10:20:33.242-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-11T14:23:55.189-0700",
+  "status": "Closed",
+  "summary": "PluralAttribute#isAssociation returns true for @ElementCollection",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10876": {
+  "type": "Bug",
+  "created": "2016-06-21T07:47:00.943-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T23:31:18.586-0700",
+  "status": "Closed",
+  "summary": "DefaultIdentifierGeneratorFactory does not consider the hibernate.id.new_generator_mappings setting",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1",
+   "5.0.11"
+  ]
+ },
+ "HHH-10865": {
+  "type": "Bug",
+  "created": "2016-06-17T07:39:31.228-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-29T19:42:22.588-0700",
+  "status": "Closed",
+  "summary": "Join table of lazy loading many-to-many relation not saved when lazy initialization bytecode enhancement is active",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10863": {
+  "type": "Bug",
+  "created": "2016-06-16T10:12:05.432-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-30T09:12:43.125-0700",
+  "status": "Closed",
+  "summary": "Improve consistency of how we call implicitNamingStrategy.determineBasicColumnName with element collections",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10861": {
+  "type": "Improvement",
+  "created": "2016-06-16T07:20:28.292-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-28T23:41:24.049-0700",
+  "status": "Closed",
+  "summary": "JPA Constructor Expressions fails with nullLiteral passed to constructor",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10851": {
+  "type": "Bug",
+  "created": "2016-06-14T09:40:19.877-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-30T22:46:35.346-0700",
+  "status": "Closed",
+  "summary": "PropertyAccessMixed not aware of Access annotation",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10843": {
+  "type": "Bug",
+  "created": "2016-06-13T07:34:24.091-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-28T08:32:17.036-0700",
+  "status": "Closed",
+  "summary": "QuerySyntaxException when use CriteriaBuilder.concat in selectCase expression",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10841": {
+  "type": "Bug",
+  "created": "2016-06-13T00:24:52.213-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T17:25:33.355-0700",
+  "status": "Closed",
+  "summary": "Field marked as @Generated not being audited.",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10826": {
+  "type": "Bug",
+  "created": "2016-06-10T00:48:55.231-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-20T03:27:33.800-0700",
+  "status": "Closed",
+  "summary": "Auxiliary Database Object no longer documented",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10820": {
+  "type": "Bug",
+  "created": "2016-06-09T04:49:03.403-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-10T06:18:27.632-0700",
+  "status": "Closed",
+  "summary": "InformationExtractorJdbcDatabaseMetaDataImpl quoted table names ",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10811": {
+  "type": "Bug",
+  "created": "2016-06-07T23:01:12.904-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-14T09:38:27.336-0700",
+  "status": "Closed",
+  "summary": "Envers can't start when some audited field has accented letters",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10802": {
+  "type": "Bug",
+  "created": "2016-06-03T20:53:35.782-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-06T10:29:32.456-0700",
+  "status": "Closed",
+  "summary": "Attempt to resolve foreign key metadata from JDBC metadata failed to find column mappings for foreign key",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10801": {
+  "type": "Bug",
+  "created": "2016-06-03T08:30:44.774-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-01T14:07:43.439-0700",
+  "status": "Closed",
+  "summary": "Bytecode enhancement of @MappedSuperclass",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10800": {
+  "type": "Improvement",
+  "created": "2016-06-03T07:20:32.148-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T17:06:50.101-0700",
+  "status": "Closed",
+  "summary": "InformixDialect: add support for coalesce(), current_timestamp(), current_date()",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10796": {
+  "type": "Bug",
+  "created": "2016-06-03T04:25:54.748-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T16:42:11.862-0700",
+  "status": "Closed",
+  "summary": "org.hibernate.query.Query<R> setProperties(Map map); set to null parameters not contained in the map",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10795": {
+  "type": "Bug",
+  "created": "2016-06-03T01:28:56.028-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-29T18:21:15.596-0700",
+  "status": "Closed",
+  "summary": "StatefulPersistenceContext.entityEntryContext does not work properly for ManagedEntity associated with a different StatefulPersistenceContext",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10780": {
+  "type": "Improvement",
+  "created": "2016-05-31T01:06:24.490-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T13:29:43.439-0700",
+  "status": "Closed",
+  "summary": "Provide a PrimitiveByteArrayTypeDescriptor toString implementation",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10774": {
+  "type": "Bug",
+  "created": "2016-05-25T03:01:33.739-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-19T10:12:25.891-0700",
+  "status": "Closed",
+  "summary": "SortedMap defined in .hbm.xml are not sortable",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10773": {
+  "type": "Improvement",
+  "created": "2016-05-25T01:32:40.393-0700",
+  "resolution": "Out of Date",
+  "resolutiondate": "2025-12-18T08:50:33.336-0800",
+  "status": "Closed",
+  "summary": "Add a toString() implementation to the READ_WRITE Ehcache Item object",
+  "fixVersions": []
+ },
+ "HHH-10772": {
+  "type": "Bug",
+  "created": "2016-05-24T21:39:26.309-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-26T00:36:28.111-0700",
+  "status": "Closed",
+  "summary": "RuntimeException during releaseStatements causes JDBC connection not to be closed",
+  "fixVersions": [
+   "5.1.0",
+   "5.2.0"
+  ]
+ },
+ "HHH-10766": {
+  "type": "Bug",
+  "created": "2016-05-24T02:40:19.616-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-25T06:27:42.264-0700",
+  "status": "Closed",
+  "summary": "XML Enum mapping with parameter 'type'",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10756": {
+  "type": "Bug",
+  "created": "2016-05-18T12:08:10.314-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-24T17:46:08.121-0700",
+  "status": "Closed",
+  "summary": "StoredProcedureQuery with OUT param fails with Oracle when using named parameters",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10734": {
+  "type": "Bug",
+  "created": "2016-05-10T06:46:35.179-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-12T14:11:01.021-0700",
+  "status": "Closed",
+  "summary": "Hibernate Envers creates unnecessary audit rows for tables with LOB data",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10729": {
+  "type": "Bug",
+  "created": "2016-05-05T03:28:37.873-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-28T23:43:42.099-0700",
+  "status": "Closed",
+  "summary": "Issue with CriteriaBuilder.literal(boolean) in my select expression?",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10718": {
+  "type": "Bug",
+  "created": "2016-04-29T07:07:19.790-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-12T02:01:48.824-0700",
+  "status": "Closed",
+  "summary": "Underscore in table name can result in SchemaExtractionException: More than one table found",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10712": {
+  "type": "Bug",
+  "created": "2016-04-27T15:07:36.002-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-02T13:55:45.917-0700",
+  "status": "Closed",
+  "summary": "Subselect fetches are not detected by load plans",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10708": {
+  "type": "Bug",
+  "created": "2016-04-22T05:38:21.061-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-22T13:01:16.644-0700",
+  "status": "Closed",
+  "summary": "Accessing a lazy collection in an enhanced class deletes it afterwards",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10695": {
+  "type": "Bug",
+  "created": "2016-04-19T00:30:51.748-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-09T16:32:20.737-0700",
+  "status": "Closed",
+  "summary": "MySQL fails using the NCLOB type",
+  "fixVersions": [
+   "5.1.1",
+   "5.2.3"
+  ]
+ },
+ "HHH-10693": {
+  "type": "Bug",
+  "created": "2016-04-18T01:38:38.123-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-09T16:24:10.661-0700",
+  "status": "Closed",
+  "summary": "PostgreSQL should not use nvarchar when using Nationalization",
+  "fixVersions": [
+   "5.1.1",
+   "5.2.3"
+  ]
+ },
+ "HHH-10684": {
+  "type": "Bug",
+  "created": "2016-04-14T01:58:22.455-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-12T03:08:35.656-0700",
+  "status": "Closed",
+  "summary": "No target script generated for update action when using schema-generation",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10679": {
+  "type": "Bug",
+  "created": "2016-04-11T13:45:37.604-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-02T13:54:58.010-0700",
+  "status": "Closed",
+  "summary": "Subselect fetching is not used for collections if their entity owners are initialized in a batch",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10678": {
+  "type": "Bug",
+  "created": "2016-04-08T02:54:34.062-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-12T02:47:11.147-0700",
+  "status": "Closed",
+  "summary": "hibernate-mapping's schema is ignored",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10662": {
+  "type": "Bug",
+  "created": "2016-03-30T22:46:31.760-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-30T23:09:56.412-0700",
+  "status": "Closed",
+  "summary": "Fix inconsistencies between quoting-related configuration properties JavaDocs and their default values assigned at the code level ",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10659": {
+  "type": "Bug",
+  "created": "2016-03-30T07:23:23.833-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-09-20T05:23:13.813-0700",
+  "status": "Closed",
+  "summary": "Natural Id 2nd level Cache not working when Identity is database generated",
+  "fixVersions": [
+   "5.2.3",
+   "5.1.3",
+   "5.0.12"
+  ]
+ },
+ "HHH-10657": {
+  "type": "Improvement",
+  "created": "2016-03-29T07:59:44.783-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-30T03:14:28.196-0700",
+  "status": "Closed",
+  "summary": "Make 'none' a valid option for hibernate.hbm2ddl.auto",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10650": {
+  "type": "Bug",
+  "created": "2016-03-25T15:19:19.818-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-30T02:14:39.429-0700",
+  "status": "Closed",
+  "summary": "Hibernate SchemaExport does not filter ForeignKey for namespaces and tables",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10649": {
+  "type": "Bug",
+  "created": "2016-03-25T11:03:45.966-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-04-06T03:07:48.821-0700",
+  "status": "Closed",
+  "summary": "When 2LC enabled, flush session and then refresh entity cause dirty read in another session / transaction",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10648": {
+  "type": "Bug",
+  "created": "2016-03-25T07:43:34.952-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-23T00:45:14.469-0700",
+  "status": "Closed",
+  "summary": "No MultipleBagFetchException is thrown when fetching two bags eagerly",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10646": {
+  "type": "Bug",
+  "created": "2016-03-25T06:21:24.900-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-01T14:08:41.335-0700",
+  "status": "Closed",
+  "summary": "Lazy fetch not properly handled when annotation in @MappedSuperclass",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10643": {
+  "type": "Bug",
+  "created": "2016-03-24T08:06:27.366-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-06T23:31:51.250-0700",
+  "status": "Closed",
+  "summary": "Attribute 'foreignKeyDefinition' of @javax.persistence.ForeignKey ignored by schema exporter",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10642": {
+  "type": "Bug",
+  "created": "2016-03-24T07:22:55.660-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-10T16:21:54.197-0700",
+  "status": "Closed",
+  "summary": "BytecodeEnhancements  PersistentAttributesEnhancer  bytecode error INVOKESPECIAL",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-10635": {
+  "type": "Bug",
+  "created": "2016-03-21T02:52:50.479-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-12T01:02:53.440-0700",
+  "status": "Closed",
+  "summary": "EntityManager.isOpen() should respect status of Session",
+  "fixVersions": [
+   "5.0.10",
+   "5.1.1"
+  ]
+ },
+ "HHH-10633": {
+  "type": "Bug",
+  "created": "2016-03-20T12:10:05.448-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-21T22:18:20.682-0700",
+  "status": "Closed",
+  "summary": "JPA 2.1 Named Entity Graph in ORM XML loaded without subgraph",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10632": {
+  "type": "Bug",
+  "created": "2016-03-19T13:37:41.241-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-22T11:06:42.322-0700",
+  "status": "Closed",
+  "summary": "comment on column missing seperator between table name and column",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10631": {
+  "type": "Bug",
+  "created": "2016-03-19T08:09:55.125-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-21T07:23:28.486-0700",
+  "status": "Closed",
+  "summary": "Auto evict collection cache not work when owner side update parent to null",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10617": {
+  "type": "Bug",
+  "created": "2016-03-15T03:53:22.476-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-08-17T23:28:49.007-0700",
+  "status": "Closed",
+  "summary": "multiLoad behavior",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.10"
+  ]
+ },
+ "HHH-10614": {
+  "type": "Bug",
+  "created": "2016-03-14T10:08:20.435-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-16T04:16:39.273-0700",
+  "status": "Closed",
+  "summary": "Auto evict collection cache throws exception with null values",
+  "fixVersions": [
+   "5.0.10",
+   "5.1.1"
+  ]
+ },
+ "HHH-10612": {
+  "type": "Bug",
+  "created": "2016-03-07T13:15:38.633-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-04-06T07:18:11.084-0700",
+  "status": "Closed",
+  "summary": "Check for support of RefCursor in Java 8",
+  "fixVersions": [
+   "5.0.9",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-10608": {
+  "type": "Bug",
+  "created": "2016-03-09T14:23:34.327-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-15T18:01:08.967-0700",
+  "status": "Closed",
+  "summary": "Avoid HibernateException with Hibernate.initialize and ENABLE_LAZY_LOAD_NO_TRANS",
+  "fixVersions": [
+   "5.0.10",
+   "5.1.1"
+  ]
+ },
+ "HHH-10605": {
+  "type": "Bug",
+  "created": "2016-03-09T02:20:40.819-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-13T01:43:58.910-0700",
+  "status": "Closed",
+  "summary": "HSQLDialect dosn't use \"if exists\" when dropping sequences",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-11241": {
+  "type": "Bug",
+  "created": "2016-11-10T13:15:37.459-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-12-19T20:30:19.121-0800",
+  "status": "Closed",
+  "summary": "Missing column when executing HQL and criteria query with secondary table",
+  "fixVersions": [
+   "5.2.6",
+   "5.0.12",
+   "5.1.4"
+  ]
+ },
+ "HHH-11230": {
+  "type": "Bug",
+  "created": "2016-11-07T02:24:13.010-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-07T17:25:31.119-0700",
+  "status": "Closed",
+  "summary": "Aggregate on (mappedBy) joined column produces invalid query",
+  "fixVersions": [
+   "5.2.5",
+   "5.1.8"
+  ]
+ },
+ "HHH-11226": {
+  "type": "Bug",
+  "created": "2016-11-04T04:22:40.840-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-11-22T09:23:05.805-0800",
+  "status": "Closed",
+  "summary": "Hibernate cache throws NullPointerException during wildfly app server startup",
+  "fixVersions": [
+   "5.1.3",
+   "5.2.5"
+  ]
+ },
+ "HHH-11220": {
+  "type": "Improvement",
+  "created": "2016-11-01T06:37:45.345-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-10T17:18:49.096-0800",
+  "status": "Closed",
+  "summary": "Auto-detect SQL Server 2016 when the major version is 13",
+  "fixVersions": [
+   "5.2.5",
+   "5.1.4"
+  ]
+ },
+ "HHH-11216": {
+  "type": "Bug",
+  "created": "2016-10-31T04:35:09.037-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-12-23T18:11:57.727-0800",
+  "status": "Closed",
+  "summary": "@ElementCollection for enumerations is failing when enabling insert ordering",
+  "fixVersions": [
+   "5.2.5",
+   "5.1.4"
+  ]
+ },
+ "HHH-11215": {
+  "type": "Bug",
+  "created": "2016-10-30T23:27:27.011-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-23T15:32:50.619-0700",
+  "status": "Closed",
+  "summary": "NullPointerException when reading an audited entity that has a collection of embeddables with a ManyToOne to an unaudited entity.",
+  "fixVersions": [
+   "5.2.5",
+   "5.1.8"
+  ]
+ },
+ "HHH-11214": {
+  "type": "Bug",
+  "created": "2016-10-30T23:05:08.726-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-23T15:31:44.634-0700",
+  "status": "Closed",
+  "summary": "ValidityAuditStrategy not audit properly nested collection with nulls",
+  "fixVersions": [
+   "5.2.5",
+   "5.1.8"
+  ]
+ },
+ "HHH-11205": {
+  "type": "Bug",
+  "created": "2016-10-26T01:44:32.646-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-14T13:48:47.749-0700",
+  "status": "Closed",
+  "summary": "char is not treated as nationalized character",
+  "fixVersions": [
+   "5.2.5",
+   "5.1.8"
+  ]
+ },
+ "HHH-11202": {
+  "type": "Bug",
+  "created": "2016-10-25T04:26:04.888-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-16T15:48:16.359-0800",
+  "status": "Closed",
+  "summary": "IllegalAccessException on Embeddable ID after serializing Getter in cache key",
+  "fixVersions": [
+   "5.0.12",
+   "5.1.4",
+   "5.2.7"
+  ]
+ },
+ "HHH-11198": {
+  "type": "Bug",
+  "created": "2016-10-24T05:39:08.814-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-02-27T23:50:21.471-0800",
+  "status": "Closed",
+  "summary": "Hibernate Spatial cannot parse boxes from PostGIS",
+  "fixVersions": [
+   "5.2.5"
+  ]
+ },
+ "HHH-11197": {
+  "type": "Bug",
+  "created": "2016-10-24T04:35:38.117-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-10-29T05:55:33.447-0700",
+  "status": "Closed",
+  "summary": "Hibernate Spatial cannot parse WKT from PostGIS",
+  "fixVersions": [
+   "5.1.3",
+   "5.2.5",
+   "5.0.12"
+  ]
+ },
+ "HHH-11182": {
+  "type": "Bug",
+  "created": "2016-10-18T21:39:34.517-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-10-20T14:25:49.374-0700",
+  "status": "Closed",
+  "summary": "HQL subquery with constraint property in superclass does not join superclass table ",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.3",
+   "5.0.12"
+  ]
+ },
+ "HHH-11177": {
+  "type": "Improvement",
+  "created": "2016-10-14T09:29:12.582-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-11T01:06:25.801-0800",
+  "status": "Closed",
+  "summary": "Duplicate queries during startup",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.4"
+  ]
+ },
+ "HHH-11159": {
+  "type": "Bug",
+  "created": "2016-10-07T01:13:04.775-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-10-21T00:09:29.434-0700",
+  "status": "Closed",
+  "summary": "JPA CriteriaUpdate - NullLiteral causes IllegalArgumentException: Could not convert java type to Hibernate type",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.3",
+   "5.0.12"
+  ]
+ },
+ "HHH-11157": {
+  "type": "Bug",
+  "created": "2016-10-06T06:21:34.851-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-07T17:23:07.566-0700",
+  "status": "Closed",
+  "summary": "Invalid identifiers generated in org.hibernate.engine.internal.JoinSequence",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.8"
+  ]
+ },
+ "HHH-11155": {
+  "type": "Bug",
+  "created": "2016-10-05T03:34:55.668-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-11-21T16:53:28.663-0800",
+  "status": "Closed",
+  "summary": "Lazy properties are not updated if not all lazy properties (e.g. collections) are initialized",
+  "fixVersions": [
+   "5.1.3",
+   "5.2.5"
+  ]
+ },
+ "HHH-11145": {
+  "type": "Bug",
+  "created": "2016-09-30T03:19:42.037-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-04T22:49:09.096-0700",
+  "status": "Closed",
+  "summary": "SQLServer2005LimitHandler creates invalid query when quoted column uses keywords.",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.6"
+  ]
+ },
+ "HHH-11133": {
+  "type": "Bug",
+  "created": "2016-09-26T06:17:26.933-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-09T15:22:52.239-0700",
+  "status": "Closed",
+  "summary": "Audit tables storing incorrect discriminator value when using JOINED entity inheritance.",
+  "fixVersions": [
+   "5.2.3",
+   "5.1.8"
+  ]
+ },
+ "HHH-11101": {
+  "type": "Bug",
+  "created": "2016-09-13T06:56:24.098-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-09-16T01:35:31.338-0700",
+  "status": "Closed",
+  "summary": "Missing unique constraint for many-to-many with unique=true in list mapping",
+  "fixVersions": [
+   "5.0.11",
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11087": {
+  "type": "Bug",
+  "created": "2016-09-06T07:09:19.483-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-10-01T07:34:52.495-0700",
+  "status": "Closed",
+  "summary": "MySQL56SpatialDialect does not register geometry types causing Geometry types are not correctly deserialized",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.3",
+   "5.0.12"
+  ]
+ },
+ "HHH-11083": {
+  "type": "Bug",
+  "created": "2016-09-02T08:03:20.912-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-11-23T00:26:20.220-0800",
+  "status": "Closed",
+  "summary": "WrongClassException using Infinispan and sharing cache regions",
+  "fixVersions": [
+   "5.1.3",
+   "5.2.5",
+   "5.0.12"
+  ]
+ },
+ "HHH-11081": {
+  "type": "Bug",
+  "created": "2016-09-02T04:34:19.645-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-09-15T00:50:19.938-0700",
+  "status": "Closed",
+  "summary": "JPA join with treat causes QuerySyntaxException: Invalid path",
+  "fixVersions": [
+   "5.0.11",
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11073": {
+  "type": "Bug",
+  "created": "2016-08-31T00:18:14.913-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-31T12:50:35.562-0700",
+  "status": "Closed",
+  "summary": "Casting to boolean in query fails on MySQL",
+  "fixVersions": [
+   "5.0.11",
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11067": {
+  "type": "Bug",
+  "created": "2016-08-26T00:45:34.464-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-26T08:54:43.914-0700",
+  "status": "Closed",
+  "summary": "Proxy-wrapped Sessions (ThreadLocalSessionContext.TransactionProtectionWrapper) handle equals incorrectly",
+  "fixVersions": [
+   "5.0.11",
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11061": {
+  "type": "Bug",
+  "created": "2016-08-22T11:21:22.592-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-10T22:24:24.473-0800",
+  "status": "Closed",
+  "summary": "Attempt to resolve foreign key metadata from JDBC metadata failed to find column mappings for foreign when keywords auto quoting is enabled",
+  "fixVersions": [
+   "5.2.3",
+   "5.1.4"
+  ]
+ },
+ "HHH-11058": {
+  "type": "Bug",
+  "created": "2016-08-19T04:05:04.410-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-19T13:45:01.414-0700",
+  "status": "Closed",
+  "summary": "NPE in SchemaValidator with DdlTransactionIsolatorJtaImpl",
+  "fixVersions": [
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11051": {
+  "type": "Bug",
+  "created": "2016-08-16T01:17:03.545-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-18T15:18:42.548-0700",
+  "status": "Closed",
+  "summary": "Cache EventListenerRegistry and StatisticsImplementor",
+  "fixVersions": [
+   "5.0.11",
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11050": {
+  "type": "Bug",
+  "created": "2016-08-16T01:14:11.184-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:56.971-0700",
+  "status": "Closed",
+  "summary": "Gradle Enhancement Task RuntimeException: class is frozen",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.5"
+  ]
+ },
+ "HHH-11041": {
+  "type": "Task",
+  "created": "2016-08-11T16:53:06.139-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-11T22:28:55.742-0700",
+  "status": "Closed",
+  "summary": "Correct references to Hibernate version in javadoc annotations in backported code",
+  "fixVersions": [
+   "5.1.1",
+   "5.0.11"
+  ]
+ },
+ "HHH-11038": {
+  "type": "Bug",
+  "created": "2016-08-11T05:10:40.380-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-09-18T22:08:03.119-0700",
+  "status": "Closed",
+  "summary": "Invalid statement generated for @MapKeyColumn(updatable=false) for @OneToMany",
+  "fixVersions": [
+   "5.0.11",
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11037": {
+  "type": "Bug",
+  "created": "2016-08-11T02:57:17.825-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-18T16:22:23.884-0700",
+  "status": "Closed",
+  "summary": "Subclass embeddable sub-properties ignored if superclass has property with same name",
+  "fixVersions": [
+   "5.0.11",
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-11036": {
+  "type": "Bug",
+  "created": "2016-08-10T22:48:40.451-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T23:35:14.888-0700",
+  "status": "Closed",
+  "summary": "The drop schema filtering of sequence generation with schemaFilter is wrong",
+  "fixVersions": [
+   "5.1.1",
+   "5.2.3"
+  ]
+ },
+ "HHH-11025": {
+  "type": "Task",
+  "created": "2016-08-05T15:08:32.167-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-11T17:56:16.490-0700",
+  "status": "Closed",
+  "summary": "Backport: Implement left-joins for relation traversion in audit queries",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-11023": {
+  "type": "Bug",
+  "created": "2016-08-05T05:27:15.041-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-11T01:07:07.016-0800",
+  "status": "Closed",
+  "summary": "Startup performance regression : schema update/validate",
+  "fixVersions": [
+   "5.2.3",
+   "5.1.4"
+  ]
+ },
+ "HHH-10998": {
+  "type": "Bug",
+  "created": "2016-07-27T07:00:50.997-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-09-28T21:31:53.789-0700",
+  "status": "Closed",
+  "summary": "NullPointerException when using join with subselect in hbm mapping",
+  "fixVersions": [
+   "5.2.3",
+   "5.1.3",
+   "5.0.12"
+  ]
+ },
+ "HHH-10994": {
+  "type": "Bug",
+  "created": "2016-07-26T22:25:26.789-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-28T10:57:46.407-0700",
+  "status": "Closed",
+  "summary": "Limit Handler for SQL server doesn't support queries with alias( without 'as' keyboard ) in select clause.",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10993": {
+  "type": "Bug",
+  "created": "2016-07-26T12:31:48.969-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-26T18:01:16.846-0700",
+  "status": "Closed",
+  "summary": "NPE when Lazy loading collection without transaction for bytecode enhanced entitie",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10989": {
+  "type": "Bug",
+  "created": "2016-07-25T03:41:14.727-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:50.106-0700",
+  "status": "Closed",
+  "summary": "Unidirectional one-to-many doesn't take care of many side during removal if bytecode enhancement is on",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.5"
+  ]
+ },
+ "HHH-10984": {
+  "type": "Improvement",
+  "created": "2016-07-22T02:36:28.712-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-08-17T23:27:50.068-0700",
+  "status": "Closed",
+  "summary": "Have multiLoad not return (unflushed) DELETED entities",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.10"
+  ]
+ },
+ "HHH-10981": {
+  "type": "Bug",
+  "created": "2016-07-21T11:24:05.415-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:49.720-0700",
+  "status": "Closed",
+  "summary": "Support private persistent attributes in @MappedSuperclas",
+  "fixVersions": [
+   "5.2.3",
+   "5.1.5"
+  ]
+ },
+ "HHH-10978": {
+  "type": "Bug",
+  "created": "2016-07-20T13:00:42.784-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T16:25:52.076-0700",
+  "status": "Closed",
+  "summary": "Hibernate throws SQLGrammarException: Error accessing table metadata when @Table is used with schema value and no catalog",
+  "fixVersions": [
+   "5.1.1",
+   "5.0.11",
+   "5.2.3"
+  ]
+ },
+ "HHH-10977": {
+  "type": "Bug",
+  "created": "2016-07-20T12:29:26.419-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-21T23:04:00.322-0700",
+  "status": "Closed",
+  "summary": "entity not enhanced when mapped superclass enhanced before",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10973": {
+  "type": "Bug",
+  "created": "2016-07-20T05:37:32.305-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-21T23:05:37.321-0700",
+  "status": "Closed",
+  "summary": "hibernate-enhance-maven-plugin won't enhance entities with bidirectional relationships",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10968": {
+  "type": "Bug",
+  "created": "2016-07-19T00:10:40.316-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-26T09:29:07.171-0700",
+  "status": "Closed",
+  "summary": "Do not build JPA types for 'detyped' Hibernate Types (e.g. Envers model) with IGNORE_UNSUPPORTED",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-10937": {
+  "type": "Bug",
+  "created": "2016-07-07T13:52:39.193-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-11T00:34:17.291-0700",
+  "status": "Closed",
+  "summary": "The generation of the drop schema does not filter sequence with schemaFilter",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10922": {
+  "type": "Bug",
+  "created": "2016-07-03T15:24:53.813-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-19T16:32:26.464-0700",
+  "status": "Closed",
+  "summary": "flush triggers load when using enableDirtyTracking ",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10919": {
+  "type": "Bug",
+  "created": "2016-07-03T05:46:05.832-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:54.680-0700",
+  "status": "Closed",
+  "summary": "HQL: Sql syntax exception when joining a Map<Entity,Component>",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.5"
+  ]
+ },
+ "HHH-10907": {
+  "type": "Bug",
+  "created": "2016-06-29T23:51:09.881-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-02T17:17:41.683-0700",
+  "status": "Closed",
+  "summary": "Fix connection leak problem in hibernate-core tests",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.8"
+  ]
+ },
+ "HHH-10896": {
+  "type": "Bug",
+  "created": "2016-06-27T14:06:26.708-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-03T11:37:06.361-0700",
+  "status": "Closed",
+  "summary": "Exception thrown when dropping schema with a managed connection",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-10891": {
+  "type": "Bug",
+  "created": "2016-06-24T16:53:12.267-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2019-02-18T22:08:26.367-0800",
+  "status": "Closed",
+  "summary": "Exception at bootstrap when @Any is inside an @Embeddable object",
+  "fixVersions": [
+   "5.4.0.CR1",
+   "5.1.17",
+   "5.3.8"
+  ]
+ },
+ "HHH-11766": {
+  "type": "Bug",
+  "created": "2017-05-23T09:32:57.389-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-05-07T17:11:12.434-0700",
+  "status": "Closed",
+  "summary": "Accessing lazy basic property on entity loaded from 2nd level cache throws exception",
+  "fixVersions": [
+   "5.2.17",
+   "5.3.0.CR2",
+   "5.1.14"
+  ]
+ },
+ "HHH-11762": {
+  "type": "Bug",
+  "created": "2017-05-19T18:11:07.441-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-21T21:54:25.934-0700",
+  "status": "Closed",
+  "summary": "PersistenceUnitUtilImpl#getIdentifier throws MappingException for non-entity",
+  "fixVersions": [
+   "5.1.7",
+   "5.2.11"
+  ]
+ },
+ "HHH-11740": {
+  "type": "Bug",
+  "created": "2017-05-11T19:53:34.196-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-15T23:09:55.096-0700",
+  "status": "Closed",
+  "summary": "Default MultiTableBulkIdStrategy for DB2 does not work with connection pools",
+  "fixVersions": [
+   "5.1.7",
+   "5.2.11"
+  ]
+ },
+ "HHH-11714": {
+  "type": "Bug",
+  "created": "2017-05-02T08:33:47.661-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-26T16:45:39.699-0800",
+  "status": "Closed",
+  "summary": "Entities with InheritanceType.SINGLE_TABLE and SecondaryTable are not being saved correctly",
+  "fixVersions": [
+   "5.2.11",
+   "5.1.12"
+  ]
+ },
+ "HHH-11634": {
+  "type": "Bug",
+  "created": "2017-04-13T23:55:12.152-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-26T16:44:18.940-0800",
+  "status": "Closed",
+  "summary": "ActionQueue#InsertActionSorter fails to generate right order",
+  "fixVersions": [
+   "5.2.11",
+   "5.1.12"
+  ]
+ },
+ "HHH-11617": {
+  "type": "Bug",
+  "created": "2017-04-06T03:31:21.619-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-04-27T17:02:50.046-0700",
+  "status": "Closed",
+  "summary": "Statement leak in case of \"SQLGrammarException: could not extract ResultSet\"",
+  "fixVersions": [
+   "5.2.10",
+   "5.1.14"
+  ]
+ },
+ "HHH-11615": {
+  "type": "Bug",
+  "created": "2017-04-04T14:44:34.285-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-04-30T16:40:42.325-0700",
+  "status": "Closed",
+  "summary": "Envers integration tests fail when WildFly security manager is enabled",
+  "fixVersions": [
+   "5.2.12",
+   "5.1.14"
+  ]
+ },
+ "HHH-11585": {
+  "type": "Improvement",
+  "created": "2017-03-22T01:40:26.017-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-21T22:41:01.933-0700",
+  "status": "Closed",
+  "summary": "Batch ordering fails for bidirectional one-to-one associations",
+  "fixVersions": [
+   "5.2.10",
+   "5.1.8"
+  ]
+ },
+ "HHH-11576": {
+  "type": "Bug",
+  "created": "2017-03-17T02:27:37.364-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-27T21:51:30.400-0700",
+  "status": "Closed",
+  "summary": "Unloaded collections get deleted when entity is bytecode enhanced",
+  "fixVersions": [
+   "5.2.10",
+   "5.1.6"
+  ]
+ },
+ "HHH-11516": {
+  "type": "Bug",
+  "created": "2017-02-22T13:40:52.443-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-13T15:25:34.664-0700",
+  "status": "Closed",
+  "summary": "Level two cache may not be enabled when using @Cacheable without/instead of @Cache",
+  "fixVersions": [
+   "5.1.5",
+   "5.2.9"
+  ]
+ },
+ "HHH-11506": {
+  "type": "Bug",
+  "created": "2017-02-20T14:09:14.509-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-13T22:19:29.031-0700",
+  "status": "Closed",
+  "summary": "Lazy properties are not updated on bytecode-enhanced entity if not all lazy properties (e.g. collections) are initialized",
+  "fixVersions": [
+   "5.1.5",
+   "5.2.9"
+  ]
+ },
+ "HHH-11502": {
+  "type": "Bug",
+  "created": "2017-02-17T14:17:44.045-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-14T16:42:27.178-0700",
+  "status": "Closed",
+  "summary": "XML Mapped Entity with a ManyToOne association to a Annotation Mapped Entity -> NullPointerException",
+  "fixVersions": [
+   "5.2.9",
+   "5.1.8"
+  ]
+ },
+ "HHH-11484": {
+  "type": "Bug",
+  "created": "2017-02-13T03:46:10.065-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-15T22:28:58.599-0700",
+  "status": "Closed",
+  "summary": "Conversion from String to Locale.ROOT is not working ",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.7"
+  ]
+ },
+ "HHH-11459": {
+  "type": "Bug",
+  "created": "2017-02-06T13:24:30.258-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-27T21:49:12.687-0700",
+  "status": "Closed",
+  "summary": "Bytecode-enhanced Entity cannot be merged or refreshed",
+  "fixVersions": [
+   "5.2.10",
+   "5.1.6"
+  ]
+ },
+ "HHH-11450": {
+  "type": "Improvement",
+  "created": "2017-02-02T07:32:17.424-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-07T17:29:09.856-0700",
+  "status": "Closed",
+  "summary": "The testWithClause from WithClauseTest class fails on PostgreSQL ",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.8"
+  ]
+ },
+ "HHH-11440": {
+  "type": "Bug",
+  "created": "2017-02-01T23:25:37.206-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T19:28:35.528-0700",
+  "status": "Closed",
+  "summary": "In hibernate 5.2.4 hbm2ddl.auto=validate does not work with oracle ",
+  "fixVersions": [
+   "5.2.14",
+   "5.1.13",
+   "5.3.0.CR2"
+  ]
+ },
+ "HHH-11437": {
+  "type": "Bug",
+  "created": "2017-02-01T04:08:12.045-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-21T21:51:21.470-0700",
+  "status": "Closed",
+  "summary": "Entity joins are not polymorphic",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.7",
+   "6.0.0.Alpha1"
+  ]
+ },
+ "HHH-11426": {
+  "type": "Bug",
+  "created": "2017-01-26T04:29:26.581-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-10T15:15:49.870-0700",
+  "status": "Closed",
+  "summary": "NullPointerException in getPersistenceUnitUtil().getIdentifier() on detached enhanced entity",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.7"
+  ]
+ },
+ "HHH-11410": {
+  "type": "Bug",
+  "created": "2017-01-19T13:27:28.706-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-15T22:58:10.327-0700",
+  "status": "Closed",
+  "summary": "ManyToMany with Filter generates incorrect load SQL",
+  "fixVersions": [
+   "5.2.8",
+   "5.1.7"
+  ]
+ },
+ "HHH-11404": {
+  "type": "Bug",
+  "created": "2017-01-17T19:34:53.668-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:52.077-0700",
+  "status": "Closed",
+  "summary": "ManagedSuperclass not enhanced when extending another ManagedSuperclass",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.5"
+  ]
+ },
+ "HHH-11401": {
+  "type": "Bug",
+  "created": "2017-01-16T08:27:24.433-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-07T17:27:17.277-0700",
+  "status": "Closed",
+  "summary": "Subquery join rewrite produces wrong SQL in some cases",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.8"
+  ]
+ },
+ "HHH-11400": {
+  "type": "Bug",
+  "created": "2017-01-16T06:49:10.604-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:55.541-0700",
+  "status": "Closed",
+  "summary": "HHH90000016: Found use of deprecated 'collection property' issue for valid JPQL query",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.5"
+  ]
+ },
+ "HHH-11383": {
+  "type": "Bug",
+  "created": "2017-01-11T12:46:20.124-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-10T15:17:29.711-0700",
+  "status": "Closed",
+  "summary": "Envers Query API: Cannot traverse relation of superclass with table-per-subclass mapping",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.7"
+  ]
+ },
+ "HHH-11381": {
+  "type": "Bug",
+  "created": "2017-01-11T05:41:27.053-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-07-22T16:14:53.551-0700",
+  "status": "Closed",
+  "summary": "In nonstrict mode, putFromLoad after evict can behave incorrectly",
+  "fixVersions": [
+   "5.2.9",
+   "5.1.9"
+  ]
+ },
+ "HHH-11377": {
+  "type": "Improvement",
+  "created": "2017-01-10T02:47:39.846-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-30T05:58:10.931-0800",
+  "status": "Closed",
+  "summary": "ReflectHelper#getConstantValue should consider digits as well",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.11"
+  ]
+ },
+ "HHH-11372": {
+  "type": "Bug",
+  "created": "2017-01-06T09:11:17.657-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-07-22T16:13:41.921-0700",
+  "status": "Closed",
+  "summary": "Do not send RemoveExpiredCommands in repl/dist caches",
+  "fixVersions": [
+   "5.2.9",
+   "5.1.9"
+  ]
+ },
+ "HHH-11364": {
+  "type": "Bug",
+  "created": "2016-12-29T13:42:47.715-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-09T22:17:15.152-0800",
+  "status": "Closed",
+  "summary": "Unable to populate an ElementCollection (of an embeddable type) of an audited entity when the collection has a null value for a property with JoinColumn",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.11"
+  ]
+ },
+ "HHH-11357": {
+  "type": "Improvement",
+  "created": "2016-12-23T17:33:43.744-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-11T18:30:09.035-0800",
+  "status": "Closed",
+  "summary": "Improve result checking for tests that sort insert actions",
+  "fixVersions": [
+   "5.1.4"
+  ]
+ },
+ "HHH-11352": {
+  "type": "Bug",
+  "created": "2016-12-22T05:01:01.473-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-04T23:01:27.599-0700",
+  "status": "Closed",
+  "summary": "Hibernate & Paging: BROKEN when a column contains the word \"FROM\" for SQL Server",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.6"
+  ]
+ },
+ "HHH-11350": {
+  "type": "Bug",
+  "created": "2016-12-21T07:03:17.839-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-07-22T16:12:36.011-0700",
+  "status": "Closed",
+  "summary": "Intermittent failure in testEvictAll/testRemoveAll",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.9"
+  ]
+ },
+ "HHH-11344": {
+  "type": "Improvement",
+  "created": "2016-12-16T02:51:55.606-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-07-22T16:13:06.309-0700",
+  "status": "Closed",
+  "summary": "Reduce execution time of hibernate-infinispan testsuite",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.9"
+  ]
+ },
+ "HHH-11339": {
+  "type": "Improvement",
+  "created": "2016-12-14T05:38:48.413-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-07-22T16:11:49.920-0700",
+  "status": "Closed",
+  "summary": "PutFromLoads in replicated/distributed caches should propagate asynchronously",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.9"
+  ]
+ },
+ "HHH-11337": {
+  "type": "Bug",
+  "created": "2016-12-13T18:04:58.010-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-12-21T13:50:52.198-0800",
+  "status": "Closed",
+  "summary": "Incorrect SQL generated when use both left join with unrelated entity and implicit join to another entity in select-clause",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.4"
+  ]
+ },
+ "HHH-11328": {
+  "type": "Bug",
+  "created": "2016-12-10T06:51:59.855-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-12-15T12:10:39.487-0800",
+  "status": "Closed",
+  "summary": "Persist of transient entity in derived ID that is already in merge process throws javax.persistence.EntityExistsException",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.4"
+  ]
+ },
+ "HHH-11324": {
+  "type": "Bug",
+  "created": "2016-12-08T07:34:48.585-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-03T22:11:09.301-0700",
+  "status": "Closed",
+  "summary": "SQLServer2005LimitHandler uncapable of handle subquery in column list",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.6"
+  ]
+ },
+ "HHH-11323": {
+  "type": "Bug",
+  "created": "2016-12-08T03:45:17.543-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-07-22T16:11:13.871-0700",
+  "status": "Closed",
+  "summary": "Evict during concurrent update and putFromLoad can result in stale entry in 2LC",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.9"
+  ]
+ },
+ "HHH-11304": {
+  "type": "Bug",
+  "created": "2016-12-05T01:09:36.215-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-01-05T15:53:34.534-0800",
+  "status": "Closed",
+  "summary": "Invalidations are not cleared when transaction rolls back",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.4"
+  ]
+ },
+ "HHH-11296": {
+  "type": "Bug",
+  "created": "2016-12-01T07:30:57.190-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-14T13:49:41.787-0700",
+  "status": "Closed",
+  "summary": "Incorrect handling of NCLOB streaming",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.8"
+  ]
+ },
+ "HHH-11294": {
+  "type": "Bug",
+  "created": "2016-11-30T11:15:05.360-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:50.705-0700",
+  "status": "Closed",
+  "summary": "NPE in org.hibernate.jpa.internal.util.PersistenceUtilHelper.isInitialized(PersistentAttributeInterceptable)",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.5"
+  ]
+ },
+ "HHH-11293": {
+  "type": "Bug",
+  "created": "2016-11-30T09:44:22.754-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:48.610-0700",
+  "status": "Closed",
+  "summary": "Use of enhancer dirty tracking causes collections in entities to not be persisted",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.5"
+  ]
+ },
+ "HHH-11289": {
+  "type": "Bug",
+  "created": "2016-11-29T23:29:46.484-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-12-19T21:32:47.213-0800",
+  "status": "Closed",
+  "summary": "Lazy-initializing a static Method and making accessible not thread-safe",
+  "fixVersions": [
+   "5.2.6",
+   "5.0.12",
+   "5.1.4"
+  ]
+ },
+ "HHH-11288": {
+  "type": "Bug",
+  "created": "2016-11-29T20:15:34.642-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:53.884-0700",
+  "status": "Closed",
+  "summary": "Execution project artifacts are always empty, so dependencies are never included",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.5"
+  ]
+ },
+ "HHH-11287": {
+  "type": "Bug",
+  "created": "2016-11-29T19:47:02.944-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:54.120-0700",
+  "status": "Closed",
+  "summary": "requiresDependencyResolution must bet set in plugin.xml to include maven dependencies in enhancement classpath ",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.5"
+  ]
+ },
+ "HHH-11286": {
+  "type": "Bug",
+  "created": "2016-11-29T18:28:10.667-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T19:29:04.086-0700",
+  "status": "Closed",
+  "summary": "Schema-validation fails with Oracle",
+  "fixVersions": [
+   "5.2.14",
+   "5.1.13",
+   "5.3.0.CR2"
+  ]
+ },
+ "HHH-11284": {
+  "type": "Bug",
+  "created": "2016-11-29T13:31:53.332-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:50.383-0700",
+  "status": "Closed",
+  "summary": "Enhancer dirty tracking doesn't work with inherited entities",
+  "fixVersions": [
+   "5.2.7",
+   "5.1.5"
+  ]
+ },
+ "HHH-11282": {
+  "type": "Improvement",
+  "created": "2016-11-29T09:19:12.547-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-03-14T17:21:49.389-0700",
+  "status": "Closed",
+  "summary": "Support m2e/Eclipse integration in hibernate-enhance-maven-plugin",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.5"
+  ]
+ },
+ "HHH-11274": {
+  "type": "Bug",
+  "created": "2016-11-24T03:56:24.754-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-05-10T15:14:48.700-0700",
+  "status": "Closed",
+  "summary": "EntityManagerFactoryImpl.getIdentifier uses deprecated version of getIdentifier",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.7"
+  ]
+ },
+ "HHH-11268": {
+  "type": "Task",
+  "created": "2016-11-22T01:29:46.820-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-11-22T09:42:39.124-0800",
+  "status": "Closed",
+  "summary": "Changes required after upgrading to Infinispan to 8.2",
+  "fixVersions": [
+   "5.1.3",
+   "5.2.5"
+  ]
+ },
+ "HHH-11267": {
+  "type": "Bug",
+  "created": "2016-11-22T01:20:59.359-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-11-22T09:42:59.118-0800",
+  "status": "Closed",
+  "summary": "hibernate-infinispan testsuite is broken",
+  "fixVersions": [
+   "5.1.3",
+   "5.2.5"
+  ]
+ },
+ "HHH-11254": {
+  "type": "Bug",
+  "created": "2016-11-16T14:10:37.982-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-11-22T09:13:45.929-0800",
+  "status": "Closed",
+  "summary": "Timestamps cache fails validation if eviction strategy = MANUAL",
+  "fixVersions": [
+   "5.1.3",
+   "5.2.5"
+  ]
+ },
+ "HHH-13011": {
+  "type": "Improvement",
+  "created": "2018-10-03T14:27:13.553-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-28T01:59:57.637-0800",
+  "status": "Closed",
+  "summary": "Add option enabling/disabling use of an entity's mapped where-clause when loading collections of that entity",
+  "fixVersions": [
+   "5.4.0.CR1",
+   "5.1.17",
+   "5.3.7"
+  ]
+ },
+ "HHH-12937": {
+  "type": "Bug",
+  "created": "2018-08-29T23:00:26.887-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-27T22:23:23.840-0800",
+  "status": "Closed",
+  "summary": "Where clause for collections  of basic, embeddable and \"any\" elements is ignored when mapped using hbm.xml",
+  "fixVersions": [
+   "5.4.0.CR1",
+   "5.1.17",
+   "5.3.7"
+  ]
+ },
+ "HHH-12935": {
+  "type": "Bug",
+  "created": "2018-08-28T21:45:39.800-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-19T13:06:30.396-0800",
+  "status": "Closed",
+  "summary": "Constraint and AuxiliaryDatabaseObject export identifiers are not qualified by schema or catalog",
+  "fixVersions": [
+   "5.4.0.CR1",
+   "5.1.17",
+   "5.3.7"
+  ]
+ },
+ "HHH-12882": {
+  "type": "Bug",
+  "created": "2018-08-03T01:00:00.506-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-27T22:22:31.135-0800",
+  "status": "Closed",
+  "summary": "Where clauses mapped on collections and entities need parentheses when used in conjunction",
+  "fixVersions": [
+   "5.3.5",
+   "5.4.0.CR1",
+   "5.1.17"
+  ]
+ },
+ "HHH-12875": {
+  "type": "Bug",
+  "created": "2018-08-01T13:48:37.756-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-27T22:21:34.355-0800",
+  "status": "Closed",
+  "summary": "Class level where=\"...\" clause in hbm.xml mappings is not enforced on collections of that class",
+  "fixVersions": [
+   "5.3.5",
+   "5.4.0.CR1",
+   "5.1.17"
+  ]
+ },
+ "HHH-12740": {
+  "type": "Bug",
+  "created": "2018-06-27T00:58:23.494-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-08-25T20:50:15.660-0700",
+  "status": "Closed",
+  "summary": "Subselect fetching doesn't work when multiLoad was used",
+  "fixVersions": [
+   "5.2.18",
+   "5.3.3",
+   "5.1.16",
+   "5.4.0.CR1"
+  ]
+ },
+ "HHH-12687": {
+  "type": "Bug",
+  "created": "2018-06-12T23:32:22.899-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-07-04T15:44:23.441-0700",
+  "status": "Closed",
+  "summary": "ManyToOne associations in embeddable collection elements and composite IDs are always eagerly loaded",
+  "fixVersions": [
+   "5.2.18",
+   "5.1.15",
+   "5.3.2"
+  ]
+ },
+ "HHH-12562": {
+  "type": "Task",
+  "created": "2018-05-10T15:53:45.776-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-05-10T17:25:57.653-0700",
+  "status": "Closed",
+  "summary": "Remove DefaultSchemaNameResolver#delegate since the value should not be cached",
+  "fixVersions": [
+   "5.3.0.Final",
+   "5.1.14",
+   "5.2.18"
+  ]
+ },
+ "HHH-12520": {
+  "type": "Bug",
+  "created": "2018-04-25T12:38:04.762-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-05-07T17:29:26.588-0700",
+  "status": "Closed",
+  "summary": "NPE is thrown by CacheImpl#getSecondLevelCacheRegion ",
+  "fixVersions": [
+   "5.1.14"
+  ]
+ },
+ "HHH-12508": {
+  "type": "Bug",
+  "created": "2018-04-19T16:39:53.258-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-05-07T17:27:40.806-0700",
+  "status": "Closed",
+  "summary": "SessionFactoryOptions#isSecondLevelCacheEnabled returns true by default with NoCachingRegionFactory",
+  "fixVersions": [
+   "5.3.0.CR2",
+   "5.1.14",
+   "5.2.18"
+  ]
+ },
+ "HHH-12439": {
+  "type": "Bug",
+  "created": "2018-03-27T23:29:47.380-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-28T13:26:20.124-0700",
+  "status": "Closed",
+  "summary": "Merging of new entities can fail depending on cascade order",
+  "fixVersions": [
+   "5.2.17",
+   "5.3.0.CR2",
+   "5.1.14"
+  ]
+ },
+ "HHH-12423": {
+  "type": "Bug",
+  "created": "2018-03-22T03:35:21.134-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-05-10T17:24:49.050-0700",
+  "status": "Closed",
+  "summary": "SecondaryTable is not taking into account the schema while mapping the entity",
+  "fixVersions": [
+   "5.3.0.CR2",
+   "5.1.14",
+   "5.2.18"
+  ]
+ },
+ "HHH-12392": {
+  "type": "Bug",
+  "created": "2018-03-14T17:18:27.733-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-05-10T17:23:57.341-0700",
+  "status": "Closed",
+  "summary": "Caching SchemaResolver delegate with multiple data sources",
+  "fixVersions": [
+   "5.2.16",
+   "5.3.0.CR2",
+   "5.1.14"
+  ]
+ },
+ "HHH-12380": {
+  "type": "Bug",
+  "created": "2018-03-12T03:25:38.449-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-16T16:03:34.227-0800",
+  "status": "Closed",
+  "summary": "Stackoverflow when order_inserts=true",
+  "fixVersions": [
+   "5.2.16",
+   "5.3.0.CR2",
+   "5.1.17"
+  ]
+ },
+ "HHH-12374": {
+  "type": "Bug",
+  "created": "2018-03-08T17:20:18.677-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-16T16:04:23.851-0800",
+  "status": "Closed",
+  "summary": "Order inserts sorting code gives up too soon",
+  "fixVersions": [
+   "5.2.16",
+   "5.3.0.CR2",
+   "5.1.17"
+  ]
+ },
+ "HHH-12355": {
+  "type": "Bug",
+  "created": "2018-03-05T07:00:36.078-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T18:54:50.123-0700",
+  "status": "Closed",
+  "summary": "Insert fails on one-to-one mapping when an intermediate embeddable type is between mappings when using ordered inserts.",
+  "fixVersions": [
+   "5.1.13",
+   "5.2.15",
+   "5.3.0.CR2"
+  ]
+ },
+ "HHH-12233": {
+  "type": "Bug",
+  "created": "2018-01-21T04:57:07.252-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-23T13:23:14.228-0800",
+  "status": "Closed",
+  "summary": "NPE in CacheImpl",
+  "fixVersions": [
+   "5.1.12"
+  ]
+ },
+ "HHH-12226": {
+  "type": "Bug",
+  "created": "2018-01-19T06:36:29.312-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-23T17:15:24.281-0700",
+  "status": "Closed",
+  "summary": "ObjectNotFoundException thrown when @NotFound(action = NotFoundAction.IGNORE) used with enhancement",
+  "fixVersions": [
+   "5.2.17",
+   "5.3.0.CR2",
+   "5.1.14"
+  ]
+ },
+ "HHH-12113": {
+  "type": "Improvement",
+  "created": "2017-11-21T07:39:57.815-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T18:54:03.183-0700",
+  "status": "Closed",
+  "summary": "The JDBC batch sorting algorithm can be simplified due to latest modifications  ",
+  "fixVersions": [
+   "5.2.13",
+   "5.1.13"
+  ]
+ },
+ "HHH-12105": {
+  "type": "Bug",
+  "created": "2017-11-19T13:40:42.534-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T18:53:27.862-0700",
+  "status": "Closed",
+  "summary": "Batch order_inserts: flush during transaction causes incorrect insert ordering and subsequent constraint violation",
+  "fixVersions": [
+   "5.2.13",
+   "5.1.13"
+  ]
+ },
+ "HHH-12086": {
+  "type": "Bug",
+  "created": "2017-11-09T17:03:00.748-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T18:52:39.482-0700",
+  "status": "Closed",
+  "summary": "Batch order_inserts: flush during transaction causes incorrect insert ordering and subsequent constraint violation",
+  "fixVersions": [
+   "5.2.13",
+   "5.1.13"
+  ]
+ },
+ "HHH-12075": {
+  "type": "Bug",
+  "created": "2017-11-02T01:24:46.373-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-09T22:33:34.919-0800",
+  "status": "Closed",
+  "summary": "SQLQuery.executeUpdate() ignores SQLQuery.setTimeout()",
+  "fixVersions": [
+   "5.1.11",
+   "5.2.13",
+   "5.3.0.Beta1"
+  ]
+ },
+ "HHH-12074": {
+  "type": "Bug",
+  "created": "2017-11-01T13:19:08.615-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T18:51:18.903-0700",
+  "status": "Closed",
+  "summary": "order_inserts: flush during transaction causes incorrect insert ordering and subsequent constraint violation",
+  "fixVersions": [
+   "5.2.13",
+   "5.1.13"
+  ]
+ },
+ "HHH-12059": {
+  "type": "Bug",
+  "created": "2017-10-24T03:31:46.575-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-19T19:28:01.122-0700",
+  "status": "Closed",
+  "summary": "hibernate.hbm2ddl.auto=update stopped working in Oracle since 5.1.4",
+  "fixVersions": [
+   "5.2.14",
+   "5.1.13",
+   "5.3.0.CR2"
+  ]
+ },
+ "HHH-11996": {
+  "type": "Bug",
+  "created": "2017-09-18T00:35:54.558-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-26T16:49:42.824-0800",
+  "status": "Closed",
+  "summary": "order_inserts causing constraint violation",
+  "fixVersions": [
+   "5.2.12",
+   "5.1.12"
+  ]
+ },
+ "HHH-11986": {
+  "type": "Bug",
+  "created": "2017-09-14T00:39:06.722-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-03-09T13:59:37.607-0800",
+  "status": "Closed",
+  "summary": "@LazyGroup is ignored on LazyToOne association with 'mappedBy'",
+  "fixVersions": [
+   "5.2.13",
+   "5.1.13"
+  ]
+ },
+ "HHH-11970": {
+  "type": "Bug",
+  "created": "2017-09-06T11:50:08.777-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-05-05T03:40:30.702-0700",
+  "status": "Closed",
+  "summary": "Use of @NotFound(IGNORE) and @BatchSize when there are unresolved foreign key values results in extra queries",
+  "fixVersions": [
+   "5.2.12",
+   "5.1.11"
+  ]
+ },
+ "HHH-11957": {
+  "type": "Bug",
+  "created": "2017-08-30T07:58:13.500-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-09T21:45:51.421-0800",
+  "status": "Closed",
+  "summary": "DB2 substring method needs to be exposed in DB297Dialect",
+  "fixVersions": [
+   "5.2.11",
+   "5.1.11"
+  ]
+ },
+ "HHH-11935": {
+  "type": "Bug",
+  "created": "2017-08-17T13:36:01.213-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-08-18T13:56:03.311-0700",
+  "status": "Closed",
+  "summary": "Log a warning and update documentation that enabling \"empty\" composites is an experimental feature",
+  "fixVersions": [
+   "5.1.10",
+   "5.2.11"
+  ]
+ },
+ "HHH-11915": {
+  "type": "Bug",
+  "created": "2017-08-07T14:25:16.268-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-09T21:24:59.302-0800",
+  "status": "Closed",
+  "summary": "DatabaseMetaData#getIndexInfo can return column names enclosed in quotes on PostgresPlus",
+  "fixVersions": [
+   "5.2.11",
+   "5.1.11"
+  ]
+ },
+ "HHH-11818": {
+  "type": "Bug",
+  "created": "2017-06-14T12:35:48.279-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-14T13:47:56.261-0700",
+  "status": "Closed",
+  "summary": "ClassCastException when binding a MaterializedNClobType value as NClob",
+  "fixVersions": [
+   "5.1.8",
+   "5.2.11"
+  ]
+ },
+ "HHH-11808": {
+  "type": "Task",
+  "created": "2017-06-12T02:22:11.414-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-09-07T22:56:15.723-0700",
+  "status": "Closed",
+  "summary": "Update migration guide and documentation",
+  "fixVersions": [
+   "5.2.11",
+   "5.1.11"
+  ]
+ },
+ "HHH-11768": {
+  "type": "Bug",
+  "created": "2017-05-24T06:35:59.774-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-26T16:44:57.147-0800",
+  "status": "Closed",
+  "summary": "foreign key violation with order_inserts=true and cascading persist",
+  "fixVersions": [
+   "5.2.11",
+   "5.1.12"
+  ]
+ },
+ "HHH-9021": {
+  "type": "Improvement",
+  "created": "2014-03-04T08:43:09.344-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-28T23:43:02.051-0700",
+  "status": "Closed",
+  "summary": "Select expression in JPA doesn't work",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-8999": {
+  "type": "Bug",
+  "created": "2014-02-25T05:09:42.675-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-21T12:48:35.965-0700",
+  "status": "Closed",
+  "summary": "NullPointerException when updating or deleting multiple entities of same type with non-comparable IDs",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-8687": {
+  "type": "Improvement",
+  "created": "2013-11-08T03:20:14.172-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T17:13:03.177-0700",
+  "status": "Closed",
+  "summary": "Better exception message for PostgreSQL81Dialect and named REF_CURSOR parameter binding",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-8507": {
+  "type": "Bug",
+  "created": "2013-09-14T15:29:06.747-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-05-12T08:24:58.869-0700",
+  "status": "Closed",
+  "summary": "SQLServer2005LimitHandler throws \"string out of range -1\" error",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-8488": {
+  "type": "Bug",
+  "created": "2013-09-11T01:39:19.424-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T15:23:16.880-0700",
+  "status": "Closed",
+  "summary": "JPA joinList and treat behaviour",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1",
+   "5.0.11"
+  ]
+ },
+ "HHH-8305": {
+  "type": "Bug",
+  "created": "2013-06-12T03:13:21.602-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-15T15:40:43.465-0700",
+  "status": "Closed",
+  "summary": "Envers auditing OneToOne inserts null in Aud JoinTable in a not stablished relationship",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-7510": {
+  "type": "Bug",
+  "created": "2012-08-09T00:33:13.710-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T20:25:09.270-0700",
+  "status": "Closed",
+  "summary": "LazyInitializationException thrown when deleting an entity while global_with_modified_flag turned on",
+  "fixVersions": [
+   "5.2.1",
+   "5.1.1"
+  ]
+ },
+ "HHH-7412": {
+  "type": "Bug",
+  "created": "2012-06-26T21:28:06.547-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-21T00:32:31.132-0700",
+  "status": "Closed",
+  "summary": "JDBCTransactionFactory.getDefaultReleaseMode() returns incorrect ConnectionReleaseMode",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-7405": {
+  "type": "Bug",
+  "created": "2012-06-22T13:46:21.368-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-23T05:09:25.599-0800",
+  "status": "Closed",
+  "summary": "BatchBuilder service does not properly define JMX MBean",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-7132": {
+  "type": "Sub-task",
+  "created": "2012-02-29T14:34:00.070-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-02-11T09:13:38.941-0800",
+  "status": "Closed",
+  "summary": "Split Oracle spatial dialect into OGC Strict/non-strict dialects",
+  "fixVersions": [
+   "5.2.8"
+  ]
+ },
+ "HHH-6781": {
+  "type": "Bug",
+  "created": "2011-10-27T15:02:40.615-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-11-27T22:20:03.730-0800",
+  "status": "Closed",
+  "summary": "Class level @Where annotation is not enforced on collections of that class",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.17"
+  ]
+ },
+ "HHH-6005": {
+  "type": "Bug",
+  "created": "2011-03-11T09:55:22.496-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2015-02-10T13:18:46.204-0800",
+  "status": "Closed",
+  "summary": "Better handling of implicit column naming with @ElementCollection of @Embeddables",
+  "fixVersions": [
+   "5.0.0.Beta1"
+  ]
+ },
+ "HHH-5393": {
+  "type": "Bug",
+  "created": "2010-07-19T05:23:41.716-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-07-14T16:51:57.086-0700",
+  "status": "Closed",
+  "summary": "MappingException when @MapKeyColumn refers to a column mapped in embeddable map value",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.2",
+   "5.1.1"
+  ]
+ },
+ "HHH-4959": {
+  "type": "Improvement",
+  "created": "2010-03-01T03:44:00.718-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-01-09T21:17:33.533-0800",
+  "status": "Closed",
+  "summary": "Concurrent HQL parsing blocks on ReflectHelper.classForName()",
+  "fixVersions": [
+   "5.2.6",
+   "5.1.11"
+  ]
+ },
+ "HHH-3930": {
+  "type": "Bug",
+  "created": "2009-05-27T05:00:10.007-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2018-08-25T20:47:31.089-0700",
+  "status": "Closed",
+  "summary": "one-to-one causes redundant select query",
+  "fixVersions": [
+   "5.2.17",
+   "5.3.0.CR2",
+   "5.1.16"
+  ]
+ },
+ "HHH-3846": {
+  "type": "Bug",
+  "created": "2009-04-01T20:38:26.022-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-09-01T14:52:05.073-0700",
+  "status": "Closed",
+  "summary": "LazyInit error on persting with detached association",
+  "fixVersions": [
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-1237": {
+  "type": "Patch",
+  "created": "2005-12-07T08:11:04.104-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-04-26T00:10:55.040-0700",
+  "status": "Closed",
+  "summary": "Escaping : with :: in queries",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-9894": {
+  "type": "Bug",
+  "created": "2015-07-05T18:26:55.419-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-10T17:07:50.119-0700",
+  "status": "Closed",
+  "summary": "Support Informix Boolean Type",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-9864": {
+  "type": "Bug",
+  "created": "2015-06-11T06:56:04.116-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-12-23T18:12:22.347-0800",
+  "status": "Closed",
+  "summary": "foreign key violation with order_inserts=true and batches with mixed subclass entities",
+  "fixVersions": [
+   "5.2.4",
+   "5.1.4"
+  ]
+ },
+ "HHH-9739": {
+  "type": "Bug",
+  "created": "2015-04-22T02:19:28.363-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-25T01:17:22.519-0700",
+  "status": "Closed",
+  "summary": "Updated object is written to second level cache with CacheMode.IGNORE",
+  "fixVersions": [
+   "5.1.2",
+   "5.2.3"
+  ]
+ },
+ "HHH-9693": {
+  "type": "Bug",
+  "created": "2015-03-30T06:09:26.663-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-11T07:06:53.939-0800",
+  "status": "Closed",
+  "summary": "H2 : Hibernate cannot validate it's own created schema",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-9676": {
+  "type": "Bug",
+  "created": "2015-03-23T08:04:16.399-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-06-13T16:50:51.778-0700",
+  "status": "Closed",
+  "summary": "TypeSafeActivator.applyDDL doesn't process composing constraints when @NotNull is present",
+  "fixVersions": [
+   "5.0.10",
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-9570": {
+  "type": "Improvement",
+  "created": "2015-01-14T06:25:34.712-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-04-25T07:58:34.537-0700",
+  "status": "Closed",
+  "summary": "Auto-detect SQL Server 2014 when the major version is 12",
+  "fixVersions": [
+   "5.2.0",
+   "5.1.1"
+  ]
+ },
+ "HHH-9512": {
+  "type": "Bug",
+  "created": "2014-11-20T10:45:08.688-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-29T17:03:26.253-0700",
+  "status": "Closed",
+  "summary": "Invalid entity being created when merging with recursive cascading",
+  "fixVersions": [
+   "5.2.1",
+   "5.0.11",
+   "5.1.2"
+  ]
+ },
+ "HHH-9485": {
+  "type": "Bug",
+  "created": "2014-11-06T11:34:27.179-0800",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-02-22T14:35:45.692-0800",
+  "status": "Closed",
+  "summary": "Duplicate Property with AccessType.PROPERTY and MappedSuperclass",
+  "fixVersions": [
+   "5.0.9",
+   "5.1.1"
+  ]
+ },
+ "HHH-9329": {
+  "type": "Bug",
+  "created": "2014-08-12T14:43:57.908-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2017-06-07T17:19:01.705-0700",
+  "status": "Closed",
+  "summary": "Join With SQL generation regression",
+  "fixVersions": [
+   "5.2.3",
+   "5.1.8"
+  ]
+ },
+ "HHH-9271": {
+  "type": "Bug",
+  "created": "2014-07-02T03:10:22.629-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-03-22T03:33:16.249-0700",
+  "status": "Closed",
+  "summary": "IdentityGenerator broken with quoted identifiers",
+  "fixVersions": [
+   "5.1.1"
+  ]
+ },
+ "HHH-9199": {
+  "type": "Bug",
+  "created": "2014-05-16T07:35:11.755-0700",
+  "resolution": "Fixed",
+  "resolutiondate": "2016-08-17T16:01:03.592-0700",
+  "status": "Closed",
+  "summary": "ValidityAuditStrategy: Collection of embeddables is not audited correctly",
+  "fixVersions": [
+   "5.2.2",
+   "5.1.2"
+  ]
+ }
+}
