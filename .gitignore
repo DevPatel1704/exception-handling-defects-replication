@@ -1,0 +1,28 @@
+# Third-party downloads (re-fetch with src/reproduce/fetch_package.sh)
+external/downloads/
+external/data_without_missing/
+external/scripts_with_input_data/
+external/JTratch/
+external/NTratch/
+# Scratch build dirs and cloned target repos
+build/
+data/new/repos/
+data/new/*/src/
+data/new/*/raw/analyzer/
+# (data/new/*/raw/jira_issues.json IS tracked: it freezes the Jira state the labels were computed from)
+# Python / R / notebooks
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.Rhistory
+.RData
+Rplots.pdf
+# OS
+.DS_Store
+Thumbs.db
+
+# Phase 0 regenerated copy (identical to data/original/all_no_missing.csv; verified in docs/REPRODUCTION.md)
+results/**/all_no_missing_regenerated.csv
+
+data/new/*/stamps.json
+data/new/*/logs/

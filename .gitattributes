@@ -1,0 +1,9 @@
+# Keep scripts LF so they run under bash on any OS; keep data byte-exact so recorded SHA-256 hashes stay valid.
+*.sh    text eol=lf
+*.R     text eol=lf
+*.Rmd   text eol=lf
+*.py    text eol=lf
+*.csv   -text
+*.xlsx  binary
+*.pdf   binary
+*.png   binary
