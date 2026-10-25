@@ -1,0 +1,7 @@
+Context,Model,Paper R2 (original release),New R2,Apparent R2,Files (n),Budget,# potential predictors,Cutoff,Significant EH predictors,Significant base predictors
+hibernate-5.1,BASE,0.21,0.238,0.261,404,26,8,0.7,,Churn.PRE; CountDeclClass; CountLineComment; RatioCommentToCode
+hibernate-5.1,BSFC,0.28,0.275,0.305,404,26,26,0.7,X..Handled.with.Throw.with.New; X..Propagated.1,Churn.PRE; CountLineComment; RatioCommentToCode
+hibernate-5.1,BSAP,0.23,0.264,0.284,404,26,22,0.7,Avg..AP.Unhandled.exceptions,Churn.PRE; CountLineComment; RatioCommentToCode
+zookeeper-release-3.6.0,BASE,,0.423,0.426,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+zookeeper-release-3.6.0,BSFC,,0.041,0.078,161,10,23,0.24,X..Try.in.Loop.1; X..Handled.with.Throw.without.New,
+zookeeper-release-3.6.0,BSAP,,0.417,0.426,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
