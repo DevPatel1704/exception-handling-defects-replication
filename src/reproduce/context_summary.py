@@ -167,6 +167,7 @@ def main() -> None:
     write_md(summ, cdf)
     fig_r2(summ)
     fig_r2_column(summ)
+    fig_shap_groups(shap_groups(summ))
     fig_variance(summ)
     fig_uplift(cdf)
     print(summ[["context", "BASE_r2", "BSFC_r2", "BSAP_r2"]].to_string(index=False))
@@ -374,6 +375,53 @@ def fig_r2_column(s: pd.DataFrame) -> None:
     ax.legend(h, l_, ncol=3, fontsize=5.8, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.25),
               handlelength=1.5, columnspacing=1.0)
     save(fig, "fig_r2_contexts_col")
+
+
+def shap_groups(s: pd.DataFrame) -> pd.DataFrame:
+    """Per context: mean |SHAP| of one flow / anti-pattern feature relative to one traditional feature, and the EH
+    share of total |SHAP|. Ratios are within-context, so learner units (probability vs. log-odds) cancel."""
+    rows = []
+    for _, r in s.iterrows():
+        f = RES / "shap_importance.csv" if r.source == "reproduction" else RES / "new" / r.id / "ml" / "shap_importance.csv"
+        if not f.exists():
+            continue
+        d = pd.read_csv(f)
+        if r.source == "reproduction":
+            d = d[d.project == r.id]
+        g = d.groupby("group").mean_abs_shap.agg(["mean", "sum", "count"])
+        rows.append(dict(context=r.context, source=r.source,
+                         flow_vs_trad=g.loc["try", "mean"] / g.loc["base", "mean"],
+                         ap_vs_trad=g.loc["catch", "mean"] / g.loc["base", "mean"],
+                         eh_share=(g.loc["try", "sum"] + g.loc["catch", "sum"]) / g["sum"].sum(),
+                         n_trad=int(g.loc["base", "count"]), n_eh=int(g.loc["try", "count"] + g.loc["catch", "count"])))
+    out = pd.DataFrame(rows)
+    out.to_csv(RES / "shap_groups.csv", index=False, float_format="%.4f")
+    return out
+
+
+def fig_shap_groups(sg: pd.DataFrame) -> None:
+    fig, ax = plt.subplots(figsize=(3.45, 2.3))
+    y = np.arange(len(sg))
+    ax.hlines(y, 0, sg[["flow_vs_trad", "ap_vs_trad"]].max(axis=1), color=GRID, linewidth=0.8, zorder=1)
+    ax.scatter(sg.flow_vs_trad, y, marker="s", s=22, color=COLORS["BSFC"], edgecolor="white", linewidth=0.6,
+               zorder=3, label="Flow feature")
+    ax.scatter(sg.ap_vs_trad, y, marker="D", s=20, color=COLORS["BSAP"], edgecolor="white", linewidth=0.6,
+               zorder=3, label="Anti-pattern feature")
+    for yi, (_, r) in zip(y, sg.iterrows()):
+        ax.text(0.66, yi, f"{100 * r.eh_share:.0f}%", va="center", ha="right", fontsize=6.5, color=INK2)
+    ax.text(0.66, -0.75, "EH share of\ntotal |SHAP|", va="bottom", ha="right", fontsize=5.5, color=INK2)
+    ax.set_yticks(y, sg.context, fontsize=6.5)
+    ax.invert_yaxis()
+    n_orig = int((sg.source == "reproduction").sum())
+    ax.axhline(n_orig - 0.5, color=INK2, linewidth=0.6, linestyle=(0, (3, 3)))
+    ax.set_xlim(0, 0.68)
+    ax.set_xlabel("Mean |SHAP| of one feature, relative to a traditional feature", color=INK2, fontsize=6.5)
+    style(ax)
+    ax.yaxis.grid(False)
+    ax.xaxis.grid(True, color=GRID, linewidth=0.6)
+    ax.tick_params(labelsize=6.5)
+    ax.legend(fontsize=6, frameon=False, ncol=2, loc="upper left", bbox_to_anchor=(0.0, 1.2), handletextpad=0.3)
+    save(fig, "fig_shap_groups")
 
 
 if __name__ == "__main__":

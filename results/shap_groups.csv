@@ -1,0 +1,8 @@
+context,source,flow_vs_trad,ap_vs_trad,eh_share,n_trad,n_eh
+Umbraco 7.6,reproduction,0.5773,0.3062,0.5383,35,89
+Hadoop 2.6,reproduction,0.2998,0.1998,0.3721,44,102
+Hibernate 5.0,reproduction,0.3658,0.2350,0.4034,44,96
+Hibernate 5.1,new,0.2495,0.1559,0.5326,17,93
+ZooKeeper 3.6.0,new,0.4388,0.1195,0.6361,17,99
+ZooKeeper 3.7.0,new,0.2242,0.3592,0.6222,17,99
+ZooKeeper 3.9.0,new,0.3653,0.1622,0.6174,17,99
