@@ -17,23 +17,30 @@ optimism-reduced Nagelkerke R². No causal claims.
 | RQ3 (extension) | Do EH metrics improve ML *prediction* over traditional metrics? | Phase A |
 | RQ4 (extension) | Which EH features drive predictions (SHAP), and do they agree with RQ1–2? | Phase A |
 
-## Headline results so far (2026-10-24)
+## Headline results (Milestone 3, 2026-11-08)
 
-* **Phase 0, reproduction:** the released R scripts contain a one-line bug that makes "BSFC" a copy of BSAP. With it
-  fixed, **all 9 Table 4 R² values reproduce within ±0.004 and all 35 Table 5 entries (Wald χ², effects) to
+All contexts side by side: [`results/contexts_summary.md`](results/contexts_summary.md) and
+[`results/figures/`](results/figures/). What changed since Milestone 2: [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md) §9.
+
+* **Reproduction (authors' data):** the released R scripts contain a one-line bug that makes "BSFC" a copy of BSAP.
+  With it fixed, **all 9 Table 4 R² values reproduce within ±0.004 and all 35 Table 5 entries (Wald χ², effects) to
   rounding.** → [`results/reproduction_comparison.md`](results/reproduction_comparison.md)
-* **Phase A, RQ3:** EH metrics give **no significant PR-AUC gain** for any learner or project (corrected resampled
-  t-test). Umbraco tree models gain significantly on ROC-AUC (+0.09 to +0.13). Logistic regression gets worse on
-  Hadoop. → [`results/ml_results.md`](results/ml_results.md)
-* **Phase A, RQ4:** traditional metrics dominate SHAP rankings. 6/10 (Hadoop), 3/10 (Hibernate) and 2/10 (Umbraco)
-  of the top EH features match a significant Phase 0 predictor, all with the same sign.
-  → [`results/shap_alignment.md`](results/shap_alignment.md)
-* **Phase 5, dashboard:** paste any public Java repository URL; the page proposes tags and the issue tracker
-  (Jira or GitHub Issues), runs the whole pipeline in the background and shows data, models, ML and SHAP.
-  → [`dashboard/README.md`](dashboard/README.md)
-* **Phase 1/2, new context:** the pipeline runs end to end on Hibernate ORM 5.1.0. The authors' models on it give
-  BASE 0.238 < BSAP 0.264 < BSFC 0.275, the paper's ordering (an extension: fallback product metrics and reduced
-  analyzer binding). → [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md) §5–6
+* **New contexts (our data, 4 releases):** Hibernate 5.1.0 keeps the paper's ordering (BASE 0.238 < BSAP 0.264 <
+  BSFC 0.275). On ZooKeeper 3.6.0 / 3.7.0 / 3.9.0 the EH models fall *below* BASE, but only because the released code
+  drops a BASE-significant metric; applying the paper's own rule (sensitivity S1) puts them at or slightly above BASE
+  (BSFC +0.035 / −0.004 / +0.017).
+* **RQ3 (prediction):** after Holm correction **no learner gains from EH metrics in any of the 7 contexts** (1 of
+  189 tests significant, and it is a loss: LR on ZooKeeper 3.9.0). Tree learners' point estimates are mostly
+  positive, LR's mostly negative. → [`results/ml_uplift_ci.csv`](results/ml_uplift_ci.csv)
+* **RQ4 (SHAP):** traditional metrics dominate; 0–6 of the top-10 EH features match a significant explanatory
+  predictor, always with the same sign. → [`results/shap_alignment.md`](results/shap_alignment.md), `results/new/*/ml/`
+* **Validity check (analyzer non-determinism):** over 10 JTratch runs per ZooKeeper release, only 6 flow metrics
+  change; catch/anti-pattern metrics never do. BSFC is stable on 2 of 3 releases and swings 0.041–0.458 on
+  ZooKeeper 3.6.0. → `results/new/*/variance/variance.md`
+* **Defect-link validation:** rating packets for 131 links and two independent sheets are ready
+  ([`docs/VALIDATION_GUIDE.md`](docs/VALIDATION_GUIDE.md)); ratings pending.
+* **Dashboard:** paste any public Java repository URL; the page runs the whole pipeline and shows data, models, ML
+  and SHAP. → [`dashboard/README.md`](dashboard/README.md)
 
 ## Reproduce everything from scratch
 
@@ -65,6 +72,15 @@ for s in clone_repo run_analyzers; do ./envrun.sh python src/collect/$s.py hiber
 ./envrun.sh Rscript src/reproduce/run_original.R fixed --input data/new/hibernate-5.1/input --out results/new/hibernate-5.1
 ./envrun.sh python src/reproduce/build_comparison.py
 
+# Milestone 3: more contexts, Holm, analyzer variance, sensitivity S1, validation packets, summary + figures
+# (full list with timings: docs/REPRODUCTION.md §9)
+./envrun.sh python src/pipeline/run_target.py zookeeper-release-3.7.0 --repeats 10
+./envrun.sh python src/ml/train_eval.py --from-folds
+./envrun.sh python -W ignore src/collect/analyzer_variance.py zookeeper-release-3.6.0 --runs 10
+./envrun.sh Rscript src/reproduce/run_original.R fixed --force-sig --input data/new/zookeeper-release-3.6.0/input --out results/new/zookeeper-release-3.6.0
+./envrun.sh python src/collect/validation_packet.py && ./envrun.sh python src/collect/validation_agreement.py
+./envrun.sh python src/reproduce/context_summary.py
+
 # Dashboard: paste a repository link, get the full pipeline's results (see dashboard/README.md)
 ./envrun.sh python dashboard/app.py     # http://localhost:8000/
 ./envrun.sh python -m unittest discover -s tests -v     # offline tests of the dashboard's tag/URL handling
@@ -88,9 +104,11 @@ data/
   new/<target>/        provenance.json, process/product/defect metrics, input/File_Level-*.csv,
                        manual_validation_sample.csv (raw analyzer output and repos are gitignored)
 src/
-  reproduce/   fetch_package.sh, run_original.R (authors' notebooks, asis|fixed, --input/--out), build_comparison.py
+  reproduce/   fetch_package.sh, run_original.R (authors' notebooks, asis|fixed, --input/--out, --force-sig), build_comparison.py,
+               context_summary.py (all contexts: tables + figures)
   collect/     targets.json, clone_repo, process_metrics, defect_mining, traditional_metrics, run_analyzers,
-               aggregate_jtratch (rule re-implementation), build_dataset, validate_against_original, history (git/Jira)
+               aggregate_jtratch (rule re-implementation), build_dataset, validate_against_original, history (git/Jira),
+               analyzer_variance (T10), validation_packet + validation_agreement (defect-link validation)
   model/       (Phase 2 uses src/reproduce/run_original.R --input; see src/model/README.md)
   ml/          common.py (data + feature groups), train_eval.py (RQ3)
   explain/     shap_analysis.py (RQ4)

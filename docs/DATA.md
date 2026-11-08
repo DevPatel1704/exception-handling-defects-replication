@@ -35,9 +35,12 @@ variant gets a `.1` suffix (e.g. `X..Handled.with.Log.1` = `% Handled with Log`)
 | Target id | Purpose | Repo | Prev. release (pre-window start) | Release | Latest post-release | Status |
 |---|---|---|---|---|---|---|
 | `hibernate-5.1` | New context (next minor line after the paper's 5.0) | github.com/hibernate/hibernate-orm | `5.0.0.Final` → `87a62262ba9e7d1c2d8a7b1707021e479ceec3ab` (2015-08-20) | `5.1.0` → `a909e769516322e33d5cb6a9f19aac8d21ee596d` (2016-02-10) | `5.1.17` → `c34bfb3058b2e0d0eec5d806852ed1a505f1ddf4` (2018-11-28) | **Dataset built**; Phase 2 models run |
+| `zookeeper-release-3.6.0` | New context (concurrency-heavy Java system; dashboard-registered, `data/targets.local.json`) | github.com/apache/zookeeper | `release-3.5.0` → `22dd197a0327eef989feaf2109e5e7371624f743` (2014-08-06) | `release-3.6.0` → `b4c89dc7f6083829e18fae6e446907ae0b1f22d7` (2020-02-25) | `release-3.6.4` → `d65253dcf68e9097c6e95a126463fd5fdeb4521c` (2022-12-18) | **Dataset built**; models, ML, SHAP, 10 analyzer runs, S1 |
+| `zookeeper-release-3.7.0` | New context (next minor line, added in Milestone 3) | same | `release-3.6.0` → `b4c89dc7…` (2020-02-25) | `release-3.7.0` → `e3704b390a6697bfdf4b0bef79e3da7a4f6bac4b` (2021-03-17) | `release-3.7.2` → `c06c7c8a3e95779d4becb1938b378596e3b420d0` (2023-10-06) | **Dataset built**; models, ML, SHAP, 10 analyzer runs, S1 |
+| `zookeeper-release-3.9.0` | New context (most recent line with ≥ 2 years of post-release history) | same | `release-3.8.1` → `74db005175a4ec545697012f9069cb9dcc8cdda7` (2023-01-25) | `release-3.9.0` → `1674a5e97f43bc38e9bf56b04f83a7ae34d68249` (2023-07-19) | `release-3.9.6` → `a355171b081b5b60749db8f19cca1528b0df936f` (2026-09-03) | **Dataset built**; models, ML, SHAP, 10 analyzer runs, S1 |
 | `hibernate-5.0-validation` | Pipeline validation on the paper's own release | same | `4.3.0.Final` → `a32dae8bea992a37d1bd181996b0a536357fbcad` | `5.0.0.Final` → `87a62262…` | `5.0.16` → `59a4b2b1…` | Analyzer run + validated vs. authors' values |
-| `hadoop-2.7` | New context (configured) | github.com/apache/hadoop | `release-2.6.0` | `release-2.7.0` → `d4c8d4d4d203c934e8074b31289a28724c0842cf` | `rel/release-2.7.7` → `e446276a9ad3a7ab31692a12d220af42ee2e0e79` | Not run yet (TODO) |
-| `umbraco-7.7` | C# attempt (configured) | github.com/umbraco/Umbraco-CMS | `release-7.6.0` | `release-7.7.0` | `release-7.7.13` | Not run; defect mining expected blocked (see §4) |
+| `hadoop-2.7` | New context (configured) | github.com/apache/hadoop | `release-2.6.0` | `release-2.7.0` → `d4c8d4d4d203c934e8074b31289a28724c0842cf` | `rel/release-2.7.7` → `e446276a9ad3a7ab31692a12d220af42ee2e0e79` | **Dropped in Milestone 3** (scope reduction; see REPRODUCTION.md §9) |
+| `umbraco-7.7` | C# attempt (configured) | github.com/umbraco/Umbraco-CMS | `release-7.6.0` | `release-7.7.0` | `release-7.7.13` | **Dropped in Milestone 3**: YouTrack tracker decommissioned, no defect labels (see §4) |
 
 SHAs/dates are written by `clone_repo.py` to `data/new/<id>/provenance.json` (commit date of the tagged commit).
 Targets are defined in `src/collect/targets.json`.
@@ -80,6 +83,23 @@ manual-validation sample matters more.
 Jira access: anonymous REST (Hibernate Cloud `/rest/api/3/search/jql`, batched 50 keys/request). Responses are
 cached in `data/new/<id>/raw/jira_issues.json` and the run date is the cache's mtime (2026-10-24).
 
+### Collection results, all new contexts
+
+| Quantity | Hibernate 5.1 | ZooKeeper 3.6 | ZooKeeper 3.7 | ZooKeeper 3.9 |
+|---|---:|---:|---:|---:|
+| Release source files | 3,475 | 469 | 487 | 504 |
+| Issue keys in post-release commits | 262 | 79 | 58 | 82 |
+| … not a Fixed/Done Bug | 43 | 28 | 30 | 37 |
+| … reported before the release | 57 | 9 | 13 | 15 |
+| Post-release defect issues retained | 182 | 43 | 16 | 35 |
+| Post-release-defective files | 284 | 39 | 24 | 56 |
+| Files with ≥ 1 catch block (defective) | 467 (102) | 171 (31) | 181 (18) | 188 (39) |
+| Modelled (catch + try data) | 404 | 161 | 169 | 178 |
+| Manual-validation sample (links) | 40 | 40 | 16 (all) | 35 (all) |
+
+Source: `data/new/<id>/defect_mining_stats.json`, `dataset_manifest.json`. ZooKeeper 3.7 has only 18 defective files
+with catch blocks (events per budget variable ≈ 1.6), which limits what its models can show (REPRODUCTION.md §9).
+
 ### Hibernate 5.1 collection results (2026-10-24)
 
 | Quantity | Value |
@@ -93,7 +113,7 @@ cached in `data/new/<id>/raw/jira_issues.json` and the run date is the cache's m
 | Files with ≥1 try block having ≥1 possible exception | 404 |
 
 Manual validation: `data/new/hibernate-5.1/manual_validation_sample.csv` holds 40 random (issue, commit) links,
-with Jira and commit URLs and blank verdict columns for two team members to fill in. **Not yet done.**
+with Jira and commit URLs. Milestone 3: `src/collect/validation_packet.py` turns the samples of all four new contexts (131 links) into a rating packet (`data/new/<id>/validation/packet.md`: issue fields, full commit message, per-file diff stats, automatic pre-checks) and one independent sheet per rater (`rating_Dev.csv`, `rating_Dhruv.csv`); protocol in [VALIDATION_GUIDE.md](VALIDATION_GUIDE.md). `src/collect/validation_agreement.py` computes Cohen's κ, percent agreement and link precision with a 95% Wilson interval (`results/defect_link_validation.{csv,md}`). **Rating status: sheets prepared, ratings pending.**
 
 ## 3. Validation of the EH-metric pipeline (Hibernate 5.0.0.Final)
 

@@ -4,8 +4,9 @@ What we ran, with which commands, what came out, and every deviation from the or
 Paper: G. B. de Pádua and W. Shang, *Studying the Relationship between Exception Handling Practices and
 Post-release Defects*, MSR 2018, doi:10.1145/3196398.3196435.
 
-Status (2026-10-24): **Phase 0 complete**: Table 4 and Table 5 reproduced. Phase A (ML + SHAP) complete. Phase 1:
-pipeline runs end to end on Hibernate 5.1.0 (with documented limitations). Phase 2: partial. See §5–§7.
+Status (2026-11-08, Milestone 3): **Phase 0 complete** (Table 4 and Table 5 reproduced). Phase A (ML + SHAP)
+complete, now with Holm correction. Phases 1–2 complete on four new releases (Hibernate 5.1.0, ZooKeeper 3.6.0 / 3.7.0 /
+3.9.0), with the analyzer-variance check (T10) and the forced-BASE sensitivity (S1). Milestone 3 additions: §9.
 
 ---
 
@@ -110,6 +111,8 @@ Full tables: [`results/reproduction_comparison.md`](../results/reproduction_comp
 | D4 | R 4.3.3 + current CRAN-era packages instead of the authors' 2017–18 versions (R 3.x, rms 5.x). | Original versions not recorded in the package and not installable on this OS without effort. | None observed: Table 4/5 reproduce to rounding. |
 | D5 | `plotly`, `BiodiversityR`, `logistf` not installed. | Loaded via `require()` only; used in `glm`/`logistf` branches never taken by the `lrm` models. | None. |
 | D6 | ModelMetrics replaced with the CRAN binary (see ENVIRONMENT.md). | conda-forge DLL fails to load → `require(caret)` silently FALSE → `findCorrelation` missing. | None (environment fix). |
+| **D7** | **Empty-model guard (both modes, Milestone 3).** In `analysis_functions.R` `modelSimplification()`, when `fastbw()` keeps no predictor, `refit` is never assigned and R halts (`object 'refit' not found`). We initialise `refit`/`final_form`/`coef` to `NA` just before the `names.kept` test. | Hit on ZooKeeper 3.7.0 (18 defective files): no BSFC predictor survives backward elimination. | None on any earlier run. **Verified:** with D7, Phase 0 (`base_test_1/2.csv`, `predictors_simplified.csv`) and Hibernate 5.1 / ZooKeeper 3.6.0 / 3.9.0 reproduce identically (max ΔR² = 0; runs in `build/verify_d7/`). Such a model is reported as "no predictor survives simplification" (R² n/a). |
+| S1 | **Sensitivity only, not part of the replication (`--force-sig`).** Enables the paper's §3.4.6 rule "BASE-significant metrics are kept in BSFC/BSAP": the released code's branch for it is guarded by a never-true condition (`project=="" && model_type==""`). One budget slot is reserved per BASE-significant metric, the other metrics are reduced by the authors' own dynamic-cutoff rule to the remaining budget, then the BASE-significant metrics are added. Output: `results/new/<id>/fixed_forcesig/`. | ZooKeeper's BSFC/BSAP fall *below* BASE because the second reduction drops `# Bugs (pre)` (F2, §8). S1 tests whether that, and not the EH metrics, explains it. | Reported separately (§9). Identical to the main run whenever no BASE predictor is dropped (Hibernate 5.1: all three models identical). |
 
 Failures we hit on the way (kept for the record): (i) first conda solve died on a network reset; retried.
 (ii) caret failed to load (D6). (iii) concurrent `conda run` calls race on a temp file → `envrun.sh`.
@@ -169,18 +172,22 @@ bug and its fix should be reported in our write-up and, ideally, to the authors.
 | | RF | 0.506 | 0.548 | 0.538 | 0.555 |
 | | XGB | 0.489 | 0.547 | 0.498 | 0.544 |
 
-Plainly:
+Plainly (Holm-adjusted p-values added in Milestone 3, `p_holm` in `results/ml_uplift.csv`; family = the 9
+comparisons of one project and metric):
 * **PR-AUC (primary): no learner on any project improves significantly** when EH metrics are added (all corrected
-  p ≥ 0.091). Tree models gain somewhat on Hibernate (RF +0.049 PR-AUC with TRAD+EH, better in 43/50 folds,
-  p = 0.091). On Umbraco, trees gain +0.007 to +0.065 and LR +0.060 to +0.111, but std ≈ 0.10–0.14 with only
-  4–5 positives per test fold. Hadoop: within ±0.01 for trees.
-* **ROC-AUC: Umbraco tree models improve significantly** (RF +0.122 FLOW / +0.133 EH; XGB +0.090 to +0.112;
-  p = 0.019–0.041; 43–45/50 folds), as does Hadoop RF+AP marginally (+0.010, p = 0.047).
-* **Logistic regression gets worse** with EH metrics on Hadoop (PR-AUC −0.067 AP, −0.084 EH; p = 0.008, 0.014),
-  plausibly because, unlike the paper's models, it gets 100+ highly correlated features with no
-  correlation/redundancy filtering (only L2 shrinkage).
-* Caveat: 81 uncorrected tests (27 per metric); under Holm correction only the strongest effects would survive.
-  We report the raw p-values and fold counts rather than claim a significant uplift.
+  p ≥ 0.091 before, p_Holm ≥ 0.82 for every positive uplift after correction). Tree models gain somewhat on Hibernate (RF +0.049 PR-AUC with
+  TRAD+EH, better in 43/50 folds, p = 0.091). On Umbraco, trees gain +0.007 to +0.065 and LR +0.060 to +0.111, but
+  std ≈ 0.10–0.14 with only 4–5 positives per test fold. Hadoop: within ±0.01 for trees.
+* **ROC-AUC:** Umbraco tree models improve (RF +0.122 FLOW / +0.133 EH; XGB +0.090 to +0.112; raw p = 0.019–0.041;
+  43–45/50 folds), and Hadoop RF+AP marginally (+0.010, raw p = 0.047). **None of these survives Holm**
+  (p_Holm ≥ 0.17).
+* **Logistic regression gets worse** with EH metrics on Hadoop (PR-AUC −0.067 AP, −0.084 EH; raw p = 0.008, 0.014;
+  p_Holm = 0.07, 0.11), plausibly because, unlike the paper's models, it gets 100+ highly correlated features with
+  no correlation/redundancy filtering (only L2 shrinkage).
+* **After Holm correction, 0 of 81 uplift tests (27 per metric) are significant** in either direction. We therefore
+  report "no detectable predictive gain from EH metrics", with the direction of the point estimates (positive on
+  Umbraco/Hibernate trees, negative for LR on Hadoop) as descriptive only. The summaries were regenerated from the
+  saved folds (`python src/ml/train_eval.py --from-folds`; `ml_results.csv` byte-identical).
 
 ### RQ4 results (`results/shap_alignment.md`, figures `results/shap_bar_all.png`, `results/shap_beeswarm_*.png`)
 
@@ -266,15 +273,15 @@ Hadoop 2.7, a C# context (see §7).
 
 | # | Item | Status / plan |
 |---|---|---|
-| T1 | Regenerate the external-Javadoc XML (`MyRoot` / `MyPackage` / `MyClass` / `MyMethod` / `MyThrowTag`, see `external/JTratch/src/main/java/ca/concordia/jpexjd/`) from `@throws` tags of JDK 8 sources and the target's dependencies | Highest-value fidelity fix for flow metrics; not started |
-| T2 | Give JTratch dependency jars (`--m2`): resolve Hibernate 5.1's Gradle deps (Java 8), point `--m2` at the jar cache | Not started |
-| T3 | Manual validation of the 40 defect links (`data/new/hibernate-5.1/manual_validation_sample.csv`), two raters | Not started (needs team) |
-| T4 | Hadoop 2.7.0 → 2.7.7 (target configured; large repo, 4 Jira projects; JTratch needs ≥ 6 GB heap) | Not started |
-| T5 | C# context: NTratch.exe (2017 .NET binary) on Umbraco 7.7; Umbraco 7's YouTrack tracker is decommissioned, so defect labels need another source (GitHub issues/PR links) | Not started; likely blocked on defect labels |
+| T1 | Regenerate the external-Javadoc XML (`MyRoot` / `MyPackage` / `MyClass` / `MyMethod` / `MyThrowTag`, see `external/JTratch/src/main/java/ca/concordia/jpexjd/`) from `@throws` tags of JDK 8 sources and the target's dependencies | **Dropped in Milestone 3** (§9.6); documented limitation |
+| T2 | Give JTratch dependency jars (`--m2`): resolve Hibernate 5.1's Gradle deps (Java 8), point `--m2` at the jar cache | **Dropped in Milestone 3** (§9.6) |
+| T3 | Manual validation of the 40 defect links (`data/new/hibernate-5.1/manual_validation_sample.csv`), two raters | Milestone 3: packets + independent sheets for all 131 links of the 4 new contexts, agreement script tested (§9, VALIDATION_GUIDE.md); **ratings pending** |
+| T4 | Hadoop 2.7.0 → 2.7.7 (target configured; large repo, 4 Jira projects; JTratch needs ≥ 6 GB heap) | **Dropped in Milestone 3** (§9.6) |
+| T5 | C# context: NTratch.exe (2017 .NET binary) on Umbraco 7.7; Umbraco 7's YouTrack tracker is decommissioned, so defect labels need another source (GitHub issues/PR links) | **Dropped in Milestone 3** (§9.6): no defect labels |
 | T6 | Understand licence (academic) for a faithful BASE on new data | Ask instructor/department |
 | T7 | Report the BSFC bug (D1) to the authors | To do |
-| T8 | Multiple-comparison correction (Holm) for the RQ3 uplift tests; optionally nested-CV tuning | To do |
-| T10 | Quantify JTratch run-to-run variance (F1, §8): ≥ 10 analyzer runs per target, report BSFC R² and predictor stability | Measured once on ZooKeeper (4 runs); not yet systematic |
+| T8 | Multiple-comparison correction (Holm) for the RQ3 uplift tests; optionally nested-CV tuning | **Done** (Holm; §9.2). Nested-CV tuning not done (learners deliberately untuned) |
+| T10 | Quantify JTratch run-to-run variance (F1, §8): ≥ 10 analyzer runs per target, report BSFC R² and predictor stability | **Done** for ZooKeeper 3.6/3.7/3.9 (10 runs each, §9.4); Hibernate 5.1 running |
 | T9 | Dashboard (Phase 5) | **Working** for Java repositories (§8); C# limited to metrics without EH analysis (T5) |
 
 Known failures encountered and resolved are listed under §3 (Phase 0). In Phase 1: our first JTratch attempt on
@@ -334,3 +341,92 @@ Hibernate 5.1 (0 occurrences in those logs), so Phase 0/2 are unaffected. It doe
 has budget 10 (161 files / 15), BSFC's cutoff drops to 0.24 and loses `# Bugs (pre)`, hence BSFC R² 0.041 < BASE
 0.423. We keep the authors' behaviour for faithfulness, and the dashboard flags it ("⚠ dropped BASE predictor" plus a
 caveat) so the comparison is not misread.
+
+## 9. Milestone 3 additions (2026-11-08)
+
+All numbers below are produced by the commands listed; the cross-context view is `results/contexts_summary.{csv,md}`
+and `results/figures/` (regenerate with `./envrun.sh python src/reproduce/context_summary.py`).
+
+### Commands
+
+```bash
+# Fourth new context (pipeline as in §5-§6 and §8, ML with 10 repeats)
+./envrun.sh python src/pipeline/run_target.py zookeeper-release-3.7.0 --repeats 10
+# RQ3/RQ4 on the new contexts with the same 5x10 CV as Phase A (was 5x5 in Milestone 2)
+for t in hibernate-5.1 zookeeper-release-3.6.0 zookeeper-release-3.9.0; do ./envrun.sh python src/pipeline/run_target.py $t --repeats 10; done
+# Holm correction (T8): re-summarise the saved folds, no retraining
+./envrun.sh python src/ml/train_eval.py --from-folds
+# Analyzer run-to-run variance (T10): 10 fresh JTratch runs per release, models refit on each
+for t in zookeeper-release-3.6.0 zookeeper-release-3.7.0 zookeeper-release-3.9.0; do ./envrun.sh python -W ignore src/collect/analyzer_variance.py $t --runs 10; done
+# Sensitivity S1 (paper §3.4.6 rule: keep BASE-significant metrics; see deviations table)
+for t in hibernate-5.1 zookeeper-release-3.6.0 zookeeper-release-3.7.0 zookeeper-release-3.9.0; do
+  ./envrun.sh Rscript src/reproduce/run_original.R fixed --force-sig --input data/new/$t/input --out results/new/$t; done
+# Defect-link validation (T3): packets + sheets, then agreement once both raters are done
+./envrun.sh python src/collect/validation_packet.py
+./envrun.sh python src/collect/validation_agreement.py
+# Cross-context tables and figures
+./envrun.sh python src/reproduce/build_comparison.py && ./envrun.sh python src/reproduce/context_summary.py
+```
+
+### 9.1 New context: ZooKeeper 3.7.0, and a third defect in the released model code (D7)
+
+ZooKeeper 3.7.0 (487 release files; 16 post-release bugs; 181 files with catch blocks, 18 defective; 169 modelled,
+budget 11) halted inside the authors' `modelSimplification()`: backward elimination kept no BSFC predictor and
+`refit` was never assigned. Guard D7 records such a model as empty. Results: BASE 0.417, BSAP 0.047, BSFC empty.
+
+### 9.2 RQ3 with Holm correction, on all seven contexts
+
+0 of 81 uplift tests on the authors' data and 1 of 108 on the new contexts are significant after Holm (per project
+and metric, 9 tests). The one survivor is a **loss**: LR with TRAD+EH on ZooKeeper 3.9.0, ROC-AUC −0.173, worse
+in 0/50 folds improved (p_Holm = 0.010). Point estimates for tree learners are mostly positive (PR-AUC: 34 of 42
+tree comparisons > 0 across contexts, 12 of 14 for TRAD+EH; largest Hibernate 5.1 RF +0.091, raw p = 0.017,
+p_Holm = 0.156); for LR, 16 of 21 PR-AUC differences are negative. Conclusion: **no detectable predictive gain from EH metrics in any context**; adding ~100
+correlated EH features tends to hurt the linear learner. Per-context CIs: `results/ml_uplift_ci.csv`,
+`results/figures/fig_ml_uplift.*`.
+
+### 9.3 RQ4 on the new contexts
+
+Top-10 EH SHAP features matching a significant BSFC/BSAP predictor: Hibernate 5.1 5/10, ZooKeeper 3.9.0 5/10,
+ZooKeeper 3.7.0 1/10, ZooKeeper 3.6.0 0/10 (original: Hadoop 6/10, Hibernate 5.0 3/10, Umbraco 2/10).
+
+### 9.4 Analyzer run-to-run variance (T10, the main validity check for RQ1 on new data)
+
+10 fresh JTratch runs per ZooKeeper release (`results/new/<id>/variance/`):
+
+* **Which metrics move:** the same 6 of 107 file-level metrics in every release, all flow (Try_Based):
+  `Avg Depth` (68–71 files), `% Doc in Comment`, `Avg Max Depth`, `% Throw Statement`, `Avg # Declaring Methods`,
+  `% Method Declaration`. **All 45 catch/anti-pattern and all 5 throws metrics are identical in every run.**
+* **Effect on models:** BASE and BSAP identical in all 30 runs (as expected: they do not use flow metrics).
+  BSFC identical in all runs for ZooKeeper 3.7.0 (empty) and 3.9.0 (0.092), but **unstable for ZooKeeper 3.6.0:
+  0.041 in 6 runs, 0.108 in 2, 0.458 in 2** (3 distinct predictor sets). Mechanism: the perturbed flow metrics
+  change the correlation structure, so the authors' budget-based reduction stops at a different cutoff (0.24 vs.
+  0.30). At 0.30, `# Bugs (pre)` survives and BSFC becomes 0.458; at 0.24 it is dropped (F2).
+* **Conclusion:** RQ2 (anti-patterns) results on new data do not depend on the analyzer run; RQ1 (flow) results
+  can, on small releases, through the model-construction step rather than through large metric changes.
+
+### 9.5 Sensitivity S1: was ZooKeeper's "EH models below BASE" an artefact? (F2)
+
+| Context | BASE | BSFC (as released → S1) | BSAP (as released → S1) |
+|---|---:|---|---|
+| Hibernate 5.1 (control: nothing dropped) | 0.238 | 0.275 → 0.275 | 0.264 → 0.264 |
+| ZooKeeper 3.6.0 | 0.423 | 0.041 → 0.458 | 0.417 → 0.417 |
+| ZooKeeper 3.7.0 | 0.417 | empty → 0.413 | 0.047 → 0.413 |
+| ZooKeeper 3.9.0 | 0.233 | 0.093 → 0.250 | 0.157 → 0.231 |
+
+Yes. With the paper's stated rule, EH models on ZooKeeper are at or slightly above BASE (+0.035 BSFC on 3.6.0,
++0.017 on 3.9.0, none on 3.7.0); the only EH predictors still significant are `Avg Exc Type Prevalence` (3.6.0, −)
+and `% Handled with Return` (3.9.0). The ZooKeeper 3.6.0 S1 value equals the analyzer-variance runs in which
+`# Bugs (pre)` survived, so §9.4 and §9.5 describe the same mechanism.
+
+### 9.6 Scope reductions and status of the Milestone 2 plan
+
+| Milestone 2 plan item | Status | Reason |
+|---|---|---|
+| T10 BSFC over ≥ 10 analyzer runs | **Done** for the 3 ZooKeeper releases; Hibernate 5.1 (35 min per run) running in the background | — |
+| T8 Holm correction | **Done** | — |
+| RQ3/RQ4 on new data | **Done**, 4 releases, 5×10 CV | — |
+| T3 manual validation (two raters) | Packets and sheets ready (131 links), agreement script tested; **ratings pending** | Needs the two raters |
+| T1/T2 external Javadoc + dependency jars | **Dropped** (documented limitation) | Regenerating the authors' unpublished Javadoc DB is a project of its own; flow metrics rank-preserving (ρ ≥ 0.63) |
+| T4 Hadoop 2.7 | **Dropped** | JTratch needs > 6 GB heap for Hadoop on a 7.4 GB machine; ZooKeeper 3.7.0 added instead |
+| T5 C# context (Umbraco 7.7) | **Dropped** | Umbraco 7 YouTrack tracker decommissioned: no defect labels |
+| T6 Understand licence | Not obtained | New-context BASE stays an extension (fallback metrics) |
