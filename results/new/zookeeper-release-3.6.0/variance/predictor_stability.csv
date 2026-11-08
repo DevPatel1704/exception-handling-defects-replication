@@ -1,0 +1,9 @@
+model,predictor,group,runs_significant,signs,median_wald_chi2,share,in_kept_run
+BASE,Distinct.count.of.Issue.Key.PRE,base,10,+,30.6426642649216,1.0,True
+BSFC,X..Handled.with.Throw.without.New,try,6,+,4.14807693589079,0.6,True
+BSFC,X..Try.in.Loop.1,try,6,+,4.54857988105112,0.6,True
+BSFC,Avg.Depth,try,2,+,5.92074696415523,0.2,False
+BSFC,Avg.Exc.Type.Prevalence,try,2,-,8.29587647949655,0.2,False
+BSFC,Distinct.count.of.Issue.Key.PRE,base,2,+,30.8095026141909,0.2,False
+BSFC,X..Handled.with.Throw.without.New.1,try,2,+,8.08037283785732,0.2,False
+BSAP,Distinct.count.of.Issue.Key.PRE,base,10,+,30.6426642649216,1.0,True

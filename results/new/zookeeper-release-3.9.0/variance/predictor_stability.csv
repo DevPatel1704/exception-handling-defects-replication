@@ -1,0 +1,7 @@
+model,predictor,group,runs_significant,signs,median_wald_chi2,share,in_kept_run
+BASE,CountLineComment,base,10,+,11.9414930953661,1.0,True
+BASE,Distinct.count.of.Issue.Key.PRE,base,10,+,4.63125217004027,1.0,True
+BASE,RatioCommentToCode,base,10,-,4.30422223158804,1.0,True
+BSFC,Num.Distinct.Methods,try,10,+,9.4257147843088,1.0,True
+BSFC,X..Handled.with.Return.1,try,10,+,6.33766047227803,1.0,True
+BSAP,Distinct.count.of.Issue.Key.PRE,base,10,+,18.1606630714521,1.0,True

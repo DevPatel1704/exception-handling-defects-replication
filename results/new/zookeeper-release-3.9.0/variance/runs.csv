@@ -1,0 +1,34 @@
+run,model,r2_optimism_reduced,r2_apparent,files,budget,potential_predictors,cutoff,significant_eh,significant_base
+kept,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+kept,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+kept,BSFC,0.0925,0.1186,178,11,26,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run01,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run01,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run01,BSFC,0.0925,0.1186,178,11,26,0.223,Num.Distinct.Methods; X..Handled.with.Return.1,
+run02,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run02,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run02,BSFC,0.0925,0.1186,178,11,26,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run03,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run03,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run03,BSFC,0.0925,0.1186,178,11,25,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run04,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run04,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run04,BSFC,0.0925,0.1186,178,11,26,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run05,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run05,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run05,BSFC,0.0925,0.1186,178,11,26,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run06,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run06,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run06,BSFC,0.0925,0.1186,178,11,26,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run07,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run07,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run07,BSFC,0.0925,0.1186,178,11,25,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run08,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run08,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run08,BSFC,0.0925,0.1186,178,11,25,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run09,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run09,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run09,BSFC,0.0925,0.1186,178,11,26,0.214,Num.Distinct.Methods; X..Handled.with.Return.1,
+run10,BASE,0.2325,0.2651,178,11,6,0.7,,CountLineComment; Distinct.count.of.Issue.Key.PRE; RatioCommentToCode
+run10,BSAP,0.1574,0.1615,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE
+run10,BSFC,0.0925,0.1186,178,11,26,0.223,Num.Distinct.Methods; X..Handled.with.Return.1,

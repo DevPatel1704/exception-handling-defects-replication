@@ -1,0 +1,11 @@
+feature,mean_abs_shap,mean_shap,group,project,learner,cv_pr_auc,rank,direction,eh_rank
+Sum.of.AP.Dummy.Handler,1.24013,-0.82671,catch,zookeeper-release-3.7.0,XGB,0.70550,1,1.00000,1
+Avg.Depth,0.45950,-0.28413,try,zookeeper-release-3.7.0,XGB,0.70550,6,1.00000,2
+Avg.Catch.LOC,0.40689,-0.22577,catch,zookeeper-release-3.7.0,XGB,0.70550,7,1.00000,3
+Avg..AP.Unhandled.exceptions,0.37553,-0.20423,catch,zookeeper-release-3.7.0,XGB,0.70550,8,-1.00000,4
+Avg...Declaring.Methods,0.31387,-0.03776,try,zookeeper-release-3.7.0,XGB,0.70550,9,-1.00000,5
+Avg.Exc.Type.Prevalence,0.29651,-0.12865,try,zookeeper-release-3.7.0,XGB,0.70550,10,-1.00000,6
+X..Throw.Statement,0.23704,-0.15541,try,zookeeper-release-3.7.0,XGB,0.70550,11,1.00000,7
+Avg..AP.Unreachable.Catch.Handler,0.19573,-0.10306,catch,zookeeper-release-3.7.0,XGB,0.70550,12,1.00000,8
+Sum.of.AP.Generic.Catch,0.19508,-0.14765,catch,zookeeper-release-3.7.0,XGB,0.70550,13,1.00000,9
+X..Specific,0.13322,-0.06629,try,zookeeper-release-3.7.0,XGB,0.70550,14,-1.00000,10

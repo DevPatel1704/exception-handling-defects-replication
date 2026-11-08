@@ -5,3 +5,9 @@ hibernate-5.1,BSAP,0.23,0.264,0.284,404,26,22,0.7,Avg..AP.Unhandled.exceptions,C
 zookeeper-release-3.6.0,BASE,,0.423,0.426,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
 zookeeper-release-3.6.0,BSFC,,0.041,0.078,161,10,23,0.24,X..Try.in.Loop.1; X..Handled.with.Throw.without.New,
 zookeeper-release-3.6.0,BSAP,,0.417,0.426,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+zookeeper-release-3.7.0,BASE,,0.417,0.42,169,11,7,0.7,,CountLineComment
+zookeeper-release-3.7.0,BSFC,,,,169,11,24,0.297,,
+zookeeper-release-3.7.0,BSAP,,0.047,0.056,169,11,17,0.348,Avg..AP.Dummy.Handler,
+zookeeper-release-3.9.0,BASE,,0.233,0.265,178,11,6,0.7,,Distinct.count.of.Issue.Key.PRE; CountLineComment; RatioCommentToCode
+zookeeper-release-3.9.0,BSFC,,0.093,0.119,178,11,26,0.214,X..Handled.with.Return.1; Num.Distinct.Methods,
+zookeeper-release-3.9.0,BSAP,,0.157,0.161,178,11,19,0.302,,Distinct.count.of.Issue.Key.PRE

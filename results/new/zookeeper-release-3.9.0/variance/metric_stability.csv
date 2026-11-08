@@ -1,0 +1,108 @@
+source,metric,files,files_differing,share_differing,max_abs_diff
+Catch_Based,# Catch,188,0,0.0,0.0
+Catch_Based,Avg Catch LOC,188,0,0.0,0.0
+Catch_Based,Avg Catch SLOC,188,0,0.0,0.0
+Catch_Based,Avg. AP Catch and do nothing,188,0,0.0,0.0
+Catch_Based,Avg. AP Catch and Return null,188,0,0.0,0.0
+Catch_Based,Avg. AP Destructive Wrapping,188,0,0.0,0.0
+Catch_Based,Avg. AP Dummy Handler,188,0,0.0,0.0
+Catch_Based,Avg. AP Generic Catch,188,0,0.0,0.0
+Catch_Based,Avg. AP Ignoring Interrupted Exception,188,0,0.0,0.0
+Catch_Based,Avg. AP Incomplete implementation,188,0,0.0,0.0
+Catch_Based,Avg. AP Log and Return null,188,0,0.0,0.0
+Catch_Based,Avg. AP Log and Throw,188,0,0.0,0.0
+Catch_Based,Avg. AP Multi-line log messages,188,0,0.0,0.0
+Catch_Based,Avg. AP Nested try block,188,0,0.0,0.0
+Catch_Based,Avg. AP Overcatch and Abort,188,0,0.0,0.0
+Catch_Based,Avg. AP Overcatch,188,0,0.0,0.0
+Catch_Based,Avg. AP Relying on getCause(),188,0,0.0,0.0
+Catch_Based,Avg. AP Throw within finally,188,0,0.0,0.0
+Catch_Based,Avg. AP Unhandled exceptions,188,0,0.0,0.0
+Catch_Based,Avg. AP Unreachable Catch Handler,188,0,0.0,0.0
+Catch_Based,Avg. Potentially Recoverable,188,0,0.0,0.0
+Catch_Based,Avg. Potentially UnRecoverable,188,0,0.0,0.0
+Catch_Based,Avg. Recoverability Not Relevant,188,0,0.0,0.0
+Catch_Based,AP Catch and do nothing,188,0,0.0,0.0
+Catch_Based,AP Catch and Return null,188,0,0.0,0.0
+Catch_Based,Sum of AP Destructive Wrapping,188,0,0.0,0.0
+Catch_Based,Sum of AP Dummy Handler,188,0,0.0,0.0
+Catch_Based,Sum of AP Generic Catch,188,0,0.0,0.0
+Catch_Based,AP Ignoring Interrupted Exception,188,0,0.0,0.0
+Catch_Based,AP Incomplete implementation,188,0,0.0,0.0
+Catch_Based,Sum of AP Log and Return null,188,0,0.0,0.0
+Catch_Based,AP Log and Throw,188,0,0.0,0.0
+Catch_Based,AP Multi-line log messages,188,0,0.0,0.0
+Catch_Based,AP Nested try block,188,0,0.0,0.0
+Catch_Based,Sum of AP Overcatch and Abort,188,0,0.0,0.0
+Catch_Based,Sum of AP Overcatch,188,0,0.0,0.0
+Catch_Based,AP Relying on getCause(),188,0,0.0,0.0
+Catch_Based,AP Throw within finally,188,0,0.0,0.0
+Catch_Based,Sum of AP Unhandled exceptions,188,0,0.0,0.0
+Catch_Based,Sum of AP Unreachable Catch Handler,188,0,0.0,0.0
+Catch_Based,Catch LOC,188,0,0.0,0.0
+Catch_Based,Catch SLOC,188,0,0.0,0.0
+Catch_Based,Potentially Recoverable,188,0,0.0,0.0
+Catch_Based,Potentially UnRecoverable,188,0,0.0,0.0
+Catch_Based,Recoverability Not Relevant,188,0,0.0,0.0
+Try_Based,# Try in Conditional,178,0,0.0,0.0
+Try_Based,# Try in Declaration,178,0,0.0,0.0
+Try_Based,# Try in EH Feature,178,0,0.0,0.0
+Try_Based,# Try in Loop,178,0,0.0,0.0
+Try_Based,# Try in Other,178,0,0.0,0.0
+Try_Based,# Try,178,0,0.0,0.0
+Try_Based,% Try in Conditional,178,0,0.0,0.0
+Try_Based,% Try in Declaration,178,0,0.0,0.0
+Try_Based,% Try in EH Feature,178,0,0.0,0.0
+Try_Based,% Try in Loop,178,0,0.0,0.0
+Try_Based,% Try in Other,178,0,0.0,0.0
+Try_Based,Avg Max Depth,178,46,0.2584,7.0
+Try_Based,Avg Try LOC,178,0,0.0,0.0
+Try_Based,Avg Try SLOC,178,0,0.0,0.0
+Try_Based,# Handled with Abort,178,0,0.0,0.0
+Try_Based,# Handled with Continue,178,0,0.0,0.0
+Try_Based,# Handled with Default,178,0,0.0,0.0
+Try_Based,# Handled with Empty,178,0,0.0,0.0
+Try_Based,# Handled with Log,178,0,0.0,0.0
+Try_Based,# Handled with Method,178,0,0.0,0.0
+Try_Based,# Handled with Nested Try,178,0,0.0,0.0
+Try_Based,# Handled with Return,178,0,0.0,0.0
+Try_Based,# Handled with Throw with New,178,0,0.0,0.0
+Try_Based,# Handled with Throw without New,178,0,0.0,0.0
+Try_Based,# Handled with Throw Wrap,178,0,0.0,0.0
+Try_Based,# Handled with ToDo,178,0,0.0,0.0
+Try_Based,# Possible Exceptions,178,0,0.0,0.0
+Try_Based,# Propagated and Potentially Recoverable,178,0,0.0,0.0
+Try_Based,# Propagated,178,0,0.0,0.0
+Try_Based,% Doc in Comment,178,48,0.2697,1.0
+Try_Based,% External Doc,178,0,0.0,0.0
+Try_Based,% Handled with Abort,178,0,0.0,0.0
+Try_Based,% Handled with Continue,178,0,0.0,0.0
+Try_Based,% Handled with Default,178,0,0.0,0.0
+Try_Based,% Handled with Empty,178,0,0.0,0.0
+Try_Based,% Handled with Log,178,0,0.0,0.0
+Try_Based,% Handled with Method,178,0,0.0,0.0
+Try_Based,% Handled with Nested Try,178,0,0.0,0.0
+Try_Based,% Handled with Return,178,0,0.0,0.0
+Try_Based,% Handled with Throw with New,178,0,0.0,0.0
+Try_Based,% Handled with Throw without New,178,0,0.0,0.0
+Try_Based,% Handled with Throw Wrap,178,0,0.0,0.0
+Try_Based,% Handled with ToDo,178,0,0.0,0.0
+Try_Based,% Method Declaration,178,13,0.073,0.25
+Try_Based,% Propagated and Potentially Recoverable,178,0,0.0,0.0
+Try_Based,% Propagated,178,0,0.0,0.0
+Try_Based,% Specific,178,0,0.0,0.0
+Try_Based,% Subsumption,178,0,0.0,0.0
+Try_Based,% Throw Statement,178,27,0.1517,1.0
+Try_Based,Avg # Declaring Methods,178,24,0.1348,0.5
+Try_Based,Avg # Invoked Method,178,0,0.0,0.0
+Try_Based,Avg Depth,178,60,0.3371,7.0
+Try_Based,Avg Exc Type Prevalence,178,0,0.0,0.0
+Try_Based,Num Distinct Methods,178,0,0.0,0.0
+Try_Based,Sum of Num Distinct Methods,178,0,0.0,0.0
+Try_Based,Try LOC,178,0,0.0,0.0
+Try_Based,Try SLOC,178,0,0.0,0.0
+Throws_Based,# Throws,255,0,0.0,0.0
+Throws_Based,Avg. Max. Generic Throws,255,0,0.0,0.0
+Throws_Based,Avg. Max. Throws Kitchen Sink,255,0,0.0,0.0
+Throws_Based,Max. Generic Throws,255,0,0.0,0.0
+Throws_Based,Max. Throws Kitchen Sink,255,0,0.0,0.0

@@ -1,0 +1,1983 @@
+{
+ "ZOOKEEPER-3708": {
+  "type": "Improvement",
+  "created": "2020-01-31T00:01:12.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-03T03:32:21.000+0000",
+  "status": "Closed",
+  "summary": "Move Logging Code into Logging Guard in Learner",
+  "fixVersions": [
+   "3.7.0",
+   "3.5.7",
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3706": {
+  "type": "Bug",
+  "created": "2020-01-25T08:28:45.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-03T02:13:59.000+0000",
+  "status": "Resolved",
+  "summary": "ZooKeeper.close() would leak SendThread when the network is broken",
+  "fixVersions": [
+   "3.5.10",
+   "3.6.3",
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-3701": {
+  "type": "Bug",
+  "created": "2020-01-20T10:02:31.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-01-06T11:33:57.000+0000",
+  "status": "Closed",
+  "summary": "Split brain on log disk full",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0",
+   "3.5.7"
+  ]
+ },
+ "ZOOKEEPER-3698": {
+  "type": "Bug",
+  "created": "2020-01-17T10:15:03.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-23T12:44:13.000+0000",
+  "status": "Closed",
+  "summary": "NoRouteToHostException when starting large ZooKeeper cluster on localhost",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3696": {
+  "type": "Task",
+  "created": "2020-01-12T17:56:36.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-02T16:59:08.000+0000",
+  "status": "Closed",
+  "summary": "Support alternative algorithms for ACL digest",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3694": {
+  "type": "Improvement",
+  "created": "2020-01-11T16:17:32.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-16T20:46:33.000+0000",
+  "status": "Closed",
+  "summary": "Use Map computeIfAbsent in AvgMinMaxCounterSet Class",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3691": {
+  "type": "Improvement",
+  "created": "2020-01-11T04:10:46.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-17T17:25:52.000+0000",
+  "status": "Closed",
+  "summary": "Use JDK String Join Method in ZK StringUtils",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3690": {
+  "type": "Improvement",
+  "created": "2020-01-11T01:43:38.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-15T07:11:39.000+0000",
+  "status": "Closed",
+  "summary": "Improving leader efficiency via not processing learner's requests in commit processor",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3689": {
+  "type": "New Feature",
+  "created": "2020-01-10T17:34:55.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-26T21:19:44.000+0000",
+  "status": "Resolved",
+  "summary": "zkCli/ZooKeeperMain relies on system properties for TLS config",
+  "fixVersions": [
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3688": {
+  "type": "Improvement",
+  "created": "2020-01-10T15:15:22.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-04T07:44:36.000+0000",
+  "status": "Closed",
+  "summary": "Use StandardCharsets UTF-8 in Jute toString",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3687": {
+  "type": "Improvement",
+  "created": "2020-01-10T15:03:59.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-05T09:58:09.000+0000",
+  "status": "Closed",
+  "summary": "Jute Use JDK hashCode Methods for Native Types",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3686": {
+  "type": "Improvement",
+  "created": "2020-01-10T14:50:06.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-12T14:53:03.000+0000",
+  "status": "Resolved",
+  "summary": "Use JDK Arrays hashCode for Jute",
+  "fixVersions": [
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3685": {
+  "type": "Improvement",
+  "created": "2020-01-09T23:04:42.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-12T14:49:07.000+0000",
+  "status": "Resolved",
+  "summary": "Use JDK Arrays Equals for Jute",
+  "fixVersions": [
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3683": {
+  "type": "Improvement",
+  "created": "2020-01-08T22:47:58.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-25T02:39:42.000+0000",
+  "status": "Closed",
+  "summary": "Discard requests that are delayed longer than a configured threshold",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3682": {
+  "type": "Improvement",
+  "created": "2020-01-08T16:34:05.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-26T21:42:42.000+0000",
+  "status": "Closed",
+  "summary": "Stop initializing new SSL connection if ZK server is shutting down",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3671": {
+  "type": "Improvement",
+  "created": "2019-12-30T22:13:51.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-01-05T15:30:32.000+0000",
+  "status": "Closed",
+  "summary": "Use ThreadLocalConcurrent to Replace Random and Math.random",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3669": {
+  "type": "Task",
+  "created": "2019-12-30T18:52:06.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-21T16:54:19.000+0000",
+  "status": "Closed",
+  "summary": "Use switch Statement in ClientCnxn SendThread",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3667": {
+  "type": "Bug",
+  "created": "2019-12-27T12:46:54.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-20T07:42:56.000+0000",
+  "status": "Closed",
+  "summary": "set jute.maxbuffer hexadecimal number throw parseInt error",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0",
+   "3.5.7"
+  ]
+ },
+ "ZOOKEEPER-3663": {
+  "type": "Improvement",
+  "created": "2019-12-23T19:54:30.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-21T17:14:58.000+0000",
+  "status": "Closed",
+  "summary": "Clean Up ZNodeName Class",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3662": {
+  "type": "Improvement",
+  "created": "2019-12-23T17:58:58.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-03T16:03:49.000+0000",
+  "status": "Closed",
+  "summary": "Remove NPE Possibility in Follower Class",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3656": {
+  "type": "Bug",
+  "created": "2019-12-19T00:36:24.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-07T19:39:46.000+0000",
+  "status": "Closed",
+  "summary": "SyncRequestProcessor doesn't update lastFlushTime correctly on observers",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3653": {
+  "type": "Bug",
+  "created": "2019-12-17T13:12:36.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2019-12-19T08:55:12.000+0000",
+  "status": "Closed",
+  "summary": "Audit Log feature fails in a stand alone zookeeper setup",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3649": {
+  "type": "Improvement",
+  "created": "2019-12-14T10:42:34.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-09T21:52:30.000+0000",
+  "status": "Closed",
+  "summary": "ls -s CLI need a line break",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3642": {
+  "type": "Bug",
+  "created": "2019-12-09T21:13:28.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-23T11:53:32.000+0000",
+  "status": "Closed",
+  "summary": "Data inconsistency when the leader crashes right after sending SNAP sync",
+  "fixVersions": [
+   "3.5.10",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3613": {
+  "type": "Bug",
+  "created": "2019-11-12T18:14:48.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-20T08:10:25.000+0000",
+  "status": "Closed",
+  "summary": "ZKConfig fails to return proper value on getBoolean() when user accidentally includes spaces at the end of the value",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0",
+   "3.5.7"
+  ]
+ },
+ "ZOOKEEPER-3582": {
+  "type": "Improvement",
+  "created": "2019-10-15T05:51:57.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2019-12-28T15:19:57.000+0000",
+  "status": "Closed",
+  "summary": "refactor the async api call to lambda style",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3581": {
+  "type": "Improvement",
+  "created": "2019-10-15T02:21:15.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-04-01T15:05:49.000+0000",
+  "status": "Closed",
+  "summary": "use factory design pattern to refactor ZooKeeperMain",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3579": {
+  "type": "Bug",
+  "created": "2019-10-14T10:47:14.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-04-16T10:52:00.000+0000",
+  "status": "Closed",
+  "summary": "handle NPE gracefully when the watch parameter of zookeeper java client is null",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3575": {
+  "type": "Sub-task",
+  "created": "2019-10-13T04:59:13.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-25T17:49:03.000+0000",
+  "status": "Closed",
+  "summary": "Moving sending packets in Learner to a separate thread",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3574": {
+  "type": "Sub-task",
+  "created": "2019-10-12T22:56:58.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-03T17:45:08.000+0000",
+  "status": "Closed",
+  "summary": "Close quorum socket asynchronously to avoid server shutdown stalled by long socket closing time",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3561": {
+  "type": "Improvement",
+  "created": "2019-09-26T23:41:49.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-21T02:42:06.000+0000",
+  "status": "Closed",
+  "summary": "Generalize target authentication scheme for ZooKeeper authentication enforcement.",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3512": {
+  "type": "Sub-task",
+  "created": "2019-08-20T15:35:10.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2019-12-27T21:35:23.000+0000",
+  "status": "Resolved",
+  "summary": "Real time data integrity check during broadcast time",
+  "fixVersions": [
+   "3.6.0"
+  ]
+ },
+ "ZOOKEEPER-3427": {
+  "type": "Improvement",
+  "created": "2019-06-11T23:36:41.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-28T09:58:44.000+0000",
+  "status": "Closed",
+  "summary": "Introduce SnapshotComparer that assists debugging with snapshots.",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3415": {
+  "type": "Wish",
+  "created": "2019-06-05T17:39:36.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-07-24T09:28:12.000+0000",
+  "status": "Closed",
+  "summary": "convert internal logic to use java 8 streams",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3411": {
+  "type": "Improvement",
+  "created": "2019-06-03T08:41:57.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-09T21:57:12.000+0000",
+  "status": "Closed",
+  "summary": "remove the deprecated CLI: ls2 and rmr",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3342": {
+  "type": "Improvement",
+  "created": "2019-03-29T01:27:16.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-30T11:03:58.000+0000",
+  "status": "Closed",
+  "summary": "Use StandardCharsets",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3301": {
+  "type": "New Feature",
+  "created": "2019-03-09T11:19:32.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-01-19T08:09:11.000+0000",
+  "status": "Closed",
+  "summary": "Enforce the quota limit",
+  "fixVersions": [
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-3243": {
+  "type": "Improvement",
+  "created": "2019-01-11T19:34:21.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2019-07-08T21:26:35.000+0000",
+  "status": "Resolved",
+  "summary": "Add server side request throttling",
+  "fixVersions": [
+   "3.6.0"
+  ]
+ },
+ "ZOOKEEPER-3231": {
+  "type": "Bug",
+  "created": "2018-12-29T04:05:28.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-09-10T03:38:54.000+0000",
+  "status": "Resolved",
+  "summary": " Purge task may lost data when the recent snapshots are all invalid",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3188": {
+  "type": "Improvement",
+  "created": "2018-11-12T16:44:27.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2019-11-29T13:49:34.000+0000",
+  "status": "Resolved",
+  "summary": "Improve resilience to network",
+  "fixVersions": [
+   "3.6.0"
+  ]
+ },
+ "ZOOKEEPER-3112": {
+  "type": "Bug",
+  "created": "2018-08-07T00:46:44.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-07-28T08:42:39.000+0000",
+  "status": "Closed",
+  "summary": "fd leak due to UnresolvedAddressException on connect.",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-2649": {
+  "type": "Improvement",
+  "created": "2016-12-19T15:30:32.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-28T15:29:17.000+0000",
+  "status": "Closed",
+  "summary": "The ZooKeeper do not write in log session ID in which the client has been authenticated.",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-2593": {
+  "type": "New Feature",
+  "created": "2016-09-19T15:40:53.000+0000",
+  "resolution": null,
+  "resolutiondate": null,
+  "status": "Open",
+  "summary": "Enforce the quota limit",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-2307": {
+  "type": "Bug",
+  "created": "2015-10-29T15:12:25.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2019-12-17T12:48:46.000+0000",
+  "status": "Closed",
+  "summary": "ZooKeeper not starting because acceptedEpoch is less than the currentEpoch",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-2164": {
+  "type": "Bug",
+  "created": "2015-04-14T07:36:12.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-12T13:52:19.000+0000",
+  "status": "Closed",
+  "summary": "fast leader election keeps failing",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-2083": {
+  "type": "Improvement",
+  "created": "2014-11-15T10:38:53.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-09T10:27:45.000+0000",
+  "status": "Resolved",
+  "summary": "Remove deprecated LE implementations",
+  "fixVersions": [
+   "3.6.0"
+  ]
+ },
+ "ZOOKEEPER-1936": {
+  "type": "Bug",
+  "created": "2014-06-10T07:25:37.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-01-23T15:47:09.000+0000",
+  "status": "Resolved",
+  "summary": "Server exits when unable to create data directory due to race ",
+  "fixVersions": [
+   "3.6.0"
+  ]
+ },
+ "ZOOKEEPER-1871": {
+  "type": "Improvement",
+  "created": "2014-01-29T06:47:03.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-15T14:14:41.000+0000",
+  "status": "Closed",
+  "summary": "Add an option to zkCli to wait for connection before executing commands",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-1383": {
+  "type": "New Feature",
+  "created": "2012-02-01T00:09:13.000+0000",
+  "resolution": null,
+  "resolutiondate": null,
+  "status": "Open",
+  "summary": "Create update throughput quotas and add hard quota limits",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-107": {
+  "type": "Improvement",
+  "created": "2008-07-29T21:02:56.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2013-03-29T15:30:03.000+0000",
+  "status": "Resolved",
+  "summary": "Allow dynamic changes to server cluster membership",
+  "fixVersions": [
+   "3.5.0"
+  ]
+ },
+ "ZOOKEEPER-3941": {
+  "type": "Improvement",
+  "created": "2020-09-22T12:45:49.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-09-23T12:14:33.000+0000",
+  "status": "Closed",
+  "summary": "Upgrade commons-cli to 1.4",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3926": {
+  "type": "Improvement",
+  "created": "2020-09-04T09:53:53.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-28T10:21:58.000+0000",
+  "status": "Closed",
+  "summary": "make the rc constant in the ClientCnxn",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3911": {
+  "type": "Bug",
+  "created": "2020-08-15T08:22:51.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-12T15:10:18.000+0000",
+  "status": "Closed",
+  "summary": "Data inconsistency caused by DIFF sync uncommitted log",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3905": {
+  "type": "Bug",
+  "created": "2020-08-03T17:46:14.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-08-08T09:53:22.000+0000",
+  "status": "Closed",
+  "summary": "Race condition causes sessions to be created for clients even though their certificate authentication has failed",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3895": {
+  "type": "Bug",
+  "created": "2020-07-23T06:45:31.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-07-29T17:13:37.000+0000",
+  "status": "Closed",
+  "summary": "Client side NullPointerException in case of empty Multi operation",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3891": {
+  "type": "Bug",
+  "created": "2020-07-15T17:18:47.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-07-29T10:01:22.000+0000",
+  "status": "Closed",
+  "summary": "ZKCli commands give wrong error message \"Authentication is not valid\" for insufficient permissions",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3883": {
+  "type": "Improvement",
+  "created": "2020-07-08T03:35:53.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-08-06T16:49:08.000+0000",
+  "status": "Closed",
+  "summary": "new UncaughtExceptionHandler object with lambda",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3878": {
+  "type": "Bug",
+  "created": "2020-07-03T07:23:19.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-07-13T10:12:22.000+0000",
+  "status": "Closed",
+  "summary": "Client connection fails if IPV6 is not enclosed in square brackets",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3877": {
+  "type": "Bug",
+  "created": "2020-07-03T07:00:22.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-02T06:08:48.000+0000",
+  "status": "Closed",
+  "summary": "JMX Bean RemotePeerBean should enclose IPV6 host in square bracket same as LocalPeerBean ",
+  "fixVersions": [
+   "3.5.10",
+   "3.6.3",
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-3874": {
+  "type": "New Feature",
+  "created": "2020-07-01T06:33:54.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-18T18:19:32.000+0000",
+  "status": "Closed",
+  "summary": "Official API to start ZooKeeper server from Java",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3865": {
+  "type": "Bug",
+  "created": "2020-06-16T08:39:56.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-06-19T07:55:50.000+0000",
+  "status": "Closed",
+  "summary": "fix backward-compatibility for ZooKeeperServer constructor",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3863": {
+  "type": "Bug",
+  "created": "2020-06-15T23:19:59.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-09-17T05:36:05.000+0000",
+  "status": "Closed",
+  "summary": "Do not track global sessions in ReadOnlyZooKeeperServer",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3859": {
+  "type": "Sub-task",
+  "created": "2020-06-11T17:11:03.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-06-24T07:06:14.000+0000",
+  "status": "Closed",
+  "summary": "Add a couple request processor metrics",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3858": {
+  "type": "Improvement",
+  "created": "2020-06-10T20:58:07.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-01T04:36:00.000+0000",
+  "status": "Resolved",
+  "summary": "Add metrics to track server unavailable time",
+  "fixVersions": [
+   "3.6.3"
+  ]
+ },
+ "ZOOKEEPER-3856": {
+  "type": "Sub-task",
+  "created": "2020-06-07T18:06:55.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-06-08T12:48:12.000+0000",
+  "status": "Closed",
+  "summary": "Add a couple metrics to track inflight diff syncs and snap syncs",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3847": {
+  "type": "Sub-task",
+  "created": "2020-05-22T17:33:32.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-28T03:45:59.000+0000",
+  "status": "Closed",
+  "summary": "Add a couple metrics to help track Netty memory usage",
+  "fixVersions": [
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3846": {
+  "type": "Sub-task",
+  "created": "2020-05-22T17:26:46.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-28T03:47:35.000+0000",
+  "status": "Closed",
+  "summary": "Add a couple TLS related metrics",
+  "fixVersions": [
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3845": {
+  "type": "Sub-task",
+  "created": "2020-05-21T18:07:24.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-06-08T12:40:38.000+0000",
+  "status": "Closed",
+  "summary": "Add metric JVM_PAUSE_TIME",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3842": {
+  "type": "Bug",
+  "created": "2020-05-21T07:33:40.000+0000",
+  "resolution": "Duplicate",
+  "resolutiondate": "2020-06-03T08:02:20.000+0000",
+  "status": "Closed",
+  "summary": "Rolling scale up of zookeeper cluster does not work with reconfigEnabled=false",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3841": {
+  "type": "Improvement",
+  "created": "2020-05-21T06:33:37.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-01T04:23:54.000+0000",
+  "status": "Resolved",
+  "summary": "remove useless codes in the Leader.java",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-3832": {
+  "type": "Bug",
+  "created": "2020-05-18T13:09:14.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-21T12:15:25.000+0000",
+  "status": "Closed",
+  "summary": "ZKHostnameVerifier rejects valid certificates with subjectAltNames",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3830": {
+  "type": "Bug",
+  "created": "2020-05-15T17:18:00.000+0000",
+  "resolution": "Duplicate",
+  "resolutiondate": "2020-06-03T08:03:37.000+0000",
+  "status": "Closed",
+  "summary": "After add a new node, zookeeper cluster won't commit any proposal if this new node is leader",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3829": {
+  "type": "Bug",
+  "created": "2020-05-15T03:12:54.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-06-03T07:59:50.000+0000",
+  "status": "Closed",
+  "summary": "Zookeeper refuses request after node expansion",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3814": {
+  "type": "Bug",
+  "created": "2020-05-02T06:54:21.000+0000",
+  "resolution": "Duplicate",
+  "resolutiondate": "2020-06-03T08:01:16.000+0000",
+  "status": "Closed",
+  "summary": "ZooKeeper config propagates even with disabled dynamic reconfig",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3811": {
+  "type": "Improvement",
+  "created": "2020-04-28T11:14:41.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-04-28T11:27:51.000+0000",
+  "status": "Closed",
+  "summary": "cleaning up the code,A static field should be directly referred by its class name",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3805": {
+  "type": "Improvement",
+  "created": "2020-04-24T01:17:56.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-07T21:57:41.000+0000",
+  "status": "Closed",
+  "summary": "NIOServerCnxnFactory static block has no used code",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3798": {
+  "type": "Improvement",
+  "created": "2020-04-18T09:49:44.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-01T04:40:17.000+0000",
+  "status": "Resolved",
+  "summary": "remove the useless code in the ProposalRequestProcessor#processRequest",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-3796": {
+  "type": "Improvement",
+  "created": "2020-04-16T23:41:44.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-05T19:21:50.000+0000",
+  "status": "Closed",
+  "summary": "Skip Learner Request made to ObserverMaster from going to next processor",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3793": {
+  "type": "Bug",
+  "created": "2020-04-10T17:55:06.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-04-12T09:16:17.000+0000",
+  "status": "Closed",
+  "summary": "Request throttling is broken when RequestThrottler is disabled or configured incorrectly.",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3791": {
+  "type": "Improvement",
+  "created": "2020-04-09T20:34:04.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-04T12:20:55.000+0000",
+  "status": "Closed",
+  "summary": "Miscellaneous Maven improvements",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3785": {
+  "type": "Improvement",
+  "created": "2020-04-07T12:28:57.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-04-07T15:01:38.000+0000",
+  "status": "Closed",
+  "summary": "Make sources buildable with JDK14",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-3781": {
+  "type": "Bug",
+  "created": "2020-04-01T14:54:08.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-06T19:43:24.000+0000",
+  "status": "Closed",
+  "summary": "Zookeeper 3.5.7 not creating snapshot",
+  "fixVersions": [
+   "3.5.10",
+   "3.7.0",
+   "3.8.0",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-3780": {
+  "type": "Bug",
+  "created": "2020-04-01T11:14:13.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-04-07T13:41:40.000+0000",
+  "status": "Closed",
+  "summary": "restore Version.getRevision() to be backward compatible",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-3774": {
+  "type": "Sub-task",
+  "created": "2020-03-29T04:56:43.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-03T02:13:21.000+0000",
+  "status": "Resolved",
+  "summary": "Close quorum socket asynchronously on the leader to avoid ping being blocked by long socket closing time",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-3772": {
+  "type": "Bug",
+  "created": "2020-03-28T04:42:10.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-05T07:22:18.000+0000",
+  "status": "Closed",
+  "summary": "JettyAdminServer should not allow HTTP TRACE method",
+  "fixVersions": [
+   "3.5.9",
+   "3.7.0",
+   "3.6.2"
+  ]
+ },
+ "ZOOKEEPER-3769": {
+  "type": "Bug",
+  "created": "2020-03-24T18:49:05.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-04-07T07:09:17.000+0000",
+  "status": "Closed",
+  "summary": "fast leader election does not end if leader is taken down",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-3767": {
+  "type": "Improvement",
+  "created": "2020-03-21T13:30:57.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-26T21:16:57.000+0000",
+  "status": "Closed",
+  "summary": "fix a large amount of maven build warnings",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3763": {
+  "type": "Wish",
+  "created": "2020-03-18T18:25:00.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-22T13:47:42.000+0000",
+  "status": "Closed",
+  "summary": "Restore ZKUtil.deleteRecursive in order to help compatibility of applications with 3.5 and 3.6",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3760": {
+  "type": "Bug",
+  "created": "2020-03-17T00:51:53.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-26T17:47:50.000+0000",
+  "status": "Closed",
+  "summary": "remove a useless throwing CliException",
+  "fixVersions": [
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-3758": {
+  "type": "Bug",
+  "created": "2020-03-16T09:52:59.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-19T16:10:45.000+0000",
+  "status": "Resolved",
+  "summary": "Update from 3.5.7 to 3.6.0 does not work",
+  "fixVersions": [
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3756": {
+  "type": "Bug",
+  "created": "2020-03-11T20:43:33.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-23T15:20:55.000+0000",
+  "status": "Closed",
+  "summary": "Members failing to rejoin quorum",
+  "fixVersions": [
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-3755": {
+  "type": "Improvement",
+  "created": "2020-03-09T22:57:39.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-26T21:21:18.000+0000",
+  "status": "Resolved",
+  "summary": "Use maven to create fatjar",
+  "fixVersions": [
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-3739": {
+  "type": "Bug",
+  "created": "2020-02-25T18:51:23.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-20T10:00:59.000+0000",
+  "status": "Closed",
+  "summary": "Remove use of com.sun.nio.file.SensitivityWatchEventModifier",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-3737": {
+  "type": "Bug",
+  "created": "2020-02-25T01:20:46.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-01T06:56:54.000+0000",
+  "status": "Closed",
+  "summary": "Unable to eliminate log4j1 transitive dependency",
+  "fixVersions": [
+   "3.7.0",
+   "3.6.1",
+   "3.5.8"
+  ]
+ },
+ "ZOOKEEPER-3728": {
+  "type": "Improvement",
+  "created": "2020-02-15T12:21:27.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-03-26T21:14:00.000+0000",
+  "status": "Closed",
+  "summary": "move traceMask calculation logic into the trace log in the FinalRequestProcessor#processRequest",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3722": {
+  "type": "Improvement",
+  "created": "2020-02-12T08:32:13.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-21T03:14:07.000+0000",
+  "status": "Closed",
+  "summary": "make logs of ResponseCache more readable",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3721": {
+  "type": "Improvement",
+  "created": "2020-02-11T21:45:44.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-14T16:19:12.000+0000",
+  "status": "Resolved",
+  "summary": "Making the boolean configuration parameters consistent",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-3720": {
+  "type": "Improvement",
+  "created": "2020-02-11T10:08:09.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-16T09:25:50.000+0000",
+  "status": "Resolved",
+  "summary": "Rolling upgrade failure due to invalid protocol version",
+  "fixVersions": [
+   "3.6.0"
+  ]
+ },
+ "ZOOKEEPER-3715": {
+  "type": "Improvement",
+  "created": "2020-02-03T13:00:52.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-04T09:39:46.000+0000",
+  "status": "Closed",
+  "summary": "Kerberos Authentication related tests fail for new JDK versions",
+  "fixVersions": [
+   "3.6.0",
+   "3.5.7"
+  ]
+ },
+ "ZOOKEEPER-3712": {
+  "type": "New Feature",
+  "created": "2020-02-03T07:45:49.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-02-11T05:51:12.000+0000",
+  "status": "Resolved",
+  "summary": "Add setKeepAlive support for NIOServerCnxn",
+  "fixVersions": [
+   "3.6.1"
+  ]
+ },
+ "ZOOKEEPER-4230": {
+  "type": "Bug",
+  "created": "2021-03-03T16:40:42.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-11T05:07:22.000+0000",
+  "status": "Closed",
+  "summary": "Use dynamic temp folder instead of static temp folder in RestMain",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-4221": {
+  "type": "Improvement",
+  "created": "2021-02-24T09:43:26.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-02-26T09:39:09.000+0000",
+  "status": "Closed",
+  "summary": "Improve the error message when message goes above jute.maxbufer size",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-4220": {
+  "type": "Bug",
+  "created": "2021-02-23T18:26:32.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-06T20:54:22.000+0000",
+  "status": "Closed",
+  "summary": "Potential redundant connection attempts during leader election",
+  "fixVersions": [
+   "3.5.10",
+   "3.6.3",
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-4219": {
+  "type": "Bug",
+  "created": "2021-02-23T09:04:07.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-06T19:54:27.000+0000",
+  "status": "Closed",
+  "summary": "Quota checks break setData in multi transactions",
+  "fixVersions": [
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-4058": {
+  "type": "Improvement",
+  "created": "2021-01-14T08:35:28.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-01-17T20:23:48.000+0000",
+  "status": "Closed",
+  "summary": "Update checkstyle-strict.xml by the latest version 8.39 of checkstyle",
+  "fixVersions": [
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-4050": {
+  "type": "Bug",
+  "created": "2021-01-07T18:37:48.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-02-04T08:17:39.000+0000",
+  "status": "Closed",
+  "summary": "Zookeeper Inspector reports \"List of default node viewers is empty\" when not specifically run from the zookeeper-contrib/zookeeper-contrib-zooinspector directory",
+  "fixVersions": [
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-4033": {
+  "type": "Improvement",
+  "created": "2020-12-23T05:48:34.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-12-24T17:13:59.000+0000",
+  "status": "Closed",
+  "summary": "Remove unnecessary judgment of null",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-4030": {
+  "type": "New Feature",
+  "created": "2020-12-17T18:13:25.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-01-05T13:22:29.000+0000",
+  "status": "Closed",
+  "summary": "Optionally canonicalize host names in quorum SASL authentication",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-4000": {
+  "type": "Improvement",
+  "created": "2020-11-13T01:51:51.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-17T17:38:20.000+0000",
+  "status": "Closed",
+  "summary": "use the computeIfAbsent to simplify the Leader#processSync method",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3994": {
+  "type": "Bug",
+  "created": "2020-11-06T07:19:03.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-16T15:39:17.000+0000",
+  "status": "Closed",
+  "summary": "disconnect reason wrong",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3992": {
+  "type": "Bug",
+  "created": "2020-11-03T13:23:15.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-09T11:21:59.000+0000",
+  "status": "Closed",
+  "summary": "addWatch api should check the null watch",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-3991": {
+  "type": "Bug",
+  "created": "2020-11-03T12:46:50.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-16T07:53:07.000+0000",
+  "status": "Closed",
+  "summary": "QuorumCnxManager Listener port bind retry does not retry DNS lookup",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3979": {
+  "type": "Bug",
+  "created": "2020-10-19T19:40:55.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-16T08:05:10.000+0000",
+  "status": "Closed",
+  "summary": "Clients can corrupt the audit log",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3978": {
+  "type": "Improvement",
+  "created": "2020-10-19T18:44:02.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-18T08:25:35.000+0000",
+  "status": "Closed",
+  "summary": "Adding additional security metrics to zookeeper ",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3976": {
+  "type": "New Feature",
+  "created": "2020-10-19T08:50:44.000+0000",
+  "resolution": null,
+  "resolutiondate": null,
+  "status": "Open",
+  "summary": "write a script to encapsulate DigestAuthenticationProvider as a tool to generate the digest with algorithm users appoint",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-3971": {
+  "type": "Improvement",
+  "created": "2020-10-15T14:27:45.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-21T03:18:00.000+0000",
+  "status": "Closed",
+  "summary": "Auto close resources with try catch block",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3969": {
+  "type": "New Feature",
+  "created": "2020-10-14T20:35:12.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-25T15:03:25.000+0000",
+  "status": "Closed",
+  "summary": "Add whoami  API and Cli command",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3959": {
+  "type": "New Feature",
+  "created": "2020-10-07T07:37:10.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-11-09T12:53:45.000+0000",
+  "status": "Closed",
+  "summary": "Allow multiple superUsers with SASL",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3958": {
+  "type": "Improvement",
+  "created": "2020-10-06T20:02:29.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-30T12:16:27.000+0000",
+  "status": "Closed",
+  "summary": "Update dependency versions and eliminate java docs warnings",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3956": {
+  "type": "Improvement",
+  "created": "2020-10-06T10:51:54.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-08T18:04:40.000+0000",
+  "status": "Closed",
+  "summary": "Remove json-simple from ZooKeeper",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3952": {
+  "type": "Improvement",
+  "created": "2020-10-03T22:23:37.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-06T11:06:20.000+0000",
+  "status": "Closed",
+  "summary": "Remove commons-lang from ZooKeeper",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3950": {
+  "type": "Improvement",
+  "created": "2020-10-01T13:18:22.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-06T12:04:31.000+0000",
+  "status": "Closed",
+  "summary": "Add support for BCFKS key/trust store format",
+  "fixVersions": [
+   "3.6.3",
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-3948": {
+  "type": "New Feature",
+  "created": "2020-09-25T20:10:05.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-10-13T12:44:11.000+0000",
+  "status": "Closed",
+  "summary": "Introduce a deterministic runtime behavior injection framework for ZooKeeperServer testing",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-837": {
+  "type": "Sub-task",
+  "created": "2010-08-11T14:47:46.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2020-05-17T13:14:01.000+0000",
+  "status": "Closed",
+  "summary": "cyclic dependency ClientCnxn, ZooKeeper",
+  "fixVersions": [
+   "3.7.0"
+  ]
+ },
+ "ZOOKEEPER-451": {
+  "type": "Improvement",
+  "created": "2009-06-29T18:47:57.000+0000",
+  "resolution": null,
+  "resolutiondate": null,
+  "status": "Open",
+  "summary": "ZK should enforce quota",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-4753": {
+  "type": "Improvement",
+  "created": "2023-10-03T12:51:38.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2023-10-04T09:16:09.000+0000",
+  "status": "Closed",
+  "summary": "Explicit handling of DIGEST-MD5 vs GSSAPI in quorum auth",
+  "fixVersions": [
+   "3.7.2",
+   "3.8.3",
+   "3.9.1"
+  ]
+ },
+ "ZOOKEEPER-4667": {
+  "type": "Bug",
+  "created": "2023-01-28T08:50:51.000+0000",
+  "resolution": "Duplicate",
+  "resolutiondate": "2023-02-15T01:34:54.000+0000",
+  "status": "Resolved",
+  "summary": "DataTree.processTxn ignores `OpCode.create2` in `OpCode.multi`",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-4565": {
+  "type": "Bug",
+  "created": "2022-06-29T11:06:30.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-07-26T07:40:22.000+0000",
+  "status": "Closed",
+  "summary": "Config watch path get truncated abnormally and fail chroot zookeeper client",
+  "fixVersions": [
+   "3.9.0",
+   "3.8.1",
+   "3.7.2"
+  ]
+ },
+ "ZOOKEEPER-4551": {
+  "type": "Improvement",
+  "created": "2022-05-31T11:44:16.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-06-01T15:36:28.000+0000",
+  "status": "Closed",
+  "summary": "Do not log spammy stacktrace when a client closes its connection",
+  "fixVersions": [
+   "3.6.4",
+   "3.9.0",
+   "3.8.1",
+   "3.7.2"
+  ]
+ },
+ "ZOOKEEPER-4545": {
+  "type": "Improvement",
+  "created": "2022-05-23T16:47:30.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-06-16T06:59:10.000+0000",
+  "status": "Resolved",
+  "summary": "Backport auto reloading client key/trust store to 3.7",
+  "fixVersions": [
+   "3.7.2"
+  ]
+ },
+ "ZOOKEEPER-4537": {
+  "type": "Bug",
+  "created": "2022-05-06T18:18:54.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-05-17T11:46:39.000+0000",
+  "status": "Closed",
+  "summary": "Race between SyncThread and CommitProcessor thread",
+  "fixVersions": [
+   "3.6.4",
+   "3.9.0",
+   "3.8.1",
+   "3.7.2"
+  ]
+ },
+ "ZOOKEEPER-4515": {
+  "type": "Bug",
+  "created": "2022-04-08T10:18:59.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-04-09T17:44:51.000+0000",
+  "status": "Closed",
+  "summary": "ZK Cli quit command always logs error",
+  "fixVersions": [
+   "3.7.1",
+   "3.6.4",
+   "3.9.0",
+   "3.8.1"
+  ]
+ },
+ "ZOOKEEPER-4514": {
+  "type": "Bug",
+  "created": "2022-04-07T07:57:42.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-04-08T16:43:34.000+0000",
+  "status": "Closed",
+  "summary": "ClientCnxnSocketNetty throwing NPE",
+  "fixVersions": [
+   "3.5.10",
+   "3.7.1",
+   "3.6.4",
+   "3.9.0",
+   "3.8.1"
+  ]
+ },
+ "ZOOKEEPER-4504": {
+  "type": "Bug",
+  "created": "2022-03-29T10:01:19.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-04-06T08:29:56.000+0000",
+  "status": "Closed",
+  "summary": "ZKUtil#deleteRecursive causing deadlock in HDFS HA functionality",
+  "fixVersions": [
+   "3.7.1",
+   "3.6.4",
+   "3.9.0",
+   "3.8.1"
+  ]
+ },
+ "ZOOKEEPER-4477": {
+  "type": "Bug",
+  "created": "2022-02-23T07:25:51.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-03-01T15:41:05.000+0000",
+  "status": "Closed",
+  "summary": "Single Kerberos ticket renewal failure can prevent all future renewals since Java 9",
+  "fixVersions": [
+   "3.5.10",
+   "3.7.1",
+   "3.6.4",
+   "3.9.0",
+   "3.8.1"
+  ]
+ },
+ "ZOOKEEPER-4460": {
+  "type": "Bug",
+  "created": "2022-01-28T08:13:16.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-11-03T06:06:34.000+0000",
+  "status": "Closed",
+  "summary": "QuorumPeer overrides Thread.getId with different semantics",
+  "fixVersions": [
+   "3.8.1",
+   "3.7.2"
+  ]
+ },
+ "ZOOKEEPER-4453": {
+  "type": "Improvement",
+  "created": "2022-01-26T08:46:47.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-01-27T10:18:05.000+0000",
+  "status": "Resolved",
+  "summary": "NettyServerCnxnFactory: allow to configure the early TLS connection drop feature",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4429": {
+  "type": "Task",
+  "created": "2021-12-20T23:40:41.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-01-22T06:44:36.000+0000",
+  "status": "Closed",
+  "summary": "Update jackson-databind to 2.13.1",
+  "fixVersions": [
+   "3.5.10",
+   "3.8.0",
+   "3.7.1",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-4384": {
+  "type": "Task",
+  "created": "2021-09-22T11:01:22.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-09-25T11:49:34.000+0000",
+  "status": "Resolved",
+  "summary": "Fix 'se[r]ver' typo in ClientCnxn class.",
+  "fixVersions": [
+   "3.6.0",
+   "3.7.0",
+   "3.8.0"
+  ]
+ },
+ "ZOOKEEPER-4380": {
+  "type": "Improvement",
+  "created": "2021-09-19T13:54:17.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-09-22T15:23:30.000+0000",
+  "status": "Resolved",
+  "summary": "Avoid NPE in RateLogger#rateLimitLog",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4377": {
+  "type": "Bug",
+  "created": "2021-09-14T12:40:02.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-10-17T07:10:43.000+0000",
+  "status": "Resolved",
+  "summary": "KeeperException.create has NullPointerException when low version client requests the high version server",
+  "fixVersions": [
+   "3.5.10",
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4367": {
+  "type": "Bug",
+  "created": "2021-09-02T20:08:40.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-09-27T15:49:07.000+0000",
+  "status": "Resolved",
+  "summary": "Zookeeper#Login thread leak in case of Sasl AuthFailed.",
+  "fixVersions": [
+   "3.5.10",
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4366": {
+  "type": "Improvement",
+  "created": "2021-09-02T00:23:43.000+0000",
+  "resolution": null,
+  "resolutiondate": null,
+  "status": "Open",
+  "summary": "Make NIOServerCnxnFactory's javadoc more readable after rendering",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-4362": {
+  "type": "Bug",
+  "created": "2021-09-01T00:19:57.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-11-13T07:21:10.000+0000",
+  "status": "Closed",
+  "summary": "ZKDatabase.txnCount logged non transactional requests",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-4360": {
+  "type": "Bug",
+  "created": "2021-08-30T09:49:00.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-09-02T16:51:39.000+0000",
+  "status": "Closed",
+  "summary": "Avoid NPE during metrics execution if the leader is not set on a FOLLOWER node ",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-4345": {
+  "type": "Bug",
+  "created": "2021-08-07T09:32:01.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-08-11T15:14:47.000+0000",
+  "status": "Closed",
+  "summary": "Avoid NoSunchMethodException caused by shaded zookeeper jar",
+  "fixVersions": [
+   "3.5.10",
+   "3.8.0",
+   "3.7.1",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-4327": {
+  "type": "Sub-task",
+  "created": "2021-06-27T07:14:35.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-05-24T07:39:48.000+0000",
+  "status": "Closed",
+  "summary": "Flaky test: RequestThrottlerTest",
+  "fixVersions": [
+   "3.9.0",
+   "3.8.1",
+   "3.7.2"
+  ]
+ },
+ "ZOOKEEPER-4318": {
+  "type": "Improvement",
+  "created": "2021-06-14T04:35:05.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-06-30T06:59:56.000+0000",
+  "status": "Resolved",
+  "summary": "Only report the follower sync time metrics if sync is completed",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4312": {
+  "type": "Improvement",
+  "created": "2021-06-07T11:17:37.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-06-13T18:57:17.000+0000",
+  "status": "Resolved",
+  "summary": "ZooKeeperServerEmbedded: enhance server start/stop for testability",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4309": {
+  "type": "Bug",
+  "created": "2021-05-31T13:13:04.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-06-14T09:46:28.000+0000",
+  "status": "Resolved",
+  "summary": "QuorumCnxManager's ListenerHandler thread leak",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4308": {
+  "type": "Bug",
+  "created": "2021-05-30T09:30:59.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-06-24T13:38:03.000+0000",
+  "status": "Closed",
+  "summary": "Flaky test: EagerACLFilterTest.testSetDataFail",
+  "fixVersions": [
+   "3.9.0",
+   "3.8.1",
+   "3.7.2"
+  ]
+ },
+ "ZOOKEEPER-4284": {
+  "type": "Improvement",
+  "created": "2021-04-20T18:30:01.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-06-30T06:55:51.000+0000",
+  "status": "Resolved",
+  "summary": "Add metrics for observer sync time",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4281": {
+  "type": "Improvement",
+  "created": "2021-04-13T18:11:20.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-04-21T08:08:06.000+0000",
+  "status": "Resolved",
+  "summary": "Packet length sanity check is inconsistent",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4275": {
+  "type": "Bug",
+  "created": "2021-04-06T11:54:08.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-04-19T06:55:14.000+0000",
+  "status": "Closed",
+  "summary": "Slowness in sasl login or subject.doAs() causes zk client to falsely assume that the server did not respond, closes connection and goes to unnecessary retries",
+  "fixVersions": [
+   "3.5.10",
+   "3.8.0",
+   "3.7.1",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-4269": {
+  "type": "Bug",
+  "created": "2021-03-29T10:23:34.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-31T21:23:09.000+0000",
+  "status": "Resolved",
+  "summary": "acceptedEpoch.tmp rename failure will cause server startup error",
+  "fixVersions": [
+   "3.5.10",
+   "3.6.3",
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4259": {
+  "type": "Improvement",
+  "created": "2021-03-24T16:02:57.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-25T09:54:52.000+0000",
+  "status": "Resolved",
+  "summary": "Allow AdminServer to force https",
+  "fixVersions": [
+   "3.6.3",
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4257": {
+  "type": "Sub-task",
+  "created": "2021-03-17T06:08:04.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-28T04:34:30.000+0000",
+  "status": "Resolved",
+  "summary": "learner.asyncSending, learner.closeSocketAsync and leader.closeSocketAsync should be configurable in zoo.cfg",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4247": {
+  "type": "Bug",
+  "created": "2021-03-12T08:49:46.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-04-14T16:56:11.000+0000",
+  "status": "Closed",
+  "summary": "NPE while processing message from restarted quorum member",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-4194": {
+  "type": "Bug",
+  "created": "2021-01-27T05:19:48.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-27T18:01:15.000+0000",
+  "status": "Resolved",
+  "summary": "ZooInspector throws NullPointerExceptions to console when node data is null",
+  "fixVersions": [
+   "3.6.3",
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-4026": {
+  "type": "Bug",
+  "created": "2020-12-08T17:11:35.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2023-06-21T12:33:08.000+0000",
+  "status": "Closed",
+  "summary": "CREATE2 requests embeded in a MULTI request only get a regular CREATE response",
+  "fixVersions": [
+   "3.9.0",
+   "3.7.2",
+   "3.8.2"
+  ]
+ },
+ "ZOOKEEPER-3988": {
+  "type": "Bug",
+  "created": "2020-11-02T08:48:24.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-01-25T13:12:44.000+0000",
+  "status": "Closed",
+  "summary": "org.apache.zookeeper.server.NettyServerCnxn.receiveMessage throws NullPointerException",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1",
+   "3.6.4"
+  ]
+ },
+ "ZOOKEEPER-3970": {
+  "type": "Task",
+  "created": "2020-10-15T03:46:18.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-05-20T09:30:52.000+0000",
+  "status": "Resolved",
+  "summary": "Enable ZooKeeperServerController to expire session",
+  "fixVersions": [
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-3652": {
+  "type": "Bug",
+  "created": "2019-12-16T14:31:06.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2022-03-30T18:30:04.000+0000",
+  "status": "Closed",
+  "summary": "Improper synchronization in ClientCnxn",
+  "fixVersions": [
+   "3.5.10",
+   "3.7.1",
+   "3.6.4",
+   "3.9.0",
+   "3.8.1"
+  ]
+ },
+ "ZOOKEEPER-3128": {
+  "type": "Bug",
+  "created": "2018-08-24T07:02:55.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2021-03-28T04:24:42.000+0000",
+  "status": "Resolved",
+  "summary": "Get CLI Command displays Authentication error for Authorization error",
+  "fixVersions": [
+   "3.6.3",
+   "3.8.0",
+   "3.7.1"
+  ]
+ },
+ "ZOOKEEPER-2512": {
+  "type": "Improvement",
+  "created": "2016-08-12T18:27:04.000+0000",
+  "resolution": "Duplicate",
+  "resolutiondate": "2021-03-24T16:01:14.000+0000",
+  "status": "Closed",
+  "summary": "Allow Jetty dependency to use HTTPS and Basic Auth",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-1875": {
+  "type": "Bug",
+  "created": "2014-02-03T04:06:08.000+0000",
+  "resolution": null,
+  "resolutiondate": null,
+  "status": "Reopened",
+  "summary": "NullPointerException in ClientCnxn$EventThread.processEvent",
+  "fixVersions": []
+ },
+ "ZOOKEEPER-1297": {
+  "type": "New Feature",
+  "created": "2011-11-11T12:51:38.000+0000",
+  "resolution": "Fixed",
+  "resolutiondate": "2012-12-19T18:17:35.000+0000",
+  "status": "Resolved",
+  "summary": "Add stat information to create() call",
+  "fixVersions": [
+   "3.5.0"
+  ]
+ }
+}

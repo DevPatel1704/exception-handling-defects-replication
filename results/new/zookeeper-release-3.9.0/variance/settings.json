@@ -1,0 +1,6 @@
+{
+ "runs": 10,
+ "jvm_heap": "4g",
+ "analyzer": "JTratch @ eh-model-defects2018 (af7c232)",
+ "models": "src/reproduce/run_original.R fixed (seed 2018)"
+}

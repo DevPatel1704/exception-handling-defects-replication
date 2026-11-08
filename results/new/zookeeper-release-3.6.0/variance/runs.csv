@@ -1,0 +1,34 @@
+run,model,r2_optimism_reduced,r2_apparent,files,budget,potential_predictors,cutoff,significant_eh,significant_base
+kept,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+kept,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+kept,BSFC,0.0409,0.0779,161,10,23,0.24,X..Handled.with.Throw.without.New; X..Try.in.Loop.1,
+run01,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run01,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run01,BSFC,0.1084,0.141,161,10,23,0.24,Avg.Depth; X..Handled.with.Throw.without.New.1,
+run02,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run02,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run02,BSFC,0.1084,0.141,161,10,23,0.24,Avg.Depth; X..Handled.with.Throw.without.New.1,
+run03,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run03,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run03,BSFC,0.458,0.4821,161,10,23,0.3,Avg.Exc.Type.Prevalence,Distinct.count.of.Issue.Key.PRE
+run04,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run04,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run04,BSFC,0.0409,0.0779,161,10,23,0.24,X..Handled.with.Throw.without.New; X..Try.in.Loop.1,
+run05,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run05,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run05,BSFC,0.0409,0.0779,161,10,23,0.24,X..Handled.with.Throw.without.New; X..Try.in.Loop.1,
+run06,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run06,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run06,BSFC,0.0409,0.0779,161,10,23,0.24,X..Handled.with.Throw.without.New; X..Try.in.Loop.1,
+run07,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run07,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run07,BSFC,0.0409,0.0779,161,10,23,0.24,X..Handled.with.Throw.without.New; X..Try.in.Loop.1,
+run08,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run08,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run08,BSFC,0.458,0.4821,161,10,23,0.3,Avg.Exc.Type.Prevalence,Distinct.count.of.Issue.Key.PRE
+run09,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run09,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run09,BSFC,0.0409,0.0779,161,10,23,0.24,X..Handled.with.Throw.without.New; X..Try.in.Loop.1,
+run10,BASE,0.4228,0.4261,161,10,5,0.7,,Distinct.count.of.Issue.Key.PRE
+run10,BSAP,0.417,0.4261,161,10,17,0.319,,Distinct.count.of.Issue.Key.PRE
+run10,BSFC,0.0409,0.0779,161,10,23,0.24,X..Handled.with.Throw.without.New; X..Try.in.Loop.1,

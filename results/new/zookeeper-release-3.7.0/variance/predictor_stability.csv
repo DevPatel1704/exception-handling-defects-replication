@@ -1,0 +1,3 @@
+model,predictor,group,runs_significant,signs,median_wald_chi2,share,in_kept_run
+BASE,CountLineComment,base,10,+,23.6827637825072,1.0,True
+BSAP,Avg..AP.Dummy.Handler,catch,10,+,4.59505021327865,1.0,True

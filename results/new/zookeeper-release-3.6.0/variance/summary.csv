@@ -1,0 +1,4 @@
+target,model,runs,r2_kept,r2_mean,r2_sd,r2_min,r2_max,distinct_r2,distinct_predictor_sets,share_runs_modal_set,share_runs_same_set_as_kept
+zookeeper-release-3.6.0,BASE,10,0.4228,0.4228,0.0,0.4228,0.4228,1,1,1.0,1.0
+zookeeper-release-3.6.0,BSFC,10,0.0409,0.1378,0.171,0.0409,0.458,3,3,0.6,0.6
+zookeeper-release-3.6.0,BSAP,10,0.417,0.417,0.0,0.417,0.417,1,1,1.0,1.0
