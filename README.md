@@ -19,6 +19,7 @@ optimism-reduced Nagelkerke R². No causal claims.
 
 ## Headline results (Milestone 3, 2026-11-08)
 
+Milestone 3 report: [`docs/reports/Milestone3_Group8_Report.pdf`](docs/reports/Milestone3_Group8_Report.pdf).
 All contexts side by side: [`results/contexts_summary.md`](results/contexts_summary.md) and
 [`results/figures/`](results/figures/). What changed since Milestone 2: [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md) §9.
 

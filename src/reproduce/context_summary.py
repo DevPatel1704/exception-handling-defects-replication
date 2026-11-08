@@ -103,7 +103,10 @@ def main() -> None:
             forced = models_of(nd / "fixed_forcesig" / "base_test_2.csv")
             man = json.loads((ROOT / "data" / "new" / tid / "dataset_manifest.json").read_text())
             r["files_with_catch"] = int(next(iter(mods.values())).n)
-            r["defective_pct"] = round(100 * man["defective_files_with_catch"] / man["files_with_catch"], 1)
+            folds_p = nd / "ml" / "ml_folds.csv"   # modelled files (catch + try data): same rows as the R models
+            r["defective_pct"] = (round(100 * pd.read_csv(folds_p).groupby("fold").prevalence.first().mean(), 1)
+                                  if folds_p.exists() else
+                                  round(100 * man["defective_files_with_catch"] / man["files_with_catch"], 1))
             for m in MODELS:
                 if m in forced:
                     r[f"{m}_r2_forced_base"] = round(forced[m].r2_c_r, 3) if pd.notna(forced[m].r2_c_r) else None
@@ -163,6 +166,7 @@ def main() -> None:
     cdf.to_csv(RES / "ml_uplift_ci.csv", index=False, float_format="%.4f")
     write_md(summ, cdf)
     fig_r2(summ)
+    fig_r2_column(summ)
     fig_variance(summ)
     fig_uplift(cdf)
     print(summ[["context", "BASE_r2", "BSFC_r2", "BSAP_r2"]].to_string(index=False))
@@ -326,6 +330,50 @@ def fig_uplift(ci: pd.DataFrame) -> None:
     ax.xaxis.grid(True, color=GRID, linewidth=0.6)
     ax.legend(fontsize=6.5, frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.13))
     save(fig, "fig_ml_uplift")
+
+
+def fig_r2_column(s: pd.DataFrame) -> None:
+    """Column-width version for the report: bars, paper ticks, analyzer-run range, S1 markers; no value labels."""
+    fig, ax = plt.subplots(figsize=(3.45, 2.35))
+    w, x = 0.26, np.arange(len(s))
+    short = {"Umbraco 7.6": "Umb.\n7.6", "Hadoop 2.6": "Had.\n2.6", "Hibernate 5.0": "Hib.\n5.0",
+             "Hibernate 5.1": "Hib.\n5.1"}
+    for j, m in enumerate(MODELS):
+        vals = s[f"{m}_r2"].astype(float).fillna(0).to_numpy()
+        pos = x + (j - 1) * w
+        ax.bar(pos, vals, w - 0.04, color=COLORS[m], hatch=HATCH[m], edgecolor="white", linewidth=0.3, label=m)
+        if f"{m}_r2_runs_min" in s:
+            lo, hi = s[f"{m}_r2_runs_min"].astype(float), s[f"{m}_r2_runs_max"].astype(float)
+            ok = lo.notna() & (hi - lo > 1e-6)
+            ax.vlines(pos[ok], lo[ok], hi[ok], color=INK, linewidth=0.8)
+        if f"{m}_r2_paper" in s:
+            pp = s[f"{m}_r2_paper"].astype(float)
+            ok = pp.notna()
+            ax.scatter(pos[ok], pp[ok], marker="_", color=INK, s=30, linewidth=1.4, zorder=3)
+        if m != "BASE" and f"{m}_r2_forced_base" in s:   # S1 does not change BASE
+            f = s[f"{m}_r2_forced_base"].astype(float)
+            ok = f.notna()
+            ax.scatter(pos[ok], f[ok], marker="x", color=INK, s=12, linewidth=0.8, zorder=4)
+        for p_, raw in zip(pos, s[f"{m}_r2"]):
+            if pd.isna(raw):
+                ax.text(p_, 0.01, "empty", ha="center", va="bottom", fontsize=5, color=INK2, rotation=90)
+    n_orig = int((s.source == "reproduction").sum())
+    ax.axvline(n_orig - 0.5, color=INK2, linewidth=0.6, linestyle=(0, (3, 3)))
+    ax.text(n_orig / 2 - 0.5, 0.5, "Reproduction", ha="center", fontsize=6.5, color=INK2)
+    ax.text(n_orig + (len(s) - n_orig) / 2 - 0.5, 0.5, "New context", ha="center", fontsize=6.5, color=INK2)
+    ax.set_xticks(x, [short.get(c, c.replace("ZooKeeper ", "ZK\n")) for c in s.context], fontsize=6.5)
+    ax.set_ylabel("Optimism-reduced R²", color=INK2, fontsize=7)
+    ax.set_ylim(0, 0.55)
+    style(ax)
+    ax.tick_params(labelsize=6.5)
+    h, l_ = ax.get_legend_handles_labels()
+    h += [plt.Line2D([], [], color=INK, marker="_", linestyle="", markersize=6, markeredgewidth=1.4),
+          plt.Line2D([], [], color=INK, linewidth=0.8),
+          plt.Line2D([], [], color=INK, marker="x", linestyle="", markersize=4)]
+    l_ += ["Paper", "10 analyzer runs", "S1"]
+    ax.legend(h, l_, ncol=3, fontsize=5.8, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.25),
+              handlelength=1.5, columnspacing=1.0)
+    save(fig, "fig_r2_contexts_col")
 
 
 if __name__ == "__main__":
