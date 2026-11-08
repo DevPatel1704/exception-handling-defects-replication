@@ -8,6 +8,8 @@ Outputs (data/new/<id>/input/): File_Level-Git-Jira.csv, File_Level-Understand.c
         data/new/<id>/dataset_manifest.json  (row counts, product-metric back-end, missing columns)
 
 Usage: python src/collect/build_dataset.py <target-id>
+       (library) main(tid, raw_dir=..., inp_dir=...)  -> build from another analyzer run into another folder
+       (used by src/collect/analyzer_variance.py; the target's own input/ and manifest are then left untouched)
 """
 import json
 import sys
@@ -27,10 +29,10 @@ def header(name: str) -> list:
     return list(pd.read_csv(ORIG / f"File_Level-{name}.csv", nrows=0).columns)
 
 
-def main(tid: str) -> dict:
+def main(tid: str, raw_dir: Path = None, inp_dir: Path = None) -> dict:
     t = load_target(tid)
     out, wt = NEW / tid, NEW / tid / "src"
-    inp = out / "input"
+    inp = inp_dir or (out / "input")
     inp.mkdir(parents=True, exist_ok=True)
     files = release_files(wt, t["include_regex"], t["exclude_regex"])
     manifest = {"target": tid, "release_files": len(files)}
@@ -68,7 +70,7 @@ def main(tid: str) -> dict:
     prod[present].to_csv(inp / "File_Level-Understand.csv", index=False)
 
     # Exception handling (JTratch)
-    C, T, TH = aggregate(out / "raw" / "analyzer", wt, tid, keep_files=files)
+    C, T, TH = aggregate(raw_dir or (out / "raw" / "analyzer"), wt, tid, keep_files=files)
     for df, name in ((C, "Catch_Based"), (T, "Try_Based"), (TH, "Throws_Based")):
         h = header(name)
         missing = [c for c in h if c not in df.columns]
@@ -79,8 +81,9 @@ def main(tid: str) -> dict:
     manifest["files_with_catch"] = len(C)
     manifest["defective_files_with_catch"] = int(
         g[g["File Path"].isin(C["File Path"])]["Distinct count of Issue Key POST"].gt(0).sum())
-    (out / "dataset_manifest.json").write_text(json.dumps(manifest, indent=2))
-    print(json.dumps(manifest, indent=2))
+    if inp_dir is None:
+        (out / "dataset_manifest.json").write_text(json.dumps(manifest, indent=2))
+        print(json.dumps(manifest, indent=2))
     return manifest
 
 
