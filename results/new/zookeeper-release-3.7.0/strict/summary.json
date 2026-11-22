@@ -1,0 +1,16 @@
+{
+ "target": "zookeeper-release-3.7.0",
+ "links": 16,
+ "strict_links": 15,
+ "dropped": {
+  "r1_revert": 0,
+  "r2_merge": 0,
+  "r3_tangled": 1,
+  "r4_off_line": 0
+ },
+ "issues": 16,
+ "strict_issues": 15,
+ "defective_files": 24,
+ "defective_files_strict": 23,
+ "files_relabelled_clean": 1
+}

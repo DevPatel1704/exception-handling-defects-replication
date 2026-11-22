@@ -107,9 +107,19 @@ def main() -> None:
             r["defective_pct"] = (round(100 * pd.read_csv(folds_p).groupby("fold").prevalence.first().mean(), 1)
                                   if folds_p.exists() else
                                   round(100 * man["defective_files_with_catch"] / man["files_with_catch"], 1))
+            strict = models_of(nd / "strict" / "fixed" / "base_test_2.csv")
             for m in MODELS:
                 if m in forced:
                     r[f"{m}_r2_forced_base"] = round(forced[m].r2_c_r, 3) if pd.notna(forced[m].r2_c_r) else None
+                if m in strict:   # check V2: outcome from strict links only (src/collect/strict_labels.py)
+                    r[f"{m}_r2_strict"] = round(strict[m].r2_c_r, 3) if pd.notna(strict[m].r2_c_r) else None
+                    r[f"{m}_sig_eh_strict"] = "; ".join(sig_eh(strict[m], base))
+            sj = nd / "strict" / "summary.json"
+            if sj.exists():
+                st = json.loads(sj.read_text())
+                r["links"], r["strict_links"] = st["links"], st["strict_links"]
+                r["defective_files_strict"] = st["defective_files_strict"]
+                r["defective_files_all"] = st["defective_files"]
             vs = nd / "variance" / "summary.csv"
             if vs.exists():
                 v = pd.read_csv(vs).set_index("model")
@@ -196,8 +206,24 @@ def write_md(s: pd.DataFrame, ci: pd.DataFrame) -> None:
     md += ["", "Reproduction rows: our bug-fixed run (paper's Table 4 value in brackets). — for BSFC = no predictor "
            "survives backward elimination (empty simplified model, guard D7). 'Forced' = sensitivity S1 (paper §3.4.6 rule applied).", "",
            "Significant EH predictors (simplified models):", ""]
+    if "BASE_r2_strict" in s:
+        strict_rows = ["", "### Check V2: models refit with the outcome from strict links only", "",
+                       "Strict links exclude reverts, merges, commits naming several issues and issues whose fix "
+                       "versions lie outside the release line (`src/collect/strict_labels.py`).", "",
+                       "| Context | Links kept | Defective files (all → strict) | BASE | BSFC | BSAP | "
+                       "Significant EH predictors (strict) |", "|---|---|---|---:|---:|---:|---|"]
+        for _, r in s[s.source == "new"].iterrows():
+            if pd.isna(r.get("BASE_r2_strict")):
+                continue
+            strict_rows.append(
+                f"| {r.context} | {int(r.strict_links)}/{int(r.links)} | {int(r.defective_files_all)} → "
+                f"{int(r.defective_files_strict)} | {fmt(r.BASE_r2_strict)} | {fmt(r.BSFC_r2_strict)} | "
+                f"{fmt(r.BSAP_r2_strict)} | BSFC: {r.BSFC_sig_eh_strict or 'none'}; BSAP: {r.BSAP_sig_eh_strict or 'none'} |")
+    else:
+        strict_rows = []
     for _, r in s.iterrows():
         md.append(f"* **{r.context}**: BSFC: {r.BSFC_sig_eh or 'none'}; BSAP: {r.BSAP_sig_eh or 'none'}")
+    md += strict_rows
     md += ["", "## RQ3/RQ4: prediction and SHAP", "",
            "| Context | Prevalence | best PR-AUC TRAD | best PR-AUC TRAD+EH | PR-AUC uplifts > 0 | "
            "significant after Holm (PR-AUC / ROC-AUC) | SHAP top-10 EH matching a significant predictor |",
@@ -355,6 +381,10 @@ def fig_r2_column(s: pd.DataFrame) -> None:
             f = s[f"{m}_r2_forced_base"].astype(float)
             ok = f.notna()
             ax.scatter(pos[ok], f[ok], marker="x", color=INK, s=12, linewidth=0.8, zorder=4)
+        if f"{m}_r2_strict" in s:   # check V2: outcome from strict links only
+            st = s[f"{m}_r2_strict"].astype(float)
+            ok = st.notna()
+            ax.scatter(pos[ok], st[ok], marker="o", facecolor="white", edgecolor=INK, s=10, linewidth=0.7, zorder=5)
         for p_, raw in zip(pos, s[f"{m}_r2"]):
             if pd.isna(raw):
                 ax.text(p_, 0.01, "empty", ha="center", va="bottom", fontsize=5, color=INK2, rotation=90)
@@ -370,9 +400,10 @@ def fig_r2_column(s: pd.DataFrame) -> None:
     h, l_ = ax.get_legend_handles_labels()
     h += [plt.Line2D([], [], color=INK, marker="_", linestyle="", markersize=6, markeredgewidth=1.4),
           plt.Line2D([], [], color=INK, linewidth=0.8),
-          plt.Line2D([], [], color=INK, marker="x", linestyle="", markersize=4)]
-    l_ += ["Paper", "10 analyzer runs", "S1"]
-    ax.legend(h, l_, ncol=3, fontsize=5.8, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.25),
+          plt.Line2D([], [], color=INK, marker="x", linestyle="", markersize=4),
+          plt.Line2D([], [], color=INK, marker="o", markerfacecolor="white", linestyle="", markersize=3.5)]
+    l_ += ["Paper", "10 analyzer runs", "S1", "Strict labels"]
+    ax.legend(h, l_, ncol=4, fontsize=5.6, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.25),
               handlelength=1.5, columnspacing=1.0)
     save(fig, "fig_r2_contexts_col")
 

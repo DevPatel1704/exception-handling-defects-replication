@@ -1,0 +1,17 @@
+issue,commit,r1_revert,r2_merge,r3_tangled,r4_off_line,strict
+ZOOKEEPER-4269,e892430a2c72188193300e44be9e0724caee41e9,False,False,False,False,True
+ZOOKEEPER-4275,0d60bd2d97bad43678341fbd9de0e644dade5465,False,False,False,False,True
+ZOOKEEPER-4308,a1f7ffeb9211b715477f3a6aedb7c7c90def401b,False,False,False,False,True
+ZOOKEEPER-4309,7048d3a583eff4fff88d5071f5427a2ad36c1acf,False,False,False,False,True
+ZOOKEEPER-4345,434c54d7501f9cbb15126561d3ca3d16aeace076,False,False,False,False,True
+ZOOKEEPER-4360,0eb1a54fd36bcbb3a14f69f846d28f49ba032536,False,False,False,False,True
+ZOOKEEPER-4362,713a65620d89eb9667d68104acffabe71221c2a9,False,False,True,False,False
+ZOOKEEPER-4367,e2f1ab165b2c1ed052ebb0fddac08bbd08bd1da5,False,False,False,False,True
+ZOOKEEPER-4377,86c12634d22bbfee8cf9f5434c49eebe3ffa84c0,False,False,False,False,True
+ZOOKEEPER-4460,e002e080d29a0886ffae6020bf087358eb49559b,False,False,False,False,True
+ZOOKEEPER-4477,d9c1338df1196ae515a692f895bae85dacdb3ac5,False,False,False,False,True
+ZOOKEEPER-4504,168b6215157d2511567b81ec1651c663230914cd,False,False,False,False,True
+ZOOKEEPER-4514,fab889974f08be662927401716fac250904ec626,False,False,False,False,True
+ZOOKEEPER-4515,b6331287036a764b7d1ed351a873e0ed6f1ff701,False,False,False,False,True
+ZOOKEEPER-4537,3b981a6e7b7d9ab4bf10fe73f150819ae6b031c2,False,False,False,False,True
+ZOOKEEPER-4565,e9d74a096e0a604527a12615e8aaab3d0f95363f,False,False,False,False,True

@@ -1,0 +1,16 @@
+{
+ "target": "zookeeper-release-3.6.0",
+ "links": 44,
+ "strict_links": 30,
+ "dropped": {
+  "r1_revert": 0,
+  "r2_merge": 0,
+  "r3_tangled": 13,
+  "r4_off_line": 2
+ },
+ "issues": 43,
+ "strict_issues": 30,
+ "defective_files": 39,
+ "defective_files_strict": 30,
+ "files_relabelled_clean": 9
+}

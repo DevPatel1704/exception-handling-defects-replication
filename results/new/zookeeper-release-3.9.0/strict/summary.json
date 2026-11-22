@@ -1,0 +1,16 @@
+{
+ "target": "zookeeper-release-3.9.0",
+ "links": 35,
+ "strict_links": 34,
+ "dropped": {
+  "r1_revert": 0,
+  "r2_merge": 0,
+  "r3_tangled": 1,
+  "r4_off_line": 0
+ },
+ "issues": 35,
+ "strict_issues": 34,
+ "defective_files": 56,
+ "defective_files_strict": 51,
+ "files_relabelled_clean": 5
+}

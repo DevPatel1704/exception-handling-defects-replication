@@ -1,0 +1,6 @@
+Input: D:\Software Maint Project\exception-handling-replication\data\new\zookeeper-release-3.6.0\input_strict 
+Warning message:
+In readLines(af) :
+  incomplete final line found on 'D:\Software Maint Project\exception-handling-replication/build/reproduce_strict_fixed/analysis_functions.R'
+Applied R>=4.3 compatibility patch at analysis_functions.R line 270; empty-model guard (D7) before line 223
+Patched construction_functions.R line 223

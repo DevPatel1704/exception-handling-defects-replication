@@ -26,6 +26,17 @@ Significant EH predictors (simplified models):
 * **ZooKeeper 3.7.0**: BSFC: none; BSAP: Avg..AP.Dummy.Handler
 * **ZooKeeper 3.9.0**: BSFC: X..Handled.with.Return.1; Num.Distinct.Methods; BSAP: none
 
+### Check V2: models refit with the outcome from strict links only
+
+Strict links exclude reverts, merges, commits naming several issues and issues whose fix versions lie outside the release line (`src/collect/strict_labels.py`).
+
+| Context | Links kept | Defective files (all → strict) | BASE | BSFC | BSAP | Significant EH predictors (strict) |
+|---|---|---|---:|---:|---:|---|
+| Hibernate 5.1 | 195/226 | 284 → 250 | 0.209 | 0.263 | 0.250 | BSFC: X..Handled.with.Throw.with.New; X..Propagated.1; BSAP: Avg..AP.Unhandled.exceptions |
+| ZooKeeper 3.6.0 | 30/44 | 39 → 30 | 0.306 | 0.063 | 0.301 | BSFC: X..Try.in.Loop.1; X..Handled.with.Throw.without.New; BSAP: none |
+| ZooKeeper 3.7.0 | 15/16 | 24 → 23 | 0.383 | 0.103 | — | BSFC: X..Try.in.Other; BSAP: none |
+| ZooKeeper 3.9.0 | 34/35 | 56 → 51 | 0.223 | 0.064 | 0.190 | BSFC: X..Handled.with.Return.1; Num.Distinct.Methods; BSAP: none |
+
 ## RQ3/RQ4: prediction and SHAP
 
 | Context | Prevalence | best PR-AUC TRAD | best PR-AUC TRAD+EH | PR-AUC uplifts > 0 | significant after Holm (PR-AUC / ROC-AUC) | SHAP top-10 EH matching a significant predictor |

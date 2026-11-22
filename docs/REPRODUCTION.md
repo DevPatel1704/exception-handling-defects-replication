@@ -275,7 +275,7 @@ Hadoop 2.7, a C# context (see §7).
 |---|---|---|
 | T1 | Regenerate the external-Javadoc XML (`MyRoot` / `MyPackage` / `MyClass` / `MyMethod` / `MyThrowTag`, see `external/JTratch/src/main/java/ca/concordia/jpexjd/`) from `@throws` tags of JDK 8 sources and the target's dependencies | **Dropped in Milestone 3** (§9.6); documented limitation |
 | T2 | Give JTratch dependency jars (`--m2`): resolve Hibernate 5.1's Gradle deps (Java 8), point `--m2` at the jar cache | **Dropped in Milestone 3** (§9.6) |
-| T3 | Manual validation of the 40 defect links (`data/new/hibernate-5.1/manual_validation_sample.csv`), two raters | Milestone 3: packets + independent sheets for all 131 links of the 4 new contexts, agreement script tested (§9, VALIDATION_GUIDE.md); **ratings pending** |
+| T3 | Validation of the defect-link labels (key-based linking can mislabel files) | Replaced by an automatic strict-link check on **all** links with model refits (§9.7) |
 | T4 | Hadoop 2.7.0 → 2.7.7 (target configured; large repo, 4 Jira projects; JTratch needs ≥ 6 GB heap) | **Dropped in Milestone 3** (§9.6) |
 | T5 | C# context: NTratch.exe (2017 .NET binary) on Umbraco 7.7; Umbraco 7's YouTrack tracker is decommissioned, so defect labels need another source (GitHub issues/PR links) | **Dropped in Milestone 3** (§9.6): no defect labels |
 | T6 | Understand licence (academic) for a faithful BASE on new data | Ask instructor/department |
@@ -361,9 +361,8 @@ for t in zookeeper-release-3.6.0 zookeeper-release-3.7.0 zookeeper-release-3.9.0
 # Sensitivity S1 (paper §3.4.6 rule: keep BASE-significant metrics; see deviations table)
 for t in hibernate-5.1 zookeeper-release-3.6.0 zookeeper-release-3.7.0 zookeeper-release-3.9.0; do
   ./envrun.sh Rscript src/reproduce/run_original.R fixed --force-sig --input data/new/$t/input --out results/new/$t; done
-# Defect-link validation (T3): packets + sheets, then agreement once both raters are done
-./envrun.sh python src/collect/validation_packet.py
-./envrun.sh python src/collect/validation_agreement.py
+# Label-noise check V2: strict links on all issue-commit links, models refit on the strict outcome
+for t in hibernate-5.1 zookeeper-release-3.6.0 zookeeper-release-3.7.0 zookeeper-release-3.9.0; do ./envrun.sh python -W ignore src/collect/strict_labels.py $t; done
 # Cross-context tables and figures
 ./envrun.sh python src/reproduce/build_comparison.py && ./envrun.sh python src/reproduce/context_summary.py
 ```
@@ -425,8 +424,29 @@ and `% Handled with Return` (3.9.0). The ZooKeeper 3.6.0 S1 value equals the ana
 | T10 BSFC over ≥ 10 analyzer runs | **Done** for the 3 ZooKeeper releases; Hibernate 5.1 (35 min per run) running in the background | — |
 | T8 Holm correction | **Done** | — |
 | RQ3/RQ4 on new data | **Done**, 4 releases, 5×10 CV | — |
-| T3 manual validation (two raters) | Packets and sheets ready (131 links), agreement script tested; **ratings pending** | Needs the two raters |
+| T3 label validation | **Done** as an automatic strict-link check on all 321 links with model refits (§9.7) | Covers every link instead of a sample |
 | T1/T2 external Javadoc + dependency jars | **Dropped** (documented limitation) | Regenerating the authors' unpublished Javadoc DB is a project of its own; flow metrics rank-preserving (ρ ≥ 0.63) |
 | T4 Hadoop 2.7 | **Dropped** | JTratch needs > 6 GB heap for Hadoop on a 7.4 GB machine; ZooKeeper 3.7.0 added instead |
 | T5 C# context (Umbraco 7.7) | **Dropped** | Umbraco 7 YouTrack tracker decommissioned: no defect labels |
 | T6 Understand licence | Not obtained | New-context BASE stays an extension (fallback metrics) |
+
+### 9.7 Label-noise check V2: strict links on all issue–commit links (Milestone 4)
+
+`src/collect/strict_labels.py <id>` flags every (issue, commit) link of a release with four rules: R1 revert
+(subject starts with "Revert"), R2 merge (more than one parent), R3 tangled (the commit message names more than one
+issue key), R4 off-line (no fix version in the release line). It recomputes the outcome from strict links only,
+writes the authors' input with only that column changed (`data/new/<id>/input_strict/`) and refits the bug-fixed
+models (`results/new/<id>/strict/fixed/`).
+
+| Release | Links kept | Dropped (R1/R2/R3/R4) | Defective files | BASE | BSFC | BSAP | EH predictors |
+|---|---|---|---|---|---|---|---|
+| Hibernate 5.1 | 195/226 | 3/0/24/7 | 284 → 250 | 0.238 → 0.209 | 0.275 → 0.263 | 0.264 → 0.250 | same 3, same signs |
+| ZooKeeper 3.6.0 | 30/44 | 0/0/13/2 | 39 → 30 | 0.423 → 0.306 | 0.041 → 0.063 | 0.417 → 0.301 | BSFC: same 2 |
+| ZooKeeper 3.7.0 | 15/16 | 0/0/1/0 | 24 → 23 | 0.417 → 0.383 | empty → 0.103 | 0.047 → empty | changes (17 defective) |
+| ZooKeeper 3.9.0 | 34/35 | 0/0/1/0 | 56 → 51 | 0.233 → 0.223 | 0.093 → 0.064 | 0.157 → 0.190 | BSFC: same 2 |
+
+(A link can trigger several rules.) Hibernate keeps the paper's ordering BASE < BSAP < BSFC with the same significant
+EH predictors and larger EH increments (+0.054 BSFC, +0.041 BSAP): the positive new-context result is not driven by
+label noise. On ZooKeeper, BSFC stays below BASE on strict labels because the released reduction step still drops
+BASE-significant metrics (S1, §9.5). Hibernate 5.1 analyzer re-runs: run 1 is identical to the kept run (same R²,
+same predictors, no metric differs in any file); runs 3–5 are planned as step E2.

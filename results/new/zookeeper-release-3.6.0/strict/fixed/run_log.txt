@@ -1,0 +1,716 @@
+
+
+######## RUNNING 0-DataSourcesAnalysis.Rmd ########
+
+Attaching package: 'e1071'
+
+The following object is masked from 'package:Hmisc':
+
+    impute
+
+[1] "DataSource, NumberFiles, NumberMetrics"
+[1] "VCS_ITS, 469 , 8"
+[1] "Understand, 469 , 19"
+[1] "Throws, 232 , 7"
+[1] "Catch, 171 , 47"
+[1] "Try, 161 , 59"
+[1] "zookeeper-release-3.6.0 ,DataSource, NumberFiles, NumberMetrics"
+[1] "zookeeper-release-3.6.0 ,VCS_ITS, 469 , 8"
+[1] "zookeeper-release-3.6.0 ,Understand, 469 , 19"
+[1] "zookeeper-release-3.6.0 ,Throws, 232 , 7"
+[1] "zookeeper-release-3.6.0 ,Catch, 171 , 47"
+[1] "zookeeper-release-3.6.0 ,Try, 161 , 59"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "MissingData: Small fraction found: Single imputation or discard. Discard is chosen. Discarded rows: 10 / 469"
+
+
+######## RUNNING 1-Model_Construction.Rmd ########
+[1] "Project: zookeeper-release-3.6.0"
+[1] "nrow: 459 ncol: 132"
+[1] "Project: zookeeper-release-3.6.0 D.F. Budget: 30"
+[1] "Project: zookeeper-release-3.6.0 skewness, 5.24480767750071"
+[1] "Project: zookeeper-release-3.6.0 kurtosis, 31.3318174908582"
+[1] "Project: zookeeper-release-3.6.0"
+[1] 459
+ [1] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [3] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [5] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [7] "AvgCyclomatic"                      "AvgLineCode"                       
+ [9] "CountDeclClass"                     "CountDeclFunction"                 
+[11] "CountLineBlank"                     "CountLineCode"                     
+[13] "CountLineComment"                   "CountLine"                         
+[15] "CountSemicolon"                     "File"                              
+[17] "Kind"                               "MaxCyclomatic"                     
+[19] "Name"                               "Number.of.Records"                 
+[21] "RatioCommentToCode"                 "SumCyclomatic"                     
+[23] "Table.Name"                        
+[1] "Project: zookeeper-release-3.6.0"
+[1] "NumberOfMetricsInitial: 18"
+[1] "NumberOfMetricsKept: 7"
+[1] "Distinct.count.of.Author.Email.PRE + Distinct.count.of.Issue.Key.PRE + AvgCyclomatic + CountDeclClass + CountDeclFunction + CountLineComment + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "Redudant variables: "
+[1] "Distinct.count.of.Author.Email.PRE + Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + AvgCyclomatic + CountDeclClass + CountDeclFunction + CountLineComment + File + Kind + Name + RatioCommentToCode + Table.Name"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "NumberOfMetricsInitial: 7 Budget: 30 Over Budget: FALSE NumberOfMetricsKept: 7 CorrelationCutoff: 0.7"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "Distinct.count.of.Author.Email.PRE + Distinct.count.of.Issue.Key.PRE + AvgCyclomatic + CountDeclClass + CountDeclFunction + CountLineComment + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.6.0"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           459    LR chi2      61.52     R2       0.334    C       0.830    
+ FALSE        430    d.f.             7     R2(7,459)0.112    Dxy     0.660    
+ TRUE          29    Pr(> chi2) <0.0001    R2(7,81.5)0.488    gamma   0.661    
+max |deriv| 3e-09                           Brier    0.043    tau-a   0.078    
+
+                                   Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                          -4.9377 1.6572 -2.98  0.0029  
+Distinct.count.of.Author.Email.PRE  0.2041 1.5429  0.13  0.8948  
+Distinct.count.of.Issue.Key.PRE     3.0196 1.2474  2.42  0.0155  
+AvgCyclomatic                      -0.2401 1.8913 -0.13  0.8990  
+CountDeclClass                     -0.0199 1.5488 -0.01  0.9898  
+CountDeclFunction                   0.0768 1.2538  0.06  0.9511  
+CountLineComment                    0.9440 1.2996  0.73  0.4676  
+RatioCommentToCode                 -2.2547 3.8574 -0.58  0.5589  
+
+[1] "Project: zookeeper-release-3.6.0"
+ [1] "File.Path"                          "Project"                           
+ [3] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [5] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [7] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [9] "AvgCyclomatic"                      "AvgLineCode"                       
+[11] "CountDeclClass"                     "CountDeclFunction"                 
+[13] "CountLineBlank"                     "CountLineCode"                     
+[15] "CountLineComment"                   "CountLine"                         
+[17] "CountSemicolon"                     "File"                              
+[19] "Kind"                               "MaxCyclomatic"                     
+[21] "Name"                               "Number.of.Records"                 
+[23] "RatioCommentToCode"                 "SumCyclomatic"                     
+[25] "Table.Name"                         "X..Throws"                         
+[27] "X..Catch"                          
+[1] "Project: zookeeper-release-3.6.0"
+[1] "NumberOfMetricsInitial: 20"
+[1] "NumberOfMetricsKept: 9"
+[1] "Distinct.count.of.Author.Email.PRE + Distinct.count.of.Issue.Key.PRE + AvgCyclomatic + CountDeclClass + CountDeclFunction + CountLineComment + RatioCommentToCode + X..Throws + X..Catch"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "Redudant variables: "
+[1] "File.Path + Project + Distinct.count.of.Author.Email.PRE + Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + AvgCyclomatic + CountDeclClass + CountDeclFunction + CountLineComment + File + Kind + Name + RatioCommentToCode + Table.Name + X..Throws + X..Catch"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "NumberOfMetricsInitial: 9 Budget: 30 Over Budget: FALSE NumberOfMetricsKept: 9 CorrelationCutoff: 0.7"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "Distinct.count.of.Author.Email.PRE + Distinct.count.of.Issue.Key.PRE + AvgCyclomatic + CountDeclClass + CountDeclFunction + CountLineComment + RatioCommentToCode + X..Throws + X..Catch"
+[1] "Project: zookeeper-release-3.6.0"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           459    LR chi2      61.56     R2       0.334    C       0.831    
+ FALSE        430    d.f.             9     R2(9,459)0.108    Dxy     0.663    
+ TRUE          29    Pr(> chi2) <0.0001    R2(9,81.5)0.475    gamma   0.664    
+max |deriv| 5e-09                           Brier    0.043    tau-a   0.079    
+
+                                   Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                          -4.8654 1.7098 -2.85  0.0044  
+Distinct.count.of.Author.Email.PRE  0.1793 1.5436  0.12  0.9075  
+Distinct.count.of.Issue.Key.PRE     3.0126 1.2642  2.38  0.0172  
+AvgCyclomatic                      -0.3245 1.9509 -0.17  0.8679  
+CountDeclClass                     -0.0554 1.6508 -0.03  0.9732  
+CountDeclFunction                   0.0936 1.2654  0.07  0.9410  
+CountLineComment                    0.9121 1.3629  0.67  0.5033  
+RatioCommentToCode                 -2.1794 3.8942 -0.56  0.5757  
+X..Throws                          -0.0778 0.7710 -0.10  0.9196  
+X..Catch                            0.1648 0.8212  0.20  0.8410  
+
+
+Divergence or singularity in 1 samples
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BASE"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                             Chi-Square d.f. P     
+ Distinct.count.of.Author.Email.PRE  0.02      1    0.8948
+ Distinct.count.of.Issue.Key.PRE     5.86      1    0.0155
+ AvgCyclomatic                       0.02      1    0.8990
+ CountDeclClass                      0.00      1    0.9898
+ CountDeclFunction                   0.00      1    0.9511
+ CountLineComment                    0.53      1    0.4676
+ RatioCommentToCode                  0.34      1    0.5589
+ TOTAL                              48.83      7    <.0001
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BSEH"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                             Chi-Square d.f. P     
+ Distinct.count.of.Author.Email.PRE  0.01      1    0.9075
+ Distinct.count.of.Issue.Key.PRE     5.68      1    0.0172
+ AvgCyclomatic                       0.03      1    0.8679
+ CountDeclClass                      0.00      1    0.9732
+ CountDeclFunction                   0.01      1    0.9410
+ CountLineComment                    0.45      1    0.5033
+ RatioCommentToCode                  0.31      1    0.5757
+ X..Throws                           0.01      1    0.9196
+ X..Catch                            0.04      1    0.8410
+ TOTAL                              48.81      9    <.0001
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BASE Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           459    LR chi2      58.19     R2       0.317    C       0.816    
+ FALSE        430    d.f.             1     R2(1,459)0.117    Dxy     0.632    
+ TRUE          29    Pr(> chi2) <0.0001    R2(1,81.5)0.504    gamma   0.760    
+max |deriv| 1e-10                           Brier    0.044    tau-a   0.075    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -4.1655 0.3759 -11.08 <0.0001 
+Distinct.count.of.Issue.Key.PRE  4.2572 0.6163   6.91 <0.0001 
+
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BASE Refit - summary"
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BASE Refit - validate"
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BASE Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE 47.71      1    <.0001
+ TOTAL                           47.71      1    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+  Distinct.count.of.Issue.Key.PRE
+1                       0.9891068
+[1] "Fixed at Mean: 0.0524503426718835"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.057092888122266"
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BSEH Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           459    LR chi2      58.19     R2       0.317    C       0.816    
+ FALSE        430    d.f.             1     R2(1,459)0.117    Dxy     0.632    
+ TRUE          29    Pr(> chi2) <0.0001    R2(1,81.5)0.504    gamma   0.760    
+max |deriv| 1e-10                           Brier    0.044    tau-a   0.075    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -4.1655 0.3759 -11.08 <0.0001 
+Distinct.count.of.Issue.Key.PRE  4.2572 0.6163   6.91 <0.0001 
+
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BSEH Refit - summary"
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BSEH Refit - validate"
+[1] "project:  zookeeper-release-3.6.0 model:  ALL.BSEH Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE 47.71      1    <.0001
+ TOTAL                           47.71      1    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+  Distinct.count.of.Issue.Key.PRE
+1                       0.9891068
+[1] "Fixed at Mean: 0.0524503426718835"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.057092888122266"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "nrow: 459 ncol: 132"
+[1] "nrow: 161 ncol: 132"
+[1] "nrow: 161 ncol: 125"
+[1] "Project: zookeeper-release-3.6.0 D.F. Budget: 10"
+[1] "Project: zookeeper-release-3.6.0 skewness, 3.1795953262935"
+[1] "Project: zookeeper-release-3.6.0 kurtosis, 10.4761734587355"
+[1] "Project: zookeeper-release-3.6.0"
+ [1] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [3] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [5] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [7] "AvgCyclomatic"                      "AvgLineCode"                       
+ [9] "CountDeclClass"                     "CountDeclFunction"                 
+[11] "CountLineBlank"                     "CountLineCode"                     
+[13] "CountLineComment"                   "CountLine"                         
+[15] "CountSemicolon"                     "File"                              
+[17] "Kind"                               "MaxCyclomatic"                     
+[19] "Name"                               "Number.of.Records"                 
+[21] "RatioCommentToCode"                 "SumCyclomatic"                     
+[23] "Table.Name"                        
+[1] "Project: zookeeper-release-3.6.0"
+[1] "NumberOfMetricsInitial: 18"
+[1] "NumberOfMetricsKept: 5"
+[1] "Distinct.count.of.Issue.Key.PRE + AvgLineCode + CountDeclClass + MaxCyclomatic + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "Redudant variables: "
+[1] "Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + AvgLineCode + CountDeclClass + File + Kind + MaxCyclomatic + Name + RatioCommentToCode + Table.Name"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "NumberOfMetricsInitial: 5 Budget: 10 Over Budget: FALSE NumberOfMetricsKept: 5 CorrelationCutoff: 0.7"
+[1] "Project: zookeeper-release-3.6.0"
+[1] "Distinct.count.of.Issue.Key.PRE + AvgLineCode + CountDeclClass + MaxCyclomatic + RatioCommentToCode"
+[1] "Project: zookeeper-release-3.6.0"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           161    LR chi2      31.76     R2       0.320    C       0.806    
+ FALSE        138    d.f.             5     R2(5,161)0.153    Dxy     0.613    
+ TRUE          23    Pr(> chi2) <0.0001    R2(5,59.1)0.364    gamma   0.614    
+max |deriv| 4e-10                           Brier    0.089    tau-a   0.151    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -3.3517 2.0336 -1.65  0.0993  
+Distinct.count.of.Issue.Key.PRE  3.2360 0.9351  3.46  0.0005  
+AvgLineCode                     -0.5977 1.5589 -0.38  0.7014  
+CountDeclClass                   0.6223 1.6285  0.38  0.7024  
+MaxCyclomatic                    0.6715 1.1572  0.58  0.5617  
+RatioCommentToCode              -1.5796 4.4413 -0.36  0.7221  
+
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BASE"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE 11.98      1    0.0005
+ AvgLineCode                      0.15      1    0.7014
+ CountDeclClass                   0.15      1    0.7024
+ MaxCyclomatic                    0.34      1    0.5617
+ RatioCommentToCode               0.13      1    0.7221
+ TOTAL                           24.38      5    0.0002
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BASE Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           161    LR chi2      30.99     R2       0.313    C       0.800    
+ FALSE        138    d.f.             1     R2(1,161)0.170    Dxy     0.600    
+ TRUE          23    Pr(> chi2) <0.0001    R2(1,59.1)0.398    gamma   0.670    
+max |deriv| 2e-10                           Brier    0.090    tau-a   0.148    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -3.5492 0.5168 -6.87  <0.0001 
+Distinct.count.of.Issue.Key.PRE  3.6463 0.7515  4.85  <0.0001 
+
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BASE Refit - summary"
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BASE Refit - validate"
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BASE Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE 23.54      1    <.0001
+ TOTAL                           23.54      1    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+  Distinct.count.of.Issue.Key.PRE
+1                        2.167702
+[1] "Fixed at Mean: 0.151441552513944"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.165408961268609"
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+ [1] "Distinct.count.of.Issue.Key.POST"      
+ [2] "Distinct.count.of.Issue.Key.PRE"       
+ [3] "X..Catch"                              
+ [4] "Avg.Catch.LOC"                         
+ [5] "Avg.Catch.SLOC"                        
+ [6] "Avg..AP.Catch.and.do.nothing"          
+ [7] "Avg..AP.Catch.and.Return.null"         
+ [8] "Avg..AP.Destructive.Wrapping"          
+ [9] "Avg..AP.Dummy.Handler"                 
+[10] "Avg..AP.Generic.Catch"                 
+[11] "Avg..AP.Ignoring.Interrupted.Exception"
+[12] "Avg..AP.Incomplete.implementation"     
+[13] "Avg..AP.Log.and.Return.null"           
+[14] "Avg..AP.Log.and.Throw"                 
+[15] "Avg..AP.Multi.line.log.messages"       
+[16] "Avg..AP.Nested.try.block"              
+[17] "Avg..AP.Overcatch.and.Abort"           
+[18] "Avg..AP.Overcatch"                     
+[19] "Avg..AP.Relying.on.getCause.."         
+[20] "Avg..AP.Throw.within.finally"          
+[21] "Avg..AP.Unhandled.exceptions"          
+[22] "Avg..AP.Unreachable.Catch.Handler"     
+[23] "Avg..Potentially.Recoverable"          
+[24] "Avg..Potentially.UnRecoverable"        
+[25] "Avg..Recoverability.Not.Relevant"      
+[26] "AP.Catch.and.do.nothing"               
+[27] "AP.Catch.and.Return.null"              
+[28] "Sum.of.AP.Destructive.Wrapping"        
+[29] "Sum.of.AP.Dummy.Handler"               
+[30] "Sum.of.AP.Generic.Catch"               
+[31] "AP.Ignoring.Interrupted.Exception"     
+[32] "AP.Incomplete.implementation"          
+[33] "Sum.of.AP.Log.and.Return.null"         
+[34] "AP.Log.and.Throw"                      
+[35] "AP.Multi.line.log.messages"            
+[36] "AP.Nested.try.block"                   
+[37] "Sum.of.AP.Overcatch.and.Abort"         
+[38] "Sum.of.AP.Overcatch"                   
+[39] "AP.Relying.on.getCause.."              
+[40] "AP.Throw.within.finally"               
+[41] "Sum.of.AP.Unhandled.exceptions"        
+[42] "Sum.of.AP.Unreachable.Catch.Handler"   
+[43] "Catch.LOC"                             
+[44] "Catch.SLOC"                            
+[45] "Potentially.Recoverable"               
+[46] "Potentially.UnRecoverable"             
+[47] "Recoverability.Not.Relevant"           
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 46"
+[1] "NumberOfMetricsKept: 17"
+[1] "Distinct.count.of.Issue.Key.PRE + Avg.Catch.SLOC + Avg..AP.Catch.and.do.nothing + Avg..AP.Destructive.Wrapping + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Throw.within.finally + Avg..AP.Unhandled.exceptions + Avg..AP.Unreachable.Catch.Handler + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + Sum.of.AP.Log.and.Return.null + AP.Log.and.Throw + AP.Nested.try.block + Potentially.Recoverable"
+ [1] "Distinct.count.of.Issue.Key.POST"      
+ [2] "Distinct.count.of.Issue.Key.PRE"       
+ [3] "Avg.Catch.SLOC"                        
+ [4] "Avg..AP.Catch.and.do.nothing"          
+ [5] "Avg..AP.Destructive.Wrapping"          
+ [6] "Avg..AP.Dummy.Handler"                 
+ [7] "Avg..AP.Generic.Catch"                 
+ [8] "Avg..AP.Ignoring.Interrupted.Exception"
+ [9] "Avg..AP.Multi.line.log.messages"       
+[10] "Avg..AP.Throw.within.finally"          
+[11] "Avg..AP.Unhandled.exceptions"          
+[12] "Avg..AP.Unreachable.Catch.Handler"     
+[13] "Avg..Potentially.UnRecoverable"        
+[14] "Avg..Recoverability.Not.Relevant"      
+[15] "Sum.of.AP.Log.and.Return.null"         
+[16] "AP.Log.and.Throw"                      
+[17] "AP.Nested.try.block"                   
+[18] "Potentially.Recoverable"               
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "Redudant variables: "
+[1] "Final variables: Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + Avg.Catch.SLOC + Avg..AP.Catch.and.do.nothing + Avg..AP.Destructive.Wrapping + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Throw.within.finally + Avg..AP.Unhandled.exceptions + Avg..AP.Unreachable.Catch.Handler + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + Sum.of.AP.Log.and.Return.null + AP.Log.and.Throw + AP.Nested.try.block + Potentially.Recoverable"
+[1] "NumberOfMetricsInitial: 18"
+[1] "NumberOfMetricsKept: 18"
+[1] "------------------------------------Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "Distinct.count.of.Issue.Key.PRE + Avg..AP.Catch.and.do.nothing + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Unhandled.exceptions + Avg..Potentially.UnRecoverable + Sum.of.AP.Log.and.Return.null + AP.Log.and.Throw"
+[1] "NumberOfMetricsInitial: 17 Budget: 10 Over Budget: TRUE NumberOfMetricsKept: 10 CorrelationCutoff: 0.319"
+[1] "NumberOfMetricsInitial: 17 Budget: 10 Over Budget: TRUE NumberOfMetricsKept: 10 CorrelationCutoff: 0.319"
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "Distinct.count.of.Issue.Key.PRE + Avg..AP.Catch.and.do.nothing + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Ignoring.Interrupted.Exception + Avg..AP.Multi.line.log.messages + Avg..AP.Unhandled.exceptions + Avg..Potentially.UnRecoverable + Sum.of.AP.Log.and.Return.null + AP.Log.and.Throw"
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs           161    LR chi2      36.38      R2       0.361    C       0.843    
+ FALSE        138    d.f.            10     R2(10,161)0.151    Dxy     0.686    
+ TRUE          23    Pr(> chi2) <0.0001    R2(10,59.1)0.360    gamma   0.688    
+max |deriv| 0.002                            Brier    0.088    tau-a   0.169    
+
+                                       Coef     S.E.    Wald Z Pr(>|Z|)
+Intercept                               -3.4257  0.8971 -3.82  0.0001  
+Distinct.count.of.Issue.Key.PRE          3.9760  0.8386  4.74  <0.0001 
+Avg..AP.Catch.and.do.nothing             1.5741  6.7277  0.23  0.8150  
+Avg..AP.Dummy.Handler                   -0.0355  2.6573 -0.01  0.9893  
+Avg..AP.Generic.Catch                    1.4913  2.8886  0.52  0.6057  
+Avg..AP.Ignoring.Interrupted.Exception  -2.6575  5.8720 -0.45  0.6509  
+Avg..AP.Multi.line.log.messages         -7.1544 10.1435 -0.71  0.4806  
+Avg..AP.Unhandled.exceptions             0.2235  2.8740  0.08  0.9380  
+Avg..Potentially.UnRecoverable          -8.0459  5.1516 -1.56  0.1183  
+Sum.of.AP.Log.and.Return.null          -16.3097 66.2249 -0.25  0.8055  
+AP.Log.and.Throw                         0.6645  4.8924  0.14  0.8920  
+
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+
+Divergence or singularity in 25 samples
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSAP"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                                 Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE        22.48       1   <.0001
+ Avg..AP.Catch.and.do.nothing            0.05       1   0.8150
+ Avg..AP.Dummy.Handler                   0.00       1   0.9893
+ Avg..AP.Generic.Catch                   0.27       1   0.6057
+ Avg..AP.Ignoring.Interrupted.Exception  0.20       1   0.6509
+ Avg..AP.Multi.line.log.messages         0.50       1   0.4806
+ Avg..AP.Unhandled.exceptions            0.01       1   0.9380
+ Avg..Potentially.UnRecoverable          2.44       1   0.1183
+ Sum.of.AP.Log.and.Return.null           0.06       1   0.8055
+ AP.Log.and.Throw                        0.02       1   0.8920
+ TOTAL                                  23.88      10   0.0079
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSAP Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood     Discrimination    Rank Discrim.    
+                             Ratio Test            Indexes          Indexes    
+Obs           161    LR chi2      30.99     R2       0.313    C       0.800    
+ FALSE        138    d.f.             1     R2(1,161)0.170    Dxy     0.600    
+ TRUE          23    Pr(> chi2) <0.0001    R2(1,59.1)0.398    gamma   0.670    
+max |deriv| 2e-10                           Brier    0.090    tau-a   0.148    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -3.5492 0.5168 -6.87  <0.0001 
+Distinct.count.of.Issue.Key.PRE  3.6463 0.7515  4.85  <0.0001 
+
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSAP Refit - summary"
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSAP Refit - validate"
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSAP Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE 23.54      1    <.0001
+ TOTAL                           23.54      1    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+  Distinct.count.of.Issue.Key.PRE
+1                        2.167702
+[1] "Fixed at Mean: 0.151441552513944"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.165408961268609"
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+ [1] "Distinct.count.of.Issue.Key.POST"           
+ [2] "Distinct.count.of.Issue.Key.PRE"            
+ [3] "X..Try.in.Conditional"                      
+ [4] "X..Try.in.Declaration"                      
+ [5] "X..Try.in.EH.Feature"                       
+ [6] "X..Try.in.Loop"                             
+ [7] "X..Try.in.Other"                            
+ [8] "X..Try"                                     
+ [9] "X..Try.in.Conditional.1"                    
+[10] "X..Try.in.Declaration.1"                    
+[11] "X..Try.in.EH.Feature.1"                     
+[12] "X..Try.in.Loop.1"                           
+[13] "X..Try.in.Other.1"                          
+[14] "Avg.Max.Depth"                              
+[15] "Avg.Try.LOC"                                
+[16] "Avg.Try.SLOC"                               
+[17] "X..Handled.with.Abort"                      
+[18] "X..Handled.with.Continue"                   
+[19] "X..Handled.with.Default"                    
+[20] "X..Handled.with.Empty"                      
+[21] "X..Handled.with.Log"                        
+[22] "X..Handled.with.Method"                     
+[23] "X..Handled.with.Nested.Try"                 
+[24] "X..Handled.with.Return"                     
+[25] "X..Handled.with.Throw.with.New"             
+[26] "X..Handled.with.Throw.without.New"          
+[27] "X..Handled.with.Throw.Wrap"                 
+[28] "X..Handled.with.ToDo"                       
+[29] "X..Possible.Exceptions"                     
+[30] "X..Propagated.and.Potentially.Recoverable"  
+[31] "X..Propagated"                              
+[32] "X..Doc.in.Comment"                          
+[33] "X..External.Doc"                            
+[34] "X..Handled.with.Abort.1"                    
+[35] "X..Handled.with.Continue.1"                 
+[36] "X..Handled.with.Default.1"                  
+[37] "X..Handled.with.Empty.1"                    
+[38] "X..Handled.with.Log.1"                      
+[39] "X..Handled.with.Method.1"                   
+[40] "X..Handled.with.Nested.Try.1"               
+[41] "X..Handled.with.Return.1"                   
+[42] "X..Handled.with.Throw.with.New.1"           
+[43] "X..Handled.with.Throw.without.New.1"        
+[44] "X..Handled.with.Throw.Wrap.1"               
+[45] "X..Handled.with.ToDo.1"                     
+[46] "X..Method.Declaration"                      
+[47] "X..Propagated.and.Potentially.Recoverable.1"
+[48] "X..Propagated.1"                            
+[49] "X..Specific"                                
+[50] "X..Subsumption"                             
+[51] "X..Throw.Statement"                         
+[52] "Avg...Declaring.Methods"                    
+[53] "Avg...Invoked.Method"                       
+[54] "Avg.Depth"                                  
+[55] "Avg.Exc.Type.Prevalence"                    
+[56] "Num.Distinct.Methods"                       
+[57] "Sum.of.Num.Distinct.Methods"                
+[58] "Try.LOC"                                    
+[59] "Try.SLOC"                                   
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 58"
+[1] "NumberOfMetricsKept: 23"
+[1] "Distinct.count.of.Issue.Key.PRE + X..Try.in.Declaration + X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.EH.Feature.1 + X..Try.in.Loop.1 + Avg.Try.LOC + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.without.New + X..Possible.Exceptions + X..Doc.in.Comment + X..Handled.with.Default.1 + X..Handled.with.Log.1 + X..Handled.with.Method.1 + X..Handled.with.Throw.with.New.1 + X..Method.Declaration + X..Propagated.and.Potentially.Recoverable.1 + X..Subsumption + X..Throw.Statement + Avg...Invoked.Method + Avg.Depth + Avg.Exc.Type.Prevalence"
+ [1] "Distinct.count.of.Issue.Key.POST"           
+ [2] "Distinct.count.of.Issue.Key.PRE"            
+ [3] "X..Try.in.Declaration"                      
+ [4] "X..Try.in.Other"                            
+ [5] "X..Try.in.Conditional.1"                    
+ [6] "X..Try.in.EH.Feature.1"                     
+ [7] "X..Try.in.Loop.1"                           
+ [8] "Avg.Try.LOC"                                
+ [9] "X..Handled.with.Empty"                      
+[10] "X..Handled.with.Return"                     
+[11] "X..Handled.with.Throw.without.New"          
+[12] "X..Possible.Exceptions"                     
+[13] "X..Doc.in.Comment"                          
+[14] "X..Handled.with.Default.1"                  
+[15] "X..Handled.with.Log.1"                      
+[16] "X..Handled.with.Method.1"                   
+[17] "X..Handled.with.Throw.with.New.1"           
+[18] "X..Method.Declaration"                      
+[19] "X..Propagated.and.Potentially.Recoverable.1"
+[20] "X..Subsumption"                             
+[21] "X..Throw.Statement"                         
+[22] "Avg...Invoked.Method"                       
+[23] "Avg.Depth"                                  
+[24] "Avg.Exc.Type.Prevalence"                    
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "Redudant variables: "
+[1] "Final variables: Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + X..Try.in.Declaration + X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.EH.Feature.1 + X..Try.in.Loop.1 + Avg.Try.LOC + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.without.New + X..Possible.Exceptions + X..Doc.in.Comment + X..Handled.with.Default.1 + X..Handled.with.Log.1 + X..Handled.with.Method.1 + X..Handled.with.Throw.with.New.1 + X..Method.Declaration + X..Propagated.and.Potentially.Recoverable.1 + X..Subsumption + X..Throw.Statement + Avg...Invoked.Method + Avg.Depth + Avg.Exc.Type.Prevalence"
+[1] "NumberOfMetricsInitial: 24"
+[1] "NumberOfMetricsKept: 24"
+[1] "------------------------------------Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.Loop.1 + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.without.New + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Method.Declaration + Avg.Exc.Type.Prevalence"
+[1] "NumberOfMetricsInitial: 23 Budget: 10 Over Budget: TRUE NumberOfMetricsKept: 10 CorrelationCutoff: 0.24"
+[1] "Significant missing: Distinct.count.of.Issue.Key.PRE"
+[1] "Check varclus!:"
+[1] "Significant ------ STILL ------ missing: Distinct.count.of.Issue.Key.PRE"
+[1] "X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.Loop.1 + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.without.New + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Method.Declaration + Avg.Exc.Type.Prevalence"
+[1] "X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.Loop.1 + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.without.New + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Method.Declaration + Avg.Exc.Type.Prevalence"
+[1] "Significant ------ STILL ------ missing: Distinct.count.of.Issue.Key.PRE"
+[1] "Distinct.count.of.Issue.Key.POST + X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.Loop.1 + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.without.New + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Method.Declaration + Avg.Exc.Type.Prevalence"
+[1] "NumberOfMetricsInitial: 23 Budget: 10 Over Budget: TRUE NumberOfMetricsKept: 10 CorrelationCutoff: 0.24"
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+[1] "X..Try.in.Other + X..Try.in.Conditional.1 + X..Try.in.Loop.1 + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.without.New + X..Handled.with.Default.1 + X..Handled.with.Method.1 + X..Method.Declaration + Avg.Exc.Type.Prevalence"
+[1] "Project: zookeeper-release-3.6.0 Name: CAT.BASE"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                      Model Likelihood      Discrimination    Rank Discrim.    
+                            Ratio Test             Indexes          Indexes    
+Obs           161    LR chi2     13.70      R2       0.146    C       0.747    
+ FALSE        138    d.f.           10     R2(10,161)0.023    Dxy     0.493    
+ TRUE          23    Pr(> chi2) 0.1873    R2(10,59.1)0.061    gamma   0.494    
+max |deriv| 8e-14                           Brier    0.111    tau-a   0.122    
+
+                                  Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                         -1.2630 2.1360 -0.59  0.5543  
+X..Try.in.Other                    4.0463 2.7976  1.45  0.1481  
+X..Try.in.Conditional.1            2.1601 2.5120  0.86  0.3898  
+X..Try.in.Loop.1                   8.2381 3.2683  2.52  0.0117  
+X..Handled.with.Empty              0.5675 5.7274  0.10  0.9211  
+X..Handled.with.Return             0.6595 2.9099  0.23  0.8207  
+X..Handled.with.Throw.without.New  3.5744 1.6439  2.17  0.0297  
+X..Handled.with.Default.1         -2.2247 5.3731 -0.41  0.6788  
+X..Handled.with.Method.1           0.4311 2.4795  0.17  0.8620  
+X..Method.Declaration             -0.9103 5.7928 -0.16  0.8751  
+Avg.Exc.Type.Prevalence           -0.5397 0.6435 -0.84  0.4017  
+
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Try.in.Other 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Try.in.Other 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Try.in.Other 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Try.in.Other 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Try.in.Other 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Try.in.Other 
+singular information matrix in lrm.fit (rank= 10 ).  Offending variable(s):
+X..Try.in.Other 
+
+Divergence or singularity in 11 samples
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSFC"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                            Chi-Square d.f. P     
+ X..Try.in.Other                    2.09       1   0.1481
+ X..Try.in.Conditional.1            0.74       1   0.3898
+ X..Try.in.Loop.1                   6.35       1   0.0117
+ X..Handled.with.Empty              0.01       1   0.9211
+ X..Handled.with.Return             0.05       1   0.8207
+ X..Handled.with.Throw.without.New  4.73       1   0.0297
+ X..Handled.with.Default.1          0.17       1   0.6788
+ X..Handled.with.Method.1           0.03       1   0.8620
+ X..Method.Declaration              0.02       1   0.8751
+ Avg.Exc.Type.Prevalence            0.70       1   0.4017
+ TOTAL                             13.29      10   0.2077
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSFC Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                      Model Likelihood     Discrimination    Rank Discrim.    
+                            Ratio Test            Indexes          Indexes    
+Obs           161    LR chi2      9.64     R2       0.104    C       0.707    
+ FALSE        138    d.f.            2     R2(2,161)0.046    Dxy     0.415    
+ TRUE          23    Pr(> chi2) 0.0081    R2(2,59.1)0.121    gamma   0.599    
+max |deriv| 1e-13                          Brier    0.115    tau-a   0.102    
+
+                                  Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                         -2.2038 0.2875 -7.67  <0.0001 
+X..Try.in.Loop.1                   6.9567 2.9262  2.38  0.0174  
+X..Handled.with.Throw.without.New  3.7573 1.6395  2.29  0.0219  
+
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSFC Refit - summary"
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSFC Refit - validate"
+[1] "project:  zookeeper-release-3.6.0 model:  CAT.BSFC Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                            Chi-Square d.f. P     
+ X..Try.in.Loop.1                  5.65       1    0.0174
+ X..Handled.with.Throw.without.New 5.25       1    0.0219
+ TOTAL                             9.68       2    0.0079
+[1] "X..Try.in.Loop.1"
+[1] "X..Handled.with.Throw.without.New"
+  X..Try.in.Loop.1 X..Handled.with.Throw.without.New
+1       0.07307556                         0.1309294
+[1] "Fixed at Mean: 0.143077198152507"
+[1] "X..Try.in.Loop.1  Coef at Mean + 10%: 0.145609640209602"
+[1] "X..Handled.with.Throw.without.New  Coef at Mean + 10%: 0.145395529471962"
+null device 
+          1 
+
+Elapsed: 1.171229 mins 
+[1] TRUE
+DONE

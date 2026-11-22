@@ -38,8 +38,9 @@ All contexts side by side: [`results/contexts_summary.md`](results/contexts_summ
 * **Validity check (analyzer non-determinism):** over 10 JTratch runs per ZooKeeper release, only 6 flow metrics
   change; catch/anti-pattern metrics never do. BSFC is stable on 2 of 3 releases and swings 0.041–0.458 on
   ZooKeeper 3.6.0. → `results/new/*/variance/variance.md`
-* **Defect-link validation:** rating packets for 131 links and two independent sheets are ready
-  ([`docs/VALIDATION_GUIDE.md`](docs/VALIDATION_GUIDE.md)); ratings pending.
+* **Label-noise check (V2):** every issue–commit link is screened by four strict rules (revert, merge, tangled,
+  off-line fix version) and the models are refit on the strict labels. → `results/new/*/strict/`,
+  [`results/contexts_summary.md`](results/contexts_summary.md)
 * **Dashboard:** paste any public Java repository URL; the page runs the whole pipeline and shows data, models, ML
   and SHAP. → [`dashboard/README.md`](dashboard/README.md)
 
@@ -79,7 +80,7 @@ for s in clone_repo run_analyzers; do ./envrun.sh python src/collect/$s.py hiber
 ./envrun.sh python src/ml/train_eval.py --from-folds
 ./envrun.sh python -W ignore src/collect/analyzer_variance.py zookeeper-release-3.6.0 --runs 10
 ./envrun.sh Rscript src/reproduce/run_original.R fixed --force-sig --input data/new/zookeeper-release-3.6.0/input --out results/new/zookeeper-release-3.6.0
-./envrun.sh python src/collect/validation_packet.py && ./envrun.sh python src/collect/validation_agreement.py
+./envrun.sh python -W ignore src/collect/strict_labels.py zookeeper-release-3.6.0
 ./envrun.sh python src/reproduce/context_summary.py
 
 # Dashboard: paste a repository link, get the full pipeline's results (see dashboard/README.md)
@@ -109,7 +110,7 @@ src/
                context_summary.py (all contexts: tables + figures)
   collect/     targets.json, clone_repo, process_metrics, defect_mining, traditional_metrics, run_analyzers,
                aggregate_jtratch (rule re-implementation), build_dataset, validate_against_original, history (git/Jira),
-               analyzer_variance (T10), validation_packet + validation_agreement (defect-link validation)
+               analyzer_variance (T10), strict_labels (label-noise check V2)
   model/       (Phase 2 uses src/reproduce/run_original.R --input; see src/model/README.md)
   ml/          common.py (data + feature groups), train_eval.py (RQ3)
   explain/     shap_analysis.py (RQ4)

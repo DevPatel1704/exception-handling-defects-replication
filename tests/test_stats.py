@@ -1,4 +1,4 @@
-"""Offline checks of the statistics added for Milestone 3 against reference implementations."""
+"""Offline checks of the statistics and rules added for Milestone 3 against reference values."""
 import sys
 import unittest
 from pathlib import Path
@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src" / "ml"))
 sys.path.insert(0, str(ROOT / "src" / "collect"))
 
+from strict_labels import release_line  # noqa: E402
 from train_eval import holm  # noqa: E402
-from validation_agreement import cohen_kappa, wilson  # noqa: E402
 
 
 class HolmTest(unittest.TestCase):
@@ -28,22 +28,17 @@ class HolmTest(unittest.TestCase):
         self.assertGreaterEqual(h.iloc[0], h.iloc[2])
 
 
-class AgreementTest(unittest.TestCase):
-    def test_kappa_matches_sklearn(self):
-        from sklearn.metrics import cohen_kappa_score
-        rng = np.random.default_rng(1)
-        a = pd.Series(rng.choice(["yes", "no", "unsure"], 60, p=[.7, .2, .1]))
-        b = a.where(rng.random(60) > 0.25, pd.Series(rng.choice(["yes", "no"], 60)))
-        self.assertAlmostEqual(cohen_kappa(a, b), cohen_kappa_score(a, b), places=10)
+class StrictLabelRulesTest(unittest.TestCase):
+    def test_release_line_from_tags(self):
+        self.assertEqual(release_line("release-3.6.0"), "3.6.")
+        self.assertEqual(release_line("5.1.0"), "5.1.")
+        self.assertEqual(release_line("rel/release-2.7.7"), "2.7.")
 
-    def test_perfect_agreement(self):
-        a = pd.Series(["yes", "no", "yes", "unsure"])
-        self.assertAlmostEqual(cohen_kappa(a, a), 1.0)
-
-    def test_wilson_reference(self):
-        lo, hi = wilson(34, 40)          # reference: 0.7091, 0.9293
-        self.assertAlmostEqual(lo, 0.709, places=3)
-        self.assertAlmostEqual(hi, 0.929, places=3)
+    def test_release_line_does_not_match_other_lines(self):
+        line = release_line("release-3.6.0")
+        self.assertTrue("3.6.4".startswith(line))
+        self.assertFalse("3.61.0".startswith(line))
+        self.assertFalse("3.7.0".startswith(line))
 
 
 if __name__ == "__main__":

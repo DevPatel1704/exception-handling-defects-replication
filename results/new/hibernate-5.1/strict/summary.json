@@ -1,0 +1,16 @@
+{
+ "target": "hibernate-5.1",
+ "links": 226,
+ "strict_links": 195,
+ "dropped": {
+  "r1_revert": 3,
+  "r2_merge": 0,
+  "r3_tangled": 24,
+  "r4_off_line": 7
+ },
+ "issues": 182,
+ "strict_issues": 166,
+ "defective_files": 284,
+ "defective_files_strict": 250,
+ "files_relabelled_clean": 34
+}

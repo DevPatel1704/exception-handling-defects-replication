@@ -1,0 +1,1107 @@
+
+
+######## RUNNING 0-DataSourcesAnalysis.Rmd ########
+
+Attaching package: 'e1071'
+
+The following object is masked from 'package:Hmisc':
+
+    impute
+
+[1] "DataSource, NumberFiles, NumberMetrics"
+[1] "VCS_ITS, 3475 , 8"
+[1] "Understand, 3475 , 19"
+[1] "Throws, 829 , 7"
+[1] "Catch, 467 , 47"
+[1] "Try, 404 , 59"
+[1] "hibernate-5.1 ,DataSource, NumberFiles, NumberMetrics"
+[1] "hibernate-5.1 ,VCS_ITS, 3475 , 8"
+[1] "hibernate-5.1 ,Understand, 3475 , 19"
+[1] "hibernate-5.1 ,Throws, 829 , 7"
+[1] "hibernate-5.1 ,Catch, 467 , 47"
+[1] "hibernate-5.1 ,Try, 404 , 59"
+[1] "Project: hibernate-5.1"
+[1] "MissingData: Small fraction found: Single imputation or discard. Discard is chosen. Discarded rows: 63 / 3475"
+
+
+######## RUNNING 1-Model_Construction.Rmd ########
+[1] "Project: hibernate-5.1"
+[1] "nrow: 3412 ncol: 132"
+[1] "Project: hibernate-5.1 D.F. Budget: 227"
+[1] "Project: hibernate-5.1 skewness, 6.26603095397445"
+[1] "Project: hibernate-5.1 kurtosis, 52.3820808456451"
+[1] "Project: hibernate-5.1"
+[1] 3412
+ [1] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [3] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [5] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [7] "AvgCyclomatic"                      "AvgLineCode"                       
+ [9] "CountDeclClass"                     "CountDeclFunction"                 
+[11] "CountLineBlank"                     "CountLineCode"                     
+[13] "CountLineComment"                   "CountLine"                         
+[15] "CountSemicolon"                     "File"                              
+[17] "Kind"                               "MaxCyclomatic"                     
+[19] "Name"                               "Number.of.Records"                 
+[21] "RatioCommentToCode"                 "SumCyclomatic"                     
+[23] "Table.Name"                        
+[1] "Project: hibernate-5.1"
+[1] "NumberOfMetricsInitial: 18"
+[1] "NumberOfMetricsKept: 5"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment"
+[1] "Project: hibernate-5.1"
+[1] "Redudant variables: "
+[1] "Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment + File + Kind + Name + Table.Name"
+[1] "Project: hibernate-5.1"
+[1] "NumberOfMetricsInitial: 5 Budget: 227 Over Budget: FALSE NumberOfMetricsKept: 5 CorrelationCutoff: 0.7"
+[1] "Project: hibernate-5.1"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgCyclomatic + CountDeclClass + CountLineComment"
+[1] "Project: hibernate-5.1"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs          3412    LR chi2     265.72      R2       0.190    C       0.794    
+ FALSE       3177    d.f.             5     R2(5,3412)0.074    Dxy     0.587    
+ TRUE         235    Pr(> chi2) <0.0001    R2(5,656.4)0.328    gamma   0.588    
+max |deriv| 5e-07                            Brier    0.057    tau-a   0.075    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -5.1993 0.4091 -12.71 <0.0001 
+Distinct.count.of.Issue.Key.PRE  1.2291 0.5335   2.30 0.0212  
+Churn.PRE                        0.8054 0.1064   7.57 <0.0001 
+AvgCyclomatic                    2.4325 0.3251   7.48 <0.0001 
+CountDeclClass                   0.3546 0.9731   0.36 0.7155  
+CountLineComment                 0.8364 0.1927   4.34 <0.0001 
+
+[1] "Project: hibernate-5.1"
+ [1] "File.Path"                          "Project"                           
+ [3] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [5] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [7] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [9] "AvgCyclomatic"                      "AvgLineCode"                       
+[11] "CountDeclClass"                     "CountDeclFunction"                 
+[13] "CountLineBlank"                     "CountLineCode"                     
+[15] "CountLineComment"                   "CountLine"                         
+[17] "CountSemicolon"                     "File"                              
+[19] "Kind"                               "MaxCyclomatic"                     
+[21] "Name"                               "Number.of.Records"                 
+[23] "RatioCommentToCode"                 "SumCyclomatic"                     
+[25] "Table.Name"                         "X..Throws"                         
+[27] "X..Catch"                          
+[1] "Project: hibernate-5.1"
+[1] "NumberOfMetricsInitial: 20"
+[1] "NumberOfMetricsKept: 7"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountLineComment + X..Throws + X..Catch"
+[1] "Project: hibernate-5.1"
+[1] "Redudant variables: "
+[1] "File.Path + Project + Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountLineComment + File + Kind + Name + Table.Name + X..Throws + X..Catch"
+[1] "Project: hibernate-5.1"
+[1] "NumberOfMetricsInitial: 7 Budget: 227 Over Budget: FALSE NumberOfMetricsKept: 7 CorrelationCutoff: 0.7"
+[1] "Project: hibernate-5.1"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountLineComment + X..Throws + X..Catch"
+[1] "Project: hibernate-5.1"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs          3412    LR chi2     299.33      R2       0.213    C       0.806    
+ FALSE       3177    d.f.             7     R2(7,3412)0.082    Dxy     0.613    
+ TRUE         235    Pr(> chi2) <0.0001    R2(7,656.4)0.359    gamma   0.613    
+max |deriv| 1e-13                            Brier    0.056    tau-a   0.079    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -5.2811 0.4397 -12.01 <0.0001 
+Distinct.count.of.Issue.Key.PRE  1.1510 0.5543   2.08 0.0378  
+Churn.PRE                        0.7410 0.1081   6.85 <0.0001 
+AvgLineCode                      1.3928 0.2055   6.78 <0.0001 
+CountDeclClass                   0.4121 1.0088   0.41 0.6829  
+CountLineComment                 0.6946 0.2118   3.28 0.0010  
+X..Throws                        0.0740 0.2309   0.32 0.7485  
+X..Catch                         0.9270 0.2673   3.47 0.0005  
+
+[1] "project:  hibernate-5.1 model:  ALL.BASE"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE   5.31     1    0.0212
+ Churn.PRE                        57.33     1    <.0001
+ AvgCyclomatic                    56.00     1    <.0001
+ CountDeclClass                    0.13     1    0.7155
+ CountLineComment                 18.84     1    <.0001
+ TOTAL                           249.04     5    <.0001
+[1] "project:  hibernate-5.1 model:  ALL.BSEH"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE   4.31     1    0.0378
+ Churn.PRE                        46.97     1    <.0001
+ AvgLineCode                      45.93     1    <.0001
+ CountDeclClass                    0.17     1    0.6829
+ CountLineComment                 10.75     1    0.0010
+ X..Throws                         0.10     1    0.7485
+ X..Catch                         12.03     1    0.0005
+ TOTAL                           264.10     7    <.0001
+[1] "project:  hibernate-5.1 model:  ALL.BASE Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs          3412    LR chi2     265.59      R2       0.190    C       0.793    
+ FALSE       3177    d.f.             4     R2(4,3412)0.074    Dxy     0.586    
+ TRUE         235    Pr(> chi2) <0.0001    R2(4,656.4)0.329    gamma   0.587    
+max |deriv| 4e-07                            Brier    0.057    tau-a   0.075    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -5.0990 0.3013 -16.92 <0.0001 
+Distinct.count.of.Issue.Key.PRE  1.2244 0.5336   2.29 0.0217  
+Churn.PRE                        0.8089 0.1060   7.63 <0.0001 
+AvgCyclomatic                    2.4404 0.3241   7.53 <0.0001 
+CountLineComment                 0.8405 0.1924   4.37 <0.0001 
+
+[1] "project:  hibernate-5.1 model:  ALL.BASE Refit - summary"
+[1] "project:  hibernate-5.1 model:  ALL.BASE Refit - validate"
+[1] "project:  hibernate-5.1 model:  ALL.BASE Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE   5.27     1    0.0217
+ Churn.PRE                        58.27     1    <.0001
+ AvgCyclomatic                    56.69     1    <.0001
+ CountLineComment                 19.08     1    <.0001
+ TOTAL                           249.16     4    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+[1] "Churn.PRE"
+[1] "AvgCyclomatic"
+[1] "CountLineComment"
+  Distinct.count.of.Issue.Key.PRE Churn.PRE AvgCyclomatic CountLineComment
+1                       0.1060961   9.16061        1.2532         30.08148
+[1] "Fixed at Mean: 0.107597778420357"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.108086189560725"
+[1] "Churn.PRE  Coef at Mean + 10%: 0.110544548308907"
+[1] "AvgCyclomatic  Coef at Mean + 10%: 0.113231444467502"
+[1] "CountLineComment  Coef at Mean + 10%: 0.110878669715003"
+[1] "project:  hibernate-5.1 model:  ALL.BSEH Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs          3412    LR chi2     299.07      R2       0.213    C       0.806    
+ FALSE       3177    d.f.             5     R2(5,3412)0.083    Dxy     0.611    
+ TRUE         235    Pr(> chi2) <0.0001    R2(5,656.4)0.361    gamma   0.612    
+max |deriv| 1e-13                            Brier    0.056    tau-a   0.078    
+
+                                Coef    S.E.   Wald Z Pr(>|Z|)
+Intercept                       -5.1815 0.3304 -15.68 <0.0001 
+Distinct.count.of.Issue.Key.PRE  1.1812 0.5433   2.17 0.0297  
+Churn.PRE                        0.7482 0.1072   6.98 <0.0001 
+AvgLineCode                      1.3985 0.2045   6.84 <0.0001 
+CountLineComment                 0.7180 0.2033   3.53 0.0004  
+X..Catch                         0.9367 0.2635   3.56 0.0004  
+
+[1] "project:  hibernate-5.1 model:  ALL.BSEH Refit - summary"
+[1] "project:  hibernate-5.1 model:  ALL.BSEH Refit - validate"
+[1] "project:  hibernate-5.1 model:  ALL.BSEH Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE   4.73     1    0.0297
+ Churn.PRE                        48.70     1    <.0001
+ AvgLineCode                      46.78     1    <.0001
+ CountLineComment                 12.47     1    0.0004
+ X..Catch                         12.64     1    0.0004
+ TOTAL                           264.65     5    <.0001
+[1] "Distinct.count.of.Issue.Key.PRE"
+[1] "Churn.PRE"
+[1] "AvgLineCode"
+[1] "CountLineComment"
+[1] "X..Catch"
+  Distinct.count.of.Issue.Key.PRE Churn.PRE AvgLineCode CountLineComment
+1                       0.1060961   9.16061    5.407848         30.08148
+   X..Catch
+1 0.3912661
+[1] "Fixed at Mean: 0.1148426346162"
+[1] "Distinct.count.of.Issue.Key.PRE  Coef at Mean + 10%: 0.11534138560614"
+[1] "Churn.PRE  Coef at Mean + 10%: 0.117725104896834"
+[1] "AvgLineCode  Coef at Mean + 10%: 0.119940468131125"
+[1] "CountLineComment  Coef at Mean + 10%: 0.117803644865392"
+[1] "X..Catch  Coef at Mean + 10%: 0.115994603826051"
+[1] "Project: hibernate-5.1"
+[1] "nrow: 3412 ncol: 132"
+[1] "nrow: 404 ncol: 132"
+[1] "nrow: 404 ncol: 125"
+[1] "Project: hibernate-5.1 D.F. Budget: 26"
+[1] "Project: hibernate-5.1 skewness, 3.2271422404039"
+[1] "Project: hibernate-5.1 kurtosis, 12.3819716455516"
+[1] "Project: hibernate-5.1"
+ [1] "fileSize"                           "Distinct.count.of.Author.Email.PRE"
+ [3] "Distinct.count.of.Commit.Hash.PRE"  "Distinct.count.of.Issue.Key.POST"  
+ [5] "Distinct.count.of.Issue.Key.PRE"    "Churn.PRE"                         
+ [7] "AvgCyclomatic"                      "AvgLineCode"                       
+ [9] "CountDeclClass"                     "CountDeclFunction"                 
+[11] "CountLineBlank"                     "CountLineCode"                     
+[13] "CountLineComment"                   "CountLine"                         
+[15] "CountSemicolon"                     "File"                              
+[17] "Kind"                               "MaxCyclomatic"                     
+[19] "Name"                               "Number.of.Records"                 
+[21] "RatioCommentToCode"                 "SumCyclomatic"                     
+[23] "Table.Name"                        
+[1] "Project: hibernate-5.1"
+[1] "NumberOfMetricsInitial: 18"
+[1] "NumberOfMetricsKept: 8"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountDeclFunction + CountLineComment + MaxCyclomatic + RatioCommentToCode"
+[1] "Project: hibernate-5.1"
+[1] "Redudant variables: "
+[1] "Distinct.count.of.Issue.Key.POST + Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountDeclFunction + CountLineComment + File + Kind + MaxCyclomatic + Name + RatioCommentToCode + Table.Name"
+[1] "Project: hibernate-5.1"
+[1] "NumberOfMetricsInitial: 8 Budget: 26 Over Budget: FALSE NumberOfMetricsKept: 8 CorrelationCutoff: 0.7"
+[1] "Project: hibernate-5.1"
+[1] "Distinct.count.of.Issue.Key.PRE + Churn.PRE + AvgLineCode + CountDeclClass + CountDeclFunction + CountLineComment + MaxCyclomatic + RatioCommentToCode"
+[1] "Project: hibernate-5.1"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs           404    LR chi2      69.70      R2       0.247    C       0.774    
+ FALSE        320    d.f.             8      R2(8,404)0.142    Dxy     0.549    
+ TRUE          84    Pr(> chi2) <0.0001    R2(8,199.6)0.266    gamma   0.549    
+max |deriv| 8e-10                            Brier    0.135    tau-a   0.181    
+
+                                Coef     S.E.   Wald Z Pr(>|Z|)
+Intercept                        -2.2587 1.8089 -1.25  0.2118  
+Distinct.count.of.Issue.Key.PRE   0.7673 0.8838  0.87  0.3853  
+Churn.PRE                         0.5223 0.1807  2.89  0.0038  
+AvgLineCode                       0.8415 1.4782  0.57  0.5692  
+CountDeclClass                   -4.6001 2.4913 -1.85  0.0648  
+CountDeclFunction                 0.3978 1.2076  0.33  0.7419  
+CountLineComment                  1.3440 1.2896  1.04  0.2973  
+MaxCyclomatic                    -0.6252 0.7601 -0.82  0.4108  
+RatioCommentToCode              -10.6279 6.7344 -1.58  0.1145  
+
+[1] "project:  hibernate-5.1 model:  CAT.BASE"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                          Chi-Square d.f. P     
+ Distinct.count.of.Issue.Key.PRE  0.75      1    0.3853
+ Churn.PRE                        8.36      1    0.0038
+ AvgLineCode                      0.32      1    0.5692
+ CountDeclClass                   3.41      1    0.0648
+ CountDeclFunction                0.11      1    0.7419
+ CountLineComment                 1.09      1    0.2973
+ MaxCyclomatic                    0.68      1    0.4108
+ RatioCommentToCode               2.49      1    0.1145
+ TOTAL                           53.41      8    <.0001
+[1] "project:  hibernate-5.1 model:  CAT.BASE Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs           404    LR chi2      63.69      R2       0.228    C       0.755    
+ FALSE        320    d.f.             3      R2(3,404)0.139    Dxy     0.510    
+ TRUE          84    Pr(> chi2) <0.0001    R2(3,199.6)0.262    gamma   0.510    
+max |deriv| 5e-11                            Brier    0.136    tau-a   0.168    
+
+                   Coef     S.E.   Wald Z Pr(>|Z|)
+Intercept           -3.1772 0.5666 -5.61  <0.0001 
+Churn.PRE            0.5319 0.1563  3.40  0.0007  
+CountLineComment     1.6171 0.4085  3.96  <0.0001 
+RatioCommentToCode -11.7253 2.8971 -4.05  <0.0001 
+
+[1] "project:  hibernate-5.1 model:  CAT.BASE Refit - summary"
+[1] "project:  hibernate-5.1 model:  CAT.BASE Refit - validate"
+[1] "project:  hibernate-5.1 model:  CAT.BASE Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor             Chi-Square d.f. P     
+ Churn.PRE          11.58      1    7e-04 
+ CountLineComment   15.67      1    1e-04 
+ RatioCommentToCode 16.38      1    1e-04 
+ TOTAL              51.17      3    <.0001
+[1] "Churn.PRE"
+[1] "CountLineComment"
+[1] "RatioCommentToCode"
+  Churn.PRE CountLineComment RatioCommentToCode
+1        32         46.97525          0.2657637
+[1] "Fixed at Mean: 0.299164376863931"
+[1] "Churn.PRE  Coef at Mean + 10%: 0.303666003620452"
+[1] "CountLineComment  Coef at Mean + 10%: 0.313097670698207"
+[1] "RatioCommentToCode  Coef at Mean + 10%: 0.277460946009425"
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+ [1] "Distinct.count.of.Issue.Key.POST"      
+ [2] "Churn.PRE"                             
+ [3] "CountLineComment"                      
+ [4] "RatioCommentToCode"                    
+ [5] "X..Catch"                              
+ [6] "Avg.Catch.LOC"                         
+ [7] "Avg.Catch.SLOC"                        
+ [8] "Avg..AP.Catch.and.do.nothing"          
+ [9] "Avg..AP.Catch.and.Return.null"         
+[10] "Avg..AP.Destructive.Wrapping"          
+[11] "Avg..AP.Dummy.Handler"                 
+[12] "Avg..AP.Generic.Catch"                 
+[13] "Avg..AP.Ignoring.Interrupted.Exception"
+[14] "Avg..AP.Incomplete.implementation"     
+[15] "Avg..AP.Log.and.Return.null"           
+[16] "Avg..AP.Log.and.Throw"                 
+[17] "Avg..AP.Multi.line.log.messages"       
+[18] "Avg..AP.Nested.try.block"              
+[19] "Avg..AP.Overcatch.and.Abort"           
+[20] "Avg..AP.Overcatch"                     
+[21] "Avg..AP.Relying.on.getCause.."         
+[22] "Avg..AP.Throw.within.finally"          
+[23] "Avg..AP.Unhandled.exceptions"          
+[24] "Avg..AP.Unreachable.Catch.Handler"     
+[25] "Avg..Potentially.Recoverable"          
+[26] "Avg..Potentially.UnRecoverable"        
+[27] "Avg..Recoverability.Not.Relevant"      
+[28] "AP.Catch.and.do.nothing"               
+[29] "AP.Catch.and.Return.null"              
+[30] "Sum.of.AP.Destructive.Wrapping"        
+[31] "Sum.of.AP.Dummy.Handler"               
+[32] "Sum.of.AP.Generic.Catch"               
+[33] "AP.Ignoring.Interrupted.Exception"     
+[34] "AP.Incomplete.implementation"          
+[35] "Sum.of.AP.Log.and.Return.null"         
+[36] "AP.Log.and.Throw"                      
+[37] "AP.Multi.line.log.messages"            
+[38] "AP.Nested.try.block"                   
+[39] "Sum.of.AP.Overcatch.and.Abort"         
+[40] "Sum.of.AP.Overcatch"                   
+[41] "AP.Relying.on.getCause.."              
+[42] "AP.Throw.within.finally"               
+[43] "Sum.of.AP.Unhandled.exceptions"        
+[44] "Sum.of.AP.Unreachable.Catch.Handler"   
+[45] "Catch.LOC"                             
+[46] "Catch.SLOC"                            
+[47] "Potentially.Recoverable"               
+[48] "Potentially.UnRecoverable"             
+[49] "Recoverability.Not.Relevant"           
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 48"
+[1] "NumberOfMetricsKept: 21"
+[1] "Churn.PRE + CountLineComment + RatioCommentToCode + Avg.Catch.LOC + Avg.Catch.SLOC + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Destructive.Wrapping + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Nested.try.block + Avg..AP.Throw.within.finally + Avg..AP.Unhandled.exceptions + Avg..AP.Unreachable.Catch.Handler + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + Sum.of.AP.Log.and.Return.null + AP.Log.and.Throw + AP.Relying.on.getCause.. + Catch.SLOC + Potentially.Recoverable"
+ [1] "Distinct.count.of.Issue.Key.POST"  "Churn.PRE"                        
+ [3] "CountLineComment"                  "RatioCommentToCode"               
+ [5] "Avg.Catch.LOC"                     "Avg.Catch.SLOC"                   
+ [7] "Avg..AP.Catch.and.do.nothing"      "Avg..AP.Catch.and.Return.null"    
+ [9] "Avg..AP.Destructive.Wrapping"      "Avg..AP.Dummy.Handler"            
+[11] "Avg..AP.Generic.Catch"             "Avg..AP.Nested.try.block"         
+[13] "Avg..AP.Throw.within.finally"      "Avg..AP.Unhandled.exceptions"     
+[15] "Avg..AP.Unreachable.Catch.Handler" "Avg..Potentially.UnRecoverable"   
+[17] "Avg..Recoverability.Not.Relevant"  "Sum.of.AP.Log.and.Return.null"    
+[19] "AP.Log.and.Throw"                  "AP.Relying.on.getCause.."         
+[21] "Catch.SLOC"                        "Potentially.Recoverable"          
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+[1] "Redudant variables: "
+[1] "Final variables: Distinct.count.of.Issue.Key.POST + Churn.PRE + CountLineComment + RatioCommentToCode + Avg.Catch.LOC + Avg.Catch.SLOC + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Destructive.Wrapping + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Nested.try.block + Avg..AP.Throw.within.finally + Avg..AP.Unhandled.exceptions + Avg..AP.Unreachable.Catch.Handler + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + Sum.of.AP.Log.and.Return.null + AP.Log.and.Throw + AP.Relying.on.getCause.. + Catch.SLOC + Potentially.Recoverable"
+[1] "NumberOfMetricsInitial: 22"
+[1] "NumberOfMetricsKept: 22"
+[1] "------------------------------------Project: hibernate-5.1 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 21 Budget: 26 Over Budget: FALSE NumberOfMetricsKept: 21 CorrelationCutoff: 0.7"
+[1] "NumberOfMetricsInitial: 21 Budget: 26 Over Budget: FALSE NumberOfMetricsKept: 21 CorrelationCutoff: 0.7"
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+[1] "Churn.PRE + CountLineComment + RatioCommentToCode + Avg.Catch.LOC + Avg.Catch.SLOC + Avg..AP.Catch.and.do.nothing + Avg..AP.Catch.and.Return.null + Avg..AP.Destructive.Wrapping + Avg..AP.Dummy.Handler + Avg..AP.Generic.Catch + Avg..AP.Nested.try.block + Avg..AP.Throw.within.finally + Avg..AP.Unhandled.exceptions + Avg..AP.Unreachable.Catch.Handler + Avg..Potentially.UnRecoverable + Avg..Recoverability.Not.Relevant + Sum.of.AP.Log.and.Return.null + AP.Log.and.Throw + AP.Relying.on.getCause.. + Catch.SLOC + Potentially.Recoverable"
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood       Discrimination    Rank Discrim.    
+                             Ratio Test              Indexes          Indexes    
+Obs           404    LR chi2      97.90       R2       0.336    C       0.813    
+ FALSE        320    d.f.            21      R2(21,404)0.173    Dxy     0.626    
+ TRUE          84    Pr(> chi2) <0.0001    R2(21,199.6)0.320    gamma   0.626    
+max |deriv| 2e-07                             Brier    0.121    tau-a   0.207    
+
+                                  Coef     S.E.   Wald Z Pr(>|Z|)
+Intercept                          -3.4314 1.3165 -2.61  0.0091  
+Churn.PRE                           0.6513 0.1760  3.70  0.0002  
+CountLineComment                    1.8161 0.5262  3.45  0.0006  
+RatioCommentToCode                -13.4668 3.5226 -3.82  0.0001  
+Avg.Catch.LOC                      -0.5774 1.5123 -0.38  0.7026  
+Avg.Catch.SLOC                      0.4549 1.8822  0.24  0.8090  
+Avg..AP.Catch.and.do.nothing        3.1734 2.7227  1.17  0.2438  
+Avg..AP.Catch.and.Return.null       3.0145 3.1763  0.95  0.3426  
+Avg..AP.Destructive.Wrapping        0.4944 1.3405  0.37  0.7122  
+Avg..AP.Dummy.Handler               4.2015 2.5624  1.64  0.1011  
+Avg..AP.Generic.Catch              -2.2961 1.5389 -1.49  0.1357  
+Avg..AP.Nested.try.block           -1.8391 3.2793 -0.56  0.5749  
+Avg..AP.Throw.within.finally       -9.0556 4.9472 -1.83  0.0672  
+Avg..AP.Unhandled.exceptions        3.1640 1.3274  2.38  0.0171  
+Avg..AP.Unreachable.Catch.Handler   1.0205 1.9551  0.52  0.6017  
+Avg..Potentially.UnRecoverable     -4.6576 2.6227 -1.78  0.0758  
+Avg..Recoverability.Not.Relevant   -1.8649 2.7949 -0.67  0.5046  
+Sum.of.AP.Log.and.Return.null      -0.0536 2.9919 -0.02  0.9857  
+AP.Log.and.Throw                    0.5316 8.4309  0.06  0.9497  
+AP.Relying.on.getCause..            9.6876 4.5044  2.15  0.0315  
+Catch.SLOC                          0.7869 0.9848  0.80  0.4243  
+Potentially.Recoverable            -0.4810 1.1758 -0.41  0.6825  
+
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 20 ).  Offending variable(s):
+AP.Relying.on.getCause.. AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Relying.on.getCause.. 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Relying.on.getCause.. 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Relying.on.getCause.. 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 20 ).  Offending variable(s):
+AP.Log.and.Throw Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 20 ).  Offending variable(s):
+AP.Log.and.Throw Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Relying.on.getCause.. 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 20 ).  Offending variable(s):
+AP.Log.and.Throw Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Relying.on.getCause.. 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Relying.on.getCause.. 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+Sum.of.AP.Log.and.Return.null 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+singular information matrix in lrm.fit (rank= 21 ).  Offending variable(s):
+AP.Log.and.Throw 
+
+Divergence or singularity in 159 samples
+[1] "project:  hibernate-5.1 model:  CAT.BSAP"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                            Chi-Square d.f. P     
+ Churn.PRE                         13.69       1   0.0002
+ CountLineComment                  11.91       1   0.0006
+ RatioCommentToCode                14.62       1   0.0001
+ Avg.Catch.LOC                      0.15       1   0.7026
+ Avg.Catch.SLOC                     0.06       1   0.8090
+ Avg..AP.Catch.and.do.nothing       1.36       1   0.2438
+ Avg..AP.Catch.and.Return.null      0.90       1   0.3426
+ Avg..AP.Destructive.Wrapping       0.14       1   0.7122
+ Avg..AP.Dummy.Handler              2.69       1   0.1011
+ Avg..AP.Generic.Catch              2.23       1   0.1357
+ Avg..AP.Nested.try.block           0.31       1   0.5749
+ Avg..AP.Throw.within.finally       3.35       1   0.0672
+ Avg..AP.Unhandled.exceptions       5.68       1   0.0171
+ Avg..AP.Unreachable.Catch.Handler  0.27       1   0.6017
+ Avg..Potentially.UnRecoverable     3.15       1   0.0758
+ Avg..Recoverability.Not.Relevant   0.45       1   0.5046
+ Sum.of.AP.Log.and.Return.null      0.00       1   0.9857
+ AP.Log.and.Throw                   0.00       1   0.9497
+ AP.Relying.on.getCause..           4.63       1   0.0315
+ Catch.SLOC                         0.64       1   0.4243
+ Potentially.Recoverable            0.17       1   0.6825
+ TOTAL                             63.33      21   <.0001
+[1] "project:  hibernate-5.1 model:  CAT.BSAP Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs           404    LR chi2      77.01      R2       0.271    C       0.785    
+ FALSE        320    d.f.             4      R2(4,404)0.165    Dxy     0.571    
+ TRUE          84    Pr(> chi2) <0.0001    R2(4,199.6)0.306    gamma   0.571    
+max |deriv| 8e-10                            Brier    0.131    tau-a   0.188    
+
+                             Coef     S.E.   Wald Z Pr(>|Z|)
+Intercept                     -3.6212 0.6064 -5.97  <0.0001 
+Churn.PRE                      0.6251 0.1620  3.86  0.0001  
+CountLineComment               1.5379 0.4237  3.63  0.0003  
+RatioCommentToCode           -11.5092 2.9787 -3.86  0.0001  
+Avg..AP.Unhandled.exceptions   4.0639 1.1215  3.62  0.0003  
+
+[1] "project:  hibernate-5.1 model:  CAT.BSAP Refit - summary"
+[1] "project:  hibernate-5.1 model:  CAT.BSAP Refit - validate"
+[1] "project:  hibernate-5.1 model:  CAT.BSAP Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                       Chi-Square d.f. P     
+ Churn.PRE                    14.88      1    1e-04 
+ CountLineComment             13.17      1    3e-04 
+ RatioCommentToCode           14.93      1    1e-04 
+ Avg..AP.Unhandled.exceptions 13.13      1    3e-04 
+ TOTAL                        56.18      4    <.0001
+[1] "Churn.PRE"
+[1] "CountLineComment"
+[1] "RatioCommentToCode"
+[1] "Avg..AP.Unhandled.exceptions"
+  Churn.PRE CountLineComment RatioCommentToCode Avg..AP.Unhandled.exceptions
+1        32         46.97525          0.2657637                    0.3108254
+[1] "Fixed at Mean: 0.312834239408599"
+[1] "Churn.PRE  Coef at Mean + 10%: 0.318261053496049"
+[1] "CountLineComment  Coef at Mean + 10%: 0.326400675611302"
+[1] "RatioCommentToCode  Coef at Mean + 10%: 0.290952372841756"
+[1] "Avg..AP.Unhandled.exceptions  Coef at Mean + 10%: 0.321793756419829"
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+ [1] "Distinct.count.of.Issue.Key.POST"           
+ [2] "Churn.PRE"                                  
+ [3] "CountLineComment"                           
+ [4] "RatioCommentToCode"                         
+ [5] "X..Try.in.Conditional"                      
+ [6] "X..Try.in.Declaration"                      
+ [7] "X..Try.in.EH.Feature"                       
+ [8] "X..Try.in.Loop"                             
+ [9] "X..Try.in.Other"                            
+[10] "X..Try"                                     
+[11] "X..Try.in.Conditional.1"                    
+[12] "X..Try.in.Declaration.1"                    
+[13] "X..Try.in.EH.Feature.1"                     
+[14] "X..Try.in.Loop.1"                           
+[15] "X..Try.in.Other.1"                          
+[16] "Avg.Max.Depth"                              
+[17] "Avg.Try.LOC"                                
+[18] "Avg.Try.SLOC"                               
+[19] "X..Handled.with.Abort"                      
+[20] "X..Handled.with.Continue"                   
+[21] "X..Handled.with.Default"                    
+[22] "X..Handled.with.Empty"                      
+[23] "X..Handled.with.Log"                        
+[24] "X..Handled.with.Method"                     
+[25] "X..Handled.with.Nested.Try"                 
+[26] "X..Handled.with.Return"                     
+[27] "X..Handled.with.Throw.with.New"             
+[28] "X..Handled.with.Throw.without.New"          
+[29] "X..Handled.with.Throw.Wrap"                 
+[30] "X..Handled.with.ToDo"                       
+[31] "X..Possible.Exceptions"                     
+[32] "X..Propagated.and.Potentially.Recoverable"  
+[33] "X..Propagated"                              
+[34] "X..Doc.in.Comment"                          
+[35] "X..External.Doc"                            
+[36] "X..Handled.with.Abort.1"                    
+[37] "X..Handled.with.Continue.1"                 
+[38] "X..Handled.with.Default.1"                  
+[39] "X..Handled.with.Empty.1"                    
+[40] "X..Handled.with.Log.1"                      
+[41] "X..Handled.with.Method.1"                   
+[42] "X..Handled.with.Nested.Try.1"               
+[43] "X..Handled.with.Return.1"                   
+[44] "X..Handled.with.Throw.with.New.1"           
+[45] "X..Handled.with.Throw.without.New.1"        
+[46] "X..Handled.with.Throw.Wrap.1"               
+[47] "X..Handled.with.ToDo.1"                     
+[48] "X..Method.Declaration"                      
+[49] "X..Propagated.and.Potentially.Recoverable.1"
+[50] "X..Propagated.1"                            
+[51] "X..Specific"                                
+[52] "X..Subsumption"                             
+[53] "X..Throw.Statement"                         
+[54] "Avg...Declaring.Methods"                    
+[55] "Avg...Invoked.Method"                       
+[56] "Avg.Depth"                                  
+[57] "Avg.Exc.Type.Prevalence"                    
+[58] "Num.Distinct.Methods"                       
+[59] "Sum.of.Num.Distinct.Methods"                
+[60] "Try.LOC"                                    
+[61] "Try.SLOC"                                   
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 60"
+[1] "NumberOfMetricsKept: 26"
+[1] "Churn.PRE + CountLineComment + RatioCommentToCode + X..Try.in.Conditional + X..Try.in.Declaration + X..Try + X..Try.in.EH.Feature.1 + X..Try.in.Loop.1 + X..Handled.with.Default + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.with.New + X..Handled.with.Throw.Wrap + X..Possible.Exceptions + X..Propagated.and.Potentially.Recoverable + X..Doc.in.Comment + X..Handled.with.Log.1 + X..Handled.with.Method.1 + X..Handled.with.Throw.without.New.1 + X..Method.Declaration + X..Propagated.1 + X..Specific + Avg...Invoked.Method + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+ [1] "Distinct.count.of.Issue.Key.POST"         
+ [2] "Churn.PRE"                                
+ [3] "CountLineComment"                         
+ [4] "RatioCommentToCode"                       
+ [5] "X..Try.in.Conditional"                    
+ [6] "X..Try.in.Declaration"                    
+ [7] "X..Try"                                   
+ [8] "X..Try.in.EH.Feature.1"                   
+ [9] "X..Try.in.Loop.1"                         
+[10] "X..Handled.with.Default"                  
+[11] "X..Handled.with.Empty"                    
+[12] "X..Handled.with.Return"                   
+[13] "X..Handled.with.Throw.with.New"           
+[14] "X..Handled.with.Throw.Wrap"               
+[15] "X..Possible.Exceptions"                   
+[16] "X..Propagated.and.Potentially.Recoverable"
+[17] "X..Doc.in.Comment"                        
+[18] "X..Handled.with.Log.1"                    
+[19] "X..Handled.with.Method.1"                 
+[20] "X..Handled.with.Throw.without.New.1"      
+[21] "X..Method.Declaration"                    
+[22] "X..Propagated.1"                          
+[23] "X..Specific"                              
+[24] "Avg...Invoked.Method"                     
+[25] "Avg.Depth"                                
+[26] "Avg.Exc.Type.Prevalence"                  
+[27] "Num.Distinct.Methods"                     
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+[1] "Redudant variables: X..Try"
+[1] "Final variables: Distinct.count.of.Issue.Key.POST + Churn.PRE + CountLineComment + RatioCommentToCode + X..Try.in.Conditional + X..Try.in.Declaration + X..Try.in.EH.Feature.1 + X..Try.in.Loop.1 + X..Handled.with.Default + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.with.New + X..Handled.with.Throw.Wrap + X..Possible.Exceptions + X..Propagated.and.Potentially.Recoverable + X..Doc.in.Comment + X..Handled.with.Log.1 + X..Handled.with.Method.1 + X..Handled.with.Throw.without.New.1 + X..Method.Declaration + X..Propagated.1 + X..Specific + Avg...Invoked.Method + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "NumberOfMetricsInitial: 27"
+[1] "NumberOfMetricsKept: 26"
+[1] "------------------------------------Project: hibernate-5.1 Name: CAT.BASE"
+[1] "NumberOfMetricsInitial: 25 Budget: 26 Over Budget: FALSE NumberOfMetricsKept: 25 CorrelationCutoff: 0.7"
+[1] "NumberOfMetricsInitial: 25 Budget: 26 Over Budget: FALSE NumberOfMetricsKept: 25 CorrelationCutoff: 0.7"
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+[1] "Churn.PRE + CountLineComment + RatioCommentToCode + X..Try.in.Conditional + X..Try.in.Declaration + X..Try.in.EH.Feature.1 + X..Try.in.Loop.1 + X..Handled.with.Default + X..Handled.with.Empty + X..Handled.with.Return + X..Handled.with.Throw.with.New + X..Handled.with.Throw.Wrap + X..Possible.Exceptions + X..Propagated.and.Potentially.Recoverable + X..Doc.in.Comment + X..Handled.with.Log.1 + X..Handled.with.Method.1 + X..Handled.with.Throw.without.New.1 + X..Method.Declaration + X..Propagated.1 + X..Specific + Avg...Invoked.Method + Avg.Depth + Avg.Exc.Type.Prevalence + Num.Distinct.Methods"
+[1] "Project: hibernate-5.1 Name: CAT.BASE"
+Logistic Regression Model
+
+lrm(formula = as.formula(form_bin), data = temp_data_log, x = T, 
+    y = T)
+
+                       Model Likelihood       Discrimination    Rank Discrim.    
+                             Ratio Test              Indexes          Indexes    
+Obs           404    LR chi2     110.73       R2       0.374    C       0.844    
+ FALSE        320    d.f.            25      R2(25,404)0.191    Dxy     0.689    
+ TRUE          84    Pr(> chi2) <0.0001    R2(25,199.6)0.349    gamma   0.689    
+max |deriv| 2e-07                             Brier    0.119    tau-a   0.227    
+
+                                          Coef     S.E.   Wald Z Pr(>|Z|)
+Intercept                                  -6.2108 1.3040 -4.76  <0.0001 
+Churn.PRE                                   0.8025 0.1821  4.41  <0.0001 
+CountLineComment                            1.6621 0.5604  2.97  0.0030  
+RatioCommentToCode                        -12.5604 3.5199 -3.57  0.0004  
+X..Try.in.Conditional                       0.5609 0.8016  0.70  0.4841  
+X..Try.in.Declaration                      -0.2222 0.6522 -0.34  0.7333  
+X..Try.in.EH.Feature.1                     -3.4977 3.4130 -1.02  0.3055  
+X..Try.in.Loop.1                           -2.8833 2.7436 -1.05  0.2933  
+X..Handled.with.Default                     0.0581 2.2400  0.03  0.9793  
+X..Handled.with.Empty                       3.7609 2.3224  1.62  0.1054  
+X..Handled.with.Return                      2.8608 1.8176  1.57  0.1155  
+X..Handled.with.Throw.with.New              1.7066 1.4463  1.18  0.2380  
+X..Handled.with.Throw.Wrap                  1.2850 1.5436  0.83  0.4051  
+X..Possible.Exceptions                      0.3306 1.3310  0.25  0.8038  
+X..Propagated.and.Potentially.Recoverable  -0.4648 2.5359 -0.18  0.8546  
+X..Doc.in.Comment                           2.4435 1.6233  1.51  0.1322  
+X..Handled.with.Log.1                       5.1877 2.2274  2.33  0.0199  
+X..Handled.with.Method.1                   -1.9248 1.6884 -1.14  0.2543  
+X..Handled.with.Throw.without.New.1        -0.3298 2.9975 -0.11  0.9124  
+X..Method.Declaration                       1.8590 2.2114  0.84  0.4006  
+X..Propagated.1                             9.3642 2.6027  3.60  0.0003  
+X..Specific                                 3.3401 1.7341  1.93  0.0541  
+Avg...Invoked.Method                        1.4525 2.2270  0.65  0.5142  
+Avg.Depth                                   0.2690 0.4383  0.61  0.5394  
+Avg.Exc.Type.Prevalence                     0.0852 0.3622  0.24  0.8141  
+Num.Distinct.Methods                       -1.2963 0.7156 -1.81  0.0701  
+
+[1] "project:  hibernate-5.1 model:  CAT.BSFC"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                                    Chi-Square d.f. P     
+ Churn.PRE                                 19.42       1   <.0001
+ CountLineComment                           8.80       1   0.0030
+ RatioCommentToCode                        12.73       1   0.0004
+ X..Try.in.Conditional                      0.49       1   0.4841
+ X..Try.in.Declaration                      0.12       1   0.7333
+ X..Try.in.EH.Feature.1                     1.05       1   0.3055
+ X..Try.in.Loop.1                           1.10       1   0.2933
+ X..Handled.with.Default                    0.00       1   0.9793
+ X..Handled.with.Empty                      2.62       1   0.1054
+ X..Handled.with.Return                     2.48       1   0.1155
+ X..Handled.with.Throw.with.New             1.39       1   0.2380
+ X..Handled.with.Throw.Wrap                 0.69       1   0.4051
+ X..Possible.Exceptions                     0.06       1   0.8038
+ X..Propagated.and.Potentially.Recoverable  0.03       1   0.8546
+ X..Doc.in.Comment                          2.27       1   0.1322
+ X..Handled.with.Log.1                      5.42       1   0.0199
+ X..Handled.with.Method.1                   1.30       1   0.2543
+ X..Handled.with.Throw.without.New.1        0.01       1   0.9124
+ X..Method.Declaration                      0.71       1   0.4006
+ X..Propagated.1                           12.94       1   0.0003
+ X..Specific                                3.71       1   0.0541
+ Avg...Invoked.Method                       0.43       1   0.5142
+ Avg.Depth                                  0.38       1   0.5394
+ Avg.Exc.Type.Prevalence                    0.06       1   0.8141
+ Num.Distinct.Methods                       3.28       1   0.0701
+ TOTAL                                     70.78      25   <.0001
+[1] "project:  hibernate-5.1 model:  CAT.BSFC Refit"
+Logistic Regression Model
+
+lrm(formula = as.formula(final_form), data = temp_data, x = T, 
+    y = T)
+
+                       Model Likelihood      Discrimination    Rank Discrim.    
+                             Ratio Test             Indexes          Indexes    
+Obs           404    LR chi2      84.19      R2       0.294    C       0.802    
+ FALSE        320    d.f.             5      R2(5,404)0.178    Dxy     0.604    
+ TRUE          84    Pr(> chi2) <0.0001    R2(5,199.6)0.327    gamma   0.604    
+max |deriv| 8e-10                            Brier    0.131    tau-a   0.199    
+
+                               Coef     S.E.   Wald Z Pr(>|Z|)
+Intercept                       -4.3151 0.6889 -6.26  <0.0001 
+Churn.PRE                        0.6858 0.1674  4.10  <0.0001 
+CountLineComment                 1.6355 0.4429  3.69  0.0002  
+RatioCommentToCode             -10.8820 3.0120 -3.61  0.0003  
+X..Handled.with.Throw.with.New   1.6515 0.6116  2.70  0.0069  
+X..Propagated.1                  6.2069 1.5201  4.08  <0.0001 
+
+[1] "project:  hibernate-5.1 model:  CAT.BSFC Refit - summary"
+[1] "project:  hibernate-5.1 model:  CAT.BSFC Refit - validate"
+[1] "project:  hibernate-5.1 model:  CAT.BSFC Refit - anova"
+                Wald Statistics          Response: Distinct.count.of.Issue.Key.POST > 0 
+
+ Factor                         Chi-Square d.f. P     
+ Churn.PRE                      16.79      1    <.0001
+ CountLineComment               13.63      1    0.0002
+ RatioCommentToCode             13.05      1    0.0003
+ X..Handled.with.Throw.with.New  7.29      1    0.0069
+ X..Propagated.1                16.67      1    <.0001
+ TOTAL                          60.30      5    <.0001
+[1] "Churn.PRE"
+[1] "CountLineComment"
+[1] "RatioCommentToCode"
+[1] "X..Handled.with.Throw.with.New"
+[1] "X..Propagated.1"
+  Churn.PRE CountLineComment RatioCommentToCode X..Handled.with.Throw.with.New
+1        32         46.97525          0.2657637                      0.9978513
+  X..Propagated.1
+1       0.2221125
+[1] "Fixed at Mean: 0.354078287175775"
+[1] "Churn.PRE  Coef at Mean + 10%: 0.36040735297121"
+[1] "CountLineComment  Coef at Mean + 10%: 0.369395879480974"
+[1] "RatioCommentToCode  Coef at Mean + 10%: 0.331953801148921"
+[1] "X..Handled.with.Throw.with.New  Coef at Mean + 10%: 0.362113304791939"
+[1] "X..Propagated.1  Coef at Mean + 10%: 0.365259333225922"
+There were 26 warnings (use warnings() to see them)
+null device 
+          1 
+
+Elapsed: 1.869498 mins 
+[1] TRUE
+Warning messages:
+1: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+2: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+3: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+4: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+Warning messages:
+1: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+2: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+3: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+4: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+5: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+Warning messages:
+1: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+2: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+3: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+4: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+5: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+6: Using formula(x) is deprecated when x is a character vector of length > 1.
+  Consider formula(paste(x, collapse = " ")) instead. 
+DONE

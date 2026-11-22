@@ -95,7 +95,7 @@ cached in `data/new/<id>/raw/jira_issues.json` and the run date is the cache's m
 | Post-release-defective files | 284 | 39 | 24 | 56 |
 | Files with ≥ 1 catch block (defective) | 467 (102) | 171 (31) | 181 (18) | 188 (39) |
 | Modelled (catch + try data) | 404 | 161 | 169 | 178 |
-| Manual-validation sample (links) | 40 | 40 | 16 (all) | 35 (all) |
+| Issue–commit links (kept by the strict rules) | 226 (195) | 44 (30) | 16 (15) | 35 (34) |
 
 Source: `data/new/<id>/defect_mining_stats.json`, `dataset_manifest.json`. ZooKeeper 3.7 has only 18 defective files
 with catch blocks (events per budget variable ≈ 1.6), which limits what its models can show (REPRODUCTION.md §9).
@@ -113,7 +113,7 @@ with catch blocks (events per budget variable ≈ 1.6), which limits what its mo
 | Files with ≥1 try block having ≥1 possible exception | 404 |
 
 Manual validation: `data/new/hibernate-5.1/manual_validation_sample.csv` holds 40 random (issue, commit) links,
-with Jira and commit URLs. Milestone 3: `src/collect/validation_packet.py` turns the samples of all four new contexts (131 links) into a rating packet (`data/new/<id>/validation/packet.md`: issue fields, full commit message, per-file diff stats, automatic pre-checks) and one independent sheet per rater (`rating_Dev.csv`, `rating_Dhruv.csv`); protocol in [VALIDATION_GUIDE.md](VALIDATION_GUIDE.md). `src/collect/validation_agreement.py` computes Cohen's κ, percent agreement and link precision with a 95% Wilson interval (`results/defect_link_validation.{csv,md}`). **Rating status: sheets prepared, ratings pending.**
+with Jira and commit URLs. Label noise is checked on *all* links instead of a sample: `src/collect/strict_labels.py` flags every (issue, commit) link that is a revert, a merge, a commit naming several issues (tangled), or an issue none of whose fix versions is in the release line; it writes the flags to `data/new/<id>/strict_links.csv`, the authors' input with the outcome recomputed from strict links to `data/new/<id>/input_strict/`, and refits the models (`results/new/<id>/strict/`). Results: REPRODUCTION.md §9.7.
 
 ## 3. Validation of the EH-metric pipeline (Hibernate 5.0.0.Final)
 
@@ -144,7 +144,7 @@ compares all 107 file-level EH metrics with the authors' released values
 | No Understand license | New-context BASE models | Fallback metrics; Phase 2 BASE/BSFC/BSAP on new data are an **extension**, not a faithful BASE |
 | Pre-release window is a git range, not the authors' "release-notes" window | Process metrics of new contexts | Documented approximation |
 | Release date = commit date of the tagged commit | Post-release cut-off | Hours-level differences only |
-| Commit-message key linking misses fixes without a key, and may include partial or misc changes | Outcome label | 40-link manual-validation sample (to do) |
+| Commit-message key linking misses fixes without a key, and may include partial or misc changes | Outcome label | Strict-link refit on all links (check V2, REPRODUCTION.md §9.7) |
 | JTratch is not run-to-run deterministic (6 flow metrics vary; catch/anti-pattern metrics stable) | Flow metrics of new contexts; BSFC | One analyzer run kept per release commit (reused); see REPRODUCTION.md §8 F1, T10 |
 | Umbraco 7.x issue tracker (YouTrack, U4-xxxx) is decommissioned | C# new context | Defect mining expected blocked; documented in targets.json |
 | `-1` "not applicable" sentinel mixed with real zeros | All models (authors' choice) | Kept for faithfulness; the ML code clips to 0 before log-transforming for LR only |
