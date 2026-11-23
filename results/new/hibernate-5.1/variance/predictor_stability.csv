@@ -1,0 +1,15 @@
+model,predictor,group,runs_significant,signs,median_wald_chi2,share,in_kept_run
+BASE,Churn.PRE,base,3,+,16.067996069391,1.0,True
+BASE,CountDeclClass,base,3,-,4.2084179131909,1.0,True
+BASE,CountLineComment,base,3,+,15.5526075084611,1.0,True
+BASE,RatioCommentToCode,base,3,-,16.9607699568874,1.0,True
+BSFC,Churn.PRE,base,3,+,19.5280731207845,1.0,True
+BSFC,CountLineComment,base,3,+,13.8738141495519,1.0,True
+BSFC,RatioCommentToCode,base,3,-,13.4663474054884,1.0,True
+BSFC,X..Handled.with.Throw.with.New,try,3,+,6.19696385167397,1.0,True
+BSFC,X..Propagated.1,try,3,+,15.7925775655057,1.0,True
+BSFC,X..Throw.Statement,try,1,-,6.34070521153751,0.333,False
+BSAP,Avg..AP.Unhandled.exceptions,catch,3,+,12.0572017370547,1.0,True
+BSAP,Churn.PRE,base,3,+,17.578783546837,1.0,True
+BSAP,CountLineComment,base,3,+,13.6429785001286,1.0,True
+BSAP,RatioCommentToCode,base,3,-,15.3647573578128,1.0,True

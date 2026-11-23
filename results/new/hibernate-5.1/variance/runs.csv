@@ -1,0 +1,13 @@
+run,model,r2_optimism_reduced,r2_apparent,files,budget,potential_predictors,cutoff,significant_eh,significant_base
+kept,BASE,0.2376,0.2614,404,26,8,0.7,,Churn.PRE; CountDeclClass; CountLineComment; RatioCommentToCode
+kept,BSAP,0.2639,0.2838,404,26,22,0.7,Avg..AP.Unhandled.exceptions,Churn.PRE; CountLineComment; RatioCommentToCode
+kept,BSFC,0.2752,0.3048,404,26,26,0.7,X..Handled.with.Throw.with.New; X..Propagated.1,Churn.PRE; CountLineComment; RatioCommentToCode
+run01,BASE,0.2376,0.2614,404,26,8,0.7,,Churn.PRE; CountDeclClass; CountLineComment; RatioCommentToCode
+run01,BSAP,0.2639,0.2838,404,26,22,0.7,Avg..AP.Unhandled.exceptions,Churn.PRE; CountLineComment; RatioCommentToCode
+run01,BSFC,0.2752,0.3048,404,26,26,0.7,X..Handled.with.Throw.with.New; X..Propagated.1,Churn.PRE; CountLineComment; RatioCommentToCode
+run02,BASE,0.2376,0.2614,404,26,8,0.7,,Churn.PRE; CountDeclClass; CountLineComment; RatioCommentToCode
+run02,BSAP,0.2639,0.2838,404,26,22,0.7,Avg..AP.Unhandled.exceptions,Churn.PRE; CountLineComment; RatioCommentToCode
+run02,BSFC,0.2894,0.3258,404,26,26,0.7,X..Handled.with.Throw.with.New; X..Propagated.1; X..Throw.Statement,Churn.PRE; CountLineComment; RatioCommentToCode
+run03,BASE,0.2376,0.2614,404,26,8,0.7,,Churn.PRE; CountDeclClass; CountLineComment; RatioCommentToCode
+run03,BSAP,0.2639,0.2838,404,26,22,0.7,Avg..AP.Unhandled.exceptions,Churn.PRE; CountLineComment; RatioCommentToCode
+run03,BSFC,0.2752,0.3048,404,26,26,0.7,X..Handled.with.Throw.with.New; X..Propagated.1,Churn.PRE; CountLineComment; RatioCommentToCode

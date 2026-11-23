@@ -450,3 +450,33 @@ EH predictors and larger EH increments (+0.054 BSFC, +0.041 BSAP): the positive 
 label noise. On ZooKeeper, BSFC stays below BASE on strict labels because the released reduction step still drops
 BASE-significant metrics (S1, §9.5). Hibernate 5.1 analyzer re-runs: run 1 is identical to the kept run (same R²,
 same predictors, no metric differs in any file); runs 3–5 are planned as step E2.
+
+### 9.8 Clean-clone rerun (E4, 2026-11-22)
+
+A fresh clone of tag `final-submission` from GitHub, in an empty folder on the same machine:
+`fetch_package.sh` downloaded the authors' package and all 7 archives matched their recorded SHA-256 sums; the 12
+unit tests passed; the ZooKeeper 3.9.0 models (`run_original.R fixed --input data/new/zookeeper-release-3.9.0/input`)
+and the Hibernate 5.1 strict-label models (`--input data/new/hibernate-5.1/input_strict`) were rerun from the
+committed inputs. Both reproduce the committed `base_test_2.csv` (all deterministic columns identical; optimism-reduced
+R² difference 0.0000) and `predictors_simplified.csv` (identical). Limitation: same machine and conda environment, so
+this checks that the repository is complete and the results regenerate, not cross-platform portability.
+
+### 9.9 Issue report to the original authors (E5)
+
+`docs/ISSUE_REPORT_original_authors.md` documents the three defects (D1 BSFC data list; §3.4.6 rule disabled; D7
+empty-model crash) with minimal fixes and evidence, and the JTratch non-determinism, for sending to the authors.
+
+### 9.10 RQ3/RQ4 on strict labels (E1) and Hibernate analyzer re-runs (E2), 2026-11-22
+
+**E1.** `train_eval.py` and `shap_analysis.py`, unchanged, on `results/new/<id>/strict/fixed/` (same 50 folds, seed
+2018; outputs `results/new/<id>/strict/ml/`). 1 of 108 uplift tests is Holm-significant: random forest with
+TRAD+AP on Hibernate 5.1, ΔPR-AUC +0.074 (48/50 folds, p_Holm = 0.036; on all labels +0.061, p_Holm = 0.28).
+No other gain or loss is significant on strict labels. Decision rule R3 therefore applies: the RQ3 null result is
+revised for Hibernate 5.1.
+
+**E2.** `analyzer_variance.py hibernate-5.1 --runs 3` (3 fresh JTratch runs; summary in
+`results/new/hibernate-5.1/variance/`). BASE and BSAP identical in all 4 runs (kept + 3); BSFC 0.275 in 3 runs and
+0.289 in 1 run, in which 147 metric values changed and `% Throw Statement` entered the model; `% Propagated` and
+`# Handled with Throw with New` were significant in every run. Only the same 6 flow metrics vary (as on ZooKeeper);
+all catch and throws metrics are identical. Decision rule R1 occurred on its predictor condition (R² change 0.014 <
+0.02): the Hibernate flow result is stable in direction and analyzer-dependent in detail.

@@ -1,0 +1,4 @@
+target,model,runs,r2_kept,r2_mean,r2_sd,r2_min,r2_max,distinct_r2,distinct_predictor_sets,share_runs_modal_set,share_runs_same_set_as_kept
+hibernate-5.1,BASE,3,0.2376,0.2376,0.0,0.2376,0.2376,1,1,1.0,1.0
+hibernate-5.1,BSFC,3,0.2752,0.2799,0.0082,0.2752,0.2894,2,2,0.667,0.667
+hibernate-5.1,BSAP,3,0.2639,0.2639,0.0,0.2639,0.2639,1,1,1.0,1.0

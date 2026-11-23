@@ -1,0 +1,11 @@
+feature,mean_abs_shap,mean_shap,group,project,learner,cv_pr_auc,rank,direction,eh_rank
+Avg.Depth,0.01357,-0.01116,try,zookeeper-release-3.6.0,RF,0.49490,9,1.00000,1
+X..Try.in.Declaration.1,0.01039,-0.00541,try,zookeeper-release-3.6.0,RF,0.49490,15,-1.00000,2
+Avg.Max.Depth,0.00967,-0.00773,try,zookeeper-release-3.6.0,RF,0.49490,16,1.00000,3
+Avg.Exc.Type.Prevalence,0.00882,-0.00665,try,zookeeper-release-3.6.0,RF,0.49490,17,-1.00000,4
+X..Throw.Statement,0.00837,-0.00683,try,zookeeper-release-3.6.0,RF,0.49490,18,-1.00000,5
+X..Handled.with.Throw.without.New.1,0.00828,-0.00470,try,zookeeper-release-3.6.0,RF,0.49490,19,1.00000,6
+X..Handled.with.Throw.without.New,0.00770,-0.00407,try,zookeeper-release-3.6.0,RF,0.49490,20,1.00000,7
+Avg.Try.SLOC,0.00719,-0.00448,try,zookeeper-release-3.6.0,RF,0.49490,22,1.00000,8
+X..Specific,0.00674,-0.00606,try,zookeeper-release-3.6.0,RF,0.49490,23,-1.00000,9
+Num.Distinct.Methods,0.00596,-0.00406,try,zookeeper-release-3.6.0,RF,0.49490,24,1.00000,10

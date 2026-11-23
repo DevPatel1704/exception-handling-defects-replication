@@ -159,6 +159,21 @@ def main() -> None:
             top = al[al.eh_rank <= 10]
             r["shap_top10_eh_matching_sig"] = f"{int(top.matches_phase0_sig.notna().sum())}/{len(top)}"
             r["shap_eh_in_overall_top10"] = int((top.overall_rank <= 10).sum())
+        sml = RES / "new" / tid / "strict" / "ml"   # E1: RQ3/RQ4 with the outcome from strict links only
+        if source == "new" and (sml / "ml_uplift.csv").exists():
+            su, sr = pd.read_csv(sml / "ml_uplift.csv"), pd.read_csv(sml / "ml_results.csv")
+            pr, ro = su[su.metric == "pr_auc"], su[su.metric == "roc_auc"]
+            r["strict_prevalence"] = round(sr.prevalence.iloc[0], 3)
+            r["strict_best_pr_auc_trad"] = round(sr[sr.feature_set == "TRAD"].pr_auc_mean.max(), 3)
+            r["strict_best_pr_auc_trad_eh"] = round(sr[sr.feature_set == "TRAD+EH"].pr_auc_mean.max(), 3)
+            r["strict_pr_auc_uplifts_positive"] = f"{int((pr.delta_mean > 0).sum())}/{len(pr)}"
+            r["strict_gains_sig_holm"] = int(((su.p_holm < 0.05) & (su.delta_mean > 0) & su.metric.isin(["pr_auc", "roc_auc"])).sum())
+            r["strict_losses_sig_holm"] = int(((su.p_holm < 0.05) & (su.delta_mean < 0) & su.metric.isin(["pr_auc", "roc_auc"])).sum())
+            sal = sml / "shap_alignment.csv"
+            if sal.exists():
+                a2 = pd.read_csv(sal)
+                t2 = a2[a2.eh_rank <= 10]
+                r["strict_shap_top10_match"] = f"{int(t2.matches_phase0_sig.notna().sum())}/{len(t2)}"
         rows.append(r)
 
     summ = pd.DataFrame(rows).drop(columns=["ml_folds"], errors="ignore")
@@ -224,6 +239,16 @@ def write_md(s: pd.DataFrame, ci: pd.DataFrame) -> None:
     for _, r in s.iterrows():
         md.append(f"* **{r.context}**: BSFC: {r.BSFC_sig_eh or 'none'}; BSAP: {r.BSAP_sig_eh or 'none'}")
     md += strict_rows
+    if "strict_best_pr_auc_trad" in s:
+        md += ["", "### E1: RQ3/RQ4 on strict labels (same 50 folds, seed 2018)", "",
+               "| Context | Prevalence | best PR-AUC TRAD | best PR-AUC TRAD+EH | PR-AUC uplifts > 0 | "
+               "Holm-significant gains / losses (PR-AUC, ROC-AUC) | SHAP top-10 EH matching |", "|---|---:|---:|---:|---:|---|---:|"]
+        for _, r in s[s.source == "new"].iterrows():
+            if pd.isna(r.get("strict_best_pr_auc_trad")):
+                continue
+            md.append(f"| {r.context} | {r.strict_prevalence:.3f} | {r.strict_best_pr_auc_trad:.3f} | "
+                      f"{r.strict_best_pr_auc_trad_eh:.3f} | {r.strict_pr_auc_uplifts_positive} | "
+                      f"{int(r.strict_gains_sig_holm)} / {int(r.strict_losses_sig_holm)} | {r.get('strict_shap_top10_match', '—')} |")
     md += ["", "## RQ3/RQ4: prediction and SHAP", "",
            "| Context | Prevalence | best PR-AUC TRAD | best PR-AUC TRAD+EH | PR-AUC uplifts > 0 | "
            "significant after Holm (PR-AUC / ROC-AUC) | SHAP top-10 EH matching a significant predictor |",
@@ -316,9 +341,12 @@ def fig_variance(s: pd.DataFrame) -> None:
         if empty:
             ax.scatter([i], [0], s=10 + 14 * empty, facecolor="white", edgecolor=COLORS["BSFC"], linewidth=1.2, zorder=3)
             ax.text(i - 0.14, 0, f"{empty}× no\npredictor", fontsize=5.5, va="center", ha="right", color=INK2)
-        for val, c in v.dropna().round(3).value_counts().items():
+        last_y = None
+        for val, c in sorted(v.dropna().round(3).value_counts().items()):
             ax.scatter([i], [val], s=10 + 14 * c, color=COLORS["BSFC"], edgecolor="white", linewidth=0.8, zorder=3)
-            ax.text(i - 0.14, val, f"{c}×", fontsize=6, va="center", ha="right", color=INK2)
+            y = val if last_y is None or val - last_y >= 0.03 else last_y + 0.03   # keep close labels apart
+            ax.text(i - 0.14, y, f"{c}×", fontsize=6, va="center", ha="right", color=INK2)
+            last_y = y
         b = r.get("BASE_r2")
         ax.scatter([i], [b], marker="_", s=120, color=COLORS["BASE"], linewidth=1.8, zorder=2)
         f = r.get("BSFC_r2_forced_base")

@@ -1,0 +1,13 @@
+project,eh_rank,overall_rank,feature,group,mean_abs_shap,shap_direction,matches_phase0_sig
+zookeeper-release-3.9.0,1.00000,2,Sum.of.Num.Distinct.Methods,try,0.01792,+,Num.Distinct.Methods (rho=0.82)
+zookeeper-release-3.9.0,2.00000,7,Try.SLOC,try,0.01213,+,Num.Distinct.Methods (rho=0.76)
+zookeeper-release-3.9.0,3.00000,9,Try.LOC,try,0.01164,+,
+zookeeper-release-3.9.0,4.00000,10,X..Handled.with.Log,try,0.01082,+,
+zookeeper-release-3.9.0,5.00000,12,Catch.SLOC,catch,0.01050,+,
+zookeeper-release-3.9.0,6.00000,14,Avg.Catch.SLOC,catch,0.00951,+,
+zookeeper-release-3.9.0,7.00000,16,Num.Distinct.Methods,try,0.00888,+,Num.Distinct.Methods (rho=1.00)
+zookeeper-release-3.9.0,8.00000,17,X..Doc.in.Comment,try,0.00879,-,
+zookeeper-release-3.9.0,9.00000,19,Avg.Max.Depth,try,0.00866,-,
+zookeeper-release-3.9.0,10.00000,20,Avg.Try.SLOC,try,0.00859,+,Num.Distinct.Methods (rho=0.87)
+zookeeper-release-3.9.0,,16,Num.Distinct.Methods,try,0.00888,,<Phase 0 significant EH predictor>
+zookeeper-release-3.9.0,,44,X..Handled.with.Return.1,try,0.00373,,<Phase 0 significant EH predictor>
