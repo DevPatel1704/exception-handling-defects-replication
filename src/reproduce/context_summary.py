@@ -319,7 +319,7 @@ def fig_r2(s: pd.DataFrame) -> None:
     h, l_ = ax.get_legend_handles_labels()
     h += [plt.Line2D([], [], color=INK, marker="_", linestyle="", markersize=8, markeredgewidth=1.6),
           plt.Line2D([], [], color=INK, linewidth=0.9)]
-    l_ += ["Paper (Table 4)", "Range over 10 analyzer runs"]
+    l_ += ["Paper (Table 4)", "Range over analyzer runs"]
     ax.legend(h, l_, ncol=5, fontsize=6.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.17))
     save(fig, "fig_r2_contexts")
 
@@ -430,7 +430,7 @@ def fig_r2_column(s: pd.DataFrame) -> None:
           plt.Line2D([], [], color=INK, linewidth=0.8),
           plt.Line2D([], [], color=INK, marker="x", linestyle="", markersize=4),
           plt.Line2D([], [], color=INK, marker="o", markerfacecolor="white", linestyle="", markersize=3.5)]
-    l_ += ["Paper", "10 analyzer runs", "S1", "Strict labels"]
+    l_ += ["Paper", "Analyzer runs", "S1", "Strict labels"]
     ax.legend(h, l_, ncol=4, fontsize=5.6, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.25),
               handlelength=1.5, columnspacing=1.0)
     save(fig, "fig_r2_contexts_col")

@@ -1,0 +1,15 @@
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/docs/ISSUE_REPORT_original_authors.md
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/environment.yml
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/src/collect/aggregate_jtratch.py
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/src/collect/analyzer_variance.py
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/src/collect/defect_mining.py
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/src/collect/strict_labels.py
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/src/reproduce/build_comparison.py
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/src/reproduce/context_summary.py
+https://github.com/DevPatel1704/exception-handling-defects-replication/blob/final-report/src/reproduce/run_original.R
+https://github.com/DevPatel1704/exception-handling-defects-replication/tree/final-report
+https://github.com/DevPatel1704/exception-handling-defects-replication/tree/final-report/dashboard
+https://github.com/DevPatel1704/exception-handling-defects-replication/tree/final-report/results/new/hibernate-5.1/strict
+https://github.com/DevPatel1704/exception-handling-defects-replication/tree/final-report/src/explain
+https://github.com/DevPatel1704/exception-handling-defects-replication/tree/final-report/src/ml
+https://github.com/DevPatel1704/exception-handling-defects-replication/tree/final-report/tests
